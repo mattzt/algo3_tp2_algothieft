@@ -9,7 +9,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Matias Montero** - [mattzt](https://github.com/mattzt)
 * **Agustin Gonzalez** - [AgusGonza11](https://github.com/Agusgonza11)
 * **Integrante 3** - [integrante3](https://github.com/integrante3)
-* **Integrante 4** - [integrante4](https://github.com/integrante4)
+* **Gonzalo Joaquín Shimabukuro** - [gonzashima](https://github.com/gonzashima)
 * **Integrante 5** - [integrante5](https://github.com/integrante5)
 
 Corrector: **{Corrector}**
