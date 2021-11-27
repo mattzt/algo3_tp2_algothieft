@@ -8,7 +8,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 * **Matias Montero** - [mattzt](https://github.com/mattzt)
 * **Agustin Gonzalez** - [AgusGonza11](https://github.com/Agusgonza11)
-* **Integrante 3** - [Tobias Luciano Rivero Trujillo](https://github.com/integrante3)
+* **Integrante 3** - [Tobias Luciano Rivero Trujillo](https://github.com/Jrodos12)
 * **Gonzalo Joaquín Shimabukuro** - [gonzashima](https://github.com/gonzashima)
 * **Ignacio Agustín Pereyra** - [nachope1201](https://github.com/nachope1201)
 
