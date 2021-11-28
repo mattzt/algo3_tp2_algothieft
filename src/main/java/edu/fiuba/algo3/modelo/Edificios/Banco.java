@@ -1,9 +1,9 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-import edu.fiuba.algo3.modelo.Pistas.Pistas;
+import edu.fiuba.algo3.modelo.Pistas.Pista;
 
 public class Banco implements Edificio{
-    Pistas pistasBanco;
+    Pista pistasBanco;
     int visitasHechas;
 
     @Override
