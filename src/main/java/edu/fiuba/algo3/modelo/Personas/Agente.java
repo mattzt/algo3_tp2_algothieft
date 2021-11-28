@@ -2,13 +2,13 @@ package edu.fiuba.algo3.modelo.Personas;
 
 import edu.fiuba.algo3.modelo.Caso.Caso;
 import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
-import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
+import edu.fiuba.algo3.modelo.Paises.Pais;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
 public class Agente{
     private final String nombre;
     private Rango rango;
-    private Ciudad ciudadActual;
+    private Pais paisActual;
     private Caso casoAsignado;
 
     public Agente(String nombreAgente){
@@ -16,10 +16,10 @@ public class Agente{
         rango = new Novato();
     }
 
-    public int viajarACiudad(Ciudad unaCiudad){
-        int horasDeViaje = ciudadActual.distanciaA(unaCiudad);
+    public int viajarACiudad(Pais unPais){
+        int horasDeViaje = paisActual.distanciaA(unPais);
         casoAsignado.avanzarReloj(horasDeViaje);
-        ciudadActual = unaCiudad;
+        paisActual = unPais;
         return horasDeViaje;
     }
 
