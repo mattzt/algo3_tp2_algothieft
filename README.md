@@ -8,7 +8,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 
 * **Matias Montero** - [mattzt](https://github.com/mattzt)
 * **Agustin Gonzalez** - [AgusGonza11](https://github.com/Agusgonza11)
-* **Integrante 3** - [Tobias Luciano Rivero Trujillo](https://github.com/integrante3)
+* **Tobias Luciano Rivero Trujillo** - [integrante3](https://github.com/integrante3)
 * **Gonzalo Joaquín Shimabukuro** - [gonzashima](https://github.com/gonzashima)
 * **Ignacio Agustín Pereyra** - [nachope1201](https://github.com/nachope1201)
 
@@ -21,6 +21,10 @@ La versión más reciente de la aplicación puede encontrarse en la pestaña [re
 ```bash
 $ java -jar <archivo.jar>
 ```
+
+## Informe
+
+Link hacia el [Informe](https://drive.google.com/file/d/197rdXHYLlJn-z5KCUavpuBYv0BuqK6hM/view?usp=sharing).
 
 ## Desarrollo
 
