@@ -29,7 +29,7 @@ public class Agente{
     }
 
     public void visitarEdificio(Edificio unEdificio){
-        int cantVisitas = unEdificio.visitar();
+        int cantVisitas = unEdificio.visitar(this);
         casoAsignado.avanzarReloj(cantVisitas);
     }
 
