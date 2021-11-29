@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Caso.Caso;
 import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Estados.Estado;
 
 public class Agente{
     private final String nombre;
@@ -43,4 +44,5 @@ public class Agente{
     public boolean tieneArrestos(int arrestos) {
         return rango.cantidadArrestos() == arrestos;
     }
+
 }
