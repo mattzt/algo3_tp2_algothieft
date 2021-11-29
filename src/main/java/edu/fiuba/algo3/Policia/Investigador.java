@@ -7,4 +7,10 @@ public class Investigador implements Rango
         casosResueltos = 10;
         velocidad = 1300;
     }
+
+    @Override
+    public int tiempoViaje(Ciudad unaCiudad)
+    {
+        return 0;
+    }
 }
