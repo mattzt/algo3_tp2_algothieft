@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Pistas;
 
-import edu.fiuba.algo3.modelo.Edificios.Banco;
-import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Edificios.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,7 +11,7 @@ public class tipoPista {
 
     private tipoPista (int arrestos){
         pistaDificultad dificultad = new pistaDificultad();
-        pistas = dificultad.obtenerPistasDeDificultad(arrestos)
+        pistas = dificultad.obtenerPistasDeDificultad(arrestos);
     }
 
     public String obtenerPistaEdificio(Edificio edificio) {
@@ -32,14 +31,17 @@ public class tipoPista {
         if(Objects.equals(edificio.getClass(), Banco.class)){
             buscado = "|BANCO|";
         }
-        if(Objects.equals(edificio.getClass(), Aeropuerto.class)){
+        else if(Objects.equals(edificio.getClass(), Aeropuerto.class)){
             buscado = "|AEROPUERTO|";
         }
-        if(Objects.equals(edificio.getClass(), Biblioteca.class)){
+        else if(Objects.equals(edificio.getClass(), Biblioteca.class)){
             buscado = "|BIBLIOTECA|";
         }
-        if(Objects.equals(edificio.getClass(), Puerto.class)){
+        else if(Objects.equals(edificio.getClass(), Puerto.class)){
             buscado = "|PUERTO|";
+        }
+        else{
+            buscado = "|BOLsA|";
         }
         return buscado;
     }
