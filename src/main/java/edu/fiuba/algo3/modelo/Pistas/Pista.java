@@ -13,13 +13,14 @@ public class Pista{
     private String buscarPistaPara(Edificio edificio, Agente agente) {
         int arrestos = agente.cantidadDeArrestos();
         RangoPista pista;
+
         if(arrestos < 5){
             pista = new PistasFacil();
         }
-        if(arrestos < 15 && arrestos >= 5){
-            pista = new PistasMedia();
+        else if(arrestos < 15){
+            pista = new PistasMedio();
         }
-        if(arrestos >= 15){
+        else{
             pista = new PistasDificil();
         }
         return pista.ObtenerPistaEdificio(edificio);

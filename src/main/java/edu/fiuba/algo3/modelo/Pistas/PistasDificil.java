@@ -10,11 +10,11 @@ import java.util.Iterator;
 public class PistasDificil implements RangoPista{
     public PistasDificil(){
         File archivo = new File ("C:\\Users\\Agustin\\IdeaProjects\\algo3_tp2_algothieft\\src\\main\\java\\edu\\fiuba\\algo3\\modelo\\Resources\\PistasDificiles.txt");
-        FileReader fr = new FileReader (archivo);
+        FileReader fr = new FileReader(archivo);
         BufferedReader br = new BufferedReader(fr);
         String linea;
         while((linea=br.readLine())!=null){
-            pistas.add(linea)
+            pistas.add(linea);
         }
 
     }
@@ -29,5 +29,6 @@ public class PistasDificil implements RangoPista{
                 return pistaActual;
             }
         }
+        return "";
     }
 }
