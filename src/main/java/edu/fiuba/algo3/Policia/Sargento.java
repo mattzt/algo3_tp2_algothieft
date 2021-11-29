@@ -5,12 +5,14 @@ public class Sargento implements Rango
     public void Sargento()
     {
         casosResueltos = 20;
-        velocidad = 1500;
     }
 
     @Override
-    public int tiempoViaje(Ciudad unaCiudad)
+    public int velocidadViaje() {
+        return 1500;
+    }
+    public void pasar()
     {
-        return 0;
+
     }
 }

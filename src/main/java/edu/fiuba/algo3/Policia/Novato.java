@@ -5,11 +5,10 @@ public class Novato implements Rango
     public void Novato()
     {
         casosResueltos = 0;
-        velocidad = 900;
     }
 
     @Override
-    public int tiempoViaje(Ciudad unaCiudad) {
-        return 0;
+    public int velocidadViaje() {
+        return 900;
     }
 }

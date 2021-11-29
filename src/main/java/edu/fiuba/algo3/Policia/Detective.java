@@ -4,13 +4,11 @@ public class Detective implements Rango
 {
     public void Detective()
     {
-        velocidad = 1100;
         casosResueltos = 5;
     }
 
     @Override
-    public int tiempoViaje(Ciudad unaCiudad)
-    {
-        return 0;
+    public int velocidadViaje() {
+        return 1100;
     }
 }
