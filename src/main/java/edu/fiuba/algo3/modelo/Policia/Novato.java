@@ -1,9 +1,8 @@
-package edu.fiuba.algo3.Policia;
+package edu.fiuba.algo3.modelo.Policia;
 
-public class Novato implements Rango
+public class Novato extends Rango
 {
-    public void Novato()
-    {
+    Novato() {
         casosResueltos = 0;
     }
 

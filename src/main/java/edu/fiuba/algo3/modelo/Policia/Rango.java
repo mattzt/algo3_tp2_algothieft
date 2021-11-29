@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Policia;
+package edu.fiuba.algo3.modelo.Policia;
 
 public abstract class Rango
 {
