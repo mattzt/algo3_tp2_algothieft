@@ -1,4 +1,5 @@
-package edu.fiuba.algo3.Policia;
+package edu.fiuba.algo3.modelo.Policia;
+import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 
 public class Policia {
     String nombre;

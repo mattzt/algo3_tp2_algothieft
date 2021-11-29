@@ -1,9 +1,8 @@
-package edu.fiuba.algo3.Policia;
+package edu.fiuba.algo3.modelo.Policia;
 
-public class Detective implements Rango
+public class Detective extends Rango
 {
-    public void Detective()
-    {
+    Detective(){
         casosResueltos = 5;
     }
 
