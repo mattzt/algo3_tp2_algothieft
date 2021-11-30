@@ -1,17 +1,13 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-import edu.fiuba.algo3.modelo.Pistas.Pista;
-import edu.fiuba.algo3.modelo.Personas.Agente;
-
 public class Banco implements Edificio{
-    private Pista pista;
-    private int visitasHechas = 0;
+    buscadorPista pistasBanco;
+    int visitasHechas;
 
     @Override
-    public int visitar(Agente agente) {
-        pista.darPista(this, agente);
+    public int visitar() {
+        pistasBanco.darUnaPista();
         visitasHechas += 1;
-
         return visitasHechas;
     }
 }
