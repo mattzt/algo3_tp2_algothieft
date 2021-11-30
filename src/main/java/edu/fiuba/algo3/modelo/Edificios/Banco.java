@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
+import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.Pistas;
 
 public class Banco implements Edificio{
@@ -7,9 +8,8 @@ public class Banco implements Edificio{
     int visitasHechas;
 
     @Override
-    public int visitar() {
-        pistasBanco.darUnaPista();
+    public Pista visitar() {
         visitasHechas += 1;
-        return visitasHechas;
+        return pistasBanco.darUnaPista();
     }
 }

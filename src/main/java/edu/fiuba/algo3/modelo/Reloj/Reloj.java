@@ -14,8 +14,13 @@ public class Reloj {
         if (horaFinal>=24){
             dia = dia.siguienteDia();
             horaFinal = horaFinal - 24;
+            if (horaFinal >= 24) return avanzarReloj(horaFinal);
         }
         hora = horaFinal;
         return horaFinal;
+    }
+
+    public Boolean equals(String dia, int hora){
+        return this.dia.diaDeHoy().equals(dia) && (this.hora==hora);
     }
 }

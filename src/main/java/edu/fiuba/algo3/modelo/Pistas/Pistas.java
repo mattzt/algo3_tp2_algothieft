@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Pistas {
     private ArrayList<Pista> pistas;
 
-    public void darUnaPista() {
+    public Pista darUnaPista() {
+        return new PistaBandera();
     }
 }

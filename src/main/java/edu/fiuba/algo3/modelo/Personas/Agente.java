@@ -28,8 +28,7 @@ public class Agente{
     }
 
     public void visitarEdificio(Edificio unEdificio){
-        int cantVisitas = unEdificio.visitar();
-        casoAsignado.avanzarReloj(cantVisitas);
+        unEdificio.visitar();
     }
 
     public boolean es(String unNombre){
