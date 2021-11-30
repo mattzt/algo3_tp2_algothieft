@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.Paises.Pais;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
+import java.io.FileNotFoundException;
+
 public class Agente{
     private final String nombre;
     private Rango rango;
@@ -16,7 +18,7 @@ public class Agente{
         rango = new Novato();
     }
 
-    public int viajarACiudad(Pais unPais){
+    public int viajarACiudad(Pais unPais) throws FileNotFoundException {
         int horasDeViaje = paisActual.distanciaA(unPais);
         casoAsignado.avanzarReloj(horasDeViaje);
         paisActual = unPais;

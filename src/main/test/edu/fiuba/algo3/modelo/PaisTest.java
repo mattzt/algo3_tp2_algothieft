@@ -13,6 +13,8 @@ import org.junit.runner.RunWith;
 import static org.mockito.Mockito.*;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.io.FileNotFoundException;
+
 @RunWith(MockitoJUnitRunner.class)
 public class PaisTest {
     Pais argentina;
@@ -23,7 +25,7 @@ public class PaisTest {
     Edificios edificiosPublicos;
 
     @BeforeEach
-    public void init(){
+    public void init() throws FileNotFoundException {
         argentina = new Pais("Argentina","Buenos Aires");
         calcDist = mock(Fachada.class);
         unaPista = mock(Pista.class);
@@ -43,7 +45,7 @@ public class PaisTest {
     }
 
     @Test
-    public void distanciaArgentinaPeru(){
+    public void distanciaArgentinaPeru() throws FileNotFoundException {
         Pais peru = new Pais("Peru","Lima");
         Assertions.assertEquals(3138,argentina.distanciaA(peru));
     }

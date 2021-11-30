@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Edificios.Edificios;
 import edu.fiuba.algo3.modelo.Fachada.Fachada;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 
+import java.io.FileNotFoundException;
+
 public class Pais {
     private String nombre;
     private String capital;
@@ -17,7 +19,7 @@ public class Pais {
         capital = nombreCapital;
     }
 
-    public int distanciaA(Pais otroPais){
+    public int distanciaA(Pais otroPais) throws FileNotFoundException {
             String nombrePaisDestino = otroPais.getNombre();
             return calcDist.calcularDistanciaDeHasta(nombre,nombrePaisDestino);
     }
@@ -40,7 +42,7 @@ public class Pais {
 
     public void setCalculadoraDistancia(Fachada unaCalculadora){
         calcDist = unaCalculadora;
-    };
+    }
 
     public Edificios getEdificios() {
         return edificiosPublicos;
