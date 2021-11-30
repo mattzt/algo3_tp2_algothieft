@@ -9,14 +9,14 @@ import java.io.FileNotFoundException;
 
 public class Pais {
     private String nombre;
-    private String capital;
+    private String ciudadDestacada;
     private Paises paisesConexos;
     private Edificios edificiosPublicos;
     private Fachada calcDist;
 
-    public Pais(String nombrePais, String nombreCapital){
+    public Pais(String nombrePais, String nombreCiudadDestacada){
         nombre = nombrePais;
-        capital = nombreCapital;
+        ciudadDestacada = nombreCiudadDestacada;
     }
 
     public int distanciaA(Pais otroPais) throws FileNotFoundException {

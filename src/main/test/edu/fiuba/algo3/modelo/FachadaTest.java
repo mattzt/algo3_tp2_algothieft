@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Fachada.Fachada;
+import edu.fiuba.algo3.modelo.Paises.Paises;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,5 +41,11 @@ public class FachadaTest {
     public void distanciaJPNTAIigualATAIJPN() throws FileNotFoundException {
         int distanciaJaponTailandia =  calcDistancia.calcularDistanciaDeHasta("Tailandia","Japon");
         Assertions.assertEquals(4603,distanciaJaponTailandia);
+    }
+
+    @Test
+    public void crearPaisesFuncionaCorrectamente() throws FileNotFoundException {
+        Paises paises = calcDistancia.crearPaises();
+        Assertions.assertEquals(30,paises.size());
     }
 }
