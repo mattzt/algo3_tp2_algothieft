@@ -1,10 +1,10 @@
-package edu.fiuba.algo3.Policia;
+package edu.fiuba.algo3.modelo.Policia;
 
 public class Novato implements Rango
 {
     public void Novato()
     {
-        casosResueltos = 0;
+
     }
 
     @Override

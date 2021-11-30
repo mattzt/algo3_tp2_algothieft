@@ -1,10 +1,10 @@
-package edu.fiuba.algo3.Policia;
+package edu.fiuba.algo3.modelo.Policia;
 
 public class Sargento implements Rango
 {
     public void Sargento()
     {
-        casosResueltos = 20;
+
     }
 
     @Override
