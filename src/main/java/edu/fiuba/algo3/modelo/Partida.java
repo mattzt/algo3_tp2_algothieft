@@ -12,7 +12,7 @@ public class Partida {
     public void asignarAgente(Agente agente){
         int arrestos = agente.cantidadArrestos();
         pistaDificultad dificultad = new pistaDificultad();
-        pistas = dificultad.obtenerPistasDeDificultad(arrestos)
+        pistas = dificultad.obtenerPistasDeDificultad(arrestos);
     }
 
 }
