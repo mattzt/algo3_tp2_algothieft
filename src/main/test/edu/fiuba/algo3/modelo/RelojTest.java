@@ -9,8 +9,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RelojTest {
-    private Reloj reloj;
-    private int horasDeUnDia;
+    Reloj reloj;
+    int horasDeUnDia;
 
     @BeforeEach
     public void setUp(){

@@ -23,7 +23,7 @@ public class PaisTest {
     Edificios edificiosPublicos;
 
     @BeforeEach
-    void init(){
+    public void init(){
         argentina = new Pais("Argentina","Buenos Aires");
         calcDist = mock(Fachada.class);
         unaPista = mock(Pista.class);
