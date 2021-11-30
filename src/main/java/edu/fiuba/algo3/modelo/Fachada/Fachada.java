@@ -13,14 +13,12 @@ public class Fachada {
     }
 
     public int calcularDistanciaDeHasta(String nombrePaisOrigen, String nombrePaisDestino) throws FileNotFoundException {
-        int distancia = 0;
         String rutaArchivoDistancias = "src/main/java/edu/fiuba/algo3/modelo/Resources/DistanciaPaises.txt";
         File archivoDistancias = new File(rutaArchivoDistancias);
         Scanner scanner = new Scanner(archivoDistancias);
         this.parsearData(scanner);
-        String siguienteLinea = null;
 
-        int lineas = 0;
+        String siguienteLinea = null;
         int claveOrigen = dataDistPaises.get(nombrePaisOrigen);
         int claveDestino = dataDistPaises.get(nombrePaisDestino);
         for (int i=0;i<=claveOrigen;i++){

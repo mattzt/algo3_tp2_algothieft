@@ -35,4 +35,10 @@ public class FachadaTest {
         int distanciaJaponTailandia =  calcDistancia.calcularDistanciaDeHasta("Japon","Tailandia");
         Assertions.assertEquals(4603,distanciaJaponTailandia);
     }
+
+    @Test
+    public void distanciaJPNTAIigualATAIJPN() throws FileNotFoundException {
+        int distanciaJaponTailandia =  calcDistancia.calcularDistanciaDeHasta("Tailandia","Japon");
+        Assertions.assertEquals(4603,distanciaJaponTailandia);
+    }
 }
