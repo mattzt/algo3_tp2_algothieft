@@ -25,8 +25,8 @@ public class Pista {
     }
 
 
-    public String darPista(Pista pista){
-        return pista.pista;
+    public String mostrar(){
+        return pista;
     }
 
     public Ciudad obtenerCiudadDePista(Pista pista){

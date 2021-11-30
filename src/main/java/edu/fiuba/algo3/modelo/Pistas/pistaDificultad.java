@@ -10,13 +10,13 @@ public class pistaDificultad {
     public ArrayList<String> obtenerPistasDeDificultad(int arrestos){
         String rutas;
         if(arrestos < 5){
-            rutas = "C:\\Users\\Agustin\\IdeaProjects\\algo3_tp2_algothieft\\src\\main\\java\\edu\\fiuba\\algo3\\modelo\\Resources\\PistasFaciles.txt";
+            rutas = "../Resources/PistasFaciles.txt";
         }
         else if(arrestos < 15){
-            rutas = "C:\\Users\\Agustin\\IdeaProjects\\algo3_tp2_algothieft\\src\\main\\java\\edu\\fiuba\\algo3\\modelo\\Resources\\PistasMedios.txt";
+            rutas = "../Resources/PistasMedios.txt";
         }
         else{
-            rutas = "C:\\Users\\Agustin\\IdeaProjects\\algo3_tp2_algothieft\\src\\main\\java\\edu\\fiuba\\algo3\\modelo\\Resources\\PistasDificiles.txt";
+            rutas = "../Resources/PistasDificiles.txt";
         }
         return cargarPistasDificultad(rutas);
     }
@@ -24,7 +24,7 @@ public class pistaDificultad {
     private ArrayList<String> cargarPistasDificultad(String ruta){
         ArrayList<String> pistas = new ArrayList<>();
         File archivo = new File (ruta);
-        FileReader fr = new FileReader (archivo);
+        FileReader fr = new FileReader(archivo);
         BufferedReader br = new BufferedReader(fr);
         String linea;
         while((linea=br.readLine())!=null){
