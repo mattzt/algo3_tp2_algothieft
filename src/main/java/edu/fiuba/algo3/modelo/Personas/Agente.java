@@ -4,17 +4,19 @@ import edu.fiuba.algo3.modelo.Caso.Caso;
 import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Estados.Estado;
+import edu.fiuba.algo3.modelo.Estados.*;
 
 public class Agente{
     private final String nombre;
     private Rango rango;
     private Ciudad ciudadActual;
     private Caso casoAsignado;
+    private Estado estado;
 
     public Agente(String nombreAgente){
         nombre = nombreAgente;
         rango = new Novato();
+        estado = new Normal();
     }
 
     public int viajarACiudad(Ciudad unaCiudad){
@@ -43,6 +45,14 @@ public class Agente{
 
     public boolean tieneArrestos(int arrestos) {
         return rango.cantidadArrestos() == arrestos;
+    }
+
+    public void recibirDanio(){
+        estado = new Herido();
+    }
+
+    public void Dormir(){
+        estado = new Durmiendo();
     }
 
 }
