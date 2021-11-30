@@ -10,9 +10,16 @@ public class Pista {
     Edificio edificioOrigen;
     Ciudad ciudadOrigen;
 
+
+    public Pista(Edificio edificio, String pista){
+        this.pista = pista;
+        this.edificioOrigen = edificio;
+    }
+
+
     public Pista(Ciudad ciudad, Edificio edificio, ArrayList<String> pistas){
         BuscadorPista buscador = new BuscadorPista();
-        pista = buscador.obtenerPistaEdificio(edificio);
+        pista = buscador.obtenerPistaEdificio(edificio, pistas);
         edificioOrigen = edificio;
         ciudadOrigen = ciudad;
     }

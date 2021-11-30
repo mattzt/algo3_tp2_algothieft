@@ -1,22 +1,21 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-import edu.fiuba.algo3.modelo.Personas.Agente;
 import edu.fiuba.algo3.modelo.Pistas.BuscadorPista;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 
+import java.util.ArrayList;
+
 public class Banco implements Edificio{
-    Pista pista;
-    int visitasHechas;
+    private BuscadorPista buscador;
 
     public Banco(){
-        pista = new Pista();
-        visitasHechas = 0;
+        buscador = new BuscadorPista();
     }
 
     @Override
-    public int visitar(Agente agente) {
-        pistas.darUnaPista();
-        visitasHechas += 1;
-        return visitasHechas;
+    public Pista visitar(ArrayList<String>pistas) {
+        String pistaEdificio = buscador.obtenerPistaEdificio(this, pistas);
+
+        return new Pista(this, pistaEdificio);
     }
 }
