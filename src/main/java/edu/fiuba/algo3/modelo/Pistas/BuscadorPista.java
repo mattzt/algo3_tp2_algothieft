@@ -17,9 +17,9 @@ public class BuscadorPista {
             if(pistaActual.contains(buscado)){
                 pistaActual = pistaActual.replace(buscado, "");
                 return pistaActual;
-                break;
             }
         }
+        return "";
     }
 
 

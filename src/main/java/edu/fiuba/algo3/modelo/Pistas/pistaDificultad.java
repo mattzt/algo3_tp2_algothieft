@@ -23,11 +23,11 @@ public class pistaDificultad {
 
     private ArrayList<String> cargarPistasDificultad(String ruta){
         ArrayList<String> pistas = new ArrayList<>();
-        File archivo = new File (ruta);
+        File archivo = new File(ruta);
         FileReader fr = new FileReader(archivo);
         BufferedReader br = new BufferedReader(fr);
         String linea;
-        while((linea=br.readLine())!=null){
+        while((linea = br.readLine()) != null){
             pistas.add(linea);
         }
         return pistas;

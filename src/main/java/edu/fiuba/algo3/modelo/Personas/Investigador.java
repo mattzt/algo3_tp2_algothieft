@@ -12,7 +12,7 @@ public class Investigador implements Rango, Promovible {
 
     @Override
     public Caso nuevoCaso(Sospechosos listaDeSospechosos, ObjetosValiosos listaDeObjetos) {
-        return new Caso(listaDeSospechosos,listaDeObjetos,3);
+        return new Caso();
     }
 
     @Override

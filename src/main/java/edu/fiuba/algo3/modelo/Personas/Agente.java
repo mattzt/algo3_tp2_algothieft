@@ -1,10 +1,13 @@
 package edu.fiuba.algo3.modelo.Personas;
 
 import edu.fiuba.algo3.modelo.Caso.Caso;
-import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
+//import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Estados.*;
+import edu.fiuba.algo3.modelo.Pistas.Pista;
+
+import java.util.ArrayList;
 
 public class Agente{
     private final String nombre;
@@ -19,20 +22,19 @@ public class Agente{
         estado = new Normal();
     }
 
-    public int viajarACiudad(Ciudad unaCiudad){
-        int horasDeViaje = ciudadActual.distanciaA(unaCiudad);
-        casoAsignado.avanzarReloj(horasDeViaje);
-        ciudadActual = unaCiudad;
-        return horasDeViaje;
-    }
+//    public int viajarACiudad(Ciudad unaCiudad){
+//        int horasDeViaje = ciudadActual.distanciaA(unaCiudad);
+//        casoAsignado.avanzarReloj(horasDeViaje);
+//        ciudadActual = unaCiudad;
+//        return horasDeViaje;
+//    }
 
-    public void nuevoCaso(Sospechosos listaDeSospechosos, ObjetosValiosos listaDeObjetos){
-        casoAsignado = rango.nuevoCaso(listaDeSospechosos,listaDeObjetos);
-    }
+//    public void nuevoCaso(Sospechosos listaDeSospechosos, ObjetosValiosos listaDeObjetos){
+//        casoAsignado = rango.nuevoCaso(listaDeSospechosos,listaDeObjetos);
+//    }
 
-    public void visitarEdificio(Edificio unEdificio){
-        int cantVisitas = unEdificio.visitar();
-        casoAsignado.avanzarReloj(cantVisitas);
+    public void visitarEdificio(Edificio unEdificio, ArrayList<String> pistas){
+        Pista pista = unEdificio.visitar(pistas);
     }
 
     public boolean es(String unNombre){
@@ -53,6 +55,10 @@ public class Agente{
 
     public void Dormir(){
         estado = new Durmiendo();
+    }
+
+    public int cantidadArrestos(){
+        return rango.cantidadArrestos();
     }
 
 }

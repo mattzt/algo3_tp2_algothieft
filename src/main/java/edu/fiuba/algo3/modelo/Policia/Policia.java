@@ -15,7 +15,7 @@ public class Policia {
     }
     public void viajarAciudad(Ciudad ciudadActual, Ciudad otraCiudad)
     {
-        int tiempo = ciudadActual.tiempoDeViaje(otraCiudad, rango.velocidadViaje());
+        //int tiempo = ciudadActual.tiempoDeViaje(otraCiudad, rango.velocidadViaje());
         //esto deberia interactuar con el tiempo/reloj del juego
     }
 

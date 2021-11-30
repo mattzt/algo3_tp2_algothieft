@@ -12,7 +12,7 @@ public class Sargento implements Rango {
 
     @Override
     public Caso nuevoCaso(Sospechosos listaDeSospechosos, ObjetosValiosos listaDeObjetos) {
-        return new Caso(listaDeSospechosos,listaDeObjetos,4);
+        return new Caso();
     }
 
     @Override

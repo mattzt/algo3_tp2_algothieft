@@ -12,7 +12,7 @@ public class Novato implements Rango, Promovible {
 
     @Override
     public Caso nuevoCaso(Sospechosos listaDeSospechosos, ObjetosValiosos listaDeObjetos) {
-        return new Caso(listaDeSospechosos,listaDeObjetos,1);
+        return new Caso();
     }
 
     @Override
