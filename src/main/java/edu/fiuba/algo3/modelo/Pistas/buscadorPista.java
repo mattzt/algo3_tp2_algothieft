@@ -7,15 +7,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Objects;
 
-public class tipoPista {
-    ArrayList<String> pistas;
+public class buscadorPista {
 
-    private tipoPista (int arrestos){
-        pistaDificultad dificultad = new pistaDificultad();
-        pistas = dificultad.obtenerPistasDeDificultad(arrestos)
-    }
-
-    public String obtenerPistaEdificio(Edificio edificio) {
+    public String obtenerPistaEdificio(Edificio edificio, ArrayList<String> pistas) {
         String buscado = obtenerTipoEdificio(edificio);
         Iterator<String> iterador = pistas.iterator();
         while(iterador.hasNext()){
@@ -23,9 +17,11 @@ public class tipoPista {
             if(pistaActual.contains(buscado)){
                 pistaActual = pistaActual.replace(buscado, "");
                 return pistaActual;
+                break;
             }
         }
     }
+
 
     private String obtenerTipoEdificio(Edificio edificio){
         String buscado;

@@ -1,22 +1,33 @@
 package edu.fiuba.algo3.modelo.Pistas;
 
+import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Personas.Agente;
-import edu.fiuba.algo3.modelo.Personas.Novato;
 
-public class Pista{
-    tipoPista tipo;
+import java.util.ArrayList;
 
-    public String darPista(Edificio edificio, Agente agente) {
-        String pista = buscarPistaPara(edificio, agente);
-        return pista;
+public class Pista {
+    String pista;
+    Edificio edificioOrigen;
+    Ciudad ciudadOrigen;
+
+    public Pista(Ciudad ciudad, Edificio edificio, ArrayList<String> pistas){
+        buscadorPista buscador = buscadorPista new();
+        pista = buscador.obtenerPistaEdificio(edificio);
+        edificioOrigen = edificio;
+        ciudadOrigen = ciudad;
     }
 
-    private String buscarPistaPara(Edificio edificio, Agente agente) {
-        int arrestos = agente.cantidadArrestos();
-        tipo = new tipoPista(arrestos);
-        return tipo.obtenerPistaEdificio(edificio);
+
+    public String darPista(Pista pista){
+        return pista.pista;
+    }
+
+    public Ciudad obtenerCiudadDePista(Pista pista){
+        return pista.ciudadOrigen;
+    }
+
+    public Edificio obtenerEdificioDePista(Pista pista){
+        return pista.edificioOrigen;
     }
 
 }
-
