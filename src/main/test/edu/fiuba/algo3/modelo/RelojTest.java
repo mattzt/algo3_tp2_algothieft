@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RelojTest {
+public class RelojTest {
     Reloj reloj;
     int horasDeUnDia;
 
