@@ -4,20 +4,19 @@ import edu.fiuba.algo3.modelo.Caso.Caso;
 import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Estados.Estado;
-import edu.fiuba.algo3.modelo.Pistas.Pista;
-
-import java.util.ArrayList;
+import edu.fiuba.algo3.modelo.Estados.*;
 
 public class Agente{
     private final String nombre;
     private Rango rango;
     private Ciudad ciudadActual;
     private Caso casoAsignado;
+    private Estado estado;
 
     public Agente(String nombreAgente){
         nombre = nombreAgente;
         rango = new Novato();
+        estado = new Normal();
     }
 
     public int viajarACiudad(Ciudad unaCiudad){
@@ -31,9 +30,9 @@ public class Agente{
         casoAsignado = rango.nuevoCaso(listaDeSospechosos,listaDeObjetos);
     }
 
-    public void visitarEdificio(Edificio unEdificio, ArrayList<String> pistas){
-        Pista pista= unEdificio.visitar(pistas);
-        //casoAsignado.avanzarReloj(cantVisitas);
+    public void visitarEdificio(Edificio unEdificio){
+        int cantVisitas = unEdificio.visitar();
+        casoAsignado.avanzarReloj(cantVisitas);
     }
 
     public boolean es(String unNombre){
@@ -48,8 +47,12 @@ public class Agente{
         return rango.cantidadArrestos() == arrestos;
     }
 
-    public int cantidadArrestos(){
-        return rango.cantidadArrestos();
+    public void recibirDanio(){
+        estado = new Herido();
+    }
+
+    public void Dormir(){
+        estado = new Durmiendo();
     }
 
 }
