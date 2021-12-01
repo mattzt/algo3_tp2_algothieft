@@ -1,11 +1,34 @@
 package edu.fiuba.algo3.modelo.Pistas;
 
+import edu.fiuba.algo3.modelo.Personas.Agente;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class pistaDificultad {
+public class BaseDatosPistas {
+    ArrayList<String> posiblesPistas;
+
+    public BaseDatosPistas(Agente agente){
+        int arrestos = agente.cantidadArrestos();
+        posiblesPistas = obtenerPistasDeDificultad(arrestos);
+    }
+
+    public String buscarPista(String buscado){
+        Iterator<String> iterador = posiblesPistas.iterator();
+        String pistaActual = "";
+        while(iterador.hasNext()){
+            String pistaActual = iterador.next();
+            if(pistaActual.contains(buscado)){
+                pistaActual = pistaActual.replace(buscado, "");
+                posiblesPistas.remove(String pistaActual);
+                break;
+            }
+        }
+        return pistaActual;
+    }
 
     public ArrayList<String> obtenerPistasDeDificultad(int arrestos){
         String rutas;
