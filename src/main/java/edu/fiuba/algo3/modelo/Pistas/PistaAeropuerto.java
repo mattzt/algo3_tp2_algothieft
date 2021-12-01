@@ -1,10 +1,16 @@
 package edu.fiuba.algo3.modelo.Pistas;
 
-public class PistaAeropuerto implements Pista {
+import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
-    @Override
-    public Pista obtenerPistaAeropuerto(BaseDatosPistas pistas) {
-        pista = pistas.buscarPista("|AEROPUERTO|");
-        return this;
+public class PistaAeropuerto extends Pista {
+
+    public PistaAeropuerto(String linea){
+        pista = linea.replace("|AEROPUERTO|", "");
     }
+
+    public Boolean esTipo(Edificio edificio){
+        return (edificio instanceof Aeropuerto);
+    }
+
 }

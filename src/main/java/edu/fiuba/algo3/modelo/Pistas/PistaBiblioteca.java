@@ -1,10 +1,16 @@
 package edu.fiuba.algo3.modelo.Pistas;
 
-public class PistaBiblioteca implements Pista {
+import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
+import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
-    @Override
-    public Pista obtenerPistaBiblioteca(BaseDatosPistas pistas) {
-        pista = pistas.buscarPista("|BIBLIOTECA|");
-        return this;
+public class PistaBiblioteca extends Pista {
+
+    public PistaBiblioteca(String linea){
+        pista = linea.replace("|BIBLIOTECA|", "");
+    }
+
+    public Boolean esTipo(Edificio edificio){
+        return (edificio instanceof Biblioteca);
     }
 }
