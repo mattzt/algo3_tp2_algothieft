@@ -4,11 +4,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.Scanner;
 
 public class ComputadoraInterpol
 {
 
-    private ArrayList MatrizAtributos = new ArrayList();
+    private ArrayList<String[]> matrizAtributos = new ArrayList();
     public ComputadoraInterpol(String rutaAtributos)  {
         try {
             BufferedReader lector = new BufferedReader(new FileReader(rutaAtributos));
@@ -20,8 +21,8 @@ public class ComputadoraInterpol
 
                 linea = lector.readLine();
                 lineaProcesada = linea.split(",");
-                MatrizAtributos.add(index, new ArrayList());
-                MatrizAtributos.add(index, );
+                matrizAtributos.add(index, lineaProcesada);
+                index++;
             }
             lector.close();
         } catch (IOException e) {
@@ -32,11 +33,16 @@ public class ComputadoraInterpol
 
     public void IngresarDatos() 
     {
-        System.out.println("Sexo: \n");
-        for ( String dato: (String[]) atributos.get("posible Sexo") )
+        System.out.println("Seleccion con boto 0 al n, el atributo deseado o enter para nulo");
+        for (String[] atributos: matrizAtributos)
         {
-            System.out.println(dato);
+            for (String dato: atributos)
+            {
+                System.out.print(dato + " ");
+            }
+            Scanner entrada = new Scanner(System.in);
+            System.out.println("\n" + entrada.nextInt());
+            System.out.println("");
         }
-        System.out.println()
     }
 }
