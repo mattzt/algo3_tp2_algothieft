@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Pistas;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Personas.Agente;
+import edu.fiuba.algo3.modelo.Policia.Policia;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -10,8 +10,8 @@ import java.util.Iterator;
 public class Pistas {
     ArrayList<Pista> posiblesPistas;
 
-    public Pistas(Agente agente) throws IOException {
-        int arrestos = agente.cantidadArrestos();
+    public Pistas(Policia policia) throws IOException {
+        int arrestos = policia.cantidadArrestos();
         posiblesPistas = obtenerPistasDeDificultad(arrestos);
     }
 

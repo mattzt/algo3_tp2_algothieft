@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Policia;
 import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
+import edu.fiuba.algo3.modelo.Pistas.Pistas;
 
 import java.util.ArrayList;
 
@@ -15,15 +16,19 @@ public class Policia {
     }
     public void viajarAciudad(Ciudad ciudadActual, Ciudad otraCiudad)
     {
-        //int tiempo = ciudadActual.tiempoDeViaje(otraCiudad, rango.velocidadViaje());
-        //esto deberia interactuar con el tiempo/reloj del juego
+        int tiempo = ciudadActual.tiempoDeViaje(otraCiudad, rango.velocidadViaje());
+//        esto deberia interactuar con el tiempo/reloj del juego
     }
 
-    public void explorarEdificio(Edificio unEdificio, ArrayList<String> pistas)
+    public void explorarEdificio(Edificio unEdificio, Pistas pistas)
     {
         Pista pistaDelEdificio = unEdificio.visitar(pistas);
-        pistaDelEdificio.mostrar();
+        pistaDelEdificio.darPista();
 
+    }
+
+    public int cantidadArrestos(){
+        return rango.casosResueltos;
     }
 
 }
