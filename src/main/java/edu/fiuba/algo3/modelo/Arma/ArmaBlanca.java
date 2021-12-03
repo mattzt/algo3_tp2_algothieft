@@ -8,11 +8,6 @@ public class ArmaBlanca extends Arma{
     }
 
     @Override
-    public void hacerDanio(Policia agente){
-        agente.recibirDanio(this);
-    }
-
-    @Override
     public int tiempoIncapacitacion() {
         return 2;
     }

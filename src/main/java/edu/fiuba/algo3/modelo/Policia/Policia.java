@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
+import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
 
 import static org.mockito.Mockito.mock;
 
@@ -12,22 +13,23 @@ public class Policia {
     private final Rango rango;
     private ComputadoraInterpol computadora;
     private Ciudad ciudadEnDondeEstoy;
-
+    private SingletonReloj reloj;
     public Policia(String nombrePolicia, Ciudad ciudadInicial)
     {
         nombre = nombrePolicia;
         rango = new Novato();
         ciudadEnDondeEstoy = ciudadInicial;
+        reloj = SingletonReloj.getInstance();
     }
 
     public void viajarApais(Ciudad ciudadActual, Ciudad otraCiudad)
     {
-        int tiempo = ciudadActual.distanciaA(otraCiudad) * rango.velocidadViaje();
-        //esto deberia ser resposabilidad de tiempo creo interactuar con el tiempo/reloj del juego
+        reloj.avanzarReloj(ciudadActual.distanciaA(otraCiudad) * rango.velocidadViaje());
         ciudadEnDondeEstoy = otraCiudad;
     }
     public Pista explorarSitio(Edificio unEdificio)
     {
+        reloj.avanzarReloj(3);
         return unEdificio.visitar();
     }
     public void computarDatosLadron()
@@ -36,10 +38,10 @@ public class Policia {
     }
     public void dormir()
     {
-        //tiempo.pasar(8) aca deberian pasar 8 horas.
+        reloj.avanzarReloj(8);
     }
     public void recibirDanio(Arma armaAtacante)
     {
-        int tiempoTranscurrido = armaAtacante.tiempoIncapacitacion();
+        reloj.avanzarReloj(armaAtacante.tiempoIncapacitacion());
     }
 }
