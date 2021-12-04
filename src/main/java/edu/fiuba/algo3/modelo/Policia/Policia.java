@@ -1,32 +1,47 @@
 package edu.fiuba.algo3.modelo.Policia;
+import edu.fiuba.algo3.modelo.Arma.Arma;
 import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
-import edu.fiuba.algo3.modelo.Pistas.Pistas;
+import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
+
+import static org.mockito.Mockito.mock;
 
 public class Policia {
-    String nombre;
-    Rango rango;
-    public Policia(String nombrePolicia)
+    private final String nombre;
+    private final Rango rango;
+    private ComputadoraInterpol computadora;
+    private Ciudad ciudadEnDondeEstoy;
+    private SingletonReloj reloj;
+    public Policia(String nombrePolicia, Ciudad ciudadInicial)
     {
         nombre = nombrePolicia;
         rango = new Novato();
+        ciudadEnDondeEstoy = ciudadInicial;
+        reloj = SingletonReloj.getInstance();
     }
-    public void viajarAciudad(Ciudad ciudadActual, Ciudad otraCiudad)
+
+    public void viajarApais(Ciudad ciudadActual, Ciudad otraCiudad)
     {
-        int tiempo = ciudadActual.tiempoDeViaje(otraCiudad, rango.velocidadViaje());
-//        esto deberia interactuar con el tiempo/reloj del juego
+        reloj.avanzarReloj(ciudadActual.distanciaA(otraCiudad) * rango.velocidadViaje());
+        ciudadEnDondeEstoy = otraCiudad;
     }
-
-    public void explorarEdificio(Edificio unEdificio, Pistas pistas)
+    public Pista explorarSitio(Edificio unEdificio)
     {
-        Pista pistaDelEdificio = unEdificio.visitar(pistas);
-        pistaDelEdificio.darPista();
-
+        reloj.avanzarReloj(3);
+        return unEdificio.visitar();
     }
-
-    public int cantidadArrestos(){
-        return rango.casosResueltos;
+    public void computarDatosLadron()
+    {
+        computadora.IngresarDatos();
     }
-
+    public void dormir()
+    {
+        reloj.avanzarReloj(8);
+    }
+    public void recibirDanio(Arma armaAtacante)
+    {
+        reloj.avanzarReloj(armaAtacante.tiempoIncapacitacion());
+    }
 }
