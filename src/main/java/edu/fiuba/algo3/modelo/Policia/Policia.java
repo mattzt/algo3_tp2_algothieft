@@ -4,8 +4,6 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.Pistas;
 
-import java.util.ArrayList;
-
 public class Policia {
     String nombre;
     Rango rango;
