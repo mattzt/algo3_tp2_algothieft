@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Personas.Agente;
-import edu.fiuba.algo3.modelo.Personas.Novato;
-import edu.fiuba.algo3.modelo.Personas.Rango;
+import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Policia.Novato;
+import edu.fiuba.algo3.modelo.Policia.Rango;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;

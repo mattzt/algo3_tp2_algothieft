@@ -1,18 +1,15 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Personas.Agente;
-import edu.fiuba.algo3.modelo.Pistas.pistaDificultad;
-
-import java.util.ArrayList;
+import edu.fiuba.algo3.modelo.Pistas.Pistas;
 
 public class Partida {
     Agente agente;
-    ArrayList<String> pistas;
+    Pistas pistas;
 
-    public void asignarAgente(Agente agente){
-        int arrestos = agente.cantidadArrestos();
-        pistaDificultad dificultad = new pistaDificultad();
-        pistas = dificultad.obtenerPistasDeDificultad(arrestos);
+    public Partida(Agente agente){
+        pistas = new Pistas(agente);
     }
+
 
 }
