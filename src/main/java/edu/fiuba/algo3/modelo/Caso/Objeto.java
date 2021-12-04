@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Caso;
 
 import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
-import edu.fiuba.algo3.modelo.Personas.Novato;
 
 public class Objeto {
     Ciudad origen;

@@ -1,9 +1,8 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-public class Novato extends Rango
+public class Novato implements Rango
 {
     Novato() {
-        casosResueltos = 0;
     }
 
     @Override
