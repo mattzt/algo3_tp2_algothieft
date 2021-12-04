@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Edificios;
 import edu.fiuba.algo3.modelo.Fachada.Fachada;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
-import edu.fiuba.algo3.modelo.Pistas.Pistas;
+import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 
 import java.io.FileNotFoundException;
 
@@ -25,7 +25,7 @@ public class Pais {
             return calcDist.calcularDistanciaDeHasta(nombre,nombrePaisDestino);
     }
 
-    public Pista visitarEdificio(Edificio unEdificio, Pistas pistas){
+    public Pista visitarEdificio(Edificio unEdificio, RepositorioPistas pistas){
         return unEdificio.visitar(pistas);
     }
 

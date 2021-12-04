@@ -1,20 +1,20 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Pistas.Pistas;
+import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 import java.io.IOException;
 
 public class Partida {
     private Policia policia;
-    private Pistas pistas;
+    private RepositorioPistas repositorioPistas;
 
     public Partida(Policia policia) throws IOException {
-        pistas = new Pistas(policia);
+        repositorioPistas = new RepositorioPistas(policia);
     }
 
-    public Pistas obtenerPistas(){
-        return pistas;
+    public RepositorioPistas obtenerPistas(){
+        return repositorioPistas;
     }
 
 }

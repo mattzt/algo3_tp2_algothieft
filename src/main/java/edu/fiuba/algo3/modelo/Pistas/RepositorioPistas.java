@@ -7,10 +7,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Pistas {
+public class RepositorioPistas {
     ArrayList<Pista> posiblesPistas;
 
-    public Pistas(Policia policia) throws IOException {
+    public RepositorioPistas(Policia policia) throws IOException {
         int arrestos = policia.cantidadArrestos();
         posiblesPistas = obtenerPistasDeDificultad(arrestos);
     }
@@ -33,13 +33,13 @@ public class Pistas {
     public ArrayList<Pista> obtenerPistasDeDificultad(int arrestos) throws IOException {
         String rutas;
         if(arrestos < 5){
-            rutas = "C:\\Users\\Gonzalo\\IdeaProjects\\algo3_tp2_algothieft\\src\\main\\java\\edu\\fiuba\\algo3\\modelo\\Resources\\PistasFaciles.txt";
+            rutas = "src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt";
         }
         else if(arrestos < 15){
-            rutas = "C:\\Users\\Gonzalo\\IdeaProjects\\algo3_tp2_algothieft\\src\\main\\java\\edu\\fiuba\\algo3\\modelo\\Resources\\PistasMedios.txt";
+            rutas = "src/main/java/edu/fiuba/algo3/modelo/Resources/PistasMedios.txt";
         }
         else{
-            rutas = "C:\\Users\\Gonzalo\\IdeaProjects\\algo3_tp2_algothieft\\src\\main\\java\\edu\\fiuba\\algo3\\modelo\\Resources\\PistasDificiles.txt";
+            rutas = "src/main/java/edu/fiuba/algo3/modelo/Resources/PistasDificiles.txt";
         }
         return cargarPistasDificultad(rutas);
     }

@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
-import edu.fiuba.algo3.modelo.Pistas.Pistas;
+import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
 
 import static org.mockito.Mockito.mock;
@@ -30,7 +30,7 @@ public class Policia {
         reloj.avanzarReloj(ciudadActual.distanciaA(otraCiudad) * rango.velocidadViaje());
         ciudadEnDondeEstoy = otraCiudad;
     }
-    public Pista explorarSitio(Edificio unEdificio, Pistas pistas)
+    public Pista explorarSitio(Edificio unEdificio, RepositorioPistas pistas)
     {
         reloj.avanzarReloj(3);
         return unEdificio.visitar(pistas);

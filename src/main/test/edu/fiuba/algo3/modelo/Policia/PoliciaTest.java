@@ -3,7 +3,7 @@ import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
-import edu.fiuba.algo3.modelo.Pistas.Pistas;
+import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -23,7 +23,7 @@ class PoliciaTest {
     @Test
     void explorarSitio() throws IOException {
         partida = new Partida(agente);
-        Pistas pistas = partida.obtenerPistas();
+        RepositorioPistas pistas = partida.obtenerPistas();
 
         when(EdifcioMock.visitar(pistas)).thenReturn(pistaMock);
         when(pistaMock.darPista()).thenReturn("hola");

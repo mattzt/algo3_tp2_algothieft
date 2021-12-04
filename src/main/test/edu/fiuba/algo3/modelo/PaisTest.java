@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Fachada.Fachada;
 import edu.fiuba.algo3.modelo.Paises.Pais;
 import edu.fiuba.algo3.modelo.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
-import edu.fiuba.algo3.modelo.Pistas.Pistas;
+import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,14 +24,14 @@ public class PaisTest {
     Edificio unEdificio;
     Paises paisesConexos;
     Edificios edificiosPublicos;
-    Pistas pistas;
+    RepositorioPistas pistas;
 
     @BeforeEach
     public void init() throws FileNotFoundException {
         argentina = new Pais("Argentina","Buenos Aires");
         calcDist = mock(Fachada.class);
         unaPista = mock(Pista.class);
-        pistas = mock(Pistas.class);
+        pistas = mock(RepositorioPistas.class);
         paisesConexos = mock(Paises.class);
         edificiosPublicos = mock(Edificios.class);
         unEdificio = mock(Edificio.class);
