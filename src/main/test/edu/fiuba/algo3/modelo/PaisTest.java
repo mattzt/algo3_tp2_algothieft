@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Fachada.Fachada;
 import edu.fiuba.algo3.modelo.Paises.Pais;
 import edu.fiuba.algo3.modelo.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
+import edu.fiuba.algo3.modelo.Pistas.Pistas;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,20 +24,23 @@ public class PaisTest {
     Edificio unEdificio;
     Paises paisesConexos;
     Edificios edificiosPublicos;
+    Pistas pistas;
 
     @BeforeEach
     public void init() throws FileNotFoundException {
         argentina = new Pais("Argentina","Buenos Aires");
         calcDist = mock(Fachada.class);
         unaPista = mock(Pista.class);
+        pistas = mock(Pistas.class);
         paisesConexos = mock(Paises.class);
         edificiosPublicos = mock(Edificios.class);
         unEdificio = mock(Edificio.class);
         argentina.setCalculadoraDistancia(calcDist);
         argentina.setPaisesConexos(paisesConexos);
         argentina.setEdificios(edificiosPublicos);
+
         when(calcDist.calcularDistanciaDeHasta("Argentina","Peru")).thenReturn(3138);
-        when(unEdificio.visitar()).thenReturn(unaPista);
+        when(unEdificio.visitar(pistas)).thenReturn(unaPista);
     }
 
     @Test
@@ -52,7 +56,7 @@ public class PaisTest {
 
     @Test
     public void visitarEdificio(){
-        Assertions.assertEquals(unaPista,argentina.visitarEdificio(unEdificio));
+        Assertions.assertEquals(unaPista,argentina.visitarEdificio(unEdificio, pistas));
     }
 
     @Test

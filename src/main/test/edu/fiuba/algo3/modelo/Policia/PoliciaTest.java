@@ -1,10 +1,15 @@
 package edu.fiuba.algo3.modelo.Policia;
 import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
+import edu.fiuba.algo3.modelo.Pistas.Pistas;
 import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
+import java.io.IOException;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -13,12 +18,16 @@ class PoliciaTest {
      Pista pistaMock = Mockito.mock(Pista.class);
      Policia agente = new Policia("tobias", new Ciudad());
      SingletonReloj reloj = SingletonReloj.getInstance();
+     Partida partida;
+
     @Test
-    void explorarSitio()
-    {
-        when(EdifcioMock.visitar()).thenReturn(pistaMock);
-        when(pistaMock.DarPista()).thenReturn("hola");
-        assertEquals("hola", agente.explorarSitio(EdifcioMock).DarPista());
+    void explorarSitio() throws IOException {
+        partida = new Partida(agente);
+        Pistas pistas = partida.obtenerPistas();
+
+        when(EdifcioMock.visitar(pistas)).thenReturn(pistaMock);
+        when(pistaMock.darPista()).thenReturn("hola");
+        assertEquals("hola", agente.explorarSitio(EdifcioMock, pistas).darPista());
     }
 
     @Test

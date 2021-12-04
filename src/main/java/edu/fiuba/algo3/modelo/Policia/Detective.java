@@ -2,7 +2,12 @@ package edu.fiuba.algo3.modelo.Policia;
 
 public class Detective implements Rango
 {
-    Detective(){
+    public Detective(){
+    }
+
+    @Override
+    public int casosResueltos() {
+        return 5;
     }
 
     @Override

@@ -19,7 +19,7 @@ public class SingletonReloj {
     }
     public int avanzarReloj(int horas){
         int horaFinal = hora+horas;
-        if (horaFinal>=24){
+        if (horaFinal >= 24){
             dia = dia.siguienteDia();
             horaFinal = horaFinal - 24;
             if (horaFinal >= 24) return avanzarReloj(horaFinal);
@@ -29,5 +29,7 @@ public class SingletonReloj {
     }
 
 
-    public int darHora(){return hora;}
+    public int darHora(){
+        return hora;
+    }
 }
