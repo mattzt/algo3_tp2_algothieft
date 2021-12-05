@@ -14,14 +14,10 @@ public class Novato extends Rango{
     }
 
     @Override
-    public int arrestos(){
-        return casosResueltos;
-    }
-
-    @Override
     public Rango promover(){
         return new Detective();
     }
+
     @Override
     public String toString(){
         return dificultad;

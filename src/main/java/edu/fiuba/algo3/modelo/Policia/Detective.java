@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Policia;
 
 public class Detective extends Rango{
+
     private final String dificultad = "FACIL";
 
     public Detective(){

@@ -7,10 +7,6 @@ public abstract class Rango
 
     abstract int velocidadViaje();
 
-    public int arrestos(){
-        return casosResueltos;
-    }
-
     abstract Rango promover();
 
 }
