@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Fachada.Fachada;
+import edu.fiuba.algo3.modelo.Factory.Factory;
 import edu.fiuba.algo3.modelo.Paises.Paises;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -45,7 +46,9 @@ public class FachadaTest {
 
     @Test
     public void crearPaisesFuncionaCorrectamente() throws FileNotFoundException {
-        Paises paises = calcDistancia.crearPaises();
+        Factory factory = new Factory();
+        String rutaDataPaises = "src/main/java/edu/fiuba/algo3/modelo/Resources/DataPaises.txt";
+        Paises paises = factory.crearPaises(rutaDataPaises);
         Assertions.assertEquals(30,paises.size());
     }
 }
