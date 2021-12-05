@@ -4,9 +4,9 @@ import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
+import edu.fiuba.algo3.modelo.Pistas.PistaBanco;
+import edu.fiuba.algo3.modelo.Pistas.Pistas;
 import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
-
-import static org.mockito.Mockito.mock;
 
 public class Policia {
     private final String nombre;
@@ -14,6 +14,7 @@ public class Policia {
     private ComputadoraInterpol computadora;
     private Ciudad ciudadEnDondeEstoy;
     private SingletonReloj reloj;
+
     public Policia(String nombrePolicia, Ciudad ciudadInicial)
     {
         nombre = nombrePolicia;
@@ -30,7 +31,7 @@ public class Policia {
     public Pista explorarSitio(Edificio unEdificio)
     {
         reloj.avanzarReloj(3);
-        return unEdificio.visitar();
+        return new PistaBanco("hola");
     }
     public void computarDatosLadron()
     {
@@ -44,4 +45,5 @@ public class Policia {
     {
         reloj.avanzarReloj(armaAtacante.tiempoIncapacitacion());
     }
+    public Rango presentarPlaca(){return rango;}
 }

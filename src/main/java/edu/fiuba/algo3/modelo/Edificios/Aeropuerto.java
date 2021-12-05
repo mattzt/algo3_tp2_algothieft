@@ -1,0 +1,13 @@
+package edu.fiuba.algo3.modelo.Edificios;
+
+import edu.fiuba.algo3.modelo.Pistas.Pista;
+import edu.fiuba.algo3.modelo.Pistas.Pistas;
+
+
+public class Aeropuerto implements Edificio{
+
+    @Override
+    public Pista darPista(Pistas pistas) {
+        return pistas.obtenerPistaPara(this);
+    }
+}

@@ -12,5 +12,4 @@ public class ArmaBlanca extends Arma{
         return 2;
     }
 
-
 }

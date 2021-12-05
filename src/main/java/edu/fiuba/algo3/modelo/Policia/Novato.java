@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-public class Novato implements Rango
+public class Novato extends Rango
 {
-    public void Novato()
+    private final String dificultad = "FACIL";
+    public Novato()
     {
+        casosResueltos = 0;
 
     }
 
@@ -11,4 +13,17 @@ public class Novato implements Rango
     public int velocidadViaje() {
         return 900;
     }
+
+    @Override
+    public int arrestos() {
+        return casosResueltos;
+    }
+
+    @Override
+    public Rango promover() {
+        return new Detective();
+    }
+    @Override
+    public String toString()
+    {return dificultad;}
 }

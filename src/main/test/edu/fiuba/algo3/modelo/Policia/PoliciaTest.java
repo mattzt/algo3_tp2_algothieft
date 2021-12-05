@@ -16,9 +16,9 @@ class PoliciaTest {
     @Test
     void explorarSitio()
     {
-        when(EdifcioMock.visitar()).thenReturn(pistaMock);
-        when(pistaMock.DarPista()).thenReturn("hola");
-        assertEquals("hola", agente.explorarSitio(EdifcioMock).DarPista());
+        //when(EdifcioMock.visitar()).thenReturn(pistaMock);
+        when(pistaMock.darPista()).thenReturn("hola");
+        assertEquals("hola", agente.explorarSitio(EdifcioMock).darPista());
     }
 
     @Test
