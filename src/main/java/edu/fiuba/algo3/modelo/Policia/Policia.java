@@ -14,6 +14,7 @@ public class Policia {
     private ComputadoraInterpol computadora;
     private Ciudad ciudadEnDondeEstoy;
     private SingletonReloj reloj;
+    private int horasAvanzar;
 
 
     public Policia(String nombrePolicia, Ciudad ciudadInicial){
@@ -21,6 +22,7 @@ public class Policia {
         rango = new Novato();
         ciudadEnDondeEstoy = ciudadInicial;
         reloj = SingletonReloj.getInstance();
+        horasAvanzar = 1;
     }
 
     public void viajarApais(Ciudad ciudadActual, Ciudad otraCiudad){
@@ -29,7 +31,13 @@ public class Policia {
     }
 
     public Pista explorarSitio(Edificio unEdificio, RepositorioPistas pistas){
-        reloj.avanzarReloj(3);
+        reloj.avanzarReloj(horasAvanzar);
+
+        if((horasAvanzar + 1) > 3)
+            horasAvanzar = 1;
+        else
+            horasAvanzar++;
+
         return unEdificio.visitar(pistas);
     }
 

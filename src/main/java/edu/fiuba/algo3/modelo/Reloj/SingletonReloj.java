@@ -28,6 +28,10 @@ public class SingletonReloj {
         return horaFinal;
     }
 
+    public void resetear(){
+        hora = 0;
+        dia = new Lunes();
+    }
 
     public int darHora(){
         return hora;
