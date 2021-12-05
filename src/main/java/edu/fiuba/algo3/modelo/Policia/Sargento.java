@@ -1,13 +1,11 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-public class Sargento implements Rango
+public class Sargento extends Rango
 {
-    public Sargento(){
-    }
-
-    @Override
-    public int casosResueltos() {
-        return 20;
+    private final String dificultad = "DIFICIL";
+    public Sargento()
+    {
+        casosResueltos = 20;
     }
 
     @Override
@@ -15,6 +13,11 @@ public class Sargento implements Rango
         return 1500;
     }
 
-    public void pasar(){
+    @Override
+    public Rango promover() {
+        return this;
     }
+    @Override
+    public String toString()
+    {return dificultad;}
 }

@@ -1,17 +1,24 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-public class Investigador implements Rango
+public class Investigador extends Rango
 {
-    public Investigador(){
+    private final String dificultad = "NORMAL";
+    public Investigador()
+    {
+        casosResueltos = 10;
     }
 
-    @Override
-    public int casosResueltos() {
-        return 10;
-    }
 
     @Override
     public int velocidadViaje() {
         return 1300;
     }
+
+    @Override
+    public Rango promover() {
+        return new Sargento();
+    }
+    @Override
+    public String toString()
+    {return dificultad;}
 }

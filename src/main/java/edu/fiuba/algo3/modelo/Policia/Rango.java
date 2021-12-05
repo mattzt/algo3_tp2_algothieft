@@ -1,10 +1,15 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-public interface Rango
+public abstract class Rango
 {
-    int casosResueltos();
+    int casosResueltos;
     //public abstract int tiempoViaje(Ciudad unCiudad);
-    int velocidadViaje();
+    abstract int velocidadViaje();
+    public int arrestos()
+    {
+        return casosResueltos;
+    }
+    abstract Rango promover();
 
 
 }

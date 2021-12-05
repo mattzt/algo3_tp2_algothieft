@@ -43,13 +43,9 @@ public class Policia {
     {
         reloj.avanzarReloj(8);
     }
-
     public void recibirDanio(Arma armaAtacante)
     {
         reloj.avanzarReloj(armaAtacante.tiempoIncapacitacion());
     }
-
-    public int cantidadArrestos() {
-        return rango.casosResueltos();
-    }
+    public Rango presentarPlaca(){return rango;}
 }
