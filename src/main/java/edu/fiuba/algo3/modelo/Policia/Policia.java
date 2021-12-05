@@ -7,7 +7,6 @@ import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
 
-import static org.mockito.Mockito.mock;
 
 public class Policia {
     private final String nombre;
@@ -17,35 +16,36 @@ public class Policia {
     private SingletonReloj reloj;
 
 
-    public Policia(String nombrePolicia, Ciudad ciudadInicial)
-    {
+    public Policia(String nombrePolicia, Ciudad ciudadInicial){
         nombre = nombrePolicia;
         rango = new Novato();
         ciudadEnDondeEstoy = ciudadInicial;
         reloj = SingletonReloj.getInstance();
     }
 
-    public void viajarApais(Ciudad ciudadActual, Ciudad otraCiudad)
-    {
+    public void viajarApais(Ciudad ciudadActual, Ciudad otraCiudad){
         reloj.avanzarReloj(ciudadActual.distanciaA(otraCiudad) * rango.velocidadViaje());
         ciudadEnDondeEstoy = otraCiudad;
     }
-    public Pista explorarSitio(Edificio unEdificio, RepositorioPistas pistas)
-    {
+
+    public Pista explorarSitio(Edificio unEdificio, RepositorioPistas pistas){
         reloj.avanzarReloj(3);
         return unEdificio.visitar(pistas);
     }
-    public void computarDatosLadron()
-    {
+
+    public void computarDatosLadron(){
         computadora.IngresarDatos();
     }
-    public void dormir()
-    {
+
+    public void dormir(){
         reloj.avanzarReloj(8);
     }
-    public void recibirDanio(Arma armaAtacante)
-    {
+
+    public void recibirDanio(Arma armaAtacante){
         reloj.avanzarReloj(armaAtacante.tiempoIncapacitacion());
     }
-    public Rango presentarPlaca(){return rango;}
+
+    public Rango presentarPlaca(){
+        return rango;
+    }
 }

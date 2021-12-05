@@ -1,10 +1,10 @@
-package edu.fiuba.algo3.modelo.Policia;
+package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.Edificios.Banco;
-import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
+import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -21,8 +21,13 @@ public class EdificioTest {
 
         RepositorioPistas pistas = partida.obtenerPistas();
 
-        resultado = policia.explorarSitio(banco, pistas);
+        resultado = banco.visitar(pistas);
 
         assertEquals(resultado.darPista(), "Dijo que queria cambiar su dinero por Rublos");
+    }
+
+    @Test
+    public void visitarBibliotecaTest(){
+
     }
 }
