@@ -1,53 +1,43 @@
 package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.Edificios.*;
-import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 class PoliciaTest {
-     Edificio edifcioMock;
-     Pista pistaMock;
      Policia agente;
      SingletonReloj reloj;
      Partida partida;
      RepositorioPistas pistas;
 
-    PoliciaTest() throws IOException {
-        edifcioMock = mock(Edificio.class);
-        pistaMock = mock(Pista.class);
-        agente = new Policia("tobias", new Ciudad());
-        partida = new Partida(agente);
-        reloj = SingletonReloj.getInstance();
-        pistas = partida.obtenerPistas();
-    }
 
-    @BeforeEach
-    void resetearReloj(){
-        reloj.resetear();
-    }
+     @BeforeEach
+     void setUp() throws IOException {
+         agente = new Policia("tobias", new Ciudad());
+         partida = new Partida(agente);
+         reloj = SingletonReloj.getInstance();
+
+         reloj.resetear();
+         pistas = partida.obtenerPistas();
+     }
 
     @Test
     void explorarSitio() throws IOException {
         partida = new Partida(agente);
         RepositorioPistas pistas = partida.obtenerPistas();
+        Banco banco = new Banco();
 
+        Pista pista = agente.explorarSitio(banco, pistas);
 
-        when(edifcioMock.visitar(pistas)).thenReturn(pistaMock);
-        when(pistaMock.darPista()).thenReturn("hola");
-        assertEquals("hola", agente.explorarSitio(edifcioMock, pistas).darPista());
+        assertEquals(pista.darPista(), "Dijo que queria cambiar su dinero por Rublos");
     }
 
     @Test
