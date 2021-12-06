@@ -40,13 +40,13 @@ class PoliciaTest {
         assertEquals(pista.darPista(), "Dijo que queria cambiar su dinero por Rublos");
     }
 
-    @Test
-    void viajarApais() {
-    }
-
-    @Test
-    void computarDatosLadron() {
-    }
+//    @Test
+//    void viajarApais() {
+//    }
+//
+//    @Test
+//    void computarDatosLadron() {
+//    }
 
     @Test
     void dormir() {
@@ -55,13 +55,11 @@ class PoliciaTest {
         agente.dormir();
         assertEquals(reloj.darHora(), 8);
 
-        //Reseteo el reloj a 0 para las otras pruebas
-        reloj.avanzarReloj(16);
     }
 
-    @Test
-    void recibirDanio() {
-    }
+//    @Test
+//    void recibirDanio() {
+//    }
 
     @Test
     void visitoEdificioUnaVez(){

@@ -17,7 +17,7 @@ public class EdificioTest {
 
 
     @BeforeEach
-    public void init() throws IOException {
+    public void setUp() throws IOException {
         Policia policia = new Policia("pepe", new Ciudad());
         Partida partida = new Partida(policia);
         resultado = null;
