@@ -23,12 +23,12 @@ public class SingletonRelojTest {
         armaBlanca = new ArmaBlanca();
     }
 
-    @Test
-    public void avanzarRelojFuncionamiento(){
-      assertEquals(0, reloj.darHora());
-      agenteTobias.recibirDanio(armaBlanca);
-      assertEquals(2, reloj.darHora());
-    }
+//    @Test
+//    public void avanzarRelojFuncionamiento(){
+//      assertEquals(0, reloj.darHora());
+//      agenteTobias.recibirDanio(armaBlanca);
+//      assertEquals(2, reloj.darHora());
+//    }
 
     @Test
     public void darHora(){

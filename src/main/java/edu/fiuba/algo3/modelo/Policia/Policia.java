@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
+import edu.fiuba.algo3.modelo.Reloj.Reloj;
 import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
 
 import java.io.FileNotFoundException;
@@ -15,7 +16,8 @@ public class Policia {
     private final Rango rango;
     private ComputadoraInterpol computadora;
     private Pais paisEnDondeEstoy;
-    private SingletonReloj reloj;
+//    private SingletonReloj reloj;
+    private Reloj reloj;
     private int horasAvanzar;
 
 
@@ -23,12 +25,13 @@ public class Policia {
         nombre = nombrePolicia;
         rango = new Novato();
         paisEnDondeEstoy = paisInicial;
-        reloj = SingletonReloj.getInstance();
+//        reloj = SingletonReloj.getInstance();
+        reloj = new Reloj();
         horasAvanzar = 1;
     }
 
-    public void viajarApais(Pais paisOrigen, Pais paisDestino) throws FileNotFoundException {
-        reloj.avanzarReloj(paisOrigen.distanciaA(paisDestino) * rango.velocidadViaje());
+    public void viajarApais(Pais paisDestino) throws FileNotFoundException {
+        reloj.avanzarReloj(paisEnDondeEstoy.distanciaA(paisDestino) / rango.velocidadViaje());
         paisEnDondeEstoy = paisDestino;
     }
 

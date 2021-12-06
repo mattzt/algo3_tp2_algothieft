@@ -28,11 +28,26 @@ public class CasosDeUsoTest {
 //        Criminal = todosLosSospechosos.filtrarSospechoso(Femenino); -> Elegir uno al azar, todos son femeninos y cumplen.
 //        Crear banco -> Setearlo a canada
     }
+
+    @Before
+    public void setUpCase3() throws PaisNoExisteError {
+        Pais canada = todosLosPaises.buscarPais("Canada");
+        nuevoPoli = new Policia("Matias", canada);
+    }
+
     @Test
     public void casoDeUso1() throws PaisNoExisteError {
         setUpCase1();
         Assertions.assertTrue(nuevoPoli.seEncuentraEn("Montreal"));
 //        Pista unaPista = nuevoPoli.explorarSitio(Banco,pistas);
 //        Assertions.assertTrue(unaPista.getClass().equals(Pista.class));
+    }
+
+    @Test
+    public void casoDeUso3() throws FileNotFoundException, PaisNoExisteError {
+        setUpCase3();
+        Pais mexico = todosLosPaises.buscarPais("Mexico");
+        nuevoPoli.viajarApais(mexico);
+        Assertions.assertTrue(nuevoPoli.seEncuentraEn("Mexico"));
     }
 }
