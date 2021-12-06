@@ -1,18 +1,25 @@
 package edu.fiuba.algo3.modelo.Pistas;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Personas.Agente;
+import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Policia.Rango;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Iterator;
 
-public class Pistas {
+public class RepositorioPistas {
     ArrayList<Pista> posiblesPistas;
+    Hashtable<String, String> rutasDeArchivosPistas = new Hashtable();
 
-    public Pistas(Agente agente) throws IOException {
-        int arrestos = agente.cantidadArrestos();
-        posiblesPistas = obtenerPistasDeDificultad(arrestos);
+
+    public RepositorioPistas(Policia policia) throws IOException {
+        Rango rango = policia.presentarPlaca();
+        rutasDeArchivosPistas.put("FACIL","src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt" );
+        rutasDeArchivosPistas.put("NORMAL","src/main/java/edu/fiuba/algo3/modelo/Resources/PistasMedios.txt");
+        rutasDeArchivosPistas.put("DIFICIL","src/main/java/edu/fiuba/algo3/modelo/Resources/PistasDificiles.txt");
+        posiblesPistas = obtenerPistasDeDificultad(rango);
     }
 
 
@@ -30,18 +37,8 @@ public class Pistas {
     }
 
 
-    public ArrayList<Pista> obtenerPistasDeDificultad(int arrestos) throws IOException {
-        String rutas;
-        if(arrestos < 5){
-            rutas = "C:\\Users\\Agustin\\IdeaProjects\\algo3_tp2_algothieft\\src\\main\\java\\edu\\fiuba\\algo3\\modelo\\Resources\\PistasFaciles.txt";
-        }
-        else if(arrestos < 15){
-            rutas = "C:\\Users\\Agustin\\IdeaProjects\\algo3_tp2_algothieft\\src\\main\\java\\edu\\fiuba\\algo3\\modelo\\Resources\\PistasMedios.txt";
-        }
-        else{
-            rutas = "C:\\Users\\Agustin\\IdeaProjects\\algo3_tp2_algothieft\\src\\main\\java\\edu\\fiuba\\algo3\\modelo\\Resources\\PistasDificiles.txt";
-        }
-        return cargarPistasDificultad(rutas);
+    public ArrayList<Pista> obtenerPistasDeDificultad(Rango rango) throws IOException {
+        return cargarPistasDificultad(rutasDeArchivosPistas.get(rango.toString()));
     }
 
     private ArrayList<Pista> cargarPistasDificultad(String ruta) throws IOException {

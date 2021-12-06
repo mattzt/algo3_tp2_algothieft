@@ -1,15 +1,15 @@
 package edu.fiuba.algo3.modelo.Arma;
 
-import edu.fiuba.algo3.modelo.Personas.Agente;
+import edu.fiuba.algo3.modelo.Policia.*;
 
-public class ArmaBlanca implements Arma{
+public class ArmaBlanca extends Arma{
 
     public ArmaBlanca(){
     }
 
     @Override
-    public void hacerDanio(Agente agente){
-        agente.recibirDanio();
+    public int tiempoIncapacitacion() {
+        return 2;
     }
 
 }

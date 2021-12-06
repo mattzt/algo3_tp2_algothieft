@@ -1,23 +1,29 @@
 package edu.fiuba.algo3.modelo.Caso;
 
-import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
-import edu.fiuba.algo3.modelo.Personas.Novato;
+import edu.fiuba.algo3.modelo.Paises.Pais;
 
 public class Objeto {
-    Ciudad origen;
-    int valor;
-    private final String nombre;
+    String nombreObjeto;
+    Pais origenObjeto;
+    int valorObjeto;
 
-    public Objeto(String nombreTesoro){
-        nombre = nombreTesoro;
-    }
-
-    public Ciudad getCiudadDeOrigen(){
-        return origen;
+    public Pais getCiudadDeOrigen(){
+        return origenObjeto;
     }
 
     public int getValor(){
-        return valor;
+        return valorObjeto;
     }
 
+    public void setNombreObjeto(String nombreObjeto) {
+        this.nombreObjeto = nombreObjeto;
+    }
+
+    public void setOrigenObjeto(Pais origenObjeto) {
+        this.origenObjeto = origenObjeto;
+    }
+
+    public void setValorObjeto(int valorObjeto) {
+        this.valorObjeto = valorObjeto;
+    }
 }

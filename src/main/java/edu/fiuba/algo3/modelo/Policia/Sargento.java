@@ -1,18 +1,25 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-public class Sargento implements Rango
-{
-    public void Sargento()
-    {
+public class Sargento extends Rango{
 
+    private final String dificultad = "DIFICIL";
+
+    public Sargento(){
+        casosResueltos = 20;
     }
 
     @Override
-    public int velocidadViaje() {
+    public int velocidadViaje(){
         return 1500;
     }
-    public void pasar()
-    {
 
+    @Override
+    public Rango promover(){
+        return this;
+    }
+
+    @Override
+    public String toString(){
+        return dificultad;
     }
 }
