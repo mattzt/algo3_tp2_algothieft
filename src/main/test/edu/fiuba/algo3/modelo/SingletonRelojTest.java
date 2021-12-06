@@ -1,9 +1,10 @@
-package edu.fiuba.algo3.modelo.Reloj;
+package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Arma.Arma;
 import edu.fiuba.algo3.modelo.Arma.ArmaBlanca;
 import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,18 +13,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class SingletonRelojTest {
 
     SingletonReloj reloj = SingletonReloj.getInstance();
-    Policia agenteTobias = new Policia("tobias",new Ciudad());
-    Arma armaBlanca = new ArmaBlanca();
+    Policia agenteTobias;
+    Arma armaBlanca;
 
     @BeforeEach
     public void resetearReloj(){
         reloj.resetear();
-    }
-
-
-    @Test
-    void getInstance()
-    {
+        agenteTobias = new Policia("tobias", new Ciudad());
+        armaBlanca = new ArmaBlanca();
     }
 
     @Test

@@ -1,9 +1,10 @@
-package edu.fiuba.algo3.modelo.Policia;
+package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
 import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
+import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;

@@ -5,24 +5,24 @@ import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 
 public class EdificioTest {
-    private Policia policia;
-    private Partida partida;
     private Pista resultado;
     private RepositorioPistas pistas;
 
-    EdificioTest() throws IOException {
-        policia = new Policia("pepe", new Ciudad());
-        partida = new Partida(policia);
+
+    @BeforeEach
+    public void init() throws IOException {
+        Policia policia = new Policia("pepe", new Ciudad());
+        Partida partida = new Partida(policia);
         resultado = null;
         pistas = partida.obtenerPistas();
     }
-
 
     @Test
     public void visitarBancoTest(){

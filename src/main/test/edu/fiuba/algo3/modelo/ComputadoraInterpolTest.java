@@ -1,13 +1,14 @@
-package edu.fiuba.algo3.modelo.ComputadoraInterpol;
+package edu.fiuba.algo3.modelo;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import org.junit.jupiter.api.Test;
 class ComputadoraInterpolTest {
 
     @Test
     public void createTest()
     {
-        String rutaAtributos = "E:\\atributos.txt";
+        String rutaAtributos = "src/main/java/edu/fiuba/algo3/modelo/Resources/atributos.txt";
         ComputadoraInterpol compu = new ComputadoraInterpol(rutaAtributos);
     }
 
@@ -15,7 +16,7 @@ class ComputadoraInterpolTest {
     @Test
     void ingresarDatos()
     {
-        String rutaAtributos = "E:\\atributos.txt";
+        String rutaAtributos = "src/main/java/edu/fiuba/algo3/modelo/Resources/atributos.txt";
         ComputadoraInterpol compu = new ComputadoraInterpol(rutaAtributos);
         compu.IngresarDatos();
     }
