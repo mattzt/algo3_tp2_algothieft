@@ -1,9 +1,10 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-public class Investigador extends Rango
+public class Investigador implements Rango
 {
-    Investigador(){
-        casosResueltos = 10;
+    public void Investigador()
+    {
+
     }
 
 

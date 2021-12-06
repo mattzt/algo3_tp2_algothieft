@@ -10,4 +10,5 @@ public class Jueves implements DiaDeLaSemana {
     public String diaDeHoy() {
         return "Jueves";
     }
+
 }

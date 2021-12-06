@@ -1,8 +1,10 @@
 package edu.fiuba.algo3.modelo.Policia;
 
-public class Sargento extends Rango{
-    Sargento() {
-        casosResueltos = 20;
+public class Sargento implements Rango
+{
+    public void Sargento()
+    {
+
     }
 
     @Override
