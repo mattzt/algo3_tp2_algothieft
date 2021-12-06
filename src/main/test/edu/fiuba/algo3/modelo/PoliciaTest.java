@@ -12,15 +12,15 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class PoliciaTest {
-     Policia agente;
-     SingletonReloj reloj;
-     Partida partida;
-     RepositorioPistas pistas;
+public class PoliciaTest {
+     private Policia agente;
+     private SingletonReloj reloj;
+     private Partida partida;
+     private RepositorioPistas pistas;
 
 
      @BeforeEach
-     void setUp() throws IOException {
+     public void setUp() throws IOException {
          agente = new Policia("tobias", new Ciudad());
          partida = new Partida(agente);
          reloj = SingletonReloj.getInstance();
@@ -30,9 +30,7 @@ class PoliciaTest {
      }
 
     @Test
-    void explorarSitio() throws IOException {
-        partida = new Partida(agente);
-        RepositorioPistas pistas = partida.obtenerPistas();
+    public void explorarSitio(){
         Banco banco = new Banco();
 
         Pista pista = agente.explorarSitio(banco, pistas);
@@ -40,16 +38,16 @@ class PoliciaTest {
         assertEquals(pista.darPista(), "Dijo que queria cambiar su dinero por Rublos");
     }
 
-//    @Test
-//    void viajarApais() {
-//    }
-//
-//    @Test
-//    void computarDatosLadron() {
-//    }
+    @Test
+    public void viajarApais() {
+    }
 
     @Test
-    void dormir() {
+    public void computarDatosLadron() {
+    }
+
+    @Test
+    public void dormir() {
         //Al inicio la hora deberia ser las 00.
         assertEquals(reloj.darHora(), 0);
         agente.dormir();
@@ -57,12 +55,12 @@ class PoliciaTest {
 
     }
 
-//    @Test
-//    void recibirDanio() {
-//    }
+    @Test
+    public void recibirDanio() {
+    }
 
     @Test
-    void visitoEdificioUnaVez(){
+    public void visitoEdificioUnaVez(){
         Banco banco = new Banco();
 
         agente.explorarSitio(banco, pistas);
@@ -72,7 +70,7 @@ class PoliciaTest {
     }
 
     @Test
-    void visitoEdificiosDosVeces(){
+    public void visitoEdificiosDosVeces(){
         Banco banco = new Banco();
         Aeropuerto aeropuerto = new Aeropuerto();
 
@@ -83,7 +81,7 @@ class PoliciaTest {
     }
 
     @Test
-    void visitoEdificiosTresVeces(){
+    public void visitoEdificiosTresVeces(){
         Banco banco = new Banco();
         Puerto puerto = new Puerto();
         Bolsa bolsa = new Bolsa();

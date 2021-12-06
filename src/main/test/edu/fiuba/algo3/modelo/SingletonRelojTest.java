@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SingletonRelojTest {
+public class SingletonRelojTest {
 
     SingletonReloj reloj = SingletonReloj.getInstance();
     Policia agenteTobias;
@@ -24,21 +24,21 @@ class SingletonRelojTest {
     }
 
     @Test
-    void avanzarRelojFuncionamiento(){
+    public void avanzarRelojFuncionamiento(){
       assertEquals(0, reloj.darHora());
       agenteTobias.recibirDanio(armaBlanca);
       assertEquals(2, reloj.darHora());
     }
 
     @Test
-    void darHora(){
+    public void darHora(){
         reloj.avanzarReloj(15);
 
         assertEquals(15, reloj.darHora());
     }
 
     @Test
-    void avanzaRelojPasaDeDiaCorrectamente(){
+    public void avanzaRelojPasaDeDiaCorrectamente(){
         assertEquals(0, reloj.darHora());
 
         reloj.avanzarReloj(22);
