@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Fachada.Fachada;
+import edu.fiuba.algo3.modelo.Factory.Factory;
 import edu.fiuba.algo3.modelo.Paises.Pais;
 import edu.fiuba.algo3.modelo.Paises.PaisNoExisteError;
 import edu.fiuba.algo3.modelo.Paises.Paises;
@@ -13,8 +14,8 @@ import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
 
 public class CasosDeUsoTest {
-    Fachada creador = new Fachada();
-    Paises todosLosPaises = creador.crearPaises();
+    Factory creador = new Factory();
+    Paises todosLosPaises = creador.crearPaises("src/main/java/edu/fiuba/algo3/modelo/Resources/DataPaises.txt");
     Policia nuevoPoli;
 
     public CasosDeUsoTest() throws FileNotFoundException {

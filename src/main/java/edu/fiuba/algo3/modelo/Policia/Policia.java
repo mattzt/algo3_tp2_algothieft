@@ -16,7 +16,6 @@ public class Policia {
     private final Rango rango;
     private ComputadoraInterpol computadora;
     private Pais paisEnDondeEstoy;
-//    private SingletonReloj reloj;
     private Reloj reloj;
     private int horasAvanzar;
 
@@ -25,7 +24,6 @@ public class Policia {
         nombre = nombrePolicia;
         rango = new Novato();
         paisEnDondeEstoy = paisInicial;
-//        reloj = SingletonReloj.getInstance();
         reloj = new Reloj();
         horasAvanzar = 1;
     }
