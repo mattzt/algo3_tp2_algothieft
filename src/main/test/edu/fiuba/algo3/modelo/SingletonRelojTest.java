@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Arma.Arma;
 import edu.fiuba.algo3.modelo.Arma.ArmaBlanca;
-import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
+import edu.fiuba.algo3.modelo.Paises.Pais;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +19,7 @@ public class SingletonRelojTest {
     @BeforeEach
     public void resetearReloj(){
         reloj.resetear();
-        agenteTobias = new Policia("tobias", new Ciudad());
+        agenteTobias = new Policia("tobias", new Pais("Argentina","Buenos Aires"));
         armaBlanca = new ArmaBlanca();
     }
 

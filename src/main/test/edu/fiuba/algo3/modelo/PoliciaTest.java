@@ -1,5 +1,5 @@
 package edu.fiuba.algo3.modelo;
-import edu.fiuba.algo3.modelo.Ciudades.Ciudad;
+import edu.fiuba.algo3.modelo.Paises.Pais;
 import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
@@ -21,7 +21,7 @@ public class PoliciaTest {
 
      @BeforeEach
      public void setUp() throws IOException {
-         agente = new Policia("tobias", new Ciudad());
+         agente = new Policia("tobias", new Pais("Argentina","Buenos Aires"));
          partida = new Partida(agente);
          reloj = SingletonReloj.getInstance();
 
