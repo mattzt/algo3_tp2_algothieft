@@ -54,6 +54,6 @@ public class Pais {
     }
 
     public boolean equals(String unNombre){
-        return nombre.equals(unNombre);
+        return nombre.equals(unNombre) || ciudadDestacada.equals(unNombre);
     }
 }
