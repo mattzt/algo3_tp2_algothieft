@@ -4,7 +4,7 @@
 
 Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUBA
 
-## Grupo {N}
+## Grupo 11
 
 * **Matias Montero** - [mattzt](https://github.com/mattzt)
 * **Agustin Gonzalez** - [AgusGonza11](https://github.com/Agusgonza11)

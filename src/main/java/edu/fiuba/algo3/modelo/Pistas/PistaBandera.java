@@ -1,4 +1,11 @@
 package edu.fiuba.algo3.modelo.Pistas;
 
-public class PistaBandera implements Pista{
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
+
+public class PistaBandera extends Pista {
+
+    @Override
+    public Boolean esTipo(Edificio edificio){
+        return true;
+    }
 }

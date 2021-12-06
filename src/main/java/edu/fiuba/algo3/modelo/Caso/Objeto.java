@@ -3,15 +3,27 @@ package edu.fiuba.algo3.modelo.Caso;
 import edu.fiuba.algo3.modelo.Paises.Pais;
 
 public class Objeto {
-    Pais origen;
-    int valor;
+    String nombreObjeto;
+    Pais origenObjeto;
+    int valorObjeto;
 
     public Pais getCiudadDeOrigen(){
-        return origen;
+        return origenObjeto;
     }
 
     public int getValor(){
-        return valor;
+        return valorObjeto;
     }
 
+    public void setNombreObjeto(String nombreObjeto) {
+        this.nombreObjeto = nombreObjeto;
+    }
+
+    public void setOrigenObjeto(Pais origenObjeto) {
+        this.origenObjeto = origenObjeto;
+    }
+
+    public void setValorObjeto(int valorObjeto) {
+        this.valorObjeto = valorObjeto;
+    }
 }

@@ -1,17 +1,25 @@
 package edu.fiuba.algo3.modelo.Reloj;
 
-public class Reloj {
+public class SingletonReloj {
     private DiaDeLaSemana dia;
     private int hora;
+    private static SingletonReloj instance;
 
-    public Reloj(){
+    private SingletonReloj()
+    {
         hora = 0;
         dia = new Lunes();
     }
 
+    public static SingletonReloj getInstance(){
+        if(instance == null){
+            instance = new SingletonReloj();
+        }
+        return instance;
+    }
     public int avanzarReloj(int horas){
         int horaFinal = hora + horas;
-        if (horaFinal>=24){
+        if (horaFinal >= 24){
             dia = dia.siguienteDia();
             horaFinal = horaFinal - 24;
             if (horaFinal >= 24) return avanzarReloj(horaFinal);
@@ -20,7 +28,12 @@ public class Reloj {
         return horaFinal;
     }
 
-    public Boolean equals(String dia, int hora){
-        return this.dia.diaDeHoy().equals(dia) && (this.hora==hora);
+    public void resetear(){
+        hora = 0;
+        dia = new Lunes();
+    }
+
+    public int darHora(){
+        return hora;
     }
 }

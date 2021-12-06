@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.Caso;
 
-import edu.fiuba.algo3.modelo.Personas.Criminal;
-import edu.fiuba.algo3.modelo.Personas.Sospechosos;
 import edu.fiuba.algo3.modelo.Reloj.Reloj;
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
+import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 
 public class Caso {
     private final Reloj reloj;

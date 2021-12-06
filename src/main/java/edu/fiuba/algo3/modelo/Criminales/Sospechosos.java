@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.modelo.Personas;
+package edu.fiuba.algo3.modelo.Criminales;
 
 public class Sospechosos {
     public Criminal buscarSospechosoLibre() {
