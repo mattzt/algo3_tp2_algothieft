@@ -1,4 +1,4 @@
-|BANCO|Dijo que queria cambiar su dinero por Rublos
+|BANCO|Dijo que queria cambiar su dinero por rublos
 |BIBLIOTECA|Dijo que iba a estudiar la historia de sus grandes filosofos
 |BOLSA|Dijo que le interesaban un pais que basaba su economia en la agricultura
 |AEROPUERTO|Tomo un avion con una bandera roja y blanca. Dijo que habia estado tomando clases de frances
