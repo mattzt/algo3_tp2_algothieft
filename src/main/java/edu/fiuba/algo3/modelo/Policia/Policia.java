@@ -63,4 +63,12 @@ public class Policia {
     public boolean seEncuentraEn(String unaCiudad) {
         return paisEnDondeEstoy.equals(unaCiudad);
     }
+
+    public int mirarLaHora(){
+        return reloj.verHora();
+    }
+
+    public void resetearReloj() {
+        reloj.reset();
+    }
 }

@@ -29,7 +29,7 @@ public class RepositorioPistas {
         while(iterador.hasNext()){
             pistaActual = iterador.next();
             if(pistaActual.esTipo(edificio)){
-                posiblesPistas.remove(pistaActual);
+//                posiblesPistas.remove(pistaActual);
                 break;
             }
         }
