@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Reloj.Reloj;
 import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PoliciaTest {
      private Policia agente;
-     private SingletonReloj reloj;
      private Partida partida;
      private RepositorioPistas pistas;
 
@@ -23,9 +23,6 @@ public class PoliciaTest {
      public void setUp() throws IOException {
          agente = new Policia("tobias", new Pais("Argentina","Buenos Aires"));
          partida = new Partida(agente);
-         reloj = SingletonReloj.getInstance();
-
-         reloj.resetear();
          pistas = partida.obtenerPistas();
      }
 
@@ -58,17 +55,17 @@ public class PoliciaTest {
     @Test
     public void recibirDanio() {
     }
-
+//
 //    @Test
 //    public void visitoEdificioUnaVez(){
 //        Banco banco = new Banco();
 //
 //        agente.explorarSitio(banco, pistas);
 //
-//        assertEquals(1, reloj.darHora());
+//        assertEquals(1, agente.mirarLaHora());
 //
 //    }
-
+//
 //    @Test
 //    public void visitoEdificiosDosVeces(){
 //        Banco banco = new Banco();
@@ -77,9 +74,9 @@ public class PoliciaTest {
 //        agente.explorarSitio(banco, pistas);
 //        agente.explorarSitio(aeropuerto, pistas);
 //
-//        assertEquals(3, reloj.darHora());
+//        assertEquals(3, agente.mirarLaHora());
 //    }
-
+//
 //    @Test
 //    public void visitoEdificiosTresVeces(){
 //        Banco banco = new Banco();
@@ -90,7 +87,8 @@ public class PoliciaTest {
 //        agente.explorarSitio(puerto, pistas);
 //        agente.explorarSitio(bolsa, pistas);
 //
-//        assertEquals(6, reloj.darHora());
+//        assertEquals(6, agente.mirarLaHora());
+//
 //    }
 
 }

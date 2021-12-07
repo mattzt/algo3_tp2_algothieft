@@ -30,16 +30,17 @@ public class Policia {
 
     public void viajarApais(Pais paisDestino) throws FileNotFoundException {
         reloj.avanzarReloj(paisEnDondeEstoy.distanciaA(paisDestino) / rango.velocidadViaje());
+        horasAvanzar = 1;
         paisEnDondeEstoy = paisDestino;
     }
 
     public Pista explorarSitio(Edificio unEdificio, RepositorioPistas pistas){
         reloj.avanzarReloj(horasAvanzar);
 
-        if((horasAvanzar + 1) > 3)
-            horasAvanzar = 1;
-        else
+        if(horasAvanzar < 3)
             horasAvanzar++;
+        else
+            horasAvanzar = 3;
 
         return unEdificio.visitar(pistas);
     }
