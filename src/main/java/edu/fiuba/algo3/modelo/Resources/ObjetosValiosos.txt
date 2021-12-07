@@ -1,2 +1,30 @@
-NombreObjeto    Origen  Valor
-Tesoro Nacional de Montreal Montreal    1
+NombreObjeto,Origen,Valor
+Tesoro Nacional de Montreal,Canada,1
+Huevo de 1000 años,China,1
+Tabla de Babilonia,Irak,1
+Colmillo de jabali,NuevaGuinea,1
+Candelabro de la opera,Australia,1
+Crucifijo de constantinopla,Turquia,1
+Corona real,Inglaterra,1
+Alfombra voladora,Irak,1
+Buda de oro,Tailandia,1
+Mascara de oro Inca,Peru,1
+Manuscrito Islamico,Mali,1
+Corona de Ivan,Rusia,1
+Mascara de Tutankamon,Egipto,1
+Mascara de Moctezuma,Mexico,1
+Mascara de Priamo,Grecia,1
+Leon dorado,Singapur,1
+Pintura del Kremlim,Rusia,1
+Anillo del papa,Italia,1
+Vasija del imperio,Mali,1
+Planta de te,SriLanka,1
+Cuarzo real,Nepal,1
+Rubi,SriLanka,1
+Llama de plata,Peru,1
+Bola de oro solida,Argentina,1
+Copa de Stanley,Canada,1
+Guacamayo,Brasil,1
+Rockettes,USA,1
+Casco vikingo,Noruega,1
+Corona del rey de Kigali,Ruanda,1

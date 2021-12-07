@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Fachada.Fachada;
+import edu.fiuba.algo3.modelo.Factory.CreadorPaises;
 import edu.fiuba.algo3.modelo.Factory.Factory;
 import edu.fiuba.algo3.modelo.Paises.Paises;
 import org.junit.jupiter.api.Assertions;
@@ -8,9 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class FachadaTest {
     Fachada calcDistancia;
@@ -45,10 +44,10 @@ public class FachadaTest {
     }
 
     @Test
-    public void crearPaisesFuncionaCorrectamente() throws FileNotFoundException {
-        Factory factory = new Factory();
+    public void crearPaisesFuncionaCorrectamente() throws FileNotFoundException, NoExisteError {
+        Factory factory = new CreadorPaises();
         String rutaDataPaises = "src/main/java/edu/fiuba/algo3/modelo/Resources/DataPaises.txt";
-        Paises paises = factory.crearPaises(rutaDataPaises);
+        Paises paises = (Paises) factory.crear(rutaDataPaises);
         Assertions.assertEquals(30,paises.size());
     }
 }
