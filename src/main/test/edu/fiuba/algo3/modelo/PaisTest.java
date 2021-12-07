@@ -35,7 +35,6 @@ public class PaisTest {
         paisesConexos = mock(Paises.class);
         edificiosPublicos = mock(Edificios.class);
         unEdificio = mock(Edificio.class);
-        argentina.setCalculadoraDistancia(calcDist);
         argentina.setPaisesConexos(paisesConexos);
         argentina.setEdificios(edificiosPublicos);
 

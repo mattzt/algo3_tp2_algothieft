@@ -7,23 +7,13 @@ public class Objeto {
     Pais origenObjeto;
     int valorObjeto;
 
-    public Pais getCiudadDeOrigen(){
-        return origenObjeto;
+    public Objeto(String nombre, Pais paisOrigen, int valor){
+        nombreObjeto = nombre;
+        origenObjeto = paisOrigen;
+        valorObjeto = valor;
     }
 
-    public int getValor(){
-        return valorObjeto;
-    }
-
-    public void setNombreObjeto(String nombreObjeto) {
-        this.nombreObjeto = nombreObjeto;
-    }
-
-    public void setOrigenObjeto(Pais origenObjeto) {
-        this.origenObjeto = origenObjeto;
-    }
-
-    public void setValorObjeto(int valorObjeto) {
-        this.valorObjeto = valorObjeto;
+    public boolean equals(String nombre) {
+        return nombreObjeto.equals(nombre);
     }
 }

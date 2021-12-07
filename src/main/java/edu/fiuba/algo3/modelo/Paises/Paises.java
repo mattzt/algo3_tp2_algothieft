@@ -1,38 +1,29 @@
 package edu.fiuba.algo3.modelo.Paises;
 
-import edu.fiuba.algo3.modelo.Fachada.Fachada;
+import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
+import edu.fiuba.algo3.modelo.Listas.Listable;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-public class Paises {
-    private ArrayList<Pais> paises;
-    private Fachada creadorDePaises;
+public class Paises implements Listable {
+    private final ArrayList<Pais> paises;
 
     public Paises() {
         paises = new ArrayList<>();
     }
 
-    public void agregarPais(Pais nuevoPais) {
+    public void agregar(Pais nuevoPais) {
         paises.add(nuevoPais);
     }
 
-    public Paises crearPaises() throws FileNotFoundException {
-        return creadorDePaises.crearPaises();
-    }
-
-    public Pais buscarPais(String nombrePais) throws PaisNoExisteError {
+    public Pais buscar(String nombrePais) throws NoExisteError {
         for(Pais pais: paises){
             if (pais.equals(nombrePais)) return pais;
         }
-        throw new PaisNoExisteError("El país no esta creado");
+        throw new NoExisteError("El país no esta creado");
     }
 
     public int size() {
         return paises.size();
-    }
-
-    public void setCreadorDePaises(Fachada creadorDePaises) {
-        this.creadorDePaises = creadorDePaises;
     }
 }
