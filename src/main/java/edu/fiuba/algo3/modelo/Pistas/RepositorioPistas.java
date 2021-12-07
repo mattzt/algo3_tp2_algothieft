@@ -28,12 +28,21 @@ public class RepositorioPistas {
         Pista pistaActual = null;
         while(iterador.hasNext()){
             pistaActual = iterador.next();
-            if(pistaActual.esTipo(edificio)){
+            if(pistaActual.esTipo(edificio)){break; }
+        }
+        return pistaActual;
+    }
+
+    public void eliminarPista(Pista pista){
+        Iterator<Pista> iterador = posiblesPistas.iterator();
+        Pista pistaActual = null;
+        while(iterador.hasNext()){
+            pistaActual = iterador.next();
+            if(pistaActual.es(pista)){
                 posiblesPistas.remove(pistaActual);
                 break;
             }
         }
-        return pistaActual;
     }
 
 
