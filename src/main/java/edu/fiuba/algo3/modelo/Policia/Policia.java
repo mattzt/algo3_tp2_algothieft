@@ -45,7 +45,7 @@ public class Policia {
     }
 
     public void computarDatosLadron(){
-        computadora.IngresarDatos();
+        computadora.ingresarDatos();
     }
 
     public void dormir(){

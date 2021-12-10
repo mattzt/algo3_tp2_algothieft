@@ -2,23 +2,19 @@ package edu.fiuba.algo3.modelo;
 
 
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ComputadoraInterpolTest {
+    ComputadoraInterpol computadora;
 
-    @Test
-    public void createTest()
-    {
-        String rutaAtributos = "src/main/java/edu/fiuba/algo3/modelo/Resources/atributos.txt";
-        ComputadoraInterpol compu = new ComputadoraInterpol(rutaAtributos);
+    @BeforeEach
+    public void setUp(){
+        computadora = new ComputadoraInterpol();
     }
 
-
     @Test
-    public void ingresarDatos()
-    {
-        String rutaAtributos = "src/main/java/edu/fiuba/algo3/modelo/Resources/atributos.txt";
-        ComputadoraInterpol compu = new ComputadoraInterpol(rutaAtributos);
-        compu.IngresarDatos();
+    public void computadoraTomaDatos(){
+        computadora.ingresarDatos();
     }
 }

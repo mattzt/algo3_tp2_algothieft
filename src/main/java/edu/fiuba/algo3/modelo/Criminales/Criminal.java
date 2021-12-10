@@ -19,4 +19,19 @@ public class Criminal {
         int indexSexo = 0;
         return caracteristicas.get(indexSexo).valor();
     }
+
+    public boolean tieneCaracteristica(Caracteristicas caracteristica){
+        String leida;
+        String buscada = caracteristica.valor();
+        boolean encontrada = false;
+        int i = 0;
+
+        while((!encontrada) && (i < caracteristicas.size())){
+            leida = caracteristicas.get(i).valor();
+            if(buscada == leida)
+                encontrada = true;
+            i++;
+        }
+        return encontrada;
+    }
 }
