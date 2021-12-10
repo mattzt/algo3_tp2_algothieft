@@ -20,15 +20,14 @@ public class Criminal {
         return caracteristicas.get(indexSexo).valor();
     }
 
-    public boolean tieneCaracteristica(Caracteristicas caracteristica){
-        String leida;
-        String buscada = caracteristica.valor();
+    public boolean tieneCaracteristica(Caracteristicas buscada){
+        Caracteristicas leida;
         boolean encontrada = false;
         int i = 0;
 
         while((!encontrada) && (i < caracteristicas.size())){
-            leida = caracteristicas.get(i).valor();
-            if(buscada == leida)
+            leida = caracteristicas.get(i);
+            if(leida.equals(buscada))
                 encontrada = true;
             i++;
         }
