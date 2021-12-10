@@ -74,7 +74,7 @@ public class RegistradorInput {
         Scanner scanner = new Scanner(System.in);
         int opcion;
         Caracteristicas caracteristica = null;
-        System.out.println("De que sexo es el criminal?\n" +
+        System.out.println("Cual es el hobbie del criminal?\n" +
                 "1- Mountain Climbing\n" +
                 "2- Tennis\n" +
                 "3- Croquett\n" +
@@ -110,7 +110,7 @@ public class RegistradorInput {
         Scanner scanner = new Scanner(System.in);
         int opcion;
         Caracteristicas caracteristica = null;
-        System.out.println("De que sexo es el criminal?\n" +
+        System.out.println("Como tiene el pelo el criminal?\n" +
                 "1- Blond\n" +
                 "2- Black\n" +
                 "3- Red\n" +
@@ -146,7 +146,7 @@ public class RegistradorInput {
         Scanner scanner = new Scanner(System.in);
         int opcion;
         Caracteristicas caracteristica = null;
-        System.out.println("De que sexo es el criminal?\n" +
+        System.out.println("Que accesorio lleva el criminal?\n" +
                 "1- Tattoo\n" +
                 "2- Ring\n" +
                 "3- Jewelry\n" +
@@ -182,7 +182,7 @@ public class RegistradorInput {
         Scanner scanner = new Scanner(System.in);
         int opcion;
         Caracteristicas caracteristica = null;
-        System.out.println("De que sexo es el criminal?\n" +
+        System.out.println("Vehiculo usa el criminal?\n" +
                 "1- Limousine\n" +
                 "2- Convertible\n" +
                 "3- Motorcycle\n" +
