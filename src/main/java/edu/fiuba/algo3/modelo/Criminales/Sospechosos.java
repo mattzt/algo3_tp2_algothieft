@@ -24,4 +24,8 @@ public class Sospechosos {
             }
         }
     }
+
+    public int cantidadSospechosos(){
+        return sospechosos.size();
+    }
 }

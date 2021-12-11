@@ -13,4 +13,12 @@ import static org.mockito.Mockito.*;
 
 public class ComputadoraInterpolTest {
     ComputadoraInterpol computadora;
+
+
+    @BeforeEach
+    public void setUp(){
+        computadora = new ComputadoraInterpol();
+
+    }
+
 }

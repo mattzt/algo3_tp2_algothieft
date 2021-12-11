@@ -12,7 +12,7 @@ public class ComputadoraInterpol{
         sospechosos = new Sospechosos();
     }
 
-    public void ingresarDatos(){
+    public void ingresarDatosSospechoso(){
         int input = registradorInput.pedirCaracteristica();
         Caracteristicas caracteristica = registradorInput.procesarInput(input);
 
@@ -21,5 +21,13 @@ public class ComputadoraInterpol{
             caracteristica = registradorInput.procesarInput(input);
         }
         sospechosos.filtrarSospechosos(caracteristica);
+    }
+
+    public boolean sePuedeEmitirOrden(){
+        if(sospechosos.cantidadSospechosos() == 1) {
+            System.out.println("Aun no podes emitir una orden de arresto! Quedan mas de 1 sospechosos posibles\n");
+            return false;
+        }
+        return true;
     }
 }
