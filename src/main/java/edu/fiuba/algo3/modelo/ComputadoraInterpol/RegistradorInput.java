@@ -13,7 +13,7 @@ public class RegistradorInput {
 
     public int pedirCaracteristica() {
         Scanner scanner = new Scanner(System.in);
-        int opcion;
+        int opcion = 0;
         System.out.println("Que caracteristica desea agregar?\n" +
                 "1- Sexo\n" +
                 "2- Hobbie\n" +
@@ -21,46 +21,38 @@ public class RegistradorInput {
                 "4- Accesorio\n" +
                 "5- Vehiculo\n");
 
-        try {
-            opcion = scanner.nextInt();
-            while (opcion <= 0 || opcion > 5){
+        do {
+            try {
+                System.out.println("Ingrese un numero del 1 al 5");
                 opcion = scanner.nextInt();
+            } catch (InputMismatchException e) {
                 System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 5");
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 5");
-            opcion = scanner.nextInt();
-            while (opcion <= 0 || opcion > 5) {
-                System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 5");
-                opcion = scanner.nextInt();
-            }
-        }
+            scanner.nextLine();
+        } while (opcion <= 0 || opcion > 5);
+
         return opcion;
     }
 
     private Caracteristicas pedirSexo(){
         Scanner scanner = new Scanner(System.in);
-        int opcion;
+        int opcion = 0;
         Caracteristicas caracteristica = null;
         System.out.println("De que sexo es el criminal?\n" +
                 "1- Masculino\n" +
                 "2- Femenino\n" +
                 "3- Volver\n");
 
-        try{
-            opcion = scanner.nextInt();
-            while(opcion <= 0 || opcion > 3) {
-                System.out.println("Este input no es valido. Debe ser un numero entre 1 y 3");
+        do {
+            try {
+                System.out.println("Ingrese un numero del 1 al 3");
                 opcion = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 3");
             }
-        } catch (InputMismatchException e){
-            System.out.println("Este input no es valido. Debe ser un numero entre 1 y 3");
-            opcion = scanner.nextInt();
-            while(opcion <= 0 || opcion > 3) {
-                System.out.println("Este input no es valido. Debe ser un numero entre 1 y 3");
-                opcion = scanner.nextInt();
-            }
-        }
+            scanner.nextLine();
+        } while (opcion <= 0 || opcion > 5);
+
         if (opcion == 1)
             caracteristica = new SexoMasculino();
 
@@ -72,7 +64,7 @@ public class RegistradorInput {
 
     private Caracteristicas pedirHobbie(){
         Scanner scanner = new Scanner(System.in);
-        int opcion;
+        int opcion = 0;
         Caracteristicas caracteristica = null;
         System.out.println("Cual es el hobbie del criminal?\n" +
                 "1- Mountain Climbing\n" +
@@ -80,20 +72,16 @@ public class RegistradorInput {
                 "3- Croquett\n" +
                 "4- Volver\n");
 
-        try{
-            opcion = scanner.nextInt();
-            while(opcion <= 0 || opcion > 4) {
-                System.out.println("Este input no es valido. Debe ser un numero entre 1 y 4");
+        do {
+            try {
+                System.out.println("Ingrese un numero del 1 al 4");
                 opcion = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 4");
             }
-        } catch (InputMismatchException e){
-            System.out.println("Este input no es valido. Debe ser un numero entre 1 y 4");
-            opcion = scanner.nextInt();
-            while(opcion <= 0 || opcion > 4) {
-                System.out.println("Este input no es valido. Debe ser un numero entre 1 y 4");
-                opcion = scanner.nextInt();
-            }
-        }
+            scanner.nextLine();
+        } while (opcion <= 0 || opcion > 5);
+
         if (opcion == 1)
             caracteristica = new MountainClimbing();
 
@@ -108,7 +96,7 @@ public class RegistradorInput {
 
     private Caracteristicas pedirPelo(){
         Scanner scanner = new Scanner(System.in);
-        int opcion;
+        int opcion = 0;
         Caracteristicas caracteristica = null;
         System.out.println("Como tiene el pelo el criminal?\n" +
                 "1- Blond\n" +
@@ -116,20 +104,16 @@ public class RegistradorInput {
                 "3- Red\n" +
                 "4- Volver\n");
 
-        try{
-            opcion = scanner.nextInt();
-            while(opcion <= 0 || opcion > 4) {
-                System.out.println("Este input no es valido. Debe ser un numero entre 1 y 4");
+        do {
+            try {
+                System.out.println("Ingrese un numero del 1 al 4");
                 opcion = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 4");
             }
-        } catch (InputMismatchException e){
-            System.out.println("Este input no es valido. Debe ser un numero entre 1 y 4");
-            opcion = scanner.nextInt();
-            while(opcion <= 0 || opcion > 4) {
-                System.out.println("Este input no es valido. Debe ser un numero entre 1 y 4");
-                opcion = scanner.nextInt();
-            }
-        }
+            scanner.nextLine();
+        } while (opcion <= 0 || opcion > 5);
+
         if (opcion == 1)
             caracteristica = new Blond();
 
@@ -144,7 +128,7 @@ public class RegistradorInput {
 
     private Caracteristicas pedirAccesorio(){
         Scanner scanner = new Scanner(System.in);
-        int opcion;
+        int opcion = 0;
         Caracteristicas caracteristica = null;
         System.out.println("Que accesorio lleva el criminal?\n" +
                 "1- Tattoo\n" +
@@ -152,20 +136,16 @@ public class RegistradorInput {
                 "3- Jewelry\n" +
                 "4- Volver\n");
 
-        try{
-            opcion = scanner.nextInt();
-            while(opcion <= 0 || opcion > 4) {
-                System.out.println("Este input no es valido. Debe ser un numero entre 1 y 4");
+        do {
+            try {
+                System.out.println("Ingrese un numero del 1 al 4");
                 opcion = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 4");
             }
-        } catch (InputMismatchException e){
-            System.out.println("Este input no es valido. Debe ser un numero entre 1 y 4");
-            opcion = scanner.nextInt();
-            while(opcion <= 0 || opcion > 4) {
-                System.out.println("Este input no es valido. Debe ser un numero entre 1 y 4");
-                opcion = scanner.nextInt();
-            }
-        }
+            scanner.nextLine();
+        } while (opcion <= 0 || opcion > 5);
+
         if (opcion == 1)
             caracteristica = new Tattoo();
 
@@ -180,7 +160,7 @@ public class RegistradorInput {
 
     private Caracteristicas pedirVehiculo(){
         Scanner scanner = new Scanner(System.in);
-        int opcion;
+        int opcion = 0;
         Caracteristicas caracteristica = null;
         System.out.println("Vehiculo usa el criminal?\n" +
                 "1- Limousine\n" +
@@ -188,20 +168,16 @@ public class RegistradorInput {
                 "3- Motorcycle\n" +
                 "4- Volver\n");
 
-        try{
-            opcion = scanner.nextInt();
-            while(opcion <= 0 || opcion > 4) {
-                System.out.println("Este input no es valido. Debe ser un numero entre 1 y 4");
+        do {
+            try {
+                System.out.println("Ingrese un numero del 1 al 4");
                 opcion = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 4");
             }
-        } catch (InputMismatchException e){
-            System.out.println("Este input no es valido. Debe ser un numero entre 1 y 4");
-            opcion = scanner.nextInt();
-            while(opcion <= 0 || opcion > 4) {
-                System.out.println("Este input no es valido. Debe ser un numero entre 1 y 4");
-                opcion = scanner.nextInt();
-            }
-        }
+            scanner.nextLine();
+        } while (opcion <= 0 || opcion > 5);
+
         if (opcion == 1)
             caracteristica = new Blond();
 
