@@ -1,14 +1,14 @@
-package edu.fiuba.algo3.modelo.Pelo;
+package edu.fiuba.algo3.modelo.Accesorios;
 
 import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
 import edu.fiuba.algo3.modelo.Pistas.PistaCaracteristicasCriminal;
 
 import java.util.Objects;
 
-public class Blond implements Caracteristicas {
+public class Cicatriz implements Caracteristicas {
     @Override
     public String valor() {
-        return "Blond";
+        return "Cicatriz";
     }
 
     @Override

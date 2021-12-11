@@ -5,10 +5,10 @@ import edu.fiuba.algo3.modelo.Pistas.PistaCaracteristicasCriminal;
 
 import java.util.Objects;
 
-public class Convertible implements Caracteristicas {
+public class Limusina implements Caracteristicas {
     @Override
     public String valor() {
-        return "Convertible";
+        return "Limusina";
     }
 
     @Override

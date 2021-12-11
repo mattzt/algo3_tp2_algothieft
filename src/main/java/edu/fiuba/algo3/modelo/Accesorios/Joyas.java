@@ -1,14 +1,14 @@
-package edu.fiuba.algo3.modelo.Vehiculo;
+package edu.fiuba.algo3.modelo.Accesorios;
 
 import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
 import edu.fiuba.algo3.modelo.Pistas.PistaCaracteristicasCriminal;
 
 import java.util.Objects;
 
-public class Limousine implements Caracteristicas {
+public class Joyas implements Caracteristicas {
     @Override
     public String valor() {
-        return "Limousine";
+        return "Joyas";
     }
 
     @Override

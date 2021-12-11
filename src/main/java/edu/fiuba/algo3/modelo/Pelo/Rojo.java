@@ -1,15 +1,14 @@
-package edu.fiuba.algo3.modelo.Hobbies;
+package edu.fiuba.algo3.modelo.Pelo;
 
 import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
 import edu.fiuba.algo3.modelo.Pistas.PistaCaracteristicasCriminal;
 
 import java.util.Objects;
 
-public class Tennis implements Caracteristicas {
-
+public class Rojo implements Caracteristicas {
     @Override
     public String valor() {
-        return "Tennis";
+        return "Rojo";
     }
 
     @Override

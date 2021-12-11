@@ -5,10 +5,10 @@ import edu.fiuba.algo3.modelo.Pistas.PistaCaracteristicasCriminal;
 
 import java.util.Objects;
 
-public class Ring implements Caracteristicas {
+public class Tatuaje implements Caracteristicas {
     @Override
     public String valor() {
-        return "Ring";
+        return "Tattoo";
     }
 
     @Override

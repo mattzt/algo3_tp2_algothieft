@@ -5,6 +5,10 @@ import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
 import edu.fiuba.algo3.modelo.Hobbies.*;
 import edu.fiuba.algo3.modelo.Pelo.*;
 import edu.fiuba.algo3.modelo.Sexo.*;
+import edu.fiuba.algo3.modelo.Vehiculo.Deportivo;
+import edu.fiuba.algo3.modelo.Vehiculo.Descapotable;
+import edu.fiuba.algo3.modelo.Vehiculo.Limusina;
+import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -51,7 +55,7 @@ public class RegistradorInput {
                 System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 3");
             }
             scanner.nextLine();
-        } while (opcion <= 0 || opcion > 5);
+        } while (opcion <= 0 || opcion > 3);
 
         if (opcion == 1)
             caracteristica = new SexoMasculino();
@@ -62,15 +66,46 @@ public class RegistradorInput {
         return caracteristica;
     }
 
+    private Caracteristicas evaluarHobbie(int opcion){
+        Caracteristicas caracteristica;
+        switch (opcion){
+            case 1:
+                caracteristica = new Alpinismo();
+                break;
+            case 2:
+                caracteristica = new Tenis();
+                break;
+            case 3:
+                caracteristica = new Croquet();
+                break;
+            case 4:
+                caracteristica = new Musica();
+                break;
+            case 5:
+                caracteristica = new Natacion();
+                break;
+            case 6:
+                caracteristica = new Paracaidismo();
+                break;
+            default:
+                caracteristica = null;
+                break;
+        }
+        return caracteristica;
+    }
+
     private Caracteristicas pedirHobbie(){
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
-        Caracteristicas caracteristica = null;
+        Caracteristicas caracteristica;
         System.out.println("Cual es el hobbie del criminal?\n" +
-                "1- Mountain Climbing\n" +
-                "2- Tennis\n" +
-                "3- Croquett\n" +
-                "4- Volver\n");
+                "1- Alpinismo\n" +
+                "2- Tenis\n" +
+                "3- Croquet\n" +
+                "4- Musica\n" +
+                "5- Natacion\n" +
+                "6- Paracaidismo\n" +
+                "7- Volver\n");
 
         do {
             try {
@@ -80,16 +115,9 @@ public class RegistradorInput {
                 System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 4");
             }
             scanner.nextLine();
-        } while (opcion <= 0 || opcion > 5);
+        } while (opcion <= 0 || opcion > 7);
 
-        if (opcion == 1)
-            caracteristica = new MountainClimbing();
-
-        else if(opcion == 2)
-            caracteristica = new Tennis();
-
-        else if(opcion == 3)
-            caracteristica = new Croquet();
+        caracteristica = evaluarHobbie(opcion);
 
         return caracteristica;
     }
@@ -99,29 +127,33 @@ public class RegistradorInput {
         int opcion = 0;
         Caracteristicas caracteristica = null;
         System.out.println("Como tiene el pelo el criminal?\n" +
-                "1- Blond\n" +
-                "2- Black\n" +
-                "3- Red\n" +
-                "4- Volver\n");
+                "1- Rubio\n" +
+                "2- Negro\n" +
+                "3- Rojo\n" +
+                "4- Castanio\n" +
+                "5- Volver");
 
         do {
             try {
-                System.out.println("Ingrese un numero del 1 al 4");
+                System.out.println("Ingrese un numero del 1 al 5");
                 opcion = scanner.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 4");
+                System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 5");
             }
             scanner.nextLine();
         } while (opcion <= 0 || opcion > 5);
 
         if (opcion == 1)
-            caracteristica = new Blond();
+            caracteristica = new Rubio();
 
         else if(opcion == 2)
-            caracteristica = new Black();
+            caracteristica = new Negro();
 
         else if(opcion == 3)
-            caracteristica = new Red();
+            caracteristica = new Rojo();
+
+        else if(opcion == 4)
+            caracteristica = new Castanio();
 
         return caracteristica;
     }
@@ -131,29 +163,33 @@ public class RegistradorInput {
         int opcion = 0;
         Caracteristicas caracteristica = null;
         System.out.println("Que accesorio lleva el criminal?\n" +
-                "1- Tattoo\n" +
-                "2- Ring\n" +
-                "3- Jewelry\n" +
-                "4- Volver\n");
+                "1- Tatuaje\n" +
+                "2- Anillo\n" +
+                "3- Joyas\n" +
+                "4- Cicatriz\n" +
+                "5- Volver");
 
         do {
             try {
-                System.out.println("Ingrese un numero del 1 al 4");
+                System.out.println("Ingrese un numero del 1 al 5");
                 opcion = scanner.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 4");
+                System.out.println("Este input no es valido, intente nuevamente. Debe ser un entero del 1 al 5");
             }
             scanner.nextLine();
         } while (opcion <= 0 || opcion > 5);
 
         if (opcion == 1)
-            caracteristica = new Tattoo();
+            caracteristica = new Tatuaje();
 
         else if(opcion == 2)
-            caracteristica = new Ring();
+            caracteristica = new Anillo();
 
         else if(opcion == 3)
-            caracteristica = new Jewelry();
+            caracteristica = new Joyas();
+
+        else if(opcion == 4)
+            caracteristica = new Cicatriz();
 
         return caracteristica;
     }
@@ -163,10 +199,11 @@ public class RegistradorInput {
         int opcion = 0;
         Caracteristicas caracteristica = null;
         System.out.println("Vehiculo usa el criminal?\n" +
-                "1- Limousine\n" +
-                "2- Convertible\n" +
-                "3- Motorcycle\n" +
-                "4- Volver\n");
+                "1- Limusina\n" +
+                "2- Descapotable\n" +
+                "3- Moto\n" +
+                "4- Deportivo\n" +
+                "5- Volver");
 
         do {
             try {
@@ -179,13 +216,16 @@ public class RegistradorInput {
         } while (opcion <= 0 || opcion > 5);
 
         if (opcion == 1)
-            caracteristica = new Blond();
+            caracteristica = new Limusina();
 
         else if(opcion == 2)
-            caracteristica = new Black();
+            caracteristica = new Descapotable();
 
         else if(opcion == 3)
-            caracteristica = new Red();
+            caracteristica = new Moto();
+
+        else if(opcion == 4)
+            caracteristica = new Deportivo();
 
         return caracteristica;
     }
