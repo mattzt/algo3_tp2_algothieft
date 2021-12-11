@@ -13,7 +13,6 @@ public class Pais {
     private String ciudadDestacada;
     private Paises paisesConexos;
     private Edificios edificiosPublicos;
-    private Fachada calcDist;
 
     public Pais(String nombrePais, String nombreCiudadDestacada){
         nombre = nombrePais;
@@ -22,6 +21,7 @@ public class Pais {
 
     public int distanciaA(Pais otroPais) throws FileNotFoundException {
             String nombrePaisDestino = otroPais.getNombre();
+            Fachada calcDist = new Fachada();
             return calcDist.calcularDistanciaDeHasta(nombre,nombrePaisDestino);
     }
 
@@ -39,10 +39,6 @@ public class Pais {
 
     public void setEdificios(Edificios edificios){
         edificiosPublicos = edificios;
-    }
-
-    public void setCalculadoraDistancia(Fachada unaCalculadora){
-        calcDist = unaCalculadora;
     }
 
     public Edificios getEdificios() {

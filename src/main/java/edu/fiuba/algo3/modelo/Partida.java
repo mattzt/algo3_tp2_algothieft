@@ -1,5 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
+import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
+import edu.fiuba.algo3.modelo.Factory.CreadorObjetos;
+import edu.fiuba.algo3.modelo.Factory.CreadorPaises;
+import edu.fiuba.algo3.modelo.Factory.CreadorPistas;
+import edu.fiuba.algo3.modelo.Factory.Factory;
+import edu.fiuba.algo3.modelo.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
@@ -8,9 +15,19 @@ import java.io.IOException;
 public class Partida {
     private Policia policia;
     private RepositorioPistas repositorioPistas;
+    private Paises paises;
+    private ObjetosValiosos listaDeObjetos;
 
-    public Partida(Policia policia) throws IOException {
-        repositorioPistas = new RepositorioPistas(policia);
+    CreadorPaises factoryPaises = new CreadorPaises();
+    Factory factory = new CreadorObjetos(paises);
+
+    public Partida() throws IOException, NoExisteError {
+        CreadorPaises factoryPaises = new CreadorPaises();
+        paises = factoryPaises.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/DataPaises.txt");
+        CreadorObjetos factoryObjetos = new CreadorObjetos(paises);
+        listaDeObjetos = (ObjetosValiosos) factoryObjetos.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/ObjetosValiosos.txt");
+        CreadorPistas factoryPistas = new CreadorPaises();
+        repositorioPistas = factoryPistas.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt");
     }
 
     public RepositorioPistas obtenerPistas(){

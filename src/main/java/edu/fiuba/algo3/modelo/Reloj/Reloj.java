@@ -23,4 +23,13 @@ public class Reloj {
     public Boolean equals(String dia, int hora){
         return this.dia.diaDeHoy().equals(dia) && (this.hora==hora);
     }
+
+    public int verHora() {
+        return hora;
+    }
+
+    public void reset() {
+        hora = 0;
+        dia = new Lunes();
+    }
 }

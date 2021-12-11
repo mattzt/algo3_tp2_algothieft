@@ -1,48 +1,33 @@
 package edu.fiuba.algo3.modelo.ComputadoraInterpol;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.Scanner;
+import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
+import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 
-public class ComputadoraInterpol
-{
+public class ComputadoraInterpol{
+    RegistradorInput registradorInput;
+    Sospechosos sospechosos;
 
-    private ArrayList<String[]> matrizAtributos = new ArrayList();
-    public ComputadoraInterpol(String rutaAtributos)  {
-        try {
-            BufferedReader lector = new BufferedReader(new FileReader(rutaAtributos));
-            String linea;
-            String[] lineaProcesada;
-            int index = 0;
-            while ((linea = lector.readLine()) != null)
-            {
-
-                linea = lector.readLine();
-                lineaProcesada = linea.split(",");
-                matrizAtributos.add(index, lineaProcesada);
-                index++;
-            }
-            lector.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    public ComputadoraInterpol(){
+        registradorInput = new RegistradorInput();
+        sospechosos = new Sospechosos();
     }
 
-    public void IngresarDatos() 
-    {
-        System.out.println("Seleccion con boto 0 al n, el atributo deseado o enter para nulo");
-        for (String[] atributos: matrizAtributos)
-        {
-            for (String dato: atributos)
-            {
-                System.out.print(dato + " ");
-            }
-            Scanner entrada = new Scanner(System.in);
-            System.out.println("\n" + entrada.nextInt());
-            System.out.println("");
+    public void ingresarDatosSospechoso(){
+        int input = registradorInput.pedirCaracteristica();
+        Caracteristicas caracteristica = registradorInput.procesarInput(input);
+
+        while(caracteristica == null){
+            input = registradorInput.pedirCaracteristica();
+            caracteristica = registradorInput.procesarInput(input);
         }
+        sospechosos.filtrarSospechosos(caracteristica);
+    }
+
+    public boolean sePuedeEmitirOrden(){
+        if(sospechosos.cantidadSospechosos() == 1) {
+            System.out.println("Aun no podes emitir una orden de arresto! Quedan mas de 1 sospechosos posibles\n");
+            return false;
+        }
+        return true;
     }
 }

@@ -46,51 +46,51 @@ public class PoliciaTest {
     public void computarDatosLadron() {
     }
 
-    @Test
-    public void dormir() {
-        //Al inicio la hora deberia ser las 00.
-        assertEquals(reloj.darHora(), 0);
-        agente.dormir();
-        assertEquals(reloj.darHora(), 8);
-
-    }
+//    @Test
+//    public void dormir() {
+//        //Al inicio la hora deberia ser las 00.
+//        assertEquals(reloj.darHora(), 0);
+//        agente.dormir();
+//        assertEquals(reloj.darHora(), 8);
+//
+//    }
 
     @Test
     public void recibirDanio() {
     }
 
-    @Test
-    public void visitoEdificioUnaVez(){
-        Banco banco = new Banco();
+//    @Test
+//    public void visitoEdificioUnaVez(){
+//        Banco banco = new Banco();
+//
+//        agente.explorarSitio(banco, pistas);
+//
+//        assertEquals(1, reloj.darHora());
+//
+//    }
 
-        agente.explorarSitio(banco, pistas);
+//    @Test
+//    public void visitoEdificiosDosVeces(){
+//        Banco banco = new Banco();
+//        Aeropuerto aeropuerto = new Aeropuerto();
+//
+//        agente.explorarSitio(banco, pistas);
+//        agente.explorarSitio(aeropuerto, pistas);
+//
+//        assertEquals(3, reloj.darHora());
+//    }
 
-        assertEquals(1, reloj.darHora());
-
-    }
-
-    @Test
-    public void visitoEdificiosDosVeces(){
-        Banco banco = new Banco();
-        Aeropuerto aeropuerto = new Aeropuerto();
-
-        agente.explorarSitio(banco, pistas);
-        agente.explorarSitio(aeropuerto, pistas);
-
-        assertEquals(3, reloj.darHora());
-    }
-
-    @Test
-    public void visitoEdificiosTresVeces(){
-        Banco banco = new Banco();
-        Puerto puerto = new Puerto();
-        Bolsa bolsa = new Bolsa();
-
-        agente.explorarSitio(banco, pistas);
-        agente.explorarSitio(puerto, pistas);
-        agente.explorarSitio(bolsa, pistas);
-
-        assertEquals(6, reloj.darHora());
-    }
+//    @Test
+//    public void visitoEdificiosTresVeces(){
+//        Banco banco = new Banco();
+//        Puerto puerto = new Puerto();
+//        Bolsa bolsa = new Bolsa();
+//
+//        agente.explorarSitio(banco, pistas);
+//        agente.explorarSitio(puerto, pistas);
+//        agente.explorarSitio(bolsa, pistas);
+//
+//        assertEquals(6, reloj.darHora());
+//    }
 
 }
