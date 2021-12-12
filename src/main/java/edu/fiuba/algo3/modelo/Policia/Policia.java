@@ -44,7 +44,13 @@ public class Policia {
     }
 
     public void computarDatosLadron(){
-        computadora.IngresarDatos();
+        computadora.ingresarDatosSospechoso();
+    }
+
+    public void emitirOrdenArresto(){
+        if(computadora.sePuedeEmitirOrden()) {
+            reloj.avanzarReloj(3);
+        }
     }
 
     public void dormir(){

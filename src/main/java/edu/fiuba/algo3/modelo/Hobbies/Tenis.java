@@ -1,21 +1,20 @@
-package edu.fiuba.algo3.modelo.Sexo;
+package edu.fiuba.algo3.modelo.Hobbies;
 
 import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
 import edu.fiuba.algo3.modelo.Pistas.PistaCaracteristicasCriminal;
 
 import java.util.Objects;
 
-public class SexoFemenino implements Sexo{
-    public SexoFemenino(){}
+public class Tenis implements Caracteristicas {
 
     @Override
     public String valor() {
-        return "Femenino";
+        return "Tenis";
     }
 
     @Override
     public PistaCaracteristicasCriminal darPista() {
-        return new PistaCaracteristicasCriminal("Vi a una mujer");
+        return null;
     }
 
     @Override

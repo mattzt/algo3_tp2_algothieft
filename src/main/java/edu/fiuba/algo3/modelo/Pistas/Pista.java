@@ -7,6 +7,10 @@ public abstract class Pista {
     public String pista;
 
 
+    public Boolean es(Pista pista){
+        return (pista==this);
+    }
+
     public String darPista(){
         return pista;
     }
