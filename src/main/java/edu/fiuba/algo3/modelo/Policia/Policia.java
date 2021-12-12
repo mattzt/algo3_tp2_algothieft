@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Reloj.Reloj;
-import edu.fiuba.algo3.modelo.Reloj.SingletonReloj;
 
 import java.io.FileNotFoundException;
 
