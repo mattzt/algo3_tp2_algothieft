@@ -4,8 +4,8 @@ package edu.fiuba.algo3.modelo.Factory;
 import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.Caso.Objeto;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
-import edu.fiuba.algo3.modelo.Paises.Pais;
-import edu.fiuba.algo3.modelo.Paises.Paises;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 
 import java.io.File;
 import java.io.FileNotFoundException;

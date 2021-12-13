@@ -3,13 +3,13 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Factory.CreadorPaises;
 import edu.fiuba.algo3.modelo.Factory.Factory;
-import edu.fiuba.algo3.modelo.Paises.Pais;
-import edu.fiuba.algo3.modelo.Paises.Paises;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,16 +32,16 @@ public class PaisesTest {
     }
 
     @Test
-    public void crearPaises() throws FileNotFoundException, NoExisteError {
+    public void crearPaises() throws IOException, NoExisteError {
         todosLosPaises = (Paises) factory.crear(rutaArchivoDistancias);
         Assertions.assertEquals(30,todosLosPaises.size());
     }
 
     @Test
-    public void buscarPais() throws NoExisteError, FileNotFoundException {
+    public void buscarPais() throws NoExisteError, IOException {
         todosLosPaises = (Paises) factory.crear(rutaArchivoDistancias);
-        Pais buscado = todosLosPaises.buscar("Argentina");
-        assertTrue(buscado.equals("Argentina"));
+        Pais argentina = todosLosPaises.buscar("Argentina");
+        assertEquals("Argentina", argentina.getNombre());
     }
 
     @Test

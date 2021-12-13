@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Factory;
 
-import edu.fiuba.algo3.modelo.Paises.Pais;
-import edu.fiuba.algo3.modelo.Paises.Paises;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 
 import java.io.File;
 import java.io.FileNotFoundException;

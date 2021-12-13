@@ -1,17 +1,16 @@
 package edu.fiuba.algo3.modelo;
 
-import com.tngtech.archunit.lang.ArchRule;
 import edu.fiuba.algo3.modelo.Caso.Objeto;
 import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Factory.CreadorObjetos;
 import edu.fiuba.algo3.modelo.Factory.CreadorPaises;
 import edu.fiuba.algo3.modelo.Factory.Factory;
-import edu.fiuba.algo3.modelo.Paises.Paises;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -22,7 +21,7 @@ public class ObjetosTest {
     Factory factory = new CreadorObjetos(paises);
     ObjetosValiosos listaDeObjetos = (ObjetosValiosos) factory.crear(rutaArchivoObjetos);
 
-    public ObjetosTest() throws FileNotFoundException, NoExisteError {
+    public ObjetosTest() throws IOException, NoExisteError {
     }
 
     @Test

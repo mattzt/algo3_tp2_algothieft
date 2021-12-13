@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Edificios;
-import edu.fiuba.algo3.modelo.Fachada.Fachada;
-import edu.fiuba.algo3.modelo.Paises.Pais;
-import edu.fiuba.algo3.modelo.Paises.Paises;
+import edu.fiuba.algo3.modelo.Mapa.MapaDistancias;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import org.junit.jupiter.api.Assertions;
@@ -18,33 +18,25 @@ import java.io.FileNotFoundException;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PaisTest {
-    Pais argentina;
-    Fachada calcDist;
-    Pista unaPista;
-    Edificio unEdificio;
-    Paises paisesConexos;
-    Edificios edificiosPublicos;
-    RepositorioPistas pistas;
+    Pais argentina = new Pais("Argentina","Buenos Aires");
+    MapaDistancias calcDist = mock(MapaDistancias.class);
+    Pista unaPista = mock(Pista.class);
+    Edificio unEdificio = mock(Edificio.class);
+    Paises paisesConexos = mock(Paises.class);
+    Edificios edificiosPublicos = mock(Edificios.class);
+    RepositorioPistas pistas = mock(RepositorioPistas.class);
 
     @BeforeEach
     public void init() throws FileNotFoundException {
-        argentina = new Pais("Argentina","Buenos Aires");
-        calcDist = mock(Fachada.class);
-        unaPista = mock(Pista.class);
-        pistas = mock(RepositorioPistas.class);
-        paisesConexos = mock(Paises.class);
-        edificiosPublicos = mock(Edificios.class);
-        unEdificio = mock(Edificio.class);
         argentina.setPaisesConexos(paisesConexos);
         argentina.setEdificios(edificiosPublicos);
-
         when(calcDist.calcularDistanciaDeHasta("Argentina","Peru")).thenReturn(3138);
         when(unEdificio.visitar(pistas)).thenReturn(unaPista);
     }
 
     @Test
     public void paisSeCreaCorrectamente(){
-        Assertions.assertTrue(argentina.equals("Argentina"));
+        Assertions.assertEquals("Argentina",argentina.getNombre());
     }
 
     @Test
