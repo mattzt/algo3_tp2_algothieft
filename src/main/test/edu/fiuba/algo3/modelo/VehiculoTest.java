@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Vehiculo.*;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Deportivo;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Descapotable;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Limusina;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Moto;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
