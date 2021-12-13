@@ -14,11 +14,11 @@ public class ComputadoraInterpol{
 
     public void ingresarDatosSospechoso(){
         int input = registradorInput.pedirCaracteristica();
-        Caracteristicas caracteristica = registradorInput.procesarInput(input);
+        Caracteristicas caracteristica = registradorInput.mostrarOpciones(input);
 
         while(caracteristica == null){
             input = registradorInput.pedirCaracteristica();
-            caracteristica = registradorInput.procesarInput(input);
+            caracteristica = registradorInput.mostrarOpciones(input);
         }
         sospechosos.filtrarSospechosos(caracteristica);
     }

@@ -8,7 +8,7 @@ import java.util.Objects;
 public class Tatuaje implements Caracteristicas {
     @Override
     public String valor() {
-        return "Tattoo";
+        return "Tatuaje";
     }
 
     @Override

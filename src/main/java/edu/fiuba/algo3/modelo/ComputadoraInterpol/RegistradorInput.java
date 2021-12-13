@@ -1,19 +1,16 @@
 package edu.fiuba.algo3.modelo.ComputadoraInterpol;
 
-import edu.fiuba.algo3.modelo.Accesorios.*;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
-import edu.fiuba.algo3.modelo.Hobbies.*;
-import edu.fiuba.algo3.modelo.Pelo.*;
-import edu.fiuba.algo3.modelo.Sexo.*;
-import edu.fiuba.algo3.modelo.Vehiculo.Deportivo;
-import edu.fiuba.algo3.modelo.Vehiculo.Descapotable;
-import edu.fiuba.algo3.modelo.Vehiculo.Limusina;
-import edu.fiuba.algo3.modelo.Vehiculo.Moto;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class RegistradorInput {
+    private final ProcesadorInput procesadorInput;
+
+    public RegistradorInput(){
+        procesadorInput = new ProcesadorInput();
+    }
 
     public int pedirCaracteristica() {
         Scanner scanner = new Scanner(System.in);
@@ -41,7 +38,6 @@ public class RegistradorInput {
     private Caracteristicas pedirSexo(){
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
-        Caracteristicas caracteristica = null;
         System.out.println("De que sexo es el criminal?\n" +
                 "1- Masculino\n" +
                 "2- Femenino\n" +
@@ -57,47 +53,12 @@ public class RegistradorInput {
             scanner.nextLine();
         } while (opcion <= 0 || opcion > 3);
 
-        if (opcion == 1)
-            caracteristica = new SexoMasculino();
-
-        else if(opcion == 2)
-            caracteristica = new SexoFemenino();
-
-        return caracteristica;
-    }
-
-    private Caracteristicas evaluarHobbie(int opcion){
-        Caracteristicas caracteristica;
-        switch (opcion){
-            case 1:
-                caracteristica = new Alpinismo();
-                break;
-            case 2:
-                caracteristica = new Tenis();
-                break;
-            case 3:
-                caracteristica = new Croquet();
-                break;
-            case 4:
-                caracteristica = new Musica();
-                break;
-            case 5:
-                caracteristica = new Natacion();
-                break;
-            case 6:
-                caracteristica = new Paracaidismo();
-                break;
-            default:
-                caracteristica = null;
-                break;
-        }
-        return caracteristica;
+        return procesadorInput.procesarSexo(opcion);
     }
 
     private Caracteristicas pedirHobbie(){
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
-        Caracteristicas caracteristica;
         System.out.println("Cual es el hobbie del criminal?\n" +
                 "1- Alpinismo\n" +
                 "2- Tenis\n" +
@@ -117,15 +78,12 @@ public class RegistradorInput {
             scanner.nextLine();
         } while (opcion <= 0 || opcion > 7);
 
-        caracteristica = evaluarHobbie(opcion);
-
-        return caracteristica;
+        return procesadorInput.procesarHobbie(opcion);
     }
 
     private Caracteristicas pedirPelo(){
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
-        Caracteristicas caracteristica = null;
         System.out.println("Como tiene el pelo el criminal?\n" +
                 "1- Rubio\n" +
                 "2- Negro\n" +
@@ -143,25 +101,12 @@ public class RegistradorInput {
             scanner.nextLine();
         } while (opcion <= 0 || opcion > 5);
 
-        if (opcion == 1)
-            caracteristica = new Rubio();
-
-        else if(opcion == 2)
-            caracteristica = new Negro();
-
-        else if(opcion == 3)
-            caracteristica = new Rojo();
-
-        else if(opcion == 4)
-            caracteristica = new Castanio();
-
-        return caracteristica;
+        return procesadorInput.procesarPelo(opcion);
     }
 
     private Caracteristicas pedirAccesorio(){
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
-        Caracteristicas caracteristica = null;
         System.out.println("Que accesorio lleva el criminal?\n" +
                 "1- Tatuaje\n" +
                 "2- Anillo\n" +
@@ -179,19 +124,7 @@ public class RegistradorInput {
             scanner.nextLine();
         } while (opcion <= 0 || opcion > 5);
 
-        if (opcion == 1)
-            caracteristica = new Tatuaje();
-
-        else if(opcion == 2)
-            caracteristica = new Anillo();
-
-        else if(opcion == 3)
-            caracteristica = new Joyas();
-
-        else if(opcion == 4)
-            caracteristica = new Cicatriz();
-
-        return caracteristica;
+        return procesadorInput.procesarAccesorio(opcion);
     }
 
     private Caracteristicas pedirVehiculo(){
@@ -215,22 +148,10 @@ public class RegistradorInput {
             scanner.nextLine();
         } while (opcion <= 0 || opcion > 5);
 
-        if (opcion == 1)
-            caracteristica = new Limusina();
-
-        else if(opcion == 2)
-            caracteristica = new Descapotable();
-
-        else if(opcion == 3)
-            caracteristica = new Moto();
-
-        else if(opcion == 4)
-            caracteristica = new Deportivo();
-
-        return caracteristica;
+        return procesadorInput.procesarVehiculo(opcion);
     }
 
-    public Caracteristicas procesarInput(int input){
+    public Caracteristicas mostrarOpciones(int input){
         Caracteristicas caracteristica = null;
         switch (input){
              case 1:
