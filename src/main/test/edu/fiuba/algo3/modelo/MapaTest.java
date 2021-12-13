@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class FachadaTest {
+public class MapaTest {
     MapaDistancias calcDistancia;
 
     @BeforeEach

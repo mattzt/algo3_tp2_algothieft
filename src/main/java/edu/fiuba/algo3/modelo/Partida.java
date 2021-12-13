@@ -18,9 +18,6 @@ public class Partida {
     private Paises paises;
     private ObjetosValiosos listaDeObjetos;
 
-    CreadorPaises factoryPaises = new CreadorPaises();
-    Factory factory = new CreadorObjetos(paises);
-
     public Partida(Policia nuevoPoli) throws IOException, NoExisteError {
         CreadorPaises factoryPaises = new CreadorPaises();
         paises = factoryPaises.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/DataPaises.txt");

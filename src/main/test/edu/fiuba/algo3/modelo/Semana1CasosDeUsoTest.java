@@ -21,7 +21,7 @@ import org.junit.jupiter.api.Test;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class CasosDeUsoTest {
+public class Semana1CasosDeUsoTest {
     Factory creador = new CreadorPaises();
     Paises todosLosPaises = (Paises) creador.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/DataPaises.txt");
     Pais canada = todosLosPaises.buscar("Canada");
@@ -36,7 +36,7 @@ public class CasosDeUsoTest {
     String[] sexoDelCriminal = {"Femenino","El sospechoso era una mujer"};
     Criminal criminal = new Criminal(sexoDelCriminal,null,null,null,null);
 
-    public CasosDeUsoTest() throws IOException, NoExisteError {
+    public Semana1CasosDeUsoTest() throws IOException, NoExisteError {
     }
 
     @Test
