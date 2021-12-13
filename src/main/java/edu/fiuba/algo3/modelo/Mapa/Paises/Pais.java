@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Mapa.Paises;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Edificios;
-import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Mapa.MapaDistancias;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 
@@ -21,7 +21,7 @@ public class Pais {
 
     public int distanciaA(Pais otroPais) throws FileNotFoundException {
             String nombrePaisDestino = otroPais.getNombre();
-            Mapa mapaDistancias = new Mapa();
+            MapaDistancias mapaDistancias = new MapaDistancias();
             return mapaDistancias.calcularDistanciaDeHasta(nombre,nombrePaisDestino);
     }
 

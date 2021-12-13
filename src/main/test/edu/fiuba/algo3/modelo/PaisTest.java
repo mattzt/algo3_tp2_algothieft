@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Edificios;
-import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Mapa.MapaDistancias;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
@@ -19,7 +19,7 @@ import java.io.FileNotFoundException;
 @RunWith(MockitoJUnitRunner.class)
 public class PaisTest {
     Pais argentina = new Pais("Argentina","Buenos Aires");
-    Mapa calcDist = mock(Mapa.class);
+    MapaDistancias calcDist = mock(MapaDistancias.class);
     Pista unaPista = mock(Pista.class);
     Edificio unEdificio = mock(Edificio.class);
     Paises paisesConexos = mock(Paises.class);

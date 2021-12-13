@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Factory;
 
-import edu.fiuba.algo3.modelo.Listas.Listable;
+import edu.fiuba.algo3.modelo.Listable;
 import edu.fiuba.algo3.modelo.Pistas.*;
 
 import java.io.*;

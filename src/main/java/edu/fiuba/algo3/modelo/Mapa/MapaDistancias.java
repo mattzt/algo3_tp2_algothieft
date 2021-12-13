@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class Mapa {
+public class MapaDistancias {
     private final HashMap<String,Integer> dataDistPaises;
 
-    public Mapa(){
+    public MapaDistancias(){
         dataDistPaises = new HashMap<>();
     }
 

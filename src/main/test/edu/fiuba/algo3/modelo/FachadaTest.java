@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
-import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Mapa.MapaDistancias;
 import edu.fiuba.algo3.modelo.Factory.CreadorPaises;
 import edu.fiuba.algo3.modelo.Factory.Factory;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
@@ -13,11 +13,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class FachadaTest {
-    Mapa calcDistancia;
+    MapaDistancias calcDistancia;
 
     @BeforeEach
     public void setUp() {
-        calcDistancia = new Mapa();
+        calcDistancia = new MapaDistancias();
     }
 
     @Test

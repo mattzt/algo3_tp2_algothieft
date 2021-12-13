@@ -1,7 +1,7 @@
 package edu.fiuba.algo3.modelo.Pistas;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Listas.Listable;
+import edu.fiuba.algo3.modelo.Listable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -27,5 +27,8 @@ public class RepositorioPistas implements Listable {
     }
 
 
-
+    @Override
+    public int size() {
+        return posiblesPistas.size();
+    }
 }
