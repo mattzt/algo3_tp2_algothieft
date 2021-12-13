@@ -36,7 +36,7 @@ public class PaisTest {
 
     @Test
     public void paisSeCreaCorrectamente(){
-        Assertions.assertTrue(argentina.equals("Argentina"));
+        Assertions.assertEquals("Argentina",argentina.getNombre());
     }
 
     @Test

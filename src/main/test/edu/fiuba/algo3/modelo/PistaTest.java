@@ -15,18 +15,19 @@ public class PistaTest {
 
     Policia nuevoPoli;
     Partida partida;
+    Pais rusia;
 
 
     @BeforeEach
     public void setUp() throws NoExisteError, IOException {
-        Pais canada = new Pais("Rusia", "Moscu");
-        nuevoPoli = new Policia("Carlos",canada);
+        rusia = new Pais("Rusia", "Moscu");
+        nuevoPoli = new Policia("Carlos",rusia);
         partida = new Partida(nuevoPoli);
     }
 
     @Test
     public void pidePistaBancariaSeLADa() {
-        Assertions.assertTrue(nuevoPoli.seEncuentraEn("Moscu"));
+        Assertions.assertTrue(nuevoPoli.seEncuentraEn(rusia));
         Pista unaPista = nuevoPoli.explorarSitio(new Banco(), partida.obtenerPistas());
         Assertions.assertEquals("Dijo que queria cambiar su dinero por Rublos", (unaPista.darPista()));
         Pista unaPistaNueva = nuevoPoli.explorarSitio(new Biblioteca(), partida.obtenerPistas());

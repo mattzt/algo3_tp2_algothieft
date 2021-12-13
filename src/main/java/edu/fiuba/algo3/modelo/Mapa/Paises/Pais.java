@@ -9,8 +9,8 @@ import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import java.io.FileNotFoundException;
 
 public class Pais {
-    private String nombre;
-    private String ciudadDestacada;
+    private final String nombre;
+    private final String ciudadDestacada;
     private Paises paisesConexos;
     private Edificios edificiosPublicos;
 
@@ -49,7 +49,8 @@ public class Pais {
         return paisesConexos;
     }
 
-    public boolean equals(String unNombre){
+    public boolean equals(Pais unPais){
+        String unNombre = unPais.getNombre();
         return nombre.equals(unNombre) || ciudadDestacada.equals(unNombre);
     }
 }

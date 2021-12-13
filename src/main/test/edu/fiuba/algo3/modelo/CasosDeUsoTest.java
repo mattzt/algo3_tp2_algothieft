@@ -42,7 +42,7 @@ public class CasosDeUsoTest {
     @Test
     public void casoDeUso1() {
         Pista unaPista = nuevoPoli.explorarSitio(unBanco,repo);
-        Assertions.assertTrue(nuevoPoli.seEncuentraEn("Montreal"));
+        Assertions.assertTrue(nuevoPoli.seEncuentraEn(canada));
         Assertions.assertTrue(tesoroMontreal.equals("Tesoro Nacional de Montreal"));
         Assertions.assertEquals(criminal.sexo(),"Femenino");
         Assertions.assertEquals(PistaBanco.class,unaPista.getClass());
@@ -65,7 +65,7 @@ public class CasosDeUsoTest {
         nuevoPoli.resetearReloj();
         Pais mexico = todosLosPaises.buscar("Mexico");
         nuevoPoli.viajarApais(mexico);
-        Assertions.assertTrue(nuevoPoli.seEncuentraEn("Mexico"));
+        Assertions.assertTrue(nuevoPoli.seEncuentraEn(mexico));
         Assertions.assertEquals(4,nuevoPoli.mirarLaHora());
     }
 

@@ -40,8 +40,8 @@ public class PaisesTest {
     @Test
     public void buscarPais() throws NoExisteError, IOException {
         todosLosPaises = (Paises) factory.crear(rutaArchivoDistancias);
-        Pais buscado = todosLosPaises.buscar("Argentina");
-        assertTrue(buscado.equals("Argentina"));
+        Pais argentina = todosLosPaises.buscar("Argentina");
+        assertEquals("Argentina", argentina.getNombre());
     }
 
     @Test

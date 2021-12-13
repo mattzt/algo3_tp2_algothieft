@@ -18,7 +18,7 @@ public class Paises implements Listable {
 
     public Pais buscar(String nombrePais) throws NoExisteError {
         for(Pais pais: paises){
-            if (pais.equals(nombrePais)) return pais;
+            if (nombrePais.equals(pais.getNombre())) return pais;
         }
         throw new NoExisteError("El país no esta creado");
     }

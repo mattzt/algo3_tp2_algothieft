@@ -65,7 +65,7 @@ public class Policia {
         return rango;
     }
 
-    public boolean seEncuentraEn(String unaCiudad) {
+    public boolean seEncuentraEn(Pais unaCiudad) {
         return paisEnDondeEstoy.equals(unaCiudad);
     }
 
