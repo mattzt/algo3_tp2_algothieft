@@ -5,19 +5,11 @@ import edu.fiuba.algo3.modelo.Pistas.PistaCaracteristicasCriminal;
 
 import java.util.Objects;
 
-public class Rojo implements Caracteristicas {
+public class Rojo extends Pelo {
     @Override
     public String valor() {
         return "Rojo";
     }
 
-    @Override
-    public PistaCaracteristicasCriminal darPista() {
-        return null;
-    }
 
-    @Override
-    public boolean equals(Caracteristicas recibida) {
-        return Objects.equals(this.valor(), recibida.valor());
-    }
 }

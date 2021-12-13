@@ -12,7 +12,7 @@ import java.io.FileNotFoundException;
 
 public class Policia {
     private final String nombre;
-    private final Rango rango;
+    private Rango rango;
     private ComputadoraInterpol computadora;
     private Pais paisEnDondeEstoy;
     private Reloj reloj;
@@ -51,6 +51,10 @@ public class Policia {
         if(computadora.sePuedeEmitirOrden()) {
             reloj.avanzarReloj(3);
         }
+    }
+
+    public void rangoPoliciaEs(Rango rangoIngresado){
+        rango = rangoIngresado;
     }
 
     public void dormir(){

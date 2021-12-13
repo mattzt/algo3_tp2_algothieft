@@ -1,6 +1,9 @@
 package edu.fiuba.algo3.modelo.Criminales;
 
+import edu.fiuba.algo3.modelo.Pistas.Pista;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Sospechosos {
     ArrayList<Criminal> sospechosos;
@@ -9,23 +12,24 @@ public class Sospechosos {
         sospechosos = new ArrayList<>();
     }
 
-    public Criminal buscarSospechosoLibre() {
-        return new Criminal(null,null,null,null,null);
-    }
-
-    public void filtrarSospechosos(Caracteristicas caracteristica){
-        Criminal criminal;
-        for(int i = 0; i < sospechosos.size(); i++){
-            criminal = sospechosos.get(i);
-
-            if(!criminal.tieneCaracteristica(caracteristica)){
-                sospechosos.remove(i);
-                i--;
-            }
-        }
+    public void agregarSospechoso(Criminal criminal){
+        sospechosos.add(criminal);
     }
 
     public int cantidadSospechosos(){
         return sospechosos.size();
+    }
+
+    public Sospechosos cumplenConCaracteristicas(Caracteristicas caracteristicas) {
+        Sospechosos nuevosSospechosos = new Sospechosos();
+        Iterator<Criminal> iterador = sospechosos.iterator();
+        Criminal criminalActual = null;
+        while(iterador.hasNext()){
+            criminalActual = iterador.next();
+            if(criminalActual.tieneCaracteristica(caracteristicas)){
+                nuevosSospechosos.agregarSospechoso(criminalActual);
+            }
+        }
+        return nuevosSospechosos;
     }
 }

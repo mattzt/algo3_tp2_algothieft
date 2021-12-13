@@ -29,7 +29,7 @@ public class ObjetosValiosos implements Listable {
         return listaDeObjetosValiosos.size();
     }
 
-    public Objeto robar(int nivelAgente) {
+    public Objeto robar() {
         return new Objeto("TestRobado",new Pais("TestPais","TestCiudad"),1);
     }
 }
