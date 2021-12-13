@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Policia;
 import edu.fiuba.algo3.modelo.Arma.Arma;
-import edu.fiuba.algo3.modelo.Paises.Pais;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Pistas.Pista;

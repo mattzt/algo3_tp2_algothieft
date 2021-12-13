@@ -1,7 +1,6 @@
 package edu.fiuba.algo3.modelo.Criminales;
 
-import edu.fiuba.algo3.modelo.Caso.Objeto;
-import edu.fiuba.algo3.modelo.Sexo.Sexo;
+import edu.fiuba.algo3.modelo.Criminales.Sexo.Sexo;
 
 import java.util.ArrayList;
 

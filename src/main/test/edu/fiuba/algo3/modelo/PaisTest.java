@@ -2,9 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Edificios.Edificios;
-import edu.fiuba.algo3.modelo.Fachada.Fachada;
-import edu.fiuba.algo3.modelo.Paises.Pais;
-import edu.fiuba.algo3.modelo.Paises.Paises;
+import edu.fiuba.algo3.modelo.Mapa.Mapa;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import org.junit.jupiter.api.Assertions;
@@ -19,7 +19,7 @@ import java.io.FileNotFoundException;
 @RunWith(MockitoJUnitRunner.class)
 public class PaisTest {
     Pais argentina = new Pais("Argentina","Buenos Aires");
-    Fachada calcDist = mock(Fachada.class);
+    Mapa calcDist = mock(Mapa.class);
     Pista unaPista = mock(Pista.class);
     Edificio unEdificio = mock(Edificio.class);
     Paises paisesConexos = mock(Paises.class);

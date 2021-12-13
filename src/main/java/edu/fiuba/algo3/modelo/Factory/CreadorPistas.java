@@ -1,22 +1,17 @@
 package edu.fiuba.algo3.modelo.Factory;
 
-import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Paises.Pais;
-import edu.fiuba.algo3.modelo.Paises.Paises;
+import edu.fiuba.algo3.modelo.Listas.Listable;
 import edu.fiuba.algo3.modelo.Pistas.*;
-import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Policia.Rango;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Hashtable;
 
 
 public class CreadorPistas implements Factory{
 
 
     @Override
-    public RepositorioPistas crear(String rutaArchivo) throws IOException {
+    public Listable crear(String rutaArchivo) throws IOException {
         ArrayList<Pista> posiblesPistas = cargarPistas(rutaArchivo);
         return new RepositorioPistas(posiblesPistas);
     }

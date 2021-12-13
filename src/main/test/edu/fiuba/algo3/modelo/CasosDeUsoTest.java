@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo;
 
-import com.tngtech.archunit.lang.ArchRule;
 import edu.fiuba.algo3.modelo.Arma.ArmaBlanca;
 import edu.fiuba.algo3.modelo.Caso.Objeto;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
@@ -10,12 +9,12 @@ import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
 import edu.fiuba.algo3.modelo.Edificios.Puerto;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Factory.CreadorPaises;
+import edu.fiuba.algo3.modelo.Factory.CreadorPistas;
 import edu.fiuba.algo3.modelo.Factory.Factory;
-import edu.fiuba.algo3.modelo.Paises.Pais;
-import edu.fiuba.algo3.modelo.Paises.Paises;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.*;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +31,8 @@ public class CasosDeUsoTest {
     Biblioteca unaBiblioteca = new Biblioteca();
     Aeropuerto unAeropuerto = new Aeropuerto();
     Puerto unPuerto = new Puerto();
-    RepositorioPistas repo = new RepositorioPistas(nuevoPoli);
+    CreadorPistas creadorPistas = new CreadorPistas();
+    RepositorioPistas repo = (RepositorioPistas) creadorPistas.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt");
     String[] sexoDelCriminal = {"Femenino","El sospechoso era una mujer"};
     Criminal criminal = new Criminal(sexoDelCriminal,null,null,null,null);
 

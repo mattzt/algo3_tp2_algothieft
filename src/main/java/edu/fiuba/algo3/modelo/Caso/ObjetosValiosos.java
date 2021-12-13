@@ -2,7 +2,7 @@ package edu.fiuba.algo3.modelo.Caso;
 
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Listas.Listable;
-import edu.fiuba.algo3.modelo.Paises.Pais;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 
 import java.util.ArrayList;
 

@@ -1,15 +1,11 @@
 package edu.fiuba.algo3.modelo.Pistas;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
-import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Policia.Rango;
-
-import java.io.*;
+import edu.fiuba.algo3.modelo.Listas.Listable;
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.Iterator;
 
-public class RepositorioPistas {
+public class RepositorioPistas implements Listable {
     ArrayList<Pista> posiblesPistas;
 
     public RepositorioPistas(ArrayList<Pista> pistas) {

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
-import edu.fiuba.algo3.modelo.Paises.Pais;
+import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
@@ -18,7 +19,7 @@ public class PoliciaTest {
 
 
      @BeforeEach
-     public void setUp() throws IOException {
+     public void setUp() throws IOException, NoExisteError {
          agente = new Policia("tobias", new Pais("Argentina","Buenos Aires"));
          partida = new Partida(agente);
          pistas = partida.obtenerPistas();

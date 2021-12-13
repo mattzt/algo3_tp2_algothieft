@@ -1,6 +1,6 @@
 package edu.fiuba.algo3.modelo.Caso;
 
-import edu.fiuba.algo3.modelo.Paises.Pais;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 
 public class Objeto {
     String nombreObjeto;

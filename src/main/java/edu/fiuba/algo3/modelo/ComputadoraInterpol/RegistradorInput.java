@@ -1,14 +1,14 @@
 package edu.fiuba.algo3.modelo.ComputadoraInterpol;
 
-import edu.fiuba.algo3.modelo.Accesorios.*;
+import edu.fiuba.algo3.modelo.Criminales.Accesorios.*;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
-import edu.fiuba.algo3.modelo.Hobbies.*;
-import edu.fiuba.algo3.modelo.Pelo.*;
-import edu.fiuba.algo3.modelo.Sexo.*;
-import edu.fiuba.algo3.modelo.Vehiculo.Deportivo;
-import edu.fiuba.algo3.modelo.Vehiculo.Descapotable;
-import edu.fiuba.algo3.modelo.Vehiculo.Limusina;
-import edu.fiuba.algo3.modelo.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Criminales.Hobbies.*;
+import edu.fiuba.algo3.modelo.Criminales.Pelo.*;
+import edu.fiuba.algo3.modelo.Criminales.Sexo.*;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Deportivo;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Descapotable;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Limusina;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Moto;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
