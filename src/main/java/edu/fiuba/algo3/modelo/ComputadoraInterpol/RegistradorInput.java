@@ -130,7 +130,6 @@ public class RegistradorInput {
     private Caracteristicas pedirVehiculo(){
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
-        Caracteristicas caracteristica = null;
         System.out.println("Vehiculo usa el criminal?\n" +
                 "1- Limusina\n" +
                 "2- Descapotable\n" +
