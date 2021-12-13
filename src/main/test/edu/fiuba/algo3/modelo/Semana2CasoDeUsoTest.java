@@ -4,7 +4,11 @@ import edu.fiuba.algo3.modelo.Arma.ArmaBlanca;
 import edu.fiuba.algo3.modelo.Caso.Caso;
 import edu.fiuba.algo3.modelo.Caso.Objeto;
 import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
+import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
+import edu.fiuba.algo3.modelo.Criminales.Pelo.Rubio;
+import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
 import edu.fiuba.algo3.modelo.Edificios.Banco;
@@ -33,6 +37,9 @@ public class Semana2CasoDeUsoTest {
     Pais canada = todosLosPaises.buscar("Canada");
     Pais mexico = todosLosPaises.buscar("Mexico");
     Policia nuevoPoli = new Policia("Carlos", canada);
+    ComputadoraInterpol computadora = nuevoPoli.obtenerComputadora();
+    Caracteristicas caracteristicas = new Caracteristicas(null, null, null, null, null);
+    Criminal sospechoso = new Criminal(caracteristicas);
     Caso caso = new Caso(new Sospechosos(), new ObjetosValiosos());
     Objeto tesoroMontreal = new Objeto("Tesoro Nacional de Montreal",canada,1);
     Banco unBanco = new Banco();
@@ -68,8 +75,10 @@ public class Semana2CasoDeUsoTest {
     }
 
     @Test
-    public void casoDeUso3() throws FileNotFoundException, NoExisteError {
-
+    public void casoDeUso3(){
+        nuevoPoli.agregarDatoSospechosoPelo(computadora, new Rubio());
+        nuevoPoli.agregarDatoSospechosoSexo(computadora, new SexoFemenino());
+        Assertions.assertEquals(Sospechosos.getClass(), computadora.buscarSospechosos());
     }
 
     @Test

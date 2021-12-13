@@ -1,5 +1,10 @@
 package edu.fiuba.algo3.modelo.Policia;
 import edu.fiuba.algo3.modelo.Arma.Arma;
+import edu.fiuba.algo3.modelo.Criminales.Accesorios.Accesorios;
+import edu.fiuba.algo3.modelo.Criminales.Hobbies.Hobbies;
+import edu.fiuba.algo3.modelo.Criminales.Pelo.Pelo;
+import edu.fiuba.algo3.modelo.Criminales.Sexo.Sexo;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Vehiculos;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
@@ -43,14 +48,31 @@ public class Policia {
         return unEdificio.visitar(pistas);
     }
 
-    public void computarDatosLadron(){
-        computadora.ingresarDatosSospechoso();
+    public void agregarDatoSospechosoAccesorio(ComputadoraInterpol computadora, Accesorios accesorio){
+        computadora.ingresarDatosAccesorios(accesorio);
     }
+    public void agregarDatoSospechosoHobbie(ComputadoraInterpol computadora, Hobbies hobbie){
+        computadora.ingresarDatosHobbies(hobbie);
+    }
+    public void agregarDatoSospechosoPelo(ComputadoraInterpol computadora, Pelo pelo){
+        computadora.ingresarDatosPelo(pelo);
+    }
+    public void agregarDatoSospechosoVehiculo(ComputadoraInterpol computadora, Vehiculos vehiculo){
+        computadora.ingresarDatosVehiculo(vehiculo);
+    }
+    public void agregarDatoSospechosoSexo(ComputadoraInterpol computadora, Sexo sexo){
+        computadora.ingresarDatosSexo(sexo);
+    }
+
 
     public void emitirOrdenArresto(){
         if(computadora.sePuedeEmitirOrden()) {
             reloj.avanzarReloj(3);
         }
+    }
+
+    public ComputadoraInterpol obtenerComputadora(){
+        return computadora;
     }
 
     public void rangoPoliciaEs(Rango rangoIngresado){
