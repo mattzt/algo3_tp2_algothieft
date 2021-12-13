@@ -1,12 +1,15 @@
 package edu.fiuba.algo3.modelo.Criminales.Sexo;
 
-import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
+public interface Sexo {
 
-public abstract class Sexo {
+    static Sexo crear(String unSexo){
+        if (unSexo.equals("Femenino")) return new SexoFemenino();
+        return new SexoMasculino();
+    }
 
-    public abstract String valor();
+    String valor();
 
-    public  boolean sexoEsIgualA(Sexo sexo){
-        return (sexo.getClass()==this.getClass());
+    default boolean sexoEsIgualA(Sexo sexo){
+        return this.valor().equals(sexo.valor());
     }
 }

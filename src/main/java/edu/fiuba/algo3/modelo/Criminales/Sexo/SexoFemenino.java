@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Pistas.PistaCaracteristicasCriminal;
 
 import java.util.Objects;
 
-public class SexoFemenino extends Sexo{
+public class SexoFemenino implements Sexo {
 
     @Override
     public String valor() {

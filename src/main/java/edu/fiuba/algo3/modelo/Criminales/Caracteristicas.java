@@ -6,6 +6,9 @@ import edu.fiuba.algo3.modelo.Criminales.Pelo.Pelo;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.Sexo;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Vehiculos;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Caracteristicas {
     private Sexo sexo;
     private Pelo pelo;
@@ -48,19 +51,19 @@ public class Caracteristicas {
         if (sexo.sexoEsIgualA(buscada.sexo())) {
             esIgual = true;
         }
-        if (pelo.peloEsIgualA(buscada.pelo())) {
-            esIgual = true;
+        if (esIgual && !pelo.peloEsIgualA(buscada.pelo())) {
+            esIgual = false;
         }
-        if (hobbies.hobbiesEsIgualA(buscada.hobbies())) {
-            esIgual = true;
+        if (esIgual && !hobbies.hobbiesEsIgualA(buscada.hobbies())) {
+            esIgual = false;
         }
-        if (accesorios.accesoriosEsIgualA(buscada.accesorios())) {
-            esIgual = true;
+        if (esIgual && !accesorios.accesoriosEsIgualA(buscada.accesorios())) {
+            esIgual = false;
         }
-        if (vehiculo.vehiculoEsIgualA(buscada.vehiculo())) {
-            esIgual = true;
+        if (esIgual && !vehiculo.vehiculoEsIgualA(buscada.vehiculo())) {
+            esIgual = false;
         }
-        return (esIgual == true);
+        return (esIgual);
     }
 
     public void establecerPelo(Pelo peloNuevo) {

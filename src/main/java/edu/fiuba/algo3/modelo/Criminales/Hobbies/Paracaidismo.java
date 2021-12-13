@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Pistas.PistaCaracteristicasCriminal;
 
 import java.util.Objects;
 
-public class Paracaidismo extends Hobbies {
+public class Paracaidismo implements Hobbies {
     @Override
     public String valor() {
         return "Paracaidismo";

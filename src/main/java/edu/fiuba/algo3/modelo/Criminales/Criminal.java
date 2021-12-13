@@ -1,13 +1,11 @@
 package edu.fiuba.algo3.modelo.Criminales;
 
-import edu.fiuba.algo3.modelo.Criminales.Sexo.Sexo;
-
-import java.util.ArrayList;
-
 public class Criminal {
+    String nombre;
     Caracteristicas caracteristicas;
 
-    public Criminal(Caracteristicas nuevasCaracteristicas){
+    public Criminal(String nombreCriminal,Caracteristicas nuevasCaracteristicas){
+        nombre = nombreCriminal;
         caracteristicas = nuevasCaracteristicas;
     }
 

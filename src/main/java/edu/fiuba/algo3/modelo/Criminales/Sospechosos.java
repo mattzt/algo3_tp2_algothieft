@@ -1,12 +1,12 @@
 package edu.fiuba.algo3.modelo.Criminales;
 
-import edu.fiuba.algo3.modelo.Pistas.Pista;
+import edu.fiuba.algo3.modelo.Listable;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Sospechosos {
-    ArrayList<Criminal> sospechosos;
+public class Sospechosos implements Listable {
+    private ArrayList<Criminal> sospechosos;
 
     public Sospechosos(){
         sospechosos = new ArrayList<>();
@@ -16,14 +16,10 @@ public class Sospechosos {
         sospechosos.add(criminal);
     }
 
-    public int cantidadSospechosos(){
-        return sospechosos.size();
-    }
-
     public Sospechosos cumplenConCaracteristicas(Caracteristicas caracteristicas) {
         Sospechosos nuevosSospechosos = new Sospechosos();
         Iterator<Criminal> iterador = sospechosos.iterator();
-        Criminal criminalActual = null;
+        Criminal criminalActual;
         while(iterador.hasNext()){
             criminalActual = iterador.next();
             if(criminalActual.tieneCaracteristica(caracteristicas)){
@@ -31,5 +27,10 @@ public class Sospechosos {
             }
         }
         return nuevosSospechosos;
+    }
+
+    @Override
+    public int size() {
+        return sospechosos.size();
     }
 }

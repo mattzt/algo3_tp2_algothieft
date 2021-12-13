@@ -1,10 +1,11 @@
-Nick Brunch    Male    Mountain Climbing    Black    Ring    Motorcyle
-Len Bulk    Male    Mountain Climbing    Red    Tattoo    Convertible
-Ihor Ihorovitch    Male    Croquet    Blond    Tattoo    Limousine
-Fast Eddie B.    Male    Croquet    Black    Jewelry    Convertible
-Scar Graynolt    Male    Croquet    Red    Ring    Limousine
-Merey Laroc    Female    Mountain Climbing    Brown    Jewelry    Limousine
-Lady Agatha    Female    Tennis    Red    Ring    Convertible
-Katherine Drib    Female    Mountain Climbing    Brown    Tattoo    Motorcycle
-Dazzle Annie    Female    Tennis    Blond    Tattoo    Limo
-Carmen Sandiego    Female    Tennis    Brown    Jewelry    Convertible
+Nombre,Sexo,Hobbie,Pelo,Accesorio,Vehiculo
+Nick Brunch,Masculino,Alpinismo,Negro,Anillo,Moto
+Len Bulk,Masculino,Alpinismo,Rojo,Tatuaje,Descapotable
+Ihor Ihorovitch,Masculino,Croquet,Rubio,Tatuaje,Limusina
+Fast Eddie B.,Masculino,Croquet,Negro,Joyas,Descapotable
+Scar Graynolt,Masculino,Croquet,Rojo,Ring,Limusina
+Merey Laroc,Femenino,Alpinismo,Castanio,Joyas,Limusina
+Lady Agatha,Femenino,Tenis,Rojo,Ring,Descapotable
+Katherine Drib,Femenino,Alpinismo,Castanio,Tatuaje,Moto
+Dazzle Annie,Femenino,Tenis,Rubio,Tatuaje,Limusina
+Carmen Sandiego,Femenino,Tenis,Castanio,Joyas,Descapotable

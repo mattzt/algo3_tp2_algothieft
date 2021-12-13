@@ -5,7 +5,7 @@ import edu.fiuba.algo3.modelo.Pistas.PistaCaracteristicasCriminal;
 
 import java.util.Objects;
 
-public class Croquet extends Hobbies {
+public class Croquet implements Hobbies {
     @Override
     public String valor() {
         return "Croquet";
