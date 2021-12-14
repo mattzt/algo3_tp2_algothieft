@@ -25,4 +25,9 @@ public class ComputadoraInterpol{
     public void resetearSospechosos(){
         sospechosos.resetear();
     }
+
+    public String arrestar(OrdenDeArresto ordenDeArresto){
+        String orden = ordenDeArresto.arrestar();
+        return orden + " " + sospechosos.getNombreCulpable();
+    }
 }

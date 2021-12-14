@@ -1,4 +1,5 @@
 package edu.fiuba.algo3.modelo;
+import edu.fiuba.algo3.modelo.Arma.ArmaBlanca;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Edificios.*;
@@ -26,7 +27,7 @@ public class PoliciaTest {
      }
 
     @Test
-    public void explorarSitio(){
+    public void explorarSitio() {
         Banco banco = new Banco();
 
         Pista pista = agente.explorarSitio(banco, pistas);
@@ -35,11 +36,11 @@ public class PoliciaTest {
     }
 
     @Test
-    public void viajarApais() {
-    }
+    public void policiaEsHerido(){
+        ArmaBlanca arma = new ArmaBlanca();
+        arma.hacerDanio(agente);
 
-    @Test
-    public void computarDatosLadron() {
+        assertEquals(agente.mirarLaHora(), 2);
     }
 
 }

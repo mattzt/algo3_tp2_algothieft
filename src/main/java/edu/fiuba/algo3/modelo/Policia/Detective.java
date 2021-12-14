@@ -15,6 +15,8 @@ public class Detective extends Rango{
 
     @Override
     public Rango promover(){
+        if(casosResueltos < 10 && casosResueltos > 5)
+            return this;
         return new Investigador();
     }
 

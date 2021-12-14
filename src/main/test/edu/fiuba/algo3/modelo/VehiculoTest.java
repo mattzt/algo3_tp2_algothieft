@@ -1,36 +1,33 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Deportivo;
-import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Descapotable;
-import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Limusina;
-import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class VehiculoTest {
 
     @Test
     public void deportivoTest(){
         Deportivo deportivo = new Deportivo();
-        assertEquals("Deportivo", deportivo.valor());
+        assertTrue(deportivo.equals(new Deportivo()));
     }
 
     @Test
     public void descapotableTest(){
         Descapotable descapotable = new Descapotable();
-        assertEquals("Descapotable", descapotable.valor());
+        assertTrue(descapotable.equals(new Descapotable()));
     }
 
     @Test
     public void limusinaTest(){
         Limusina limusina = new Limusina();
-        assertEquals("Limusina", limusina.valor());
+        assertTrue(limusina.equals(new Limusina()));
     }
 
     @Test
     public void motoTest(){
         Moto moto = new Moto();
-        assertEquals("Moto", moto.valor());
+        assertTrue(moto.equals(new Moto()));
     }
 }

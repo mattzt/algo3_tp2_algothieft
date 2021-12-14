@@ -15,6 +15,8 @@ public class Novato extends Rango{
 
     @Override
     public Rango promover(){
+        if(casosResueltos < 5)
+            return this;
         return new Detective();
     }
 
