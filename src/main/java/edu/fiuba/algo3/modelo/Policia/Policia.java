@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo.Policia;
 import edu.fiuba.algo3.modelo.Arma.Arma;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.Emitida;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.NoEmitida;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.OrdenDeArresto;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Accesorios;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.Hobbies;
@@ -20,10 +23,10 @@ import java.io.FileNotFoundException;
 public class Policia {
     private final String nombre;
     private Rango rango;
-    private ComputadoraInterpol computadora;
     private Pais paisEnDondeEstoy;
     private Reloj reloj;
     private int horasAvanzar;
+    private OrdenDeArresto ordenDeArresto;
 
 
     public Policia(String nombrePolicia, Pais paisInicial){
@@ -32,6 +35,7 @@ public class Policia {
         paisEnDondeEstoy = paisInicial;
         reloj = new Reloj();
         horasAvanzar = 1;
+        ordenDeArresto = new NoEmitida();
     }
 
     public void viajarApais(Pais paisDestino) throws FileNotFoundException {
@@ -55,14 +59,11 @@ public class Policia {
     }
 
 
-    public void emitirOrdenArresto(){
+    public void emitirOrdenArresto(ComputadoraInterpol computadora){
         if(computadora.sePuedeEmitirOrden()) {
             reloj.avanzarReloj(3);
+            ordenDeArresto = new Emitida();
         }
-    }
-
-    public ComputadoraInterpol obtenerComputadora(){
-        return computadora;
     }
 
     public void rangoPoliciaEs(Rango rangoIngresado){
@@ -77,8 +78,8 @@ public class Policia {
         reloj.avanzarReloj(armaAtacante.tiempoIncapacitacion());
     }
 
-    public void arrestar(){
-
+    public String arrestar(ComputadoraInterpol computadora){
+        return computadora.arrestar(ordenDeArresto);
     }
 
     public Rango presentarPlaca(){

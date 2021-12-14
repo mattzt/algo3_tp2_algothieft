@@ -5,13 +5,16 @@ import edu.fiuba.algo3.modelo.Caso.Caso;
 import edu.fiuba.algo3.modelo.Caso.Objeto;
 import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
+import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Tatuaje;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.Tenis;
+import edu.fiuba.algo3.modelo.Criminales.Pelo.Castanio;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Rubio;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Descapotable;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Limusina;
 import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
 import edu.fiuba.algo3.modelo.Edificios.Banco;
@@ -41,7 +44,7 @@ public class Semana2CasoDeUsoTest {
     Pais canada = todosLosPaises.buscar("Canada");
     Pais mexico = todosLosPaises.buscar("Mexico");
     Policia nuevoPoli = new Policia("Carlos", canada);
-    ComputadoraInterpol computadora = nuevoPoli.obtenerComputadora();
+    ComputadoraInterpol computadora;
     Caracteristicas caracteristicas = new Caracteristicas(null, null, null, null, null);
     Criminal sospechoso = new Criminal("nombreCriminal",caracteristicas);
     Caso caso = new Caso(new Sospechosos(), new ObjetosValiosos());
@@ -93,7 +96,21 @@ public class Semana2CasoDeUsoTest {
     }
 
     @Test
-    public void casoDeUso4() {
+    public void casoDeUso4() throws FileNotFoundException {
+        CreadorCriminales creadorCriminales = new CreadorCriminales();
+        Sospechosos listaSospechosos = creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
+        computadora = new ComputadoraInterpol(listaSospechosos);
+
+        nuevoPoli.ingresarDato(computadora, new SexoFemenino());
+        nuevoPoli.ingresarDato(computadora, new Castanio());
+        nuevoPoli.ingresarDato(computadora, new Tenis());
+        nuevoPoli.ingresarDato(computadora, new Joyas());
+        nuevoPoli.ingresarDato(computadora, new Descapotable());
+
+        String arrestar = nuevoPoli.arrestar(computadora);
+
+        Assertions.assertEquals(arrestar, "No pudiste arrestar al criminal porque no tenias orden de arresto :( El criminal era Carmen Sandiego");
+
     }
 
     @Test
