@@ -10,11 +10,12 @@ public class Sospechosos implements Listable {
 
     public Sospechosos(){
         sospechosos = new ArrayList<>();
-        copia = sospechosos;
+        copia = new ArrayList<>();
     }
 
     public void agregarSospechoso(Criminal criminal){
         sospechosos.add(criminal);
+        copia.add(criminal);
     }
 
     public Sospechosos filtrar(Caracteristica caracteristica) {
@@ -22,6 +23,7 @@ public class Sospechosos implements Listable {
             Criminal criminal = sospechosos.get(i);
             if(!criminal.tieneCaracteristica(caracteristica)){
                 sospechosos.remove(i);
+                i--;
             }
         }
         return this;
@@ -30,5 +32,9 @@ public class Sospechosos implements Listable {
     @Override
     public int size() {
         return sospechosos.size();
+    }
+
+    public void resetear(){
+        sospechosos = copia;
     }
 }

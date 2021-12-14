@@ -24,4 +24,8 @@ public class ComputadoraInterpol{
         }
         return true;
     }
+
+    public void resetearSospechosos(){
+        sospechosos.resetear();
+    }
 }
