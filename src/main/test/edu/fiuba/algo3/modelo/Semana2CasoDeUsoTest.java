@@ -31,12 +31,15 @@ import edu.fiuba.algo3.modelo.Pistas.*;
 import edu.fiuba.algo3.modelo.Policia.Detective;
 import edu.fiuba.algo3.modelo.Policia.Investigador;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Policia.Rango;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.internal.junit.DefaultTestFinishedEvent;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class Semana2CasoDeUsoTest {
     Factory creador = new CreadorPaises();
@@ -68,12 +71,12 @@ public class Semana2CasoDeUsoTest {
     @Test
     public void casoDeUso2() throws FileNotFoundException {
         nuevoPoli.rangoPoliciaEs(new Investigador());
-        Assertions.assertTrue(nuevoPoli.seEncuentraEn(canada));
+        assertTrue(nuevoPoli.seEncuentraEn(canada));
         Assertions.assertEquals(0, nuevoPoli.mirarLaHora());
         caso.asignarCasoAPolicia(nuevoPoli);
         nuevoPoli.viajarApais(mexico);
-        Assertions.assertTrue(nuevoPoli.seEncuentraEn(mexico));
-        Assertions.assertTrue(nuevoPoli.mirarLaHora()>1);
+        assertTrue(nuevoPoli.seEncuentraEn(mexico));
+        assertTrue(nuevoPoli.mirarLaHora()>1);
     }
 
     @Test
@@ -108,13 +111,34 @@ public class Semana2CasoDeUsoTest {
 
     }
 
+    private void arrestarSeisVeces(){
+        for(int i = 0; i < 6; i ++) {
+            nuevoPoli.ingresarDato(computadora, new SexoFemenino());
+            nuevoPoli.ingresarDato(computadora, new Castanio());
+            nuevoPoli.ingresarDato(computadora, new Tenis());
+            nuevoPoli.ingresarDato(computadora, new Joyas());
+            nuevoPoli.ingresarDato(computadora, new Descapotable());
+
+            nuevoPoli.emitirOrdenArresto(computadora);
+
+            nuevoPoli.arrestar(computadora);
+
+            nuevoPoli.resetearSospechosos(computadora);
+        }
+    }
+
     @Test
     public void casoDeUso5() throws FileNotFoundException {
         CreadorCriminales creadorCriminales = new CreadorCriminales();
         Sospechosos listaSospechosos = creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
         computadora = new ComputadoraInterpol(listaSospechosos);
 
-        nuevoPoli.rangoPoliciaEs(new Detective());
+        arrestarSeisVeces();
+
+        Rango rangoNuevo =  nuevoPoli.presentarPlaca();
+
+        assertTrue(rangoNuevo.equals(new Detective()));
+
 
         Pais mexico = new Pais("Mexico", "Ciudad-de-Mexico");
         Objeto objetoRobado = new Objeto("Incan Gold Mask", mexico, 100);

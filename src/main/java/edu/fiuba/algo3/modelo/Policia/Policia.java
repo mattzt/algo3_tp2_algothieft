@@ -80,11 +80,15 @@ public class Policia {
 
     public String arrestar(ComputadoraInterpol computadora){
         rango.aumentarCasosResueltos();
-        rango.promover();
+        rango = rango.promover();
         String resultado =  computadora.arrestar(ordenDeArresto);
         ordenDeArresto = new NoEmitida();
 
         return resultado;
+    }
+
+    public void resetearSospechosos(ComputadoraInterpol computadora){
+        computadora.resetearSospechosos();
     }
 
     public Rango presentarPlaca(){

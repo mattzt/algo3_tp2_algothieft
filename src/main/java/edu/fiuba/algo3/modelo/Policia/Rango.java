@@ -12,4 +12,8 @@ public abstract class Rango
         casosResueltos++;
     }
 
+    public boolean equals(Rango otroRango){
+        return (this.velocidadViaje() == otroRango.velocidadViaje());
+    }
+
 }
