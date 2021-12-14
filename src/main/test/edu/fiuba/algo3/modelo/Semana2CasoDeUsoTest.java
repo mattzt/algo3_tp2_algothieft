@@ -85,6 +85,7 @@ public class Semana2CasoDeUsoTest {
         Sospechosos listaSospechosos = creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
         Sospechosos listaFiltrada;
         computadora = new ComputadoraInterpol(listaSospechosos);
+
         nuevoPoli.ingresarDato(computadora, new Rubio());
         nuevoPoli.ingresarDato(computadora, new SexoFemenino());
         nuevoPoli.ingresarDato(computadora, new Tenis());
@@ -111,21 +112,7 @@ public class Semana2CasoDeUsoTest {
 
     }
 
-    private void arrestarSeisVeces(){
-        for(int i = 0; i < 6; i ++) {
-            nuevoPoli.ingresarDato(computadora, new SexoFemenino());
-            nuevoPoli.ingresarDato(computadora, new Castanio());
-            nuevoPoli.ingresarDato(computadora, new Tenis());
-            nuevoPoli.ingresarDato(computadora, new Joyas());
-            nuevoPoli.ingresarDato(computadora, new Descapotable());
 
-            nuevoPoli.emitirOrdenArresto(computadora);
-
-            nuevoPoli.arrestar(computadora);
-
-            nuevoPoli.resetearSospechosos(computadora);
-        }
-    }
 
     @Test
     public void casoDeUso5() throws FileNotFoundException {
@@ -157,5 +144,23 @@ public class Semana2CasoDeUsoTest {
         String resultado = nuevoPoli.arrestar(computadora);
 
         Assertions.assertEquals(resultado, "Arrestaste al criminal!" + " El criminal era Carmen Sandiego");
+    }
+
+
+
+    private void arrestarSeisVeces(){
+        for(int i = 0; i < 6; i ++) {
+            nuevoPoli.ingresarDato(computadora, new SexoFemenino());
+            nuevoPoli.ingresarDato(computadora, new Castanio());
+            nuevoPoli.ingresarDato(computadora, new Tenis());
+            nuevoPoli.ingresarDato(computadora, new Joyas());
+            nuevoPoli.ingresarDato(computadora, new Descapotable());
+
+            nuevoPoli.emitirOrdenArresto(computadora);
+
+            nuevoPoli.arrestar(computadora);
+
+            nuevoPoli.resetearSospechosos(computadora);
+        }
     }
 }
