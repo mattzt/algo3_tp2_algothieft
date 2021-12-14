@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.modelo.Policia;
 import edu.fiuba.algo3.modelo.Arma.Arma;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Accesorios;
+import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.Hobbies;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Pelo;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.Sexo;
+import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Vehiculos;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
@@ -48,20 +50,8 @@ public class Policia {
         return unEdificio.visitar(pistas);
     }
 
-    public void agregarDatoSospechosoAccesorio(ComputadoraInterpol computadora, Accesorios accesorio){
-        computadora.ingresarDatosAccesorios(accesorio);
-    }
-    public void agregarDatoSospechosoHobbie(ComputadoraInterpol computadora, Hobbies hobbie){
-        computadora.ingresarDatosHobbies(hobbie);
-    }
-    public void agregarDatoSospechosoPelo(ComputadoraInterpol computadora, Pelo pelo){
-        computadora.ingresarDatosPelo(pelo);
-    }
-    public void agregarDatoSospechosoVehiculo(ComputadoraInterpol computadora, Vehiculos vehiculo){
-        computadora.ingresarDatosVehiculo(vehiculo);
-    }
-    public void agregarDatoSospechosoSexo(ComputadoraInterpol computadora, Sexo sexo){
-        computadora.ingresarDatosSexo(sexo);
+    public Sospechosos ingresarDato(ComputadoraInterpol computadora, Caracteristica caracteristica){
+        return computadora.ingresarCaracteristica(caracteristica);
     }
 
 

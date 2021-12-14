@@ -6,84 +6,33 @@ import edu.fiuba.algo3.modelo.Criminales.Pelo.Pelo;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.Sexo;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Vehiculos;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Caracteristicas {
-    private Sexo sexo;
-    private Pelo pelo;
-    private Hobbies hobbies;
-    private Accesorios accesorios;
-    private Vehiculos vehiculo;
+    private final ArrayList<Caracteristica> caracteristicas;
 
     public Caracteristicas(Sexo nuevoSexo, Pelo nuevoPelo, Hobbies nuevoHobbie, Accesorios nuevoAccesorio, Vehiculos nuevoVehiculo){
-        sexo = nuevoSexo;
-        pelo = nuevoPelo;
-        hobbies = nuevoHobbie;
-        accesorios = nuevoAccesorio;
-        vehiculo = nuevoVehiculo;
+        caracteristicas = new ArrayList<>();
+        caracteristicas.add(nuevoSexo);
+        caracteristicas.add(nuevoPelo);
+        caracteristicas.add(nuevoHobbie);
+        caracteristicas.add(nuevoAccesorio);
+        caracteristicas.add(nuevoVehiculo);
     }
 
-    public Sexo sexo(){
-        return sexo;
-    }
+    public boolean tiene(Caracteristica buscada){
+        int i = 0;
+        boolean encontrada = false;
+        Caracteristica leida;
 
-    public Pelo pelo(){
-        return pelo;
-    }
-
-    public Hobbies hobbies(){
-        return hobbies;
-    }
-
-    public Accesorios accesorios(){
-        return accesorios;
-    }
-
-    public Vehiculos vehiculo(){
-        return vehiculo;
-    }
-
-
-
-    public boolean tieneCaracteristicasIguales(Caracteristicas buscada) {
-        Boolean esIgual = false;
-        if (sexo.sexoEsIgualA(buscada.sexo())) {
-            esIgual = true;
+        while((!encontrada) && (i < caracteristicas.size())){
+            leida = caracteristicas.get(i);
+            if(leida.valor().equals(buscada.valor()))
+                encontrada = true;
+            i++;
         }
-        if (esIgual && !pelo.peloEsIgualA(buscada.pelo())) {
-            esIgual = false;
-        }
-        if (esIgual && !hobbies.hobbiesEsIgualA(buscada.hobbies())) {
-            esIgual = false;
-        }
-        if (esIgual && !accesorios.accesoriosEsIgualA(buscada.accesorios())) {
-            esIgual = false;
-        }
-        if (esIgual && !vehiculo.vehiculoEsIgualA(buscada.vehiculo())) {
-            esIgual = false;
-        }
-        return (esIgual);
-    }
 
-    public void establecerPelo(Pelo peloNuevo) {
-        pelo = peloNuevo;
-    }
-
-    public void establecerHobbies(Hobbies hobbieNuevo) {
-        hobbies = hobbieNuevo;
-    }
-
-    public void establecerAccesorio(Accesorios accesorio) {
-        accesorios = accesorio;
-    }
-
-    public void establecerVehiculo(Vehiculos vehiculoNuevo) {
-        vehiculo = vehiculoNuevo;
-    }
-
-    public void establecerSexo(Sexo sexoNuevo) {
-        sexo = sexoNuevo;
+        return encontrada;
     }
 }
 

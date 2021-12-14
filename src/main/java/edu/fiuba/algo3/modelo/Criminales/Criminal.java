@@ -10,7 +10,7 @@ public class Criminal {
     }
 
 
-    public boolean tieneCaracteristica(Caracteristicas buscada){
-        return caracteristicas.tieneCaracteristicasIguales(buscada);
+    public boolean tieneCaracteristica(Caracteristica buscada){
+        return caracteristicas.tiene(buscada);
     }
 }

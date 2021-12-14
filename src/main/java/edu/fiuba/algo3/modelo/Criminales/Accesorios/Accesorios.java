@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Criminales.Accesorios;
 
-public interface Accesorios {
+import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
+
+public interface Accesorios extends Caracteristica {
 
     static Accesorios crear(String tipoAcesorio){
         if (tipoAcesorio.equals("Anillo")) return new Anillo();
@@ -9,9 +11,4 @@ public interface Accesorios {
         return new Tatuaje();
     }
 
-    String valor();
-
-    default boolean accesoriosEsIgualA(Accesorios accesorios){
-        return this.valor().equals(accesorios.valor());
-    }
 }

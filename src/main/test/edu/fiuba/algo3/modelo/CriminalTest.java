@@ -1,15 +1,11 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Criminales.Accesorios.Accesorios;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Tatuaje;
-import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
-import edu.fiuba.algo3.modelo.Criminales.Hobbies.Hobbies;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.Tenis;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Rubio;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Limusina;
-import edu.fiuba.algo3.modelo.Factory.CreadorCaracteristicas;
 import edu.fiuba.algo3.modelo.Factory.CreadorCriminales;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -30,14 +26,13 @@ public class CriminalTest {
 
     @Test
     public void testfiltrarCriminales(){
-        CreadorCaracteristicas creadorCaracteristicas = new CreadorCaracteristicas();
-        SexoFemenino sexoFemenino = new SexoFemenino();
-        Rubio peloRubio = new Rubio();
-        Hobbies tenis = new Tenis();
-        Accesorios tatuaje = new Tatuaje();
-        Limusina limusina = new Limusina();
-        Caracteristicas caracteristicasBuscadas = new Caracteristicas(sexoFemenino,peloRubio,tenis,tatuaje,limusina);
-        Sospechosos listaFiltrada = listaCriminales.cumplenConCaracteristicas(caracteristicasBuscadas);
+        Sospechosos listaFiltrada;
+        listaFiltrada = listaCriminales.filtrar(new SexoFemenino());
+        listaFiltrada = listaFiltrada.filtrar(new Rubio());
+        listaFiltrada = listaFiltrada.filtrar(new Tenis());
+        listaFiltrada = listaFiltrada.filtrar(new Tatuaje());
+        listaFiltrada = listaFiltrada.filtrar(new Limusina());
+
         Assertions.assertEquals(1,listaFiltrada.size());
     }
 }

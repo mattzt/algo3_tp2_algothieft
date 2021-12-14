@@ -82,13 +82,13 @@ public class Semana2CasoDeUsoTest {
     public void casoDeUso3() throws FileNotFoundException {
         CreadorCriminales creadorCriminales = new CreadorCriminales();
         Sospechosos listaSospechosos = creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
+        Sospechosos listaFiltrada;
         computadora = new ComputadoraInterpol(listaSospechosos);
-        nuevoPoli.agregarDatoSospechosoPelo(computadora, new Rubio());
-        nuevoPoli.agregarDatoSospechosoSexo(computadora, new SexoFemenino());
-        nuevoPoli.agregarDatoSospechosoHobbie(computadora, new Tenis());
-        nuevoPoli.agregarDatoSospechosoAccesorio(computadora, new Tatuaje());
-        nuevoPoli.agregarDatoSospechosoVehiculo(computadora, new Limusina());
-        Sospechosos listaFiltrada = computadora.buscarSospechosos();
+        nuevoPoli.ingresarDato(computadora, new Rubio());
+        nuevoPoli.ingresarDato(computadora, new SexoFemenino());
+        nuevoPoli.ingresarDato(computadora, new Tenis());
+        nuevoPoli.ingresarDato(computadora, new Tatuaje());
+        listaFiltrada = nuevoPoli.ingresarDato(computadora, new Limusina());
         Assertions.assertEquals(1,listaFiltrada.size());
     }
 

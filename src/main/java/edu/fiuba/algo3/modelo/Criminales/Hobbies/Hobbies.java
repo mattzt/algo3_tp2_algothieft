@@ -1,6 +1,8 @@
 package edu.fiuba.algo3.modelo.Criminales.Hobbies;
 
-public interface Hobbies {
+import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
+
+public interface Hobbies extends Caracteristica {
 
     static Hobbies crear(String unHobbie){
         if (unHobbie.equals("Alpinismo")) return new Alpinismo();
@@ -9,11 +11,5 @@ public interface Hobbies {
         if (unHobbie.equals("Natacion")) return new Natacion();
         if (unHobbie.equals("Paracaidismo")) return new Paracaidismo();
         return new Tenis();
-    }
-
-    String valor();
-
-    default boolean hobbiesEsIgualA(Hobbies hobbies){
-        return this.valor().equals(hobbies.valor());
     }
 }
