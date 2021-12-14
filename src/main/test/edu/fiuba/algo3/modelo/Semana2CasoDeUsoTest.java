@@ -141,7 +141,7 @@ public class Semana2CasoDeUsoTest {
 
 
         Pais mexico = new Pais("Mexico", "Ciudad-de-Mexico");
-        Objeto objetoRobado = new Objeto("Incan Gold Mask", mexico, 100);
+        Objeto objetoRobado = new Objeto("Incan Gold Mask", mexico, 1);
         Caso nuevoCaso = new Caso(objetoRobado);
 
         nuevoCaso.asignarCasoAPolicia(nuevoPoli);
