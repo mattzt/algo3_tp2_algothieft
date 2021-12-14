@@ -9,4 +9,6 @@ public abstract class Rango
 
     abstract Rango promover();
 
+    public abstract int nivelDeLosObjetosBuscados();
+
 }

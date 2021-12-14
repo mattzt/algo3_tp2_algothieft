@@ -16,4 +16,8 @@ public class Objeto {
     public boolean equals(String nombre) {
         return nombreObjeto.equals(nombre);
     }
+
+    public boolean tieneValor(int unValor) {
+        return valorObjeto==unValor;
+    }
 }

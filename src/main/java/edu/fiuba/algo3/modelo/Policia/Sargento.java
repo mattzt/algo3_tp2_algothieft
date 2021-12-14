@@ -19,6 +19,11 @@ public class Sargento extends Rango{
     }
 
     @Override
+    public int nivelDeLosObjetosBuscados() {
+        return 3;
+    }
+
+    @Override
     public String toString(){
         return dificultad;
     }

@@ -19,6 +19,11 @@ public class Novato extends Rango{
     }
 
     @Override
+    public int nivelDeLosObjetosBuscados() {
+        return 1;
+    }
+
+    @Override
     public String toString(){
         return dificultad;
     }

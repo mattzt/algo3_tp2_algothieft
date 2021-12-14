@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Policia.Rango;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class ObjetosValiosos implements Listable {
     ArrayList<Objeto> objetosComunes;
@@ -42,10 +43,11 @@ public class ObjetosValiosos implements Listable {
         return (objetosComunes.size()+objetosValiosos.size()+objetosMuyValiosos.size());
     }
 
-    public Objeto robar() {
-        return new Objeto("TestRobado",new Pais("TestPais","TestCiudad"),1);
+    public Objeto robarObjetoPorNivel(Rango rangoPolicia) {
+        int valorObjeto = rangoPolicia.nivelDeLosObjetosBuscados();
+        ArrayList<Objeto> listaDeObjetosValiosos = elegirListaCorrecta(valorObjeto);
+        Random randomizer = new Random();
+        int randomIndex = randomizer.nextInt(listaDeObjetosValiosos.size());
+        return listaDeObjetosValiosos.get(randomIndex);
     }
-
-//    public Objeto robarObjetoPorNivel(Rango rangoPolicia) {
-//    }
 }

@@ -19,6 +19,11 @@ public class Detective extends Rango{
     }
 
     @Override
+    public int nivelDeLosObjetosBuscados() {
+        return 2;
+    }
+
+    @Override
     public String toString(){
         return dificultad;
     }
