@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Sospechosos implements Listable {
     private ArrayList<Criminal> sospechosos;
-    public ArrayList<Criminal> copia;
+    private final ArrayList<Criminal> copia;
 
     public Sospechosos(){
         sospechosos = new ArrayList<>();

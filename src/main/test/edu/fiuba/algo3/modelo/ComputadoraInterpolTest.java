@@ -2,6 +2,9 @@ package edu.fiuba.algo3.modelo;
 
 
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
+import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
+import edu.fiuba.algo3.modelo.Criminales.Hobbies.Tenis;
+import edu.fiuba.algo3.modelo.Criminales.Pelo.Castanio;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.*;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 import edu.fiuba.algo3.modelo.Factory.CreadorCriminales;
@@ -44,6 +47,18 @@ public class ComputadoraInterpolTest {
         listaDeSospechosos = computadora.ingresarCaracteristica(new SexoFemenino());
 
         assertEquals(listaDeSospechosos.size(), 5);
+    }
 
+    @Test
+    public void filtraCorrectamente(){
+        computadora.ingresarCaracteristica(new SexoFemenino());
+        computadora.ingresarCaracteristica(new Joyas());
+        listaDeSospechosos = computadora.ingresarCaracteristica(new Castanio());
+
+        assertEquals(2, listaDeSospechosos.size());
+
+        listaDeSospechosos = computadora.ingresarCaracteristica(new Tenis());
+
+        assertEquals(1, listaDeSospechosos.size());
     }
 }
