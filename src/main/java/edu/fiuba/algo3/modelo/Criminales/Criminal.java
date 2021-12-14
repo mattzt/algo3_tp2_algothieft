@@ -17,4 +17,8 @@ public class Criminal {
     public boolean es(Criminal otroCriminal) {
         return nombre.equals(otroCriminal.nombre);
     }
+
+    public String getNombre() {
+        return nombre;
+    }
 }
