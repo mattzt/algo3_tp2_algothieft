@@ -77,6 +77,10 @@ public class Policia {
         reloj.avanzarReloj(armaAtacante.tiempoIncapacitacion());
     }
 
+    public void arrestar(){
+
+    }
+
     public Rango presentarPlaca(){
         return rango;
     }

@@ -40,6 +40,6 @@ public class HobbiesTest {
     @Test
     public void tenisTest(){
         Tenis tenis = new Tenis();
-        assertTrue(tenis.equals(new Alpinismo()));
+        assertTrue(tenis.equals(new Tenis()));
     }
 }
