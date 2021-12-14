@@ -15,6 +15,11 @@ public class Caso {
         objetoRobado = listaDeObjetos.robar();
     }
 
+    public Caso(Objeto objetoRobado){
+        reloj = new Reloj();
+        this.objetoRobado = objetoRobado;
+    }
+
     public void asignarCasoAPolicia(Policia nuevoPolicia){
         policia = nuevoPolicia;
     }

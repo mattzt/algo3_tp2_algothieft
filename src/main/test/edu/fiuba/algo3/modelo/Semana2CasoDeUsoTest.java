@@ -48,11 +48,6 @@ public class Semana2CasoDeUsoTest {
     Caracteristicas caracteristicas = new Caracteristicas(null, null, null, null, null);
     Criminal sospechoso = new Criminal("nombreCriminal",caracteristicas);
     Caso caso = new Caso(new Sospechosos(), new ObjetosValiosos());
-    Objeto tesoroMontreal = new Objeto("Tesoro Nacional de Montreal",canada,1);
-    Banco unBanco = new Banco();
-    Biblioteca unaBiblioteca = new Biblioteca();
-    Aeropuerto unAeropuerto = new Aeropuerto();
-    Puerto unPuerto = new Puerto();
     CreadorPistas creadorPistas = new CreadorPistas();
     RepositorioPistas repo = (RepositorioPistas) creadorPistas.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt");
 
@@ -114,7 +109,29 @@ public class Semana2CasoDeUsoTest {
     }
 
     @Test
-    public void casoDeUso5() {
+    public void casoDeUso5() throws FileNotFoundException {
+        CreadorCriminales creadorCriminales = new CreadorCriminales();
+        Sospechosos listaSospechosos = creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
+        computadora = new ComputadoraInterpol(listaSospechosos);
 
+        nuevoPoli.rangoPoliciaEs(new Detective());
+
+        Pais mexico = new Pais("Mexico", "Ciudad-de-Mexico");
+        Objeto objetoRobado = new Objeto("Incan Gold Mask", mexico, 100);
+        Caso nuevoCaso = new Caso(objetoRobado);
+
+        nuevoCaso.asignarCasoAPolicia(nuevoPoli);
+
+        nuevoPoli.ingresarDato(computadora, new SexoFemenino());
+        nuevoPoli.ingresarDato(computadora, new Castanio());
+        nuevoPoli.ingresarDato(computadora, new Tenis());
+        nuevoPoli.ingresarDato(computadora, new Joyas());
+        nuevoPoli.ingresarDato(computadora, new Descapotable());
+
+        nuevoPoli.emitirOrdenArresto(computadora);
+
+        String resultado = nuevoPoli.arrestar(computadora);
+
+        Assertions.assertEquals(resultado, "Arrestaste al criminal!" + " El criminal era Carmen Sandiego");
     }
 }

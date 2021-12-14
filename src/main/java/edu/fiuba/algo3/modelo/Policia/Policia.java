@@ -16,6 +16,7 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Reloj.Reloj;
+import javafx.scene.SnapshotResult;
 
 import java.io.FileNotFoundException;
 
@@ -58,7 +59,6 @@ public class Policia {
         return computadora.ingresarCaracteristica(caracteristica);
     }
 
-
     public void emitirOrdenArresto(ComputadoraInterpol computadora){
         if(computadora.sePuedeEmitirOrden()) {
             reloj.avanzarReloj(3);
@@ -79,7 +79,12 @@ public class Policia {
     }
 
     public String arrestar(ComputadoraInterpol computadora){
-        return computadora.arrestar(ordenDeArresto);
+        rango.aumentarCasosResueltos();
+        rango.promover();
+        String resultado =  computadora.arrestar(ordenDeArresto);
+        ordenDeArresto = new NoEmitida();
+
+        return resultado;
     }
 
     public Rango presentarPlaca(){
