@@ -27,6 +27,7 @@ import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.*;
 import edu.fiuba.algo3.modelo.Policia.Detective;
 import edu.fiuba.algo3.modelo.Policia.Investigador;
+import edu.fiuba.algo3.modelo.Policia.Novato;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -37,14 +38,16 @@ import java.io.IOException;
 
 public class Semana2CasoDeUsoTest {
     Factory creador = new CreadorPaises();
+    Factory creadorSospechosos = new CreadorCriminales();
     Paises todosLosPaises = (Paises) creador.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/DataPaises.txt");
+    Sospechosos todosLosSospechosos = (Sospechosos) creadorSospechosos.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
     Pais canada = todosLosPaises.buscar("Canada");
     Pais mexico = todosLosPaises.buscar("Mexico");
     Policia nuevoPoli = new Policia("Carlos", canada);
     ComputadoraInterpol computadora = nuevoPoli.obtenerComputadora();
     Caracteristicas caracteristicas = new Caracteristicas(null, null, null, null, null);
     Criminal sospechoso = new Criminal("nombreCriminal",caracteristicas);
-    Caso caso = new Caso(new Sospechosos(), new ObjetosValiosos());
+    Caso caso = new Caso(todosLosSospechosos, new ObjetosValiosos(),todosLosPaises,new Novato());
     Objeto tesoroMontreal = new Objeto("Tesoro Nacional de Montreal",canada,1);
     Banco unBanco = new Banco();
     Biblioteca unaBiblioteca = new Biblioteca();
@@ -72,7 +75,6 @@ public class Semana2CasoDeUsoTest {
         nuevoPoli.rangoPoliciaEs(new Investigador());
         Assertions.assertTrue(nuevoPoli.seEncuentraEn(canada));
         Assertions.assertEquals(0, nuevoPoli.mirarLaHora());
-        caso.asignarCasoAPolicia(nuevoPoli);
         nuevoPoli.viajarApais(mexico);
         Assertions.assertTrue(nuevoPoli.seEncuentraEn(mexico));
         Assertions.assertTrue(nuevoPoli.mirarLaHora()>1);

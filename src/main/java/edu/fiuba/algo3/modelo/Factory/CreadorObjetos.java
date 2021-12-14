@@ -31,7 +31,7 @@ public class CreadorObjetos implements Factory{
             Pais paisOrigen = listaDePaises.buscar(dataObjetos[1]);
             int valor = Integer.parseInt(dataObjetos[2]);
             Objeto nuevoObjeto = new Objeto(nombreObjeto,paisOrigen,valor);
-            listaObjetos.agregar(nuevoObjeto);
+            listaObjetos.agregar(nuevoObjeto,valor);
         }
         return listaObjetos;
     }

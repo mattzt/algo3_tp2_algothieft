@@ -13,4 +13,8 @@ public class Criminal {
     public boolean tieneCaracteristica(Caracteristica buscada){
         return caracteristicas.tiene(buscada);
     }
+
+    public boolean es(Criminal otroCriminal) {
+        return nombre.equals(otroCriminal.nombre);
+    }
 }

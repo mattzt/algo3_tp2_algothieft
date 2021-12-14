@@ -30,8 +30,20 @@ public class ObjetosTest {
     }
 
     @Test
-    public void buscarObjetoCreado() throws NoExisteError {
-        Objeto tesoroMontreal = listaDeObjetos.buscar("Tesoro Nacional de Montreal");
+    public void buscarObjetoComun() throws NoExisteError {
+        Objeto tesoroMontreal = listaDeObjetos.buscar("Tesoro Nacional de Montreal",1);
         Assertions.assertTrue(tesoroMontreal.equals("Tesoro Nacional de Montreal"));
+    }
+
+    @Test
+    public void buscarObjetoValioso() throws NoExisteError {
+        Objeto elMichiDorado = listaDeObjetos.buscar("Leon dorado",2);
+        Assertions.assertTrue(elMichiDorado.equals("Leon dorado"));
+    }
+
+    @Test
+    public void buscarObjetoMuyValioso() throws NoExisteError {
+        Objeto lasGurizas = listaDeObjetos.buscar("Rockettes",3);
+        Assertions.assertTrue(lasGurizas.equals("Rockettes"));
     }
 }
