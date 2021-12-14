@@ -73,4 +73,22 @@ public class ObjetosTest {
         Objeto robado = listaDeObjetos.robarObjetoPorNivel(new Sargento());
         Assertions.assertTrue(robado.tieneValor(3));
     }
+
+    @Test
+    public void paisesDeEscapeObjetoComun() throws NoExisteError {
+        Objeto tesoroMontreal = listaDeObjetos.buscar("Tesoro Nacional de Montreal",1);
+        Assertions.assertEquals(4,tesoroMontreal.cantidadDePaisesDeEscape());
+    }
+
+    @Test
+    public void paisesDeEscapeObjetoValioso() throws NoExisteError {
+        Objeto elMichiDorado = listaDeObjetos.buscar("Leon dorado",2);
+        Assertions.assertEquals(5,elMichiDorado.cantidadDePaisesDeEscape());
+    }
+
+    @Test
+    public void paisesDeEscapeObjetoMuyValioso() throws NoExisteError {
+        Objeto lasGurizas = listaDeObjetos.buscar("Rockettes",3);
+        Assertions.assertEquals(7,lasGurizas.cantidadDePaisesDeEscape());
+    }
 }

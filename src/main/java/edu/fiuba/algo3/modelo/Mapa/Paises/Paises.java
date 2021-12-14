@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Listable;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Paises implements Listable {
     private final ArrayList<Pais> paises;
@@ -25,5 +26,34 @@ public class Paises implements Listable {
 
     public int size() {
         return paises.size();
+    }
+
+    public ArrayList<Pais> elegirRutaDeEscapePorNivel(Pais paisDelObjeto, int cantidadDePaisesDeEscape) {
+        ArrayList<Pais> listaTodosLosPaises = new ArrayList<>(paises);
+        ArrayList<Pais> rutaDeEscape = new ArrayList<>();
+        rutaDeEscape.add(paisDelObjeto);
+        listaTodosLosPaises.remove(paisDelObjeto);
+        while (rutaDeEscape.size()!=cantidadDePaisesDeEscape){
+            Random randomize = new Random();
+            int indexPais = randomize.nextInt(listaTodosLosPaises.size());
+            Pais nuevoPaisDeEscape = listaTodosLosPaises.remove(indexPais);
+            rutaDeEscape.add(nuevoPaisDeEscape);
+        }
+        return rutaDeEscape;
+    }
+
+    public void setPaisesConexos(){
+        for (Pais pais : paises){
+            ArrayList<Pais> listaTodosLosPaises = new ArrayList<>(paises);
+            while (pais.puedeAgregarConexos()){
+                Random randomize = new Random();
+                int indexPais = randomize.nextInt(listaTodosLosPaises.size());
+                Pais unPaisConexo = listaTodosLosPaises.remove(indexPais);
+                if (unPaisConexo.puedeAgregarConexos()){
+                    pais.agregarPaisConexo(unPaisConexo);
+                    unPaisConexo.agregarPaisConexo(pais);
+                }
+            }
+        }
     }
 }
