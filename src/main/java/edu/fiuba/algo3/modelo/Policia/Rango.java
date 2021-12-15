@@ -16,4 +16,6 @@ public abstract class Rango
         return (this.velocidadViaje() == otroRango.velocidadViaje());
     }
 
+    public abstract int nivelDeLosObjetosBuscados();
+
 }

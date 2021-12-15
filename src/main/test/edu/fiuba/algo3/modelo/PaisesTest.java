@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -48,5 +49,21 @@ public class PaisesTest {
     public void buscarPaisInexistenteLanzaException() {
         NoExisteError except = assertThrows(NoExisteError.class,
                 ()-> todosLosPaises.buscar("Argentina"));
+    }
+
+    @Test
+    public void rutaDeEscapeParaObjetoComunTiene4Paises() throws NoExisteError, IOException {
+        todosLosPaises = (Paises) factory.crear(rutaArchivoDistancias);
+        Pais origenDelObjeto = todosLosPaises.buscar("Argentina");
+        ArrayList<Pais> rutaDeEscape = todosLosPaises.elegirRutaDeEscapePorNivel(origenDelObjeto,4);
+        Assertions.assertEquals(4,rutaDeEscape.size());
+    }
+
+    @Test
+    public void testSetPaisesConexos() throws NoExisteError, IOException {
+        todosLosPaises = (Paises) factory.crear(rutaArchivoDistancias);
+        todosLosPaises.setPaisesConexos();
+        Pais unPais = todosLosPaises.buscar("Argentina");
+        Assertions.assertFalse(unPais.puedeAgregarConexos());
     }
 }

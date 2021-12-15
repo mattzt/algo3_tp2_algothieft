@@ -17,6 +17,7 @@ public class Pais {
     public Pais(String nombrePais, String nombreCiudadDestacada){
         nombre = nombrePais;
         ciudadDestacada = nombreCiudadDestacada;
+        paisesConexos = new Paises();
     }
 
     public int distanciaA(Pais otroPais) throws FileNotFoundException {
@@ -52,5 +53,13 @@ public class Pais {
     public boolean equals(Pais unPais){
         String unNombre = unPais.getNombre();
         return nombre.equals(unNombre) || ciudadDestacada.equals(unNombre);
+    }
+
+    public void agregarPaisConexo(Pais pais) {
+        paisesConexos.agregar(pais);
+    }
+
+    public boolean puedeAgregarConexos() {
+        return paisesConexos.size()<3;
     }
 }

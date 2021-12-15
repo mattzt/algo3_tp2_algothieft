@@ -1,27 +1,28 @@
 package edu.fiuba.algo3.modelo.Caso;
-
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Reloj.Reloj;
+import edu.fiuba.algo3.modelo.Policia.Rango;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 
+import java.util.ArrayList;
+
 public class Caso {
-    private final Reloj reloj;
-    private final Objeto objetoRobado;
+    private final Criminal ladron;
     private Policia policia;
+    private Objeto objetoRobado;
+    private ArrayList<Pais> rutaDeEscape;
 
-    public Caso (Sospechosos listaDeSospechosos, ObjetosValiosos listaDeObjetos){
-        reloj = new Reloj();
-        objetoRobado = listaDeObjetos.robar();
+
+
+    public Caso (Sospechosos listaDeSospechosos, ObjetosValiosos listaDeObjetos, Paises listaDePaises, Rango rangoPolicia){
+        ladron = listaDeSospechosos.elegirCriminalAleatorio();
+        objetoRobado = listaDeObjetos.robarObjetoPorNivel(rangoPolicia);
+        rutaDeEscape = listaDePaises.elegirRutaDeEscapePorNivel(objetoRobado.paisDeOrigen(), objetoRobado.cantidadDePaisesDeEscape());
     }
 
-    public Caso(Objeto objetoRobado){
-        reloj = new Reloj();
-        this.objetoRobado = objetoRobado;
+    public void asignarCasoAPolicia(Policia nuevoPoli) {
+        policia = nuevoPoli;
     }
-
-    public void asignarCasoAPolicia(Policia nuevoPolicia){
-        policia = nuevoPolicia;
-    }
-
 }

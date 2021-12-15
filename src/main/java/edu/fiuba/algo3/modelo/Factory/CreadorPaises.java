@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Factory;
 
+import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 
@@ -14,6 +15,12 @@ public class CreadorPaises implements Factory {
         File archivoData = new File(rutaArchivo);
         Scanner scanner = new Scanner(archivoData);
         Paises paises = new Paises();
+        Edificios edificiosDelPais = new Edificios();
+        edificiosDelPais.agregar(new Aeropuerto());
+        edificiosDelPais.agregar(new Banco());
+        edificiosDelPais.agregar(new Biblioteca());
+        edificiosDelPais.agregar(new Bolsa());
+        edificiosDelPais.agregar(new Puerto());
 
         String encabezado = scanner.nextLine();
         while (scanner.hasNextLine()){
@@ -21,6 +28,7 @@ public class CreadorPaises implements Factory {
             String nombrePais = dataPaises[0];
             String nombreCiudad = dataPaises[1];
             Pais nuevoPais = new Pais(nombrePais,nombreCiudad);
+            nuevoPais.setEdificios(edificiosDelPais);
             paises.agregar(nuevoPais);
         }
         return paises;
