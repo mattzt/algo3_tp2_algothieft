@@ -1,8 +1,8 @@
 package edu.fiuba.algo3.modelo.Criminales;
 
 public class Criminal {
-    String nombre;
-    Caracteristicas caracteristicas;
+    private String nombre;
+    private Caracteristicas caracteristicas;
 
     public Criminal(String nombreCriminal,Caracteristicas nuevasCaracteristicas){
         nombre = nombreCriminal;
@@ -14,7 +14,7 @@ public class Criminal {
         return caracteristicas.tiene(buscada);
     }
 
-    public boolean es(Criminal otroCriminal) {
-        return nombre.equals(otroCriminal.nombre);
+    public String getNombre(){
+        return nombre;
     }
 }
