@@ -3,6 +3,8 @@ package edu.fiuba.algo3.modelo.Caso;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Listable;
 import edu.fiuba.algo3.modelo.Policia.Rango;
+import edu.fiuba.algo3.modelo.Randomizador;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -44,8 +46,6 @@ public class ObjetosValiosos implements Listable {
     public Objeto robarObjetoPorNivel(Rango rangoPolicia) {
         int valorObjeto = rangoPolicia.nivelDeLosObjetosBuscados();
         ArrayList<Objeto> listaDeObjetosValiosos = elegirListaCorrecta(valorObjeto);
-        Random randomizer = new Random();
-        int randomIndex = randomizer.nextInt(listaDeObjetosValiosos.size());
-        return listaDeObjetosValiosos.get(randomIndex);
+        return listaDeObjetosValiosos.get(Randomizador.indiceRandom(listaDeObjetosValiosos));
     }
 }

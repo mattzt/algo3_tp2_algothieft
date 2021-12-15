@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Criminales;
 
 import edu.fiuba.algo3.modelo.Listable;
 import edu.fiuba.algo3.modelo.Policia.Rango;
+import edu.fiuba.algo3.modelo.Randomizador;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -46,8 +47,6 @@ public class Sospechosos implements Listable {
     }
 
     public Criminal elegirCriminalAleatorio() {
-        Random rand = new Random();
-        int index = rand.nextInt(sospechosos.size());
-        return sospechosos.get(index);
+        return sospechosos.get(Randomizador.indiceRandom(sospechosos));
     }
 }
