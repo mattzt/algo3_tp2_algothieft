@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class Randomizador {
 
-    public static int indiceRandom(ArrayList<?> lista){
+    public static int indiceRandom(ArrayList<?> unaLista){
         Random randomize = new Random();
-        return randomize.nextInt(lista.size());
+        return randomize.nextInt(unaLista.size());
     }
 }
