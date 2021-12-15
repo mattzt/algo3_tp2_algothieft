@@ -6,7 +6,6 @@ import edu.fiuba.algo3.modelo.Policia.Rango;
 import edu.fiuba.algo3.modelo.Randomizador;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class ObjetosValiosos implements Listable {
     ArrayList<Objeto> objetosComunes;

@@ -1,11 +1,9 @@
 package edu.fiuba.algo3.modelo.Criminales;
 
 import edu.fiuba.algo3.modelo.Listable;
-import edu.fiuba.algo3.modelo.Policia.Rango;
 import edu.fiuba.algo3.modelo.Randomizador;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Sospechosos implements Listable {
     private ArrayList<Criminal> sospechosos;

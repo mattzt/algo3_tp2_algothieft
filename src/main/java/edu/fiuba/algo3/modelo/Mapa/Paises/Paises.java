@@ -3,9 +3,7 @@ package edu.fiuba.algo3.modelo.Mapa.Paises;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Listable;
 import edu.fiuba.algo3.modelo.Randomizador;
-
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Paises implements Listable {
     private final ArrayList<Pais> paises;
