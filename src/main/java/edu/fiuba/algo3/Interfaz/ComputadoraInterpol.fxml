@@ -3,9 +3,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Interfaz.ControladorComputadora">
       <HBox layoutX="335.0" layoutY="586.0" prefHeight="100.0" prefWidth="551.0">
@@ -14,41 +16,73 @@
             <Button mnemonicParsing="false" onAction="#irAMenu" prefHeight="100.0" prefWidth="200.0" text="Menu Principal" />
       </HBox>
       <Label layoutX="23.0" layoutY="28.0" prefHeight="140.0" prefWidth="230.0" text="Hora" />
-   <VBox layoutX="335.0" layoutY="42.0" prefHeight="520.0" prefWidth="550.0">
-         <HBox fx:id="sexo" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
-               <RadioButton fx:id="masculino" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Masculino" />
-               <RadioButton fx:id="femenino" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Femenino" />
+   <VBox alignment="CENTER" layoutX="336.0" layoutY="6.0" prefHeight="570.0" prefWidth="550.0">
+      <Label text="Filtrar sospechosos">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+         <HBox fx:id="sexo" alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
+               <RadioButton fx:id="masculino" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Masculino">
+            <toggleGroup>
+               <ToggleGroup fx:id="sexos" />
+            </toggleGroup></RadioButton>
+               <RadioButton fx:id="femenino" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Femenino" toggleGroup="$sexos" />
                <Button fx:id="botonSexo" mnemonicParsing="false" text="Filtrar" />
          </HBox>
-         <HBox prefHeight="110.0" prefWidth="550.0" spacing="20.0">
-               <RadioButton fx:id="anillo" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Anillo" />
-               <RadioButton fx:id="tatuaje" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Tatuaje" />
-               <RadioButton fx:id="joyas" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Joyas" />
-               <RadioButton fx:id="cicatriz" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Cicatriz" />
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
+               <RadioButton fx:id="anillo" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Anillo">
+            <toggleGroup>
+               <ToggleGroup fx:id="accesorios" />
+            </toggleGroup></RadioButton>
+               <RadioButton fx:id="tatuaje" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Tatuaje" toggleGroup="$accesorios" />
+               <RadioButton fx:id="joyas" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Joyas" toggleGroup="$accesorios" />
+               <RadioButton fx:id="cicatriz" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Cicatriz" toggleGroup="$accesorios" />
                <Button fx:id="botonAccesorio" mnemonicParsing="false" text="Filtrar" />
          </HBox>
-         <HBox fx:id="hobbies" prefHeight="110.0" prefWidth="550.0" spacing="5.0">
-               <RadioButton fx:id="alpinismo" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Alpinismo" />
-               <RadioButton fx:id="croquet" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Croquet" />
-               <RadioButton fx:id="musica" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Musica" />
-               <RadioButton fx:id="natacion" mnemonicParsing="false" prefWidth="75.0" text="Natacion" />
-               <RadioButton fx:id="paracaidismo" mnemonicParsing="false" text="Paracaidismo" />
-               <RadioButton fx:id="tenis" mnemonicParsing="false" prefWidth="75.0" text="Tenis" />
+         <HBox fx:id="hobbies" alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="5.0">
+               <RadioButton fx:id="alpinismo" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Alpinismo">
+            <toggleGroup>
+               <ToggleGroup fx:id="hobbie" />
+            </toggleGroup></RadioButton>
+               <RadioButton fx:id="croquet" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Croquet" toggleGroup="$hobbie" />
+               <RadioButton fx:id="musica" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Musica" toggleGroup="$hobbie" />
+               <RadioButton fx:id="natacion" mnemonicParsing="false" prefWidth="75.0" text="Natacion" toggleGroup="$hobbie" />
+               <RadioButton fx:id="paracaidismo" mnemonicParsing="false" text="Paracaidismo" toggleGroup="$hobbie" />
+               <RadioButton fx:id="tenis" mnemonicParsing="false" prefWidth="75.0" text="Tenis" toggleGroup="$hobbie" />
                <Button fx:id="botonHobbie" mnemonicParsing="false" text="Filtrar" />
          </HBox>
-         <HBox prefHeight="110.0" prefWidth="550.0" spacing="20.0">
-               <RadioButton fx:id="castanio" mnemonicParsing="false" text="Castanio" />
-               <RadioButton fx:id="negro" mnemonicParsing="false" text="Negro" />
-               <RadioButton fx:id="rojo" mnemonicParsing="false" prefHeight="17.0" prefWidth="66.0" text="Rojo" />
-               <RadioButton fx:id="rubio" mnemonicParsing="false" text="Rubio" />
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
+               <RadioButton fx:id="castanio" mnemonicParsing="false" text="Castanio">
+            <toggleGroup>
+               <ToggleGroup fx:id="pelos" />
+            </toggleGroup></RadioButton>
+               <RadioButton fx:id="negro" mnemonicParsing="false" text="Negro" toggleGroup="$pelos" />
+               <RadioButton fx:id="rojo" mnemonicParsing="false" prefHeight="17.0" prefWidth="66.0" text="Rojo" toggleGroup="$pelos" />
+               <RadioButton fx:id="rubio" mnemonicParsing="false" text="Rubio" toggleGroup="$pelos" />
                <Button fx:id="botonPelo" mnemonicParsing="false" text="Filtrar" />
          </HBox>
-         <HBox prefHeight="110.0" prefWidth="200.0" spacing="20.0">
-               <RadioButton fx:id="deportivo" mnemonicParsing="false" text="Deportivo" />
-               <RadioButton fx:id="descapotable" mnemonicParsing="false" text="Descapotable" />
-               <RadioButton fx:id="moto" mnemonicParsing="false" text="Moto" />
-               <RadioButton fx:id="limusina" mnemonicParsing="false" text="Limusina" />
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0" spacing="20.0">
+               <RadioButton fx:id="deportivo" mnemonicParsing="false" text="Deportivo">
+            <toggleGroup>
+               <ToggleGroup fx:id="vehiculos" />
+            </toggleGroup></RadioButton>
+               <RadioButton fx:id="descapotable" mnemonicParsing="false" text="Descapotable" toggleGroup="$vehiculos" />
+               <RadioButton fx:id="moto" mnemonicParsing="false" text="Moto" toggleGroup="$vehiculos" />
+               <RadioButton fx:id="limusina" mnemonicParsing="false" text="Limusina" toggleGroup="$vehiculos" />
                <Button fx:id="botonVehiculo" mnemonicParsing="false" text="Filtrar" />
          </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <Button mnemonicParsing="false" text="Resetear Filtros" />
+            <Button mnemonicParsing="false" text="Emitir orden de arresto" />
+            <Button mnemonicParsing="false" text="Arrestar" />
+         </children>
+      </HBox>
+      <Label text="Cantidad de sospechosos:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </VBox>
 </AnchorPane>
