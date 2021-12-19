@@ -38,4 +38,8 @@ public class Partida {
         return new Momento(policia.mirarDia(), policia.mirarLaHora());
     }
 
+    public Policia getPolicia(){
+        return policia;
+    }
+
 }
