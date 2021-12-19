@@ -8,11 +8,7 @@ import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.fxml.*;
@@ -32,7 +28,7 @@ public class App extends Application {
         Policia policia = new Policia("Pepe", new Pais("Francia","Paris"));
         Partida partida = new Partida(policia);
 
-        URL url = new File("src/main/java/edu/fiuba/algo3/MenuPrincipal.fxml").toURI().toURL();
+        URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/MenuPrincipal.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
 
