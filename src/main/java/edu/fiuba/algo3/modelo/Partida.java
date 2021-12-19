@@ -9,6 +9,8 @@ import edu.fiuba.algo3.modelo.Factory.Factory;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Reloj.DiaDeLaSemana;
+import edu.fiuba.algo3.modelo.Reloj.Momento;
 
 import java.io.IOException;
 
@@ -29,6 +31,11 @@ public class Partida {
 
     public RepositorioPistas obtenerPistas(){
         return repositorioPistas;
+    }
+
+    public Momento obtenerMomento(){
+
+        return new Momento(policia.mirarDia(), policia.mirarLaHora());
     }
 
 }

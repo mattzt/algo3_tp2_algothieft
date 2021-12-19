@@ -1,6 +1,11 @@
 package edu.fiuba.algo3;
 
+import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
+import edu.fiuba.algo3.modelo.Partida;
+import edu.fiuba.algo3.modelo.Policia.Policia;
 import javafx.application.Application;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -10,7 +15,11 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.fxml.*;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
 
 /**
@@ -19,40 +28,35 @@ import java.util.Optional;
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) {
-        var javaVersion = SystemInfo.javaVersion();
-        var javafxVersion = SystemInfo.javafxVersion();
+    public void start(Stage stage) throws NoExisteError, IOException {
+        Policia policia = new Policia("Pepe", new Pais("Francia","Paris"));
+        Partida partida = new Partida(policia);
 
-        var label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
+        URL url = new File("src/main/java/edu/fiuba/algo3/MenuPrincipal.fxml").toURI().toURL();
+        Parent root = FXMLLoader.load(url);
+        Scene scene = new Scene(root);
 
-        VBox miniMenu = new VBox();
-        Button botonViajesDisponibles = new Button("Ver Posibles viajes");
-        Button botonViajarOtroPais = new Button("Viajar");
-        Button botonExplorarCiudad = new Button("Explorar Ciudad");
-        miniMenu.getChildren().addAll(botonViajesDisponibles, botonViajarOtroPais, botonExplorarCiudad);
-
-
-        var scene = new Scene(miniMenu, 640, 480);
         stage.setScene(scene);
         stage.show();
+
         stage.setOnCloseRequest(e->{e.consume();
         cerrarPrograma(stage);});
     }
 
-    private void cerrarPrograma(Stage ventana)
-    {
+
+    private void cerrarPrograma(Stage ventana) {
         Alert.AlertType tipo = Alert.AlertType.CONFIRMATION;
         Alert  alerta = new Alert(tipo, "");
         alerta.initModality(Modality.APPLICATION_MODAL);
         alerta.initOwner(ventana);
-        alerta.getDialogPane().setContentText("Desea Cerar?");
+        alerta.getDialogPane().setContentText("Desea Cerrar?");
         alerta.getDialogPane().setHeaderText("SALIR");
         Optional<ButtonType> resultado = alerta.showAndWait();
         if (resultado.get() == ButtonType.OK) { ventana.close();}
     }
 
     public static void main(String[] args) {
-        launch();
+        launch(args);
     }
 
 }

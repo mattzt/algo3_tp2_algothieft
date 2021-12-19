@@ -28,6 +28,10 @@ public class Reloj {
         return hora;
     }
 
+    public DiaDeLaSemana verDia(){
+        return dia;
+    }
+
     public void reset() {
         hora = 0;
         dia = new Lunes();

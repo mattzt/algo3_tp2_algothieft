@@ -15,6 +15,7 @@ import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
+import edu.fiuba.algo3.modelo.Reloj.DiaDeLaSemana;
 import edu.fiuba.algo3.modelo.Reloj.Reloj;
 import javafx.scene.SnapshotResult;
 
@@ -25,7 +26,7 @@ public class Policia {
     private final String nombre;
     private Rango rango;
     private Pais paisEnDondeEstoy;
-    private Reloj reloj;
+    private final Reloj reloj;
     private int horasAvanzar;
     private OrdenDeArresto ordenDeArresto;
 
@@ -101,6 +102,10 @@ public class Policia {
 
     public int mirarLaHora(){
         return reloj.verHora();
+    }
+
+    public DiaDeLaSemana mirarDia(){
+        return reloj.verDia();
     }
 
     public void resetearReloj() {
