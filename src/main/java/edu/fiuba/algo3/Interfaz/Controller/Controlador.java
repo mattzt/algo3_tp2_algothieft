@@ -15,6 +15,7 @@ public abstract class Controlador {
     Label configurarHora() throws NoExisteError, IOException {
         partida = Partida.getInstance();
         Label hora = new Label();
+
         hora.setText("Hora inicial:\n" + partida.obtenerMomento().obtenerFecha());
         hora.setLayoutX(23);
         hora.setLayoutY(28);
@@ -25,5 +26,18 @@ public abstract class Controlador {
         hora.setId("hora");
 
         return hora;
+    }
+
+    Label configurarMensajeFinal() throws NoExisteError, IOException {
+        partida = Partida.getInstance();
+        Label mensajeFinal = new Label();
+
+        mensajeFinal.setText(partida.arrestar());
+        mensajeFinal.setFont(Font.font(25));
+        mensajeFinal.setAlignment(Pos.CENTER);
+        mensajeFinal.setLayoutX(50);
+        mensajeFinal.setLayoutY(180);
+
+        return mensajeFinal;
     }
 }

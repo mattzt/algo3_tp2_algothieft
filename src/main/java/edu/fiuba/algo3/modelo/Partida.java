@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Caso.Caso;
 import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
@@ -21,6 +22,7 @@ public class Partida {
     private Paises paises;
     private ObjetosValiosos listaDeObjetos;
     private static Partida instance;
+    private Caso casoActual;
 
     private Partida() throws IOException, NoExisteError {
         policia = new Policia("Pepe", new Pais("Francia", "Paris"));
@@ -69,8 +71,8 @@ public class Partida {
         policia.resetearSospechosos();
     }
 
-    public void arrestar(){
-        policia.arrestar();
+    public String arrestar(){
+        return policia.arrestar();
     }
 
     public void emitirOrden(){

@@ -8,7 +8,7 @@ public abstract class Rango
 
     public abstract Rango promover();
 
-    void aumentarCasosResueltos(){
+    public void aumentarCasosResueltos(){
         casosResueltos++;
     }
 

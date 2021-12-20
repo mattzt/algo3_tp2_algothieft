@@ -81,8 +81,7 @@ public class Policia {
     }
 
     public String arrestar(){
-        rango.aumentarCasosResueltos();
-        rango = rango.promover();
+        rango = ordenDeArresto.evaluarRango(rango);
         String resultado =  computadora.arrestar(ordenDeArresto);
         ordenDeArresto = new NoEmitida();
 

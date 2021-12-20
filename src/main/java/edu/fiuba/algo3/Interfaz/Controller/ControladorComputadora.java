@@ -83,6 +83,22 @@ public class ControladorComputadora extends Controlador{
         stage.show();
     }
 
+    public void irAPantallaFinal(ActionEvent event) throws NoExisteError, IOException {
+        URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/PantallaFinal.fxml").toURI().toURL();
+        AnchorPane root = FXMLLoader.load(url);
+
+        Label hora = configurarHora();
+        root.getChildren().add(hora);
+
+        Label mensajeFinal = configurarMensajeFinal();
+        root.getChildren().add(mensajeFinal);
+
+        Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void filtrarSexo(ActionEvent event) {
         if(masculino.isSelected())
             partida.filtrar(new SexoMasculino());
@@ -153,8 +169,9 @@ public class ControladorComputadora extends Controlador{
         cantidadSospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
     }
 
-    public void arrestar(ActionEvent event){
+    public void arrestar(ActionEvent event) throws NoExisteError, IOException {
         partida.arrestar();
+        irAPantallaFinal(event);
         hora.setText("Hora actual:\n" + partida.obtenerMomento().obtenerFecha());
 
     }

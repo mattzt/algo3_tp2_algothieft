@@ -32,6 +32,6 @@ public class ComputadoraInterpol{
 
     public String arrestar(OrdenDeArresto ordenDeArresto){
         String orden = ordenDeArresto.arrestar();
-        return orden + " " + sospechosos.getNombreCulpable();
+        return orden + "\n" + sospechosos.getNombreCulpable();
     }
 }

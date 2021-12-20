@@ -42,21 +42,6 @@ public class App extends Application {
         cerrarPrograma(stage);});
     }
 
-    private Label confiugurarHora() throws NoExisteError, IOException {
-        Partida partida = Partida.getInstance();
-        Label hora = new Label();
-        hora.setText(partida.obtenerMomento().obtenerFecha());
-        hora.setLayoutX(23);
-        hora.setLayoutY(28);
-        hora.setPrefHeight(140);
-        hora.setPrefWidth(230);
-        hora.setAlignment(Pos.CENTER);
-        hora.setFont(Font.font(25));
-
-        return hora;
-    }
-
-
     private void cerrarPrograma(Stage ventana) {
         Alert.AlertType tipo = Alert.AlertType.CONFIRMATION;
         Alert  alerta = new Alert(tipo, "");
