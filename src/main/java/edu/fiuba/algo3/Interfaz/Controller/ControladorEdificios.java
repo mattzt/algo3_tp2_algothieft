@@ -22,9 +22,11 @@ public class ControladorEdificios extends Controlador{
     }
 
 
-    public void irAMenu(ActionEvent event) throws IOException {
+    public void irAMenu(ActionEvent event) throws IOException, NoExisteError {
         URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/MenuPrincipal.fxml").toURI().toURL();
         AnchorPane root = FXMLLoader.load(url);
+        Label hora = configurarHora();
+        root.getChildren().add(hora);
 
 
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
@@ -33,10 +35,12 @@ public class ControladorEdificios extends Controlador{
         stage.show();
     }
 
-    public void irAComputadora(ActionEvent event) throws IOException {
+    public void irAComputadora(ActionEvent event) throws IOException, NoExisteError {
         URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/ComputadoraInterpol.fxml").toURI().toURL();
         AnchorPane root = FXMLLoader.load(url);
 
+        Label hora = configurarHora();
+        root.getChildren().add(hora);
 
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         Scene scene = new Scene(root);

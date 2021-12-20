@@ -16,6 +16,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -44,15 +46,23 @@ public class ControladorComputadora extends Controlador{
     @FXML
     public Label cantidadSospechosos, hora;
 
+    @FXML
+    public Line lineaFlecha;
+
+    @FXML
+    public Polygon puntaFlecha;
+
 
     public ControladorComputadora() throws NoExisteError, IOException {
         partida = Partida.getInstance();
     }
 
-    public void irAMenu(ActionEvent event) throws IOException {
+    public void irAMenu(ActionEvent event) throws IOException, NoExisteError {
         URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/MenuPrincipal.fxml").toURI().toURL();
         AnchorPane root = FXMLLoader.load(url);
 
+        Label hora = configurarHora();
+        root.getChildren().add(hora);
 
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         Scene scene = new Scene(root);
@@ -60,10 +70,12 @@ public class ControladorComputadora extends Controlador{
         stage.show();
     }
 
-    public void irAEdificios(ActionEvent event) throws IOException {
+    public void irAEdificios(ActionEvent event) throws IOException, NoExisteError {
         URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/Edificios.fxml").toURI().toURL();
         AnchorPane root = FXMLLoader.load(url);
 
+        Label hora = configurarHora();
+        root.getChildren().add(hora);
 
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         Scene scene = new Scene(root);
@@ -150,5 +162,8 @@ public class ControladorComputadora extends Controlador{
     public void emitirOrden(){
         partida.emitirOrden();
         hora.setText("Hora actual:\n" + partida.obtenerMomento().obtenerFecha());
+        puntaFlecha.setVisible(true);
+        lineaFlecha.setVisible(true);
+        emitirOrden.setDisable(true);
     }
 }
