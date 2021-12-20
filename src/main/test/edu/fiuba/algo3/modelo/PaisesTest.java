@@ -59,11 +59,11 @@ public class PaisesTest {
         Assertions.assertEquals(4,rutaDeEscape.size());
     }
 
-    @Test
-    public void testSetPaisesConexos() throws NoExisteError, IOException {
-        todosLosPaises = (Paises) factory.crear(rutaArchivoDistancias);
-        todosLosPaises.setPaisesConexos();
-        Pais unPais = todosLosPaises.buscar("Argentina");
-        Assertions.assertFalse(unPais.puedeAgregarConexos());
-    }
+//    @Test
+//    public void testSetPaisesConexos() throws NoExisteError, IOException {
+//        todosLosPaises = (Paises) factory.crear(rutaArchivoDistancias);
+//        todosLosPaises.setPaisesConexos();
+//        Pais unPais = todosLosPaises.buscar("Argentina");
+//        Assertions.assertFalse(unPais.puedeAgregarConexos());
+//    }
 }
