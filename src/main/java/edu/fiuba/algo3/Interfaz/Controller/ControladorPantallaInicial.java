@@ -26,11 +26,7 @@ public class ControladorPantallaInicial extends Controlador {
     }
 
     public void enterKey(KeyEvent keyEvent) throws IOException {
-        if (!nombreCorrecto(unNombre.getText()) && keyEvent.getCode() == KeyCode.ENTER ){
-            logIn(keyEvent);
-            System.out.println("HOLA");
-            System.out.println(unNombre.getText());
-        }
+        if (!nombreCorrecto(unNombre.getText()) && keyEvent.getCode() == KeyCode.ENTER ) logIn(keyEvent);
     }
 
     private void logIn(Event unEvento) throws IOException {
