@@ -62,6 +62,16 @@ public class ControladorComputadora {
         stage.show();
     }
 
+    public void irAEdificios(ActionEvent event) throws IOException {
+        URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/Edificios.fxml").toURI().toURL();
+        Parent root = FXMLLoader.load(url);
+
+        Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void filtrarSexo(ActionEvent event) {
         if(masculino.isSelected())
             partida.filtrar(new SexoMasculino());
