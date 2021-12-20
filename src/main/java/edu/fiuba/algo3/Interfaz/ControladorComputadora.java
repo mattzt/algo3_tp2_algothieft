@@ -16,16 +16,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class ControladorComputadora {
-
-    private final Partida partida;
-
+public class ControladorComputadora extends Controlador{
     @FXML
     public RadioButton masculino, femenino;
 
@@ -52,9 +50,12 @@ public class ControladorComputadora {
         partida = Partida.getInstance();
     }
 
-    public void irAMenu(ActionEvent event) throws IOException {
+    public void irAMenu(ActionEvent event) throws IOException, NoExisteError {
         URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/MenuPrincipal.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(url);
+        AnchorPane root = FXMLLoader.load(url);
+
+        Label hora = configurarHora();
+        root.getChildren().add(hora);
 
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         Scene scene = new Scene(root);
@@ -62,9 +63,12 @@ public class ControladorComputadora {
         stage.show();
     }
 
-    public void irAEdificios(ActionEvent event) throws IOException {
+    public void irAEdificios(ActionEvent event) throws IOException, NoExisteError {
         URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/Edificios.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(url);
+        AnchorPane root = FXMLLoader.load(url);
+
+        Label hora = configurarHora();
+        root.getChildren().add(hora);
 
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         Scene scene = new Scene(root);
@@ -78,7 +82,6 @@ public class ControladorComputadora {
         else if(femenino.isSelected()) {
             partida.filtrar(new SexoFemenino());
         }
-
         cantidadSospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
     }
 
@@ -145,9 +148,12 @@ public class ControladorComputadora {
 
     public void arrestar(ActionEvent event){
         partida.arrestar();
+        hora.setText("Hora actual:\n" + partida.obtenerMomento().obtenerFecha());
+
     }
 
     public void emitirOrden(){
         partida.emitirOrden();
+        hora.setText("Hora actual:\n" + partida.obtenerMomento().obtenerFecha());
     }
 }
