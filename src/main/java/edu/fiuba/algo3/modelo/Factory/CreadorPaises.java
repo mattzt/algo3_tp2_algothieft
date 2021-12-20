@@ -31,6 +31,7 @@ public class CreadorPaises implements Factory {
             nuevoPais.setEdificios(edificiosDelPais);
             paises.agregar(nuevoPais);
         }
+        paises.setPaisesConexos();
         return paises;
     }
 }

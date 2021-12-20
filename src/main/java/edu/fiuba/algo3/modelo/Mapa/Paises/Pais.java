@@ -50,6 +50,10 @@ public class Pais {
         return paisesConexos;
     }
 
+    public int cantidadDePaisesConexos(){
+        return paisesConexos.size();
+    }
+
     public boolean equals(Pais unPais){
         String unNombre = unPais.getNombre();
         return nombre.equals(unNombre) || ciudadDestacada.equals(unNombre);

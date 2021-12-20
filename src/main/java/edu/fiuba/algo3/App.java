@@ -28,16 +28,14 @@ import java.util.Optional;
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) throws IOException, NoExisteError {
-        URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/MenuPrincipal.fxml").toURI().toURL();
+    public void start(Stage stage) throws IOException {
+        URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/PantallaInicial.fxml").toURI().toURL();
         AnchorPane root = FXMLLoader.load(url);
-
-        Label hora = confiugurarHora();
-
-        root.getChildren().add(hora);
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.centerOnScreen();
         stage.show();
 
         stage.setOnCloseRequest(e->{e.consume();
@@ -67,7 +65,7 @@ public class App extends Application {
         alerta.getDialogPane().setContentText("Desea Cerrar?");
         alerta.getDialogPane().setHeaderText("SALIR");
         Optional<ButtonType> resultado = alerta.showAndWait();
-        if (resultado.get() == ButtonType.OK) { ventana.close();}
+        if (resultado.isPresent() && resultado.get() == ButtonType.OK) { ventana.close();}
     }
 
     public static void main(String[] args) {
