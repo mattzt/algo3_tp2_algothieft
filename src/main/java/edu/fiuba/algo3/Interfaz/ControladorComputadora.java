@@ -1,21 +1,10 @@
 package edu.fiuba.algo3.Interfaz;
 
-import edu.fiuba.algo3.modelo.Criminales.Accesorios.Anillo;
-import edu.fiuba.algo3.modelo.Criminales.Accesorios.Cicatriz;
-import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
-import edu.fiuba.algo3.modelo.Criminales.Accesorios.Tatuaje;
-import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
+import edu.fiuba.algo3.modelo.Criminales.Accesorios.*;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.*;
-import edu.fiuba.algo3.modelo.Criminales.Pelo.Castanio;
-import edu.fiuba.algo3.modelo.Criminales.Pelo.Negro;
-import edu.fiuba.algo3.modelo.Criminales.Pelo.Rojo;
-import edu.fiuba.algo3.modelo.Criminales.Pelo.Rubio;
-import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
-import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoMasculino;
-import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Deportivo;
-import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Descapotable;
-import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Limusina;
-import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Moto;
+import edu.fiuba.algo3.modelo.Criminales.Pelo.*;
+import edu.fiuba.algo3.modelo.Criminales.Sexo.*;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.*;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Partida;
 import javafx.event.ActionEvent;
@@ -53,10 +42,10 @@ public class ControladorComputadora {
     public RadioButton deportivo, descapotable, moto, limusina;
 
     @FXML
-    public Button botonSexo, botonAccesorio, botonHobbie, botonPelo, botonVehiculo, resetearFiltros;
+    public Button botonSexo, botonAccesorio, botonHobbie, botonPelo, botonVehiculo, resetearFiltros, emitirOrden, arrestar;
 
     @FXML
-    public Label cantidadSospechosos;
+    public Label cantidadSospechosos, hora;
 
 
     public ControladorComputadora() throws NoExisteError, IOException {
@@ -109,6 +98,8 @@ public class ControladorComputadora {
             partida.filtrar(new Paracaidismo());
         else if(tenis.isSelected())
             partida.filtrar(new Tenis());
+
+        cantidadSospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
     }
 
     public void filtrarPelo(ActionEvent event){
@@ -120,6 +111,8 @@ public class ControladorComputadora {
             partida.filtrar(new Rojo());
         else if(rubio.isSelected())
             partida.filtrar(new Rubio());
+
+        cantidadSospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
     }
 
     public void filtrarVehiculo(ActionEvent event){
@@ -131,12 +124,20 @@ public class ControladorComputadora {
             partida.filtrar(new Moto());
         else if(limusina.isSelected())
             partida.filtrar(new Limusina());
-    }
 
-    public void filtrar(){}
+        cantidadSospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
+    }
 
     public void resetearFiltros(ActionEvent event){
         partida.resetearFiltros();
         cantidadSospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
+    }
+
+    public void arrestar(ActionEvent event){
+        partida.arrestar();
+    }
+
+    public void emitirOrden(){
+        partida.emitirOrden();
     }
 }

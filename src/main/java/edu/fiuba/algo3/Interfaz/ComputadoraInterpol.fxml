@@ -15,7 +15,7 @@
             <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Viajar" />
             <Button mnemonicParsing="false" onAction="#irAMenu" prefHeight="100.0" prefWidth="200.0" text="Menu Principal" />
       </HBox>
-      <Label layoutX="23.0" layoutY="28.0" prefHeight="140.0" prefWidth="230.0" text="Hora" />
+      <Label fx:id="hora" layoutX="23.0" layoutY="28.0" prefHeight="140.0" prefWidth="230.0" text="Hora" />
    <VBox alignment="CENTER" layoutX="336.0" layoutY="6.0" prefHeight="570.0" prefWidth="550.0">
       <Label text="Filtrar sospechosos">
          <font>
@@ -74,8 +74,8 @@
          </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
             <Button fx:id="resetearFiltros" mnemonicParsing="false" onAction="#resetearFiltros" text="Resetear Filtros" />
-            <Button mnemonicParsing="false" text="Emitir orden de arresto" />
-            <Button mnemonicParsing="false" text="Arrestar" />
+            <Button fx:id="emitirOrden" mnemonicParsing="false" onAction="#emitirOrden" text="Emitir orden de arresto" />
+            <Button fx:id="arrestar" mnemonicParsing="false" onAction="#arrestar" text="Arrestar" />
       </HBox>
       <Label fx:id="cantidadSospechosos" text="Cantidad de sospechosos:">
          <font>

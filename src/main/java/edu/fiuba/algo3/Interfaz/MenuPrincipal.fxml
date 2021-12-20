@@ -5,12 +5,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Interfaz.ControladorEscenas">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Interfaz.ControladorMenu">
       <HBox layoutX="336.0" layoutY="586.0" prefHeight="100.0" prefWidth="550.0">
             <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Explorar Ciudad" />
             <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Viajar" />
             <Button mnemonicParsing="false" onAction="#irAComputadora" prefHeight="100.0" prefWidth="200.0" text="Computadora Interpol" />
       </HBox>
       <Label id="pantallaPrincipal" layoutX="335.0" layoutY="42.0" prefHeight="520.0" prefWidth="550.0" text="Lugar donde aparece texto" />
-      <Label id="fecha" layoutX="23.0" layoutY="28.0" prefHeight="140.0" prefWidth="230.0" text="Hora" />
+      <Label id="hora" layoutX="23.0" layoutY="28.0" prefHeight="140.0" prefWidth="230.0" text="Hora" />
 </AnchorPane>

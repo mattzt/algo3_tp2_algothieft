@@ -69,4 +69,12 @@ public class Partida {
         policia.resetearSospechosos();
     }
 
+    public void arrestar(){
+        policia.arrestar();
+    }
+
+    public void emitirOrden(){
+        policia.emitirOrdenArresto();
+    }
+
 }

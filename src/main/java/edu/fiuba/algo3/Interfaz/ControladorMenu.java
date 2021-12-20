@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class ControladorEscenas {
+public class ControladorMenu {
 
     public void irAComputadora(ActionEvent event) throws IOException {
         URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/ComputadoraInterpol.fxml").toURI().toURL();
