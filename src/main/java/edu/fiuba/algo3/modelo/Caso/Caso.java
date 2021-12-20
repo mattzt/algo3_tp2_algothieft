@@ -22,6 +22,10 @@ public class Caso {
         rutaDeEscape = listaDePaises.elegirRutaDeEscapePorNivel(objetoRobado.paisDeOrigen(), objetoRobado.cantidadDePaisesDeEscape());
     }
 
+    public boolean esCrminal(Criminal criminal){
+        return criminal.equals(ladron);
+    }
+
     public void asignarCasoAPolicia(Policia nuevoPoli) {
         policia = nuevoPoli;
     }

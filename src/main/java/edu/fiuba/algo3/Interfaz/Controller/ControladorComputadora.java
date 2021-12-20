@@ -20,8 +20,10 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
+import java.beans.PropertyChangeEvent;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class ControladorComputadora extends Controlador{
@@ -99,16 +101,16 @@ public class ControladorComputadora extends Controlador{
         stage.show();
     }
 
-    public void filtrarSexo(ActionEvent event) {
+    public void filtrarSexo(ActionEvent event) throws NoExisteError, IOException {
         if(masculino.isSelected())
             partida.filtrar(new SexoMasculino());
         else if(femenino.isSelected()) {
             partida.filtrar(new SexoFemenino());
         }
-        cantidadSospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
+        actualizarPantalla(event);
     }
 
-    public void filtrarAccesorio(ActionEvent event){
+    public void filtrarAccesorio(ActionEvent event) throws NoExisteError, IOException {
         if(anillo.isSelected())
             partida.filtrar(new Anillo());
         else if(tatuaje.isSelected())
@@ -118,10 +120,10 @@ public class ControladorComputadora extends Controlador{
         else if(joyas.isSelected())
             partida.filtrar(new Joyas());
 
-        cantidadSospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
+        actualizarPantalla(event);
     }
 
-    public void filtrarHobbie(ActionEvent event){
+    public void filtrarHobbie(ActionEvent event) throws NoExisteError, IOException {
         if(alpinismo.isSelected())
             partida.filtrar(new Alpinismo());
         else if(croquet.isSelected())
@@ -135,10 +137,10 @@ public class ControladorComputadora extends Controlador{
         else if(tenis.isSelected())
             partida.filtrar(new Tenis());
 
-        cantidadSospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
+        actualizarPantalla(event);
     }
 
-    public void filtrarPelo(ActionEvent event){
+    public void filtrarPelo(ActionEvent event) throws NoExisteError, IOException {
         if(castanio.isSelected())
             partida.filtrar(new Castanio());
         else if(negro.isSelected())
@@ -148,10 +150,10 @@ public class ControladorComputadora extends Controlador{
         else if(rubio.isSelected())
             partida.filtrar(new Rubio());
 
-        cantidadSospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
+        actualizarPantalla(event);
     }
 
-    public void filtrarVehiculo(ActionEvent event){
+    public void filtrarVehiculo(ActionEvent event) throws NoExisteError, IOException {
         if(deportivo.isSelected())
             partida.filtrar(new Deportivo());
         else if(descapotable.isSelected())
@@ -161,12 +163,12 @@ public class ControladorComputadora extends Controlador{
         else if(limusina.isSelected())
             partida.filtrar(new Limusina());
 
-        cantidadSospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
+        actualizarPantalla(event);
     }
 
-    public void resetearFiltros(ActionEvent event){
+    public void resetearFiltros(ActionEvent event) throws NoExisteError, IOException {
         partida.resetearFiltros();
-        cantidadSospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
+        actualizarPantalla(event);
     }
 
     public void arrestar(ActionEvent event) throws NoExisteError, IOException {
@@ -176,11 +178,24 @@ public class ControladorComputadora extends Controlador{
 
     }
 
-    public void emitirOrden(){
+    private void actualizarPantalla(ActionEvent event) throws IOException, NoExisteError {
+        URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/ComputadoraInterpol.fxml").toURI().toURL();
+        AnchorPane root = FXMLLoader.load(url);
+
+        Label hora = configurarHora();
+        root.getChildren().add(hora);
+
+        Label sospechosos = configurarSospechosos();
+        root.getChildren().add(sospechosos);
+
+        Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void emitirOrden(ActionEvent event) throws IOException, NoExisteError {
         partida.emitirOrden();
-        hora.setText("Hora actual:\n" + partida.obtenerMomento().obtenerFecha());
-        puntaFlecha.setVisible(true);
-        lineaFlecha.setVisible(true);
-        emitirOrden.setDisable(true);
+        actualizarPantalla(event);
     }
 }

@@ -41,7 +41,8 @@ public class Sospechosos implements Listable {
     }
 
     public void resetear(){
-        sospechosos = copia;
+        sospechosos.clear();
+        sospechosos.addAll(copia);
     }
 
     public Criminal elegirCriminalAleatorio() {

@@ -8,7 +8,7 @@ import javafx.scene.text.Font;
 
 import java.io.IOException;
 
-public abstract class Controlador {
+public abstract class Controlador{
     protected Partida partida;
 
 
@@ -39,5 +39,18 @@ public abstract class Controlador {
         mensajeFinal.setLayoutY(180);
 
         return mensajeFinal;
+    }
+
+    Label configurarSospechosos() throws NoExisteError, IOException {
+        partida = Partida.getInstance();
+        Label sospechosos = new Label();
+
+        sospechosos.setText("Cantidad de sospechosos: " + partida.cantidadSospechosos());
+        sospechosos.setFont(Font.font(14));
+        sospechosos.setAlignment(Pos.CENTER);
+        sospechosos.setLayoutX(520);
+        sospechosos.setLayoutY(520);
+
+        return sospechosos;
     }
 }
