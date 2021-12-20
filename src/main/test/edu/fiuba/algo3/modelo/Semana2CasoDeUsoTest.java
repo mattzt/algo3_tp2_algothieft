@@ -100,7 +100,7 @@ public class Semana2CasoDeUsoTest {
 
         String arrestar = nuevoPoli.arrestar();
 
-        Assertions.assertEquals(arrestar, "No pudiste arrestar al criminal porque no tenias orden de arresto :( El criminal era Carmen Sandiego");
+        Assertions.assertEquals(arrestar, "No pudiste arrestar al criminal porque no tenias orden de arresto :(\nEl criminal era Carmen Sandiego");
 
     }
 
@@ -133,7 +133,7 @@ public class Semana2CasoDeUsoTest {
 
         String resultado = nuevoPoli.arrestar();
 
-        Assertions.assertEquals(resultado, "Arrestaste al criminal!" + " El criminal era Carmen Sandiego");
+        Assertions.assertEquals(resultado, "Arrestaste al criminal!\nEl criminal era Carmen Sandiego");
     }
 
 

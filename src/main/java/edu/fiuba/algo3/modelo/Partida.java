@@ -11,7 +11,6 @@ import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Reloj.DiaDeLaSemana;
 import edu.fiuba.algo3.modelo.Reloj.Momento;
 
 import java.io.IOException;
