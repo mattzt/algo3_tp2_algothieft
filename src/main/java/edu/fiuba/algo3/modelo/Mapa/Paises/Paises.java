@@ -31,11 +31,14 @@ public class Paises implements Listable {
     public ArrayList<Pais> elegirRutaDeEscapePorNivel(Pais paisDelObjeto, int cantidadDePaisesDeEscape) {
         ArrayList<Pais> listaTodosLosPaises = new ArrayList<>(paises);
         ArrayList<Pais> rutaDeEscape = new ArrayList<>();
-        rutaDeEscape.add(paisDelObjeto);
         listaTodosLosPaises.remove(paisDelObjeto);
         while (rutaDeEscape.size()!=cantidadDePaisesDeEscape){
-            Pais nuevoPaisDeEscape = listaTodosLosPaises.remove(Randomizador.indiceRandom(listaTodosLosPaises));
-            rutaDeEscape.add(nuevoPaisDeEscape);
+            ArrayList<Pais> posibilidadesDeEscape = paisDelObjeto.getPaisesConexos().paises;
+            Pais nuevoPaisDeEscape = posibilidadesDeEscape.get(Randomizador.indiceRandom(posibilidadesDeEscape));
+            if (!rutaDeEscape.contains(nuevoPaisDeEscape)){
+                rutaDeEscape.add(nuevoPaisDeEscape);
+                paisDelObjeto = nuevoPaisDeEscape;
+            }
         }
         return rutaDeEscape;
     }

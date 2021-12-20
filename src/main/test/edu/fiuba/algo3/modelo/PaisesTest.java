@@ -54,7 +54,6 @@ public class PaisesTest {
 
     @Test
     public void testSetPaisesConexosMasivo() {
-        todosLosPaises.setPaisesConexos();
         Assertions.assertTrue(todosLosPaises.testConexosCompletos());
     }
 }
