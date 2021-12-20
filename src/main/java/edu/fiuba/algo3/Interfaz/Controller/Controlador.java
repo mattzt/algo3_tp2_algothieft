@@ -1,4 +1,4 @@
-package edu.fiuba.algo3.Interfaz;
+package edu.fiuba.algo3.Interfaz.Controller;
 
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Partida;
