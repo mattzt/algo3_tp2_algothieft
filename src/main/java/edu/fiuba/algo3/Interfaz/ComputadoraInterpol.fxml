@@ -15,10 +15,6 @@
             <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Viajar" />
             <Button mnemonicParsing="false" onAction="#irAMenu" prefHeight="100.0" prefWidth="200.0" text="Menu Principal" />
       </HBox>
-      <Label fx:id="hora" alignment="CENTER" layoutX="23.0" layoutY="150.0" prefHeight="140.0" prefWidth="230.0" text=" ">
-      <font>
-         <Font size="25.0" />
-      </font></Label>
    <VBox alignment="CENTER" layoutX="336.0" layoutY="6.0" prefHeight="570.0" prefWidth="550.0">
       <Label text="Filtrar sospechosos">
          <font>
@@ -85,5 +81,14 @@
             <Font size="14.0" />
          </font>
       </Label>
+   </VBox>
+   <VBox alignment="CENTER" prefHeight="700.0" prefWidth="316.0">
+      <children>
+            <Label fx:id="hora" alignment="TOP_CENTER" prefHeight="230.0" prefWidth="230.0" text=" ">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Label>
+      </children>
    </VBox>
 </AnchorPane>
