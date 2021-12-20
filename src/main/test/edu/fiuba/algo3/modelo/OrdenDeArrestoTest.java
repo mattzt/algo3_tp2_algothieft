@@ -17,31 +17,31 @@ import java.io.FileNotFoundException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class OrdenDeArrestoTest {
-    private ComputadoraInterpol computadora;
     private Policia policia;
 
     @Before
     public void init() throws FileNotFoundException {
         CreadorCriminales creadorCriminales = new CreadorCriminales();
-        computadora = new ComputadoraInterpol(creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt"));
+        ComputadoraInterpol computadora = new ComputadoraInterpol(creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt"));
         policia = new Policia("pepe", new Pais("Argentina", "Buenos-Aires"));
+        policia.setComputadora(computadora);
     }
 
     private void reducirSospechosos(){
-        policia.ingresarDato(computadora, new SexoFemenino());
-        policia.ingresarDato(computadora, new Descapotable());
-        policia.ingresarDato(computadora, new Tenis());
-        policia.ingresarDato(computadora, new Castanio());
-        policia.ingresarDato(computadora, new Joyas());
+        policia.ingresarDato(new SexoFemenino());
+        policia.ingresarDato(new Descapotable());
+        policia.ingresarDato(new Tenis());
+        policia.ingresarDato(new Castanio());
+        policia.ingresarDato(new Joyas());
     }
 
     @Test
     public void arrestarConOrdenEmitida(){
         reducirSospechosos();
 
-        policia.emitirOrdenArresto(computadora);
+        policia.emitirOrdenArresto();
 
-        String resultado = policia.arrestar(computadora);
+        String resultado = policia.arrestar();
 
         assertEquals(resultado, "Arrestaste al criminal!" + " El criminal era Carmen Sandiego");
 

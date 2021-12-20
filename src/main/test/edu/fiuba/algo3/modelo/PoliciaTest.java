@@ -15,14 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PoliciaTest {
      private Policia agente;
-     private Partida partida;
-     private RepositorioPistas pistas;
+    private RepositorioPistas pistas;
 
 
      @BeforeEach
      public void setUp() throws IOException, NoExisteError {
          agente = new Policia("tobias", new Pais("Argentina","Buenos Aires"));
-         partida = new Partida(agente);
+         Partida partida = Partida.getInstance();
          pistas = partida.obtenerPistas();
      }
 

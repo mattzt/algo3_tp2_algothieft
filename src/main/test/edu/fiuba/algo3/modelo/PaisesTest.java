@@ -15,55 +15,45 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PaisesTest {
-    Paises todosLosPaises;
-    Factory factory;
     String rutaArchivoDistancias = "src/main/java/edu/fiuba/algo3/modelo/Resources/DataPaises.txt";
+    Factory factory = new CreadorPaises();
+    Paises todosLosPaises = (Paises) factory.crear(rutaArchivoDistancias);
 
-    @BeforeEach
-    public void setUp() {
-        todosLosPaises = new Paises();
-        factory = new CreadorPaises();
+    public PaisesTest() throws NoExisteError, IOException {
     }
 
     @Test
     public void agregarPais() {
         Pais atlantis = new Pais("Atlantis","Atlantis-City");
         todosLosPaises.agregar(atlantis);
-        assertEquals(1,todosLosPaises.size());
+        assertEquals(31,todosLosPaises.size());
     }
 
     @Test
-    public void crearPaises() throws IOException, NoExisteError {
-        todosLosPaises = (Paises) factory.crear(rutaArchivoDistancias);
+    public void crearPaises() {
         Assertions.assertEquals(30,todosLosPaises.size());
     }
 
     @Test
-    public void buscarPais() throws NoExisteError, IOException {
-        todosLosPaises = (Paises) factory.crear(rutaArchivoDistancias);
-        Pais argentina = todosLosPaises.buscar("Argentina");
-        assertEquals("Argentina", argentina.getNombre());
+    public void buscarPais() throws NoExisteError {
+        assertEquals("Argentina", todosLosPaises.buscar("Argentina").getNombre());
     }
 
     @Test
     public void buscarPaisInexistenteLanzaException() {
         NoExisteError except = assertThrows(NoExisteError.class,
-                ()-> todosLosPaises.buscar("Argentina"));
+                ()-> todosLosPaises.buscar("Narnia"));
     }
 
     @Test
-    public void rutaDeEscapeParaObjetoComunTiene4Paises() throws NoExisteError, IOException {
-        todosLosPaises = (Paises) factory.crear(rutaArchivoDistancias);
+    public void rutaDeEscapeParaObjetoComunTiene4Paises() throws NoExisteError {
         Pais origenDelObjeto = todosLosPaises.buscar("Argentina");
         ArrayList<Pais> rutaDeEscape = todosLosPaises.elegirRutaDeEscapePorNivel(origenDelObjeto,4);
         Assertions.assertEquals(4,rutaDeEscape.size());
     }
 
     @Test
-    public void testSetPaisesConexos() throws NoExisteError, IOException {
-        todosLosPaises = (Paises) factory.crear(rutaArchivoDistancias);
-        todosLosPaises.setPaisesConexos();
-        Pais unPais = todosLosPaises.buscar("Argentina");
-        Assertions.assertFalse(unPais.puedeAgregarConexos());
+    public void testSetPaisesConexosMasivo() {
+        Assertions.assertTrue(todosLosPaises.testConexosCompletos());
     }
 }

@@ -4,14 +4,14 @@ import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 
 public class ComputadoraInterpol{
-    private Sospechosos sospechosos;
+    private final Sospechosos sospechosos;
 
     public ComputadoraInterpol(Sospechosos listaDeSospechosos){
         sospechosos = listaDeSospechosos;
     }
 
-    public Sospechosos ingresarCaracteristica(Caracteristica unaCaracteristica){
-        return sospechosos.filtrar(unaCaracteristica);
+    public void ingresarCaracteristica(Caracteristica unaCaracteristica){
+        sospechosos.filtrar(unaCaracteristica);
     }
 
     public boolean sePuedeEmitirOrden(){
@@ -22,12 +22,16 @@ public class ComputadoraInterpol{
         return true;
     }
 
+    public int cantidadSospechosos(){
+        return sospechosos.size();
+    }
+
     public void resetearSospechosos(){
         sospechosos.resetear();
     }
 
     public String arrestar(OrdenDeArresto ordenDeArresto){
         String orden = ordenDeArresto.arrestar();
-        return orden + " " + sospechosos.getNombreCulpable();
+        return orden + "\n" + sospechosos.getNombreCulpable();
     }
 }
