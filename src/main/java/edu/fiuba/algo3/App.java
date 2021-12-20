@@ -26,7 +26,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws NoExisteError, IOException {
         Policia policia = new Policia("Pepe", new Pais("Francia","Paris"));
-        Partida partida = new Partida(policia);
+        Partida partida = Partida.getInstance();
 
         URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/MenuPrincipal.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);

@@ -22,7 +22,7 @@ public class PistaTest {
     public void setUp() throws NoExisteError, IOException {
         rusia = new Pais("Rusia", "Moscu");
         nuevoPoli = new Policia("Carlos",rusia);
-        partida = new Partida(nuevoPoli);
+        partida = Partida.getInstance();
     }
 
     @Test

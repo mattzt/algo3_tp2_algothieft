@@ -46,13 +46,11 @@ public class Semana2CasoDeUsoTest {
     Pais mexico = todosLosPaises.buscar("Mexico");
     Policia nuevoPoli = new Policia("Carlos", canada);
     ComputadoraInterpol computadora;
-    Caracteristicas caracteristicas = new Caracteristicas(null, null, null, null, null);
-    Criminal sospechoso = new Criminal("nombreCriminal",caracteristicas);
     Caso caso = new Caso(todosLosSospechosos,todosLosObjetos,todosLosPaises,new Novato());
-    CreadorPistas creadorPistas = new CreadorPistas();
-    RepositorioPistas repo = (RepositorioPistas) creadorPistas.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt");
 
     public Semana2CasoDeUsoTest() throws NoExisteError, IOException {
+        computadora = new ComputadoraInterpol(todosLosSospechosos);
+        nuevoPoli.setComputadora(computadora);
     }
 
 
@@ -82,25 +80,25 @@ public class Semana2CasoDeUsoTest {
         Sospechosos listaFiltrada;
         computadora = new ComputadoraInterpol(todosLosSospechosos);
 
-        nuevoPoli.ingresarDato(computadora, new Rubio());
-        nuevoPoli.ingresarDato(computadora, new SexoFemenino());
-        nuevoPoli.ingresarDato(computadora, new Tenis());
-        nuevoPoli.ingresarDato(computadora, new Tatuaje());
-        listaFiltrada = nuevoPoli.ingresarDato(computadora, new Limusina());
-        Assertions.assertEquals(1,listaFiltrada.size());
+        nuevoPoli.ingresarDato(new Rubio());
+        nuevoPoli.ingresarDato(new SexoFemenino());
+        nuevoPoli.ingresarDato(new Tenis());
+        nuevoPoli.ingresarDato(new Tatuaje());
+        nuevoPoli.ingresarDato(new Limusina());
+        Assertions.assertEquals(1, nuevoPoli.cantidadSospechosos());
     }
 
     @Test
     public void casoDeUso4() {
         computadora = new ComputadoraInterpol(todosLosSospechosos);
 
-        nuevoPoli.ingresarDato(computadora, new SexoFemenino());
-        nuevoPoli.ingresarDato(computadora, new Castanio());
-        nuevoPoli.ingresarDato(computadora, new Tenis());
-        nuevoPoli.ingresarDato(computadora, new Joyas());
-        nuevoPoli.ingresarDato(computadora, new Descapotable());
+        nuevoPoli.ingresarDato(new SexoFemenino());
+        nuevoPoli.ingresarDato(new Castanio());
+        nuevoPoli.ingresarDato(new Tenis());
+        nuevoPoli.ingresarDato(new Joyas());
+        nuevoPoli.ingresarDato(new Descapotable());
 
-        String arrestar = nuevoPoli.arrestar(computadora);
+        String arrestar = nuevoPoli.arrestar();
 
         Assertions.assertEquals(arrestar, "No pudiste arrestar al criminal porque no tenias orden de arresto :( El criminal era Carmen Sandiego");
 
@@ -125,15 +123,15 @@ public class Semana2CasoDeUsoTest {
 
         nuevoCaso.asignarCasoAPolicia(nuevoPoli);
 
-        nuevoPoli.ingresarDato(computadora, new SexoFemenino());
-        nuevoPoli.ingresarDato(computadora, new Castanio());
-        nuevoPoli.ingresarDato(computadora, new Tenis());
-        nuevoPoli.ingresarDato(computadora, new Joyas());
-        nuevoPoli.ingresarDato(computadora, new Descapotable());
+        nuevoPoli.ingresarDato(new SexoFemenino());
+        nuevoPoli.ingresarDato(new Castanio());
+        nuevoPoli.ingresarDato(new Tenis());
+        nuevoPoli.ingresarDato(new Joyas());
+        nuevoPoli.ingresarDato(new Descapotable());
 
-        nuevoPoli.emitirOrdenArresto(computadora);
+        nuevoPoli.emitirOrdenArresto();
 
-        String resultado = nuevoPoli.arrestar(computadora);
+        String resultado = nuevoPoli.arrestar();
 
         Assertions.assertEquals(resultado, "Arrestaste al criminal!" + " El criminal era Carmen Sandiego");
     }
@@ -142,17 +140,17 @@ public class Semana2CasoDeUsoTest {
 
     private void arrestarSeisVeces(){
         for(int i = 0; i < 6; i ++) {
-            nuevoPoli.ingresarDato(computadora, new SexoFemenino());
-            nuevoPoli.ingresarDato(computadora, new Castanio());
-            nuevoPoli.ingresarDato(computadora, new Tenis());
-            nuevoPoli.ingresarDato(computadora, new Joyas());
-            nuevoPoli.ingresarDato(computadora, new Descapotable());
+            nuevoPoli.ingresarDato(new SexoFemenino());
+            nuevoPoli.ingresarDato(new Castanio());
+            nuevoPoli.ingresarDato(new Tenis());
+            nuevoPoli.ingresarDato(new Joyas());
+            nuevoPoli.ingresarDato(new Descapotable());
 
-            nuevoPoli.emitirOrdenArresto(computadora);
+            nuevoPoli.emitirOrdenArresto();
 
-            nuevoPoli.arrestar(computadora);
+            nuevoPoli.arrestar();
 
-            nuevoPoli.resetearSospechosos(computadora);
+            nuevoPoli.resetearSospechosos();
         }
     }
 }

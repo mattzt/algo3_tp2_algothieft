@@ -22,15 +22,15 @@
             <Font size="24.0" />
          </font>
       </Label>
-         <HBox fx:id="sexos" alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
                <RadioButton fx:id="masculino" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Masculino">
             <toggleGroup>
                <ToggleGroup fx:id="sexo" />
             </toggleGroup></RadioButton>
                <RadioButton fx:id="femenino" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Femenino" toggleGroup="$sexo" />
-               <Button fx:id="botonSexo" mnemonicParsing="false" onAction="#filtrar" text="Filtrar" />
+               <Button fx:id="botonSexo" mnemonicParsing="false" onAction="#filtrarSexo" text="Filtrar" />
          </HBox>
-         <HBox fx:id="accesorios" alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
                <RadioButton fx:id="anillo" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Anillo">
             <toggleGroup>
                <ToggleGroup fx:id="accesorio" />
@@ -38,9 +38,9 @@
                <RadioButton fx:id="tatuaje" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Tatuaje" toggleGroup="$accesorio" />
                <RadioButton fx:id="joyas" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Joyas" toggleGroup="$accesorio" />
                <RadioButton fx:id="cicatriz" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Cicatriz" toggleGroup="$accesorio" />
-               <Button fx:id="botonAccesorio" mnemonicParsing="false" onAction="#filtrar" text="Filtrar" />
+               <Button fx:id="botonAccesorio" mnemonicParsing="false" onAction="#filtrarAccesorio" text="Filtrar" />
          </HBox>
-         <HBox fx:id="hobbies" alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="5.0">
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="5.0">
                <RadioButton fx:id="alpinismo" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Alpinismo">
             <toggleGroup>
                <ToggleGroup fx:id="hobbie" />
@@ -50,9 +50,9 @@
                <RadioButton fx:id="natacion" mnemonicParsing="false" prefWidth="75.0" text="Natacion" toggleGroup="$hobbie" />
                <RadioButton fx:id="paracaidismo" mnemonicParsing="false" text="Paracaidismo" toggleGroup="$hobbie" />
                <RadioButton fx:id="tenis" mnemonicParsing="false" prefWidth="75.0" text="Tenis" toggleGroup="$hobbie" />
-               <Button fx:id="botonHobbie" mnemonicParsing="false" onAction="#filtrar" text="Filtrar" />
+               <Button fx:id="botonHobbie" mnemonicParsing="false" onAction="#filtrarHobbie" text="Filtrar" />
          </HBox>
-         <HBox fx:id="pelos" alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
                <RadioButton fx:id="castanio" mnemonicParsing="false" text="Castanio">
             <toggleGroup>
                <ToggleGroup fx:id="pelo" />
@@ -60,9 +60,9 @@
                <RadioButton fx:id="negro" mnemonicParsing="false" text="Negro" toggleGroup="$pelo" />
                <RadioButton fx:id="rojo" mnemonicParsing="false" prefHeight="17.0" prefWidth="66.0" text="Rojo" toggleGroup="$pelo" />
                <RadioButton fx:id="rubio" mnemonicParsing="false" text="Rubio" toggleGroup="$pelo" />
-               <Button fx:id="botonPelo" mnemonicParsing="false" onAction="#filtrar" text="Filtrar" />
+               <Button fx:id="botonPelo" mnemonicParsing="false" onAction="#filtrarPelo" text="Filtrar" />
          </HBox>
-         <HBox fx:id="vehiculos" alignment="CENTER" prefHeight="110.0" prefWidth="200.0" spacing="20.0">
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0" spacing="20.0">
                <RadioButton fx:id="deportivo" mnemonicParsing="false" text="Deportivo">
             <toggleGroup>
                <ToggleGroup fx:id="vehiculo" />
@@ -70,14 +70,14 @@
                <RadioButton fx:id="descapotable" mnemonicParsing="false" text="Descapotable" toggleGroup="$vehiculo" />
                <RadioButton fx:id="moto" mnemonicParsing="false" text="Moto" toggleGroup="$vehiculo" />
                <RadioButton fx:id="limusina" mnemonicParsing="false" text="Limusina" toggleGroup="$vehiculo" />
-               <Button fx:id="botonVehiculo" mnemonicParsing="false" onAction="#filtrar" text="Filtrar" />
+               <Button fx:id="botonVehiculo" mnemonicParsing="false" onAction="#filtrarVehiculo" text="Filtrar" />
          </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
-            <Button mnemonicParsing="false" text="Resetear Filtros" />
+            <Button fx:id="resetearFiltros" mnemonicParsing="false" onAction="#resetearFiltros" text="Resetear Filtros" />
             <Button mnemonicParsing="false" text="Emitir orden de arresto" />
             <Button mnemonicParsing="false" text="Arrestar" />
       </HBox>
-      <Label text="Cantidad de sospechosos:">
+      <Label fx:id="cantidadSospechosos" text="Cantidad de sospechosos:">
          <font>
             <Font size="14.0" />
          </font>
