@@ -49,14 +49,13 @@ public class Policia {
     public void viajarApais(Pais paisDestino) throws FileNotFoundException {
         reloj.avanzarReloj(paisEnDondeEstoy.distanciaA(paisDestino) / rango.velocidadViaje());
         paisEnDondeEstoy = paisDestino;
+        horasAvanzar = 1;
     }
 
     public Pista explorarSitio(Edificio unEdificio, RepositorioPistas pistas){
         reloj.avanzarReloj(horasAvanzar);
 
-        if((horasAvanzar + 1) > 3)
-            horasAvanzar = 1;
-        else
+        if(horasAvanzar < 3)
             horasAvanzar++;
 
         return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas);
@@ -125,7 +124,4 @@ public class Policia {
         return computadora.cantidadSospechosos();
     }
 
-    public Pais getPaisActual(){
-        return paisEnDondeEstoy;
-    }
 }
