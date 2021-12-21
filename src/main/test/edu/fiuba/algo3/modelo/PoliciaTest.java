@@ -20,7 +20,14 @@ public class PoliciaTest {
 
      @BeforeEach
      public void setUp() throws IOException, NoExisteError {
-         agente = new Policia("tobias", new Pais("Argentina","Buenos Aires"));
+         agente = new Policia();
+         Pais francia = new Pais("Francia", "Paris");
+         Edificios edificios = new Edificios();
+         edificios.agregar(new Banco());
+
+         francia.setEdificios(edificios);
+         agente.setPaisInicial(francia);
+
          Partida partida = Partida.getInstance();
          pistas = partida.obtenerPistas();
      }

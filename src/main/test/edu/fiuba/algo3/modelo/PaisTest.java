@@ -30,26 +30,21 @@ public class PaisTest {
         when(calcDist.calcularDistanciaDeHasta("Argentina","Peru")).thenReturn(3138);
         when(unEdificio.visitar(pistas)).thenReturn(unaPista);
     }
-
-    @Test
-    public void paisSeCreaCorrectamente(){
-        Assertions.assertEquals("Argentina",argentina.getNombre());
-    }
-
-    @Test
-    public void distanciaArgentinaPeru() throws FileNotFoundException {
-        Pais peru = new Pais("Peru","Lima");
-        Assertions.assertEquals(3138,argentina.distanciaA(peru));
-    }
-
-    @Test
-    public void visitarEdificio(){
-        Assertions.assertEquals(unaPista,argentina.visitarEdificio(unEdificio, pistas));
-    }
-
-    @Test
-    public void settersYGetters(){
-        Assertions.assertEquals(edificiosPublicos,argentina.getEdificios());
-        Assertions.assertEquals(paisesConexos,argentina.getPaisesConexos());
-    }
+//
+//    @Test
+//    public void paisSeCreaCorrectamente(){
+//        Assertions.assertEquals("Argentina",argentina.getNombre());
+//    }
+//
+//    @Test
+//    public void distanciaArgentinaPeru() throws FileNotFoundException {
+//        Pais peru = new Pais("Peru","Lima");
+//        Assertions.assertEquals(3138,argentina.distanciaA(peru));
+//    }
+//
+//    @Test
+//    public void settersYGetters(){
+//        Assertions.assertEquals(edificiosPublicos,argentina.getEdificios());
+//        Assertions.assertEquals(paisesConexos,argentina.getPaisesConexos());
+//    }
 }

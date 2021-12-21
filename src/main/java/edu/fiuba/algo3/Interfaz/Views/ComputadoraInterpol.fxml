@@ -75,21 +75,13 @@
          </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
             <Button fx:id="resetearFiltros" mnemonicParsing="false" onAction="#resetearFiltros" text="Resetear Filtros" />
-            <Button fx:id="emitirOrden" mnemonicParsing="false" onAction="#emitirOrden" text="Emitir orden de arresto" />
-            <Button fx:id="arrestar" mnemonicParsing="false" onAction="#arrestar" text="Arrestar" />
+            <Button fx:id="emitirOrden" mnemonicParsing="false" onAction="#emitirOrden" text="Emitir orden de arresto"/>
+            <Button fx:id="arrestar" mnemonicParsing="false" onAction="#arrestar" text="Arrestar"/>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="70.0">
-         <children>
-            <Label fx:id="cantidadSospechosos" alignment="CENTER" prefHeight="20.0" prefWidth="201.0" text="Cantidad de sospechosos:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-         </children>
       </HBox>
    </VBox>
    <VBox alignment="CENTER" prefHeight="700.0" prefWidth="316.0">
-      <children>
          <Line fx:id="lineaFlecha" endX="100.0" startX="100.29289245605469" startY="-70.05142211914062" visible="false" />
          <Polygon fx:id="puntaFlecha" fill="#f5f5f5" points="-21.0, 40.0, 7.0, 40.0, -7.0, 72.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
             <Label fx:id="hora" alignment="TOP_CENTER" layoutX="23.0" layoutY="30.0" prefHeight="140.0" prefWidth="230.0" text=" ">
@@ -97,6 +89,5 @@
                <Font size="25.0" />
             </font>
          </Label>
-      </children>
    </VBox>
 </AnchorPane>

@@ -11,5 +11,4 @@
             <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Viajar" />
             <Button mnemonicParsing="false" onAction="#irAComputadora" prefHeight="100.0" prefWidth="200.0" text="Computadora Interpol" />
       </HBox>
-      <Label id="pantallaPrincipal" layoutX="335.0" layoutY="42.0" prefHeight="520.0" prefWidth="550.0" text="Lugar donde aparece texto" />
 </AnchorPane>

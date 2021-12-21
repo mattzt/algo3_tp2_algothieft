@@ -4,13 +4,19 @@ import edu.fiuba.algo3.modelo.Policia.Rango;
 
 public class NoEmitida implements OrdenDeArresto{
 
+    private final String nombre;
+
     @Override
-    public String arrestar(){
-        return "No pudiste arrestar al criminal porque no tenias orden de arresto :(";
+    public String nombre(){
+        return nombre;
     }
 
     @Override
     public Rango evaluarRango(Rango rango){
         return rango;
+    }
+
+    public NoEmitida(){
+        nombre = "No emitida";
     }
 }

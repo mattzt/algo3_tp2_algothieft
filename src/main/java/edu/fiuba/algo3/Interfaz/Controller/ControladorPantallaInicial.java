@@ -42,6 +42,9 @@ public class ControladorPantallaInicial extends Controlador {
         Label hora = configurarHora();
         root.getChildren().add(hora);
 
+        Label pais = configurarPais();
+        root.getChildren().add(pais);
+
         Stage stage = (Stage) (((Node) unEvento.getSource()).getScene().getWindow());
         Scene scene = new Scene(root);
         stage.setScene(scene);

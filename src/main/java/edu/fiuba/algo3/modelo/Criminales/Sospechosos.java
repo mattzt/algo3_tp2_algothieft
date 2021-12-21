@@ -30,7 +30,7 @@ public class Sospechosos implements Listable {
         return this;
     }
 
-    public String  getNombreCulpable(){
+    public String getNombreCulpable(){
         Criminal criminal = sospechosos.get(0);
         return "El criminal era " + criminal.getNombre();
     }
@@ -41,10 +41,17 @@ public class Sospechosos implements Listable {
     }
 
     public void resetear(){
-        sospechosos = copia;
+        sospechosos.clear();
+        sospechosos.addAll(copia);
     }
 
     public Criminal elegirCriminalAleatorio() {
         return sospechosos.get(Randomizador.indiceRandom(sospechosos));
+    }
+
+    public Criminal arrestar(){
+        if(sospechosos.size() == 1)
+            return sospechosos.get(0);
+        return null;
     }
 }

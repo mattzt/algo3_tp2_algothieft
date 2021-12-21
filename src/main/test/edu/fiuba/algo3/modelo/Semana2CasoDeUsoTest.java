@@ -27,6 +27,7 @@ import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.*;
 import edu.fiuba.algo3.modelo.Policia.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.internal.junit.DefaultTestFinishedEvent;
 
@@ -44,7 +45,7 @@ public class Semana2CasoDeUsoTest {
     ObjetosValiosos todosLosObjetos = (ObjetosValiosos) creadorObjetos.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/ObjetosValiosos.txt");
     Pais canada = todosLosPaises.buscar("Canada");
     Pais mexico = todosLosPaises.buscar("Mexico");
-    Policia nuevoPoli = new Policia("Carlos", canada);
+    Policia nuevoPoli = new Policia();
     ComputadoraInterpol computadora;
     Caso caso = new Caso(todosLosSospechosos,todosLosObjetos,todosLosPaises,new Novato());
 
@@ -67,6 +68,8 @@ public class Semana2CasoDeUsoTest {
     @Test
     public void casoDeUso2() throws FileNotFoundException {
         nuevoPoli.rangoPoliciaEs(new Investigador());
+        nuevoPoli.setPaisInicial(canada);
+
         assertTrue(nuevoPoli.seEncuentraEn(canada));
         Assertions.assertEquals(0, nuevoPoli.mirarLaHora());
         caso.asignarCasoAPolicia(nuevoPoli);
@@ -77,7 +80,6 @@ public class Semana2CasoDeUsoTest {
 
     @Test
     public void casoDeUso3() {
-        Sospechosos listaFiltrada;
         computadora = new ComputadoraInterpol(todosLosSospechosos);
 
         nuevoPoli.ingresarDato(new Rubio());
@@ -98,9 +100,9 @@ public class Semana2CasoDeUsoTest {
         nuevoPoli.ingresarDato(new Joyas());
         nuevoPoli.ingresarDato(new Descapotable());
 
-        String arrestar = nuevoPoli.arrestar();
+        Criminal arrestado = nuevoPoli.arrestar();
 
-        Assertions.assertEquals(arrestar, "No pudiste arrestar al criminal porque no tenias orden de arresto :( El criminal era Carmen Sandiego");
+        Assertions.assertNull(arrestado);
 
     }
 
@@ -131,9 +133,13 @@ public class Semana2CasoDeUsoTest {
 
         nuevoPoli.emitirOrdenArresto();
 
-        String resultado = nuevoPoli.arrestar();
+        Criminal resultado = nuevoPoli.arrestar();
 
-        Assertions.assertEquals(resultado, "Arrestaste al criminal!" + " El criminal era Carmen Sandiego");
+
+        Caracteristicas caracteristicas = new Caracteristicas(null,null,null,null,null);
+        Criminal prueba = new Criminal("Carmen Sandiego", caracteristicas);
+
+        assertTrue(resultado.equals(prueba));
     }
 
 

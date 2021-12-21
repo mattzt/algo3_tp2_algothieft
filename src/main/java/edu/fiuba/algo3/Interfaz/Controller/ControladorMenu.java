@@ -27,6 +27,12 @@ public class ControladorMenu extends Controlador{
         Label hora = configurarHora();
         root.getChildren().add(hora);
 
+        Label cantidadSospechosos = configurarSospechosos();
+        root.getChildren().add(cantidadSospechosos);
+
+        Label pais = configurarPais();
+        root.getChildren().add(pais);
+
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -40,10 +46,12 @@ public class ControladorMenu extends Controlador{
         Label hora = configurarHora();
         root.getChildren().add(hora);
 
+        Label pais = configurarPais();
+        root.getChildren().add(pais);
+
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-
 }
