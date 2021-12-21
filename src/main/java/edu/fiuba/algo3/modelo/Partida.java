@@ -9,7 +9,6 @@ import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Factory.*;
-import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
@@ -61,10 +60,6 @@ public class Partida {
     public Momento obtenerMomento(){
 
         return new Momento(policia.mirarDia(), policia.mirarLaHora());
-    }
-
-    public Policia getPolicia(){
-        return policia;
     }
 
     public void filtrar(Caracteristica caracteristica){
