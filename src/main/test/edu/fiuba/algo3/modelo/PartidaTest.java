@@ -9,10 +9,7 @@ import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Descapotable;
 import edu.fiuba.algo3.modelo.Edificios.Banco;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
-import edu.fiuba.algo3.modelo.Reloj.Lunes;
-import edu.fiuba.algo3.modelo.Reloj.Momento;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
 
 import java.io.IOException;
 
@@ -20,19 +17,10 @@ import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PartidaTest {
-
-    @Test
-    public void momentoDevueltoEsCorrecto() throws NoExisteError, IOException {
-        Partida partida = Partida.getInstance();
-        String momento = partida.obtenerMomento().obtenerFecha();
-        Momento comparacion = new Momento(new Lunes(), 0);
-
-        assertTrue(momento.equals(comparacion.obtenerFecha()));
-    }
-
     @Test
     public void filtrarSospechosos() throws NoExisteError, IOException {
         Partida partida = Partida.getInstance();
+        partida.resetearFiltros();
         partida.filtrar(new SexoFemenino());
         partida.filtrar(new Tenis());
         partida.filtrar(new Castanio());
@@ -45,12 +33,14 @@ public class PartidaTest {
     @Test
     public void cantidadDeSospechososArrancaEn10() throws NoExisteError, IOException {
         Partida partida = Partida.getInstance();
+        partida.resetearFiltros();
         assertEquals(partida.cantidadSospechosos(), 10);
     }
 
     @Test
     public void filtrosSeReseteanCorrectamente() throws NoExisteError, IOException {
         Partida partida = Partida.getInstance();
+        partida.resetearFiltros();
 
         partida.filtrar(new SexoFemenino());
         partida.filtrar(new Tenis());
@@ -68,6 +58,7 @@ public class PartidaTest {
     @Test
     public void noSeArrestaSiNoHayOrden() throws NoExisteError, IOException {
         Partida partida = Partida.getInstance();
+        partida.resetearFiltros();
 
         partida.filtrar(new SexoFemenino());
         partida.filtrar(new Tenis());
@@ -83,6 +74,7 @@ public class PartidaTest {
     @Test
     public void sePuedeArrestarConOrden() throws NoExisteError, IOException {
         Partida partida = Partida.getInstance();
+        partida.resetearFiltros();
 
         partida.filtrar(new SexoFemenino());
         partida.filtrar(new Tenis());
