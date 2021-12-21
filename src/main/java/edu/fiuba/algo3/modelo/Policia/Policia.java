@@ -124,4 +124,7 @@ public class Policia {
         return computadora.cantidadSospechosos();
     }
 
+    public Pais getPaisActual(){
+        return paisEnDondeEstoy;
+    }
 }

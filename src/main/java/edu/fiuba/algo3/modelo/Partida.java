@@ -88,4 +88,8 @@ public class Partida {
     public Pista visitarEdificio(Edificio edificio){
         return policia.explorarSitio(edificio, repositorioPistas);
     }
+
+    public String paisActual(){
+        return policia.getPaisActual().getNombre();
+    }
 }

@@ -45,16 +45,6 @@ public class ControladorComputadora extends Controlador{
     @FXML
     public Button botonSexo, botonAccesorio, botonHobbie, botonPelo, botonVehiculo, resetearFiltros, emitirOrden, arrestar;
 
-    @FXML
-    public Label cantidadSospechosos, hora;
-
-    @FXML
-    public Line lineaFlecha;
-
-    @FXML
-    public Polygon puntaFlecha;
-
-
     public ControladorComputadora() throws NoExisteError, IOException {
         partida = Partida.getInstance();
     }
@@ -65,6 +55,9 @@ public class ControladorComputadora extends Controlador{
 
         Label hora = configurarHora();
         root.getChildren().add(hora);
+
+        Label pais = configurarPais();
+        root.getChildren().add(pais);
 
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         Scene scene = new Scene(root);
@@ -78,6 +71,9 @@ public class ControladorComputadora extends Controlador{
 
         Label hora = configurarHora();
         root.getChildren().add(hora);
+
+        Label pais = configurarPais();
+        root.getChildren().add(pais);
 
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         Scene scene = new Scene(root);
@@ -174,8 +170,6 @@ public class ControladorComputadora extends Controlador{
     public void arrestar(ActionEvent event) throws NoExisteError, IOException {
         partida.arrestar();
         irAPantallaFinal(event);
-        hora.setText("Hora actual:\n" + partida.obtenerMomento().obtenerFecha());
-
     }
 
     private void actualizarPantalla(ActionEvent event) throws IOException, NoExisteError {
@@ -187,6 +181,9 @@ public class ControladorComputadora extends Controlador{
 
         Label sospechosos = configurarSospechosos();
         root.getChildren().add(sospechosos);
+
+        Label pais = configurarPais();
+        root.getChildren().add(pais);
 
         Stage stage = (Stage) (((Node) event.getSource()).getScene().getWindow());
         Scene scene = new Scene(root);

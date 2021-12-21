@@ -53,4 +53,17 @@ public abstract class Controlador{
 
         return sospechosos;
     }
+
+    Label configurarPais() throws NoExisteError, IOException {
+        partida = Partida.getInstance();
+        Label pais = new Label();
+
+        pais.setText("Pais actual: " + partida.paisActual());
+        pais.setFont(Font.font(25));
+        pais.setAlignment(Pos.CENTER);
+        pais.setLayoutX(20);
+        pais.setLayoutY(600);
+
+        return pais;
+    }
 }
