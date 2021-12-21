@@ -7,16 +7,16 @@ import java.util.ArrayList;
 
 public class Sospechosos implements Listable {
     private ArrayList<Criminal> sospechosos;
-    private final ArrayList<Criminal> copia;
+    private final ArrayList<Criminal> copiaListaSospechosos;
 
     public Sospechosos(){
         sospechosos = new ArrayList<>();
-        copia = new ArrayList<>();
+        copiaListaSospechosos = new ArrayList<>();
     }
 
     public void agregarSospechoso(Criminal criminal){
         sospechosos.add(criminal);
-        copia.add(criminal);
+        copiaListaSospechosos.add(criminal);
     }
 
     public Sospechosos filtrar(Caracteristica caracteristica) {
@@ -41,7 +41,7 @@ public class Sospechosos implements Listable {
     }
 
     public void resetear(){
-        sospechosos = new ArrayList<>(copia);
+        sospechosos = new ArrayList<>(copiaListaSospechosos);
     }
 
     public Criminal elegirCriminalAleatorio() {

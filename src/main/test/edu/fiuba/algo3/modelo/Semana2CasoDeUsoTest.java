@@ -7,8 +7,6 @@ import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Tatuaje;
-import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
-import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.Tenis;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Castanio;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Rubio;
@@ -16,19 +14,13 @@ import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Descapotable;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Limusina;
-import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
-import edu.fiuba.algo3.modelo.Edificios.Banco;
-import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
-import edu.fiuba.algo3.modelo.Edificios.Puerto;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Factory.*;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
-import edu.fiuba.algo3.modelo.Pistas.*;
 import edu.fiuba.algo3.modelo.Policia.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.junit.DefaultTestFinishedEvent;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -56,7 +48,7 @@ public class Semana2CasoDeUsoTest {
 
     @Test
     public void casoDeUso1() {
-        nuevoPoli.rangoPoliciaEs(new Detective());
+        nuevoPoli.setRango(new Detective());
         Assertions.assertEquals(0, nuevoPoli.mirarLaHora());
         nuevoPoli.recibirDanio(new ArmaBlanca());
         Assertions.assertEquals(2, nuevoPoli.mirarLaHora());
@@ -66,11 +58,11 @@ public class Semana2CasoDeUsoTest {
 
     @Test
     public void casoDeUso2() throws FileNotFoundException {
-        nuevoPoli.rangoPoliciaEs(new Investigador());
+        nuevoPoli.setRango(new Investigador());
         nuevoPoli.setPaisEnDondeEstoy(canada);
         assertTrue(nuevoPoli.seEncuentraEn(canada));
         Assertions.assertEquals(0, nuevoPoli.mirarLaHora());
-        caso.asignarCasoAPolicia(nuevoPoli);
+        caso.asignarPolicia(nuevoPoli);
         nuevoPoli.viajarApais(mexico);
         assertTrue(nuevoPoli.seEncuentraEn(mexico));
         assertTrue(nuevoPoli.mirarLaHora()>1);
@@ -122,7 +114,7 @@ public class Semana2CasoDeUsoTest {
         Objeto objetoRobado = new Objeto("Incan Gold Mask", mexico, 1);
         Caso nuevoCaso = new Caso(todosLosSospechosos,todosLosObjetos,todosLosPaises,rangoNuevo);
 
-        nuevoCaso.asignarCasoAPolicia(nuevoPoli);
+        nuevoCaso.asignarPolicia(nuevoPoli);
 
         nuevoPoli.ingresarDato(new SexoFemenino());
         nuevoPoli.ingresarDato(new Castanio());

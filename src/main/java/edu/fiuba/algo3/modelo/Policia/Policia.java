@@ -66,7 +66,7 @@ public class Policia {
         }
     }
 
-    public void rangoPoliciaEs(Rango rangoIngresado){
+    public void setRango(Rango rangoIngresado){
         rango = rangoIngresado;
     }
 

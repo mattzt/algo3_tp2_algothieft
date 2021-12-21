@@ -22,7 +22,7 @@ public class Caso {
         rutaDeEscape = listaDePaises.elegirRutaDeEscapePorNivel(objetoRobado.paisDeOrigen(), objetoRobado.cantidadDePaisesDeEscape());
     }
 
-    public void asignarCasoAPolicia(Policia nuevoPoli) {
+    public void asignarPolicia(Policia nuevoPoli) {
         policia = nuevoPoli;
     }
 }
