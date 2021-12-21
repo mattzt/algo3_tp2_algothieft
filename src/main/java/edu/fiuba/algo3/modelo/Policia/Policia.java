@@ -23,7 +23,7 @@ import java.io.FileNotFoundException;
 
 
 public class Policia {
-    private final String nombre;
+    private String nombre;
     private Rango rango;
     private Pais paisEnDondeEstoy;
     private final Reloj reloj;
@@ -32,10 +32,8 @@ public class Policia {
     private ComputadoraInterpol computadora;
 
 
-    public Policia(String nombrePolicia, Pais paisInicial){
-        nombre = nombrePolicia;
+    public Policia(){
         rango = new Novato();
-        paisEnDondeEstoy = paisInicial;
         reloj = new Reloj();
         horasAvanzar = 1;
         ordenDeArresto = new NoEmitida();
@@ -117,7 +115,19 @@ public class Policia {
         this.computadora = computadora;
     }
 
+    public void setPaisEnDondeEstoy(Pais unPais){
+        paisEnDondeEstoy = unPais;
+    }
+
+    public void setNombre(String unNombre){
+        nombre = unNombre;
+    }
+
     public int cantidadSospechosos(){
         return computadora.cantidadSospechosos();
+    }
+
+    public boolean es(String unNombre) {
+        return nombre.equals(unNombre);
     }
 }

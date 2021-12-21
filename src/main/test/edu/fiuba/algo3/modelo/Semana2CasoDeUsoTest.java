@@ -44,7 +44,7 @@ public class Semana2CasoDeUsoTest {
     ObjetosValiosos todosLosObjetos = (ObjetosValiosos) creadorObjetos.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/ObjetosValiosos.txt");
     Pais canada = todosLosPaises.buscar("Canada");
     Pais mexico = todosLosPaises.buscar("Mexico");
-    Policia nuevoPoli = new Policia("Carlos", canada);
+    Policia nuevoPoli = new Policia();
     ComputadoraInterpol computadora;
     Caso caso = new Caso(todosLosSospechosos,todosLosObjetos,todosLosPaises,new Novato());
 
@@ -67,6 +67,7 @@ public class Semana2CasoDeUsoTest {
     @Test
     public void casoDeUso2() throws FileNotFoundException {
         nuevoPoli.rangoPoliciaEs(new Investigador());
+        nuevoPoli.setPaisEnDondeEstoy(canada);
         assertTrue(nuevoPoli.seEncuentraEn(canada));
         Assertions.assertEquals(0, nuevoPoli.mirarLaHora());
         caso.asignarCasoAPolicia(nuevoPoli);

@@ -23,7 +23,7 @@ public class Partida {
     private static Partida instance;
 
     private Partida() throws IOException, NoExisteError {
-        policia = new Policia("Pepe", new Pais("Francia", "Paris"));
+        policia = new Policia();
 
         CreadorCriminales factoryCriminales = new CreadorCriminales();
         Sospechosos sospechosos = factoryCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
@@ -69,8 +69,8 @@ public class Partida {
         policia.resetearSospechosos();
     }
 
-    public void arrestar(){
-        policia.arrestar();
+    public String arrestar(){
+        return policia.arrestar();
     }
 
     public void emitirOrden(){

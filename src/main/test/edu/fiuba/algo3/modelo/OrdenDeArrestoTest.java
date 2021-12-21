@@ -23,7 +23,7 @@ public class OrdenDeArrestoTest {
     public void init() throws FileNotFoundException {
         CreadorCriminales creadorCriminales = new CreadorCriminales();
         ComputadoraInterpol computadora = new ComputadoraInterpol(creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt"));
-        policia = new Policia("pepe", new Pais("Argentina", "Buenos-Aires"));
+        policia = new Policia();
         policia.setComputadora(computadora);
     }
 

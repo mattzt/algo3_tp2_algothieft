@@ -41,7 +41,7 @@ public class Sospechosos implements Listable {
     }
 
     public void resetear(){
-        sospechosos = copia;
+        sospechosos = new ArrayList<>(copia);
     }
 
     public Criminal elegirCriminalAleatorio() {
