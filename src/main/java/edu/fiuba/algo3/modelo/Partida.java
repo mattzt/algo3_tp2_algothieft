@@ -4,6 +4,7 @@ import edu.fiuba.algo3.modelo.Caso.Caso;
 import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
@@ -23,12 +24,13 @@ public class Partida {
     private ObjetosValiosos listaDeObjetos;
     private static Partida instance;
     private Caso casoActual;
+    private Sospechosos sospechosos;
 
     private Partida() throws IOException, NoExisteError {
         policia = new Policia();
 
         CreadorCriminales factoryCriminales = new CreadorCriminales();
-        Sospechosos sospechosos = factoryCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
+        sospechosos = factoryCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
         policia.setComputadora(new ComputadoraInterpol(sospechosos));
 
         CreadorPaises factoryPaises = new CreadorPaises();
@@ -77,7 +79,7 @@ public class Partida {
         policia.resetearSospechosos();
     }
 
-    public String arrestar(){
+    public Criminal arrestar(){
         return policia.arrestar();
     }
 
@@ -91,5 +93,16 @@ public class Partida {
 
     public String paisActual(){
         return policia.getPaisActual().getNombre();
+    }
+
+    public Criminal getCriminalActual(){
+        return casoActual.getCriminal();
+    }
+
+    public void nuevoCaso() {
+        casoActual = new Caso(sospechosos, listaDeObjetos, paises, policia.presentarPlaca());
+        policia.resetearReloj();
+        policia.resetearSospechosos();
+        policia.setPaisInicial(paises.paisRandom());
     }
 }

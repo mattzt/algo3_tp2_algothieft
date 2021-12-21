@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.ComputadoraInterpol;
 
 import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 
 public class ComputadoraInterpol{
@@ -30,8 +31,10 @@ public class ComputadoraInterpol{
         sospechosos.resetear();
     }
 
-    public String arrestar(OrdenDeArresto ordenDeArresto){
-        String orden = ordenDeArresto.arrestar();
-        return orden + "\n" + sospechosos.getNombreCulpable();
+    public Criminal arrestar(OrdenDeArresto ordenDeArresto){
+        if(ordenDeArresto.equals(new NoEmitida()))
+            return null;
+
+        return sospechosos.arrestar();
     }
 }

@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.ComputadoraInterpol.NoEmitida;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.OrdenDeArresto;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Accesorios;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.Hobbies;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Pelo;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.Sexo;
@@ -84,9 +85,9 @@ public class Policia {
         reloj.avanzarReloj(armaAtacante.tiempoIncapacitacion());
     }
 
-    public String arrestar(){
+    public Criminal arrestar(){
         rango = ordenDeArresto.evaluarRango(rango);
-        String resultado =  computadora.arrestar(ordenDeArresto);
+        Criminal resultado =  computadora.arrestar(ordenDeArresto);
         ordenDeArresto = new NoEmitida();
 
         return resultado;

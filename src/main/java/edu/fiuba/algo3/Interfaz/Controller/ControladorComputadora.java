@@ -169,6 +169,7 @@ public class ControladorComputadora extends Controlador{
 
     public void arrestar(ActionEvent event) throws NoExisteError, IOException {
         partida.arrestar();
+        partida.resetearFiltros();
         irAPantallaFinal(event);
     }
 

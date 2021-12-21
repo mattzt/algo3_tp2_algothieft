@@ -3,10 +3,7 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Arma.ArmaBlanca;
 import edu.fiuba.algo3.modelo.Caso.Objeto;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
-import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
-import edu.fiuba.algo3.modelo.Edificios.Banco;
-import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
-import edu.fiuba.algo3.modelo.Edificios.Puerto;
+import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Factory.CreadorPaises;
 import edu.fiuba.algo3.modelo.Factory.CreadorPistas;
@@ -36,16 +33,23 @@ public class Semana1CasosDeUsoTest {
 
 
     public Semana1CasosDeUsoTest() throws IOException, NoExisteError {
+        Edificios edificios = new Edificios();
+        edificios.agregar(unBanco);
+        edificios.agregar(unaBiblioteca);
+        edificios.agregar(unAeropuerto);
+        edificios.agregar(unPuerto);
+
+        canada.setEdificios(edificios);
+        nuevoPoli.setPaisInicial(canada);
     }
 
- //   @Test
- //   public void casoDeUso1() {
- //       Pista unaPista = nuevoPoli.explorarSitio(unBanco,repo);
- //       Assertions.assertTrue(nuevoPoli.seEncuentraEn(canada));
- //       Assertions.assertTrue(tesoroMontreal.equals("Tesoro Nacional de Montreal"));
- //       Assertions.assertEquals(criminal.sexo(),"Femenino");
- //       Assertions.assertEquals(PistaBanco.class,unaPista.getClass());
- //   }
+    @Test
+    public void casoDeUso1() {
+        Pista unaPista = nuevoPoli.explorarSitio(unBanco,repo);
+        Assertions.assertTrue(nuevoPoli.seEncuentraEn(canada));
+        Assertions.assertTrue(tesoroMontreal.equals("Tesoro Nacional de Montreal"));
+        Assertions.assertEquals(PistaBanco.class,unaPista.getClass());
+    }
 
     @Test
     public void casoDeUso2() {

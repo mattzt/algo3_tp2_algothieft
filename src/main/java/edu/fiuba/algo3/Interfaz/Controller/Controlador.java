@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.Interfaz.Controller;
 
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Partida;
 import javafx.geometry.Pos;
@@ -31,8 +32,17 @@ public abstract class Controlador{
     Label configurarMensajeFinal() throws NoExisteError, IOException {
         partida = Partida.getInstance();
         Label mensajeFinal = new Label();
+        Criminal buscado = partida.getCriminalActual();
+        Criminal atrapado = partida.arrestar();
 
-        mensajeFinal.setText(partida.arrestar());
+        if(atrapado == null)
+            mensajeFinal.setText("Perdiste, intentaste arrestar sin orden de arresto!");
+        else if(atrapado.equals(buscado))
+            mensajeFinal.setText("Felicidades, arrestaste a " + partida.getCriminalActual().getNombre());
+
+        else if(partida.arrestar() != null && !atrapado.equals(buscado))
+            mensajeFinal.setText("Perdiste, arrestaste a " + atrapado.getNombre() + "\nPero el criminal era " + buscado.getNombre());
+
         mensajeFinal.setFont(Font.font(25));
         mensajeFinal.setAlignment(Pos.CENTER);
         mensajeFinal.setLayoutX(50);

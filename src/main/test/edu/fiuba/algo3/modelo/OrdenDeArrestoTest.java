@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
+import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.Tenis;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Castanio;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
@@ -41,9 +43,11 @@ public class OrdenDeArrestoTest {
 
         policia.emitirOrdenArresto();
 
-        String resultado = policia.arrestar();
+        Criminal resultado = policia.arrestar();
 
-        assertEquals(resultado, "Arrestaste al criminal!" + " El criminal era Carmen Sandiego");
+        Caracteristicas caracteristicas = new Caracteristicas(null, null, null, null,null);
+
+        assertEquals(resultado, new Criminal("Carmen Sandiego", caracteristicas));
 
     }
 }
