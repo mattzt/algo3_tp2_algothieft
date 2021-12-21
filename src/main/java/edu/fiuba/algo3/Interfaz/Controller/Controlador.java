@@ -37,10 +37,11 @@ public abstract class Controlador{
 
         if(atrapado == null)
             mensajeFinal.setText("Perdiste, intentaste arrestar sin orden de arresto!");
+
         else if(atrapado.equals(buscado))
             mensajeFinal.setText("Felicidades, arrestaste a " + partida.getCriminalActual().getNombre());
 
-        else if(partida.arrestar() != null && !atrapado.equals(buscado))
+        else if(!atrapado.equals(buscado))
             mensajeFinal.setText("Perdiste, arrestaste a " + atrapado.getNombre() + "\nPero el criminal era " + buscado.getNombre());
 
         mensajeFinal.setFont(Font.font(25));
