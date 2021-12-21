@@ -21,7 +21,7 @@ public class PistaTest {
     @BeforeEach
     public void setUp() throws NoExisteError, IOException {
         rusia = new Pais("Rusia", "Moscu");
-        nuevoPoli = new Policia("Carlos",rusia);
+        nuevoPoli = new Policia();
         partida = Partida.getInstance();
     }
 

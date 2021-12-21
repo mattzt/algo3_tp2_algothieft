@@ -25,7 +25,7 @@ public class Semana1CasosDeUsoTest {
     Factory creador = new CreadorPaises();
     Paises todosLosPaises = (Paises) creador.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/DataPaises.txt");
     Pais canada = todosLosPaises.buscar("Canada");
-    Policia nuevoPoli = new Policia("Matias", canada);
+    Policia nuevoPoli = new Policia();
     Objeto tesoroMontreal = new Objeto("Tesoro Nacional de Montreal",canada,1);
     Banco unBanco = new Banco();
     Biblioteca unaBiblioteca = new Biblioteca();

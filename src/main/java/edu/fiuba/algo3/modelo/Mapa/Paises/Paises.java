@@ -13,6 +13,11 @@ public class Paises implements Listable {
         paises = new ArrayList<>();
     }
 
+    public Pais paisRandom(){
+        int indice = Randomizador.indiceRandom(paises);
+        return paises.get(indice);
+    }
+
     public void agregar(Pais nuevoPais) {
         paises.add(nuevoPais);
     }

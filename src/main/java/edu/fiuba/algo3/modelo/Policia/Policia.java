@@ -17,13 +17,12 @@ import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Reloj.DiaDeLaSemana;
 import edu.fiuba.algo3.modelo.Reloj.Reloj;
-import javafx.scene.SnapshotResult;
 
 import java.io.FileNotFoundException;
 
 
 public class Policia {
-    private final String nombre;
+    private String nombre = "";
     private Rango rango;
     private Pais paisEnDondeEstoy;
     private final Reloj reloj;
@@ -32,13 +31,19 @@ public class Policia {
     private ComputadoraInterpol computadora;
 
 
-    public Policia(String nombrePolicia, Pais paisInicial){
-        nombre = nombrePolicia;
+    public Policia(){
         rango = new Novato();
-        paisEnDondeEstoy = paisInicial;
         reloj = new Reloj();
         horasAvanzar = 1;
         ordenDeArresto = new NoEmitida();
+    }
+
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+
+    public void setPaisInicial(Pais paisInicial){
+        this.paisEnDondeEstoy = paisInicial;
     }
 
     public void viajarApais(Pais paisDestino) throws FileNotFoundException {
@@ -54,7 +59,7 @@ public class Policia {
         else
             horasAvanzar++;
 
-        return unEdificio.visitar(pistas);
+        return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas);
     }
 
     public void ingresarDato(Caracteristica caracteristica){
@@ -118,5 +123,9 @@ public class Policia {
 
     public int cantidadSospechosos(){
         return computadora.cantidadSospechosos();
+    }
+
+    public Pais getPaisActual(){
+        return paisEnDondeEstoy;
     }
 }
