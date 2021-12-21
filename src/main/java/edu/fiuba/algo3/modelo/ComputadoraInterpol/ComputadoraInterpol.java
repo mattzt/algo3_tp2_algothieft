@@ -32,7 +32,8 @@ public class ComputadoraInterpol{
     }
 
     public Criminal arrestar(OrdenDeArresto ordenDeArresto){
-        if(ordenDeArresto.equals(new NoEmitida()))
+        NoEmitida noEmitida = new NoEmitida();
+        if(noEmitida.equals(ordenDeArresto))
             return null;
 
         return sospechosos.arrestar();

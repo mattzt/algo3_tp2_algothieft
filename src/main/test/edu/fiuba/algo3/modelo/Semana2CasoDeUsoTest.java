@@ -90,54 +90,57 @@ public class Semana2CasoDeUsoTest {
         Assertions.assertEquals(1, nuevoPoli.cantidadSospechosos());
     }
 
-//    @Test
-//    public void casoDeUso4() {
-//        computadora = new ComputadoraInterpol(todosLosSospechosos);
-//
-//        nuevoPoli.ingresarDato(new SexoFemenino());
-//        nuevoPoli.ingresarDato(new Castanio());
-//        nuevoPoli.ingresarDato(new Tenis());
-//        nuevoPoli.ingresarDato(new Joyas());
-//        nuevoPoli.ingresarDato(new Descapotable());
-//
-//        Criminal arrestado = nuevoPoli.arrestar();
-//
-//        Assertions.assertNull(arrestado);
-//
-//    }
+    @Test
+    public void casoDeUso4() {
+        computadora = new ComputadoraInterpol(todosLosSospechosos);
+
+        nuevoPoli.ingresarDato(new SexoFemenino());
+        nuevoPoli.ingresarDato(new Castanio());
+        nuevoPoli.ingresarDato(new Tenis());
+        nuevoPoli.ingresarDato(new Joyas());
+        nuevoPoli.ingresarDato(new Descapotable());
+
+        Criminal arrestado = nuevoPoli.arrestar();
+
+        Assertions.assertNull(arrestado);
+
+    }
 
 
 
-//    @Test
-//    public void casoDeUso5() {
-//        computadora = new ComputadoraInterpol(todosLosSospechosos);
-//
-//        arrestarSeisVeces();
-//
-//        Rango rangoNuevo =  nuevoPoli.presentarPlaca();
-//
-//        assertTrue(rangoNuevo.equals(new Detective()));
-//
-//
-//        Pais mexico = new Pais("Mexico", "Ciudad-de-Mexico");
-//        Objeto objetoRobado = new Objeto("Incan Gold Mask", mexico, 1);
-//        Caso nuevoCaso = new Caso(todosLosSospechosos,todosLosObjetos,todosLosPaises,rangoNuevo);
-//
-//        nuevoCaso.asignarCasoAPolicia(nuevoPoli);
-//
-//        nuevoPoli.ingresarDato(new SexoFemenino());
-//        nuevoPoli.ingresarDato(new Castanio());
-//        nuevoPoli.ingresarDato(new Tenis());
-//        nuevoPoli.ingresarDato(new Joyas());
-//        nuevoPoli.ingresarDato(new Descapotable());
-//
-//        nuevoPoli.emitirOrdenArresto();
-//
-//        Criminal resultado = nuevoPoli.arrestar();
-//
-//
-//        Assertions.assertEquals(resultado, new Criminal("Carmen Sandiego", new Caracteristicas(null,null,null,null,null)));
-//    }
+    @Test
+    public void casoDeUso5() {
+        computadora = new ComputadoraInterpol(todosLosSospechosos);
+
+        arrestarSeisVeces();
+
+        Rango rangoNuevo =  nuevoPoli.presentarPlaca();
+
+        assertTrue(rangoNuevo.equals(new Detective()));
+
+
+        Pais mexico = new Pais("Mexico", "Ciudad-de-Mexico");
+        Objeto objetoRobado = new Objeto("Incan Gold Mask", mexico, 1);
+        Caso nuevoCaso = new Caso(todosLosSospechosos,todosLosObjetos,todosLosPaises,rangoNuevo);
+
+        nuevoCaso.asignarCasoAPolicia(nuevoPoli);
+
+        nuevoPoli.ingresarDato(new SexoFemenino());
+        nuevoPoli.ingresarDato(new Castanio());
+        nuevoPoli.ingresarDato(new Tenis());
+        nuevoPoli.ingresarDato(new Joyas());
+        nuevoPoli.ingresarDato(new Descapotable());
+
+        nuevoPoli.emitirOrdenArresto();
+
+        Criminal resultado = nuevoPoli.arrestar();
+
+
+        Caracteristicas caracteristicas = new Caracteristicas(null,null,null,null,null);
+        Criminal prueba = new Criminal("Carmen Sandiego", caracteristicas);
+
+        assertTrue(resultado.equals(prueba));
+    }
 
 
 
