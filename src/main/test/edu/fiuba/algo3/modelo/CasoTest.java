@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CasoTest {
+public class CasoTest {
     CreadorCriminales factoryCriminales = new CreadorCriminales();
     Sospechosos sospechosos = factoryCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
 
@@ -32,7 +32,7 @@ class CasoTest {
     }
 
     @Test
-    void getCriminal() {
+    public void getCriminal() {
         assertEquals(Criminal.class, unCaso.getCriminal().getClass());
     }
 }
