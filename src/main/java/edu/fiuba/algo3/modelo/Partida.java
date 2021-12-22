@@ -100,4 +100,12 @@ public class Partida {
         policia.resetearSospechosos();
         policia.setPaisEnDondeEstoy(paises.paisRandom());
     }
+
+    public void resetearReloj() {
+        policia.resetearReloj();
+    }
+
+    public Caso getCasoActual(){
+        return casoActual;
+    }
 }
