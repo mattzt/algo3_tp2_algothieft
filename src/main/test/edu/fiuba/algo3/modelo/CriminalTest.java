@@ -46,4 +46,11 @@ public class CriminalTest {
         }
         Assertions.assertFalse(unCriminal.es(unCriminal2));
     }
+
+    @Test
+    public void testArrestarTeniendoVariasOpciones(){
+        listaCriminales.resetear();
+        Sospechosos listaFiltrada = listaCriminales.filtrar(new Rubio());
+        Assertions.assertNull(listaFiltrada.arrestar());
+    }
 }
