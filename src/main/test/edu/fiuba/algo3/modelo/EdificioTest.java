@@ -46,7 +46,7 @@ public class EdificioTest {
     @Test
     public void visitarBolsaTest(){
         Bolsa bolsa = new Bolsa();
-
+        assertEquals("Bolsa",bolsa.getNombre());
         resultado = bolsa.visitar(pistas);
 
         assertEquals(resultado.darPista(), "Dijo que le interesaban un pais que basaba su economia en la agricultura");
