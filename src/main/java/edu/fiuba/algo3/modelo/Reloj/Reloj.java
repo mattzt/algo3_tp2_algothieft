@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.modelo.Reloj;
 
+import edu.fiuba.algo3.modelo.IntervaloTiempo.IntervaloTiempo;
+
 public class Reloj {
     private DiaDeLaSemana dia;
     private int hora;
@@ -9,12 +11,12 @@ public class Reloj {
         dia = new Lunes();
     }
 
-    public int avanzarReloj(int horas){
-        int horaFinal = hora + horas;
+    public int avanzarReloj(IntervaloTiempo unIntervalo){
+        int horaFinal = hora + unIntervalo.pasarTiempo(hora);
         if (horaFinal>=24){
             dia = dia.siguienteDia();
             horaFinal = horaFinal - 24;
-            if (horaFinal >= 24) return avanzarReloj(horaFinal);
+            //if (horaFinal >= 24) return avanzarReloj(horaFinal);
         }
         hora = horaFinal;
         return horaFinal;

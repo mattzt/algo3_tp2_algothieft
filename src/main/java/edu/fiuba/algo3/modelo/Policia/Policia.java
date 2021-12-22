@@ -10,6 +10,8 @@ import edu.fiuba.algo3.modelo.Criminales.Pelo.Pelo;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.Sexo;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Vehiculos;
+import edu.fiuba.algo3.modelo.IntervaloTiempo.IntervaloTiempoDormir;
+import edu.fiuba.algo3.modelo.IntervaloTiempo.IntervaloTiempoEmitirArresto;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
@@ -61,7 +63,7 @@ public class Policia {
 
     public void emitirOrdenArresto(ComputadoraInterpol computadora){
         if(computadora.sePuedeEmitirOrden()) {
-            reloj.avanzarReloj(3);
+            reloj.avanzarReloj(new IntervaloTiempoEmitirArresto());
             ordenDeArresto = new Emitida();
         }
     }
@@ -71,7 +73,7 @@ public class Policia {
     }
 
     public void dormir(){
-        reloj.avanzarReloj(8);
+        reloj.avanzarReloj(new IntervaloTiempoDormir());
     }
 
     public void recibirDanio(Arma armaAtacante){
