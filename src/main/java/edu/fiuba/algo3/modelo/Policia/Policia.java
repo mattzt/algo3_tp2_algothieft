@@ -43,7 +43,7 @@ public class Policia {
         this.nombre = nombre;
     }
 
-    public void setPaisInicial(Pais paisInicial){
+    public void setPaisEnDondeEstoy(Pais paisInicial){
         this.paisEnDondeEstoy = paisInicial;
     }
 

@@ -26,7 +26,7 @@ public class PoliciaTest {
          edificios.agregar(new Banco());
 
          francia.setEdificios(edificios);
-         agente.setPaisInicial(francia);
+         agente.setPaisEnDondeEstoy(francia);
 
          Partida partida = Partida.getInstance();
          pistas = partida.obtenerPistas();

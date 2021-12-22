@@ -28,7 +28,7 @@ public class PistaTest {
 
         rusia.setEdificios(edificios);
         nuevoPoli = new Policia();
-        nuevoPoli.setPaisInicial(rusia);
+        nuevoPoli.setPaisEnDondeEstoy(rusia);
         partida = Partida.getInstance();
     }
 

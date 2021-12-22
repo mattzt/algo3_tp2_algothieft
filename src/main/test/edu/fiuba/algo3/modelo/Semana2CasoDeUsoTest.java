@@ -16,20 +16,13 @@ import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Descapotable;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Limusina;
-import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
-import edu.fiuba.algo3.modelo.Edificios.Banco;
-import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
-import edu.fiuba.algo3.modelo.Edificios.Puerto;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Factory.*;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
-import edu.fiuba.algo3.modelo.Pistas.*;
 import edu.fiuba.algo3.modelo.Policia.*;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.junit.DefaultTestFinishedEvent;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -68,7 +61,7 @@ public class Semana2CasoDeUsoTest {
     @Test
     public void casoDeUso2() throws FileNotFoundException {
         nuevoPoli.rangoPoliciaEs(new Investigador());
-        nuevoPoli.setPaisInicial(canada);
+        nuevoPoli.setPaisEnDondeEstoy(canada);
 
         assertTrue(nuevoPoli.seEncuentraEn(canada));
         Assertions.assertEquals(0, nuevoPoli.mirarLaHora());

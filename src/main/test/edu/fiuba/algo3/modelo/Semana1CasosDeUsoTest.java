@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Arma.ArmaBlanca;
 import edu.fiuba.algo3.modelo.Caso.Objeto;
-import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Factory.CreadorPaises;
@@ -40,7 +39,7 @@ public class Semana1CasosDeUsoTest {
         edificios.agregar(unPuerto);
 
         canada.setEdificios(edificios);
-        nuevoPoli.setPaisInicial(canada);
+        nuevoPoli.setPaisEnDondeEstoy(canada);
     }
 
     @Test
