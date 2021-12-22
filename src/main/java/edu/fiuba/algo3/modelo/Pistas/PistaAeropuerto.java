@@ -5,8 +5,9 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
 public class PistaAeropuerto extends Pista {
 
-    public PistaAeropuerto(String linea){
-        pista = linea.replace("|AEROPUERTO|", "");
+    public PistaAeropuerto(String nuevoPais, String linea){
+        pista = linea;
+        pais = nuevoPais;
     }
 
     public Boolean esTipo(Edificio edificio){

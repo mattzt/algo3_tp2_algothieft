@@ -2,6 +2,8 @@ package edu.fiuba.algo3.modelo.Pistas;
 
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Listable;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -13,12 +15,12 @@ public class RepositorioPistas implements Listable {
     }
 
 
-    public Pista obtenerPistaPara(Edificio edificio){
+    public Pista obtenerPistaPara(Pais siguiente, Edificio edificio){
         Iterator<Pista> iterador = posiblesPistas.iterator();
         Pista pistaActual = null;
         while(iterador.hasNext()){
             pistaActual = iterador.next();
-            if(pistaActual.esTipo(edificio)){
+            if((pistaActual.esTipo(edificio)) && (pistaActual.apuntaHacia(siguiente))){
 //                posiblesPistas.remove(pistaActual);
                 break;
             }

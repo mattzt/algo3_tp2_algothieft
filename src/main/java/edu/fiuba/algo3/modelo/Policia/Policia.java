@@ -53,13 +53,13 @@ public class Policia {
         horasAvanzar = 1;
     }
 
-    public Pista explorarSitio(Edificio unEdificio, RepositorioPistas pistas){
+    public Pista explorarSitio(Edificio unEdificio, RepositorioPistas pistas, Pais siguientePais){
         reloj.avanzarReloj(horasAvanzar);
 
         if(horasAvanzar < 3)
             horasAvanzar++;
 
-        return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas);
+        return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas, siguientePais);
     }
 
     public void ingresarDato(Caracteristica caracteristica){
