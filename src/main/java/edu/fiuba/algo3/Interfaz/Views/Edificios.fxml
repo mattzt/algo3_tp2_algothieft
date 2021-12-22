@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Interfaz.Controller.ControladorEdificios">
       <HBox layoutX="335.0" layoutY="586.0" prefHeight="100.0" prefWidth="550.0">
@@ -12,6 +10,11 @@
             <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Viajar" />
             <Button mnemonicParsing="false" onAction="#irAComputadora" prefHeight="100.0" prefWidth="200.0" text="Computadora Interpol" />
       </HBox>
-      <Label id="hora" layoutX="23.0" layoutY="28.0" prefHeight="140.0" prefWidth="230.0"/>
-   <VBox layoutX="336.0" layoutY="6.0" prefHeight="570.0" prefWidth="550.0" />
+   <HBox alignment="CENTER" layoutX="335.0" layoutY="429.0" prefHeight="100.0" prefWidth="550.0" spacing="50.0">
+         <Button fx:id="aeropuerto" mnemonicParsing="false" onAction="#visitarEdificio" text="Aeropuerto" />
+         <Button fx:id="biblioteca" mnemonicParsing="false" onAction="#visitarEdificio" text="Biblioteca" />
+         <Button fx:id="bolsa" mnemonicParsing="false" onAction="#visitarEdificio" text="Bolsa" />
+         <Button fx:id="banco" mnemonicParsing="false" onAction="#visitarEdificio" text="Banco" />
+         <Button fx:id="puerto" mnemonicParsing="false" onAction="#visitarEdificio" text="Puerto" />
+   </HBox>
 </AnchorPane>

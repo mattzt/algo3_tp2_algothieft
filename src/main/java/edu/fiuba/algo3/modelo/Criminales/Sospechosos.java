@@ -7,16 +7,16 @@ import java.util.ArrayList;
 
 public class Sospechosos implements Listable {
     private ArrayList<Criminal> sospechosos;
-    private final ArrayList<Criminal> copiaListaSospechosos;
+    private final ArrayList<Criminal> copia;
 
     public Sospechosos(){
         sospechosos = new ArrayList<>();
-        copiaListaSospechosos = new ArrayList<>();
+        copia = new ArrayList<>();
     }
 
     public void agregarSospechoso(Criminal criminal){
         sospechosos.add(criminal);
-        copiaListaSospechosos.add(criminal);
+        copia.add(criminal);
     }
 
     public Sospechosos filtrar(Caracteristica caracteristica) {
@@ -30,7 +30,7 @@ public class Sospechosos implements Listable {
         return this;
     }
 
-    public String  getNombreCulpable(){
+    public String getNombreCulpable(){
         Criminal criminal = sospechosos.get(0);
         return "El criminal era " + criminal.getNombre();
     }
@@ -41,10 +41,17 @@ public class Sospechosos implements Listable {
     }
 
     public void resetear(){
-        sospechosos = new ArrayList<>(copiaListaSospechosos);
+        sospechosos.clear();
+        sospechosos.addAll(copia);
     }
 
     public Criminal elegirCriminalAleatorio() {
         return sospechosos.get(Randomizador.indiceRandom(sospechosos));
+    }
+
+    public Criminal arrestar(){
+        if(sospechosos.size() == 1)
+            return sospechosos.get(0);
+        return null;
     }
 }

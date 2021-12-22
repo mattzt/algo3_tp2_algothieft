@@ -1,65 +1,101 @@
 package edu.fiuba.algo3.modelo;
 
-import com.tngtech.archunit.lang.ArchRule;
-import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
-import edu.fiuba.algo3.modelo.Criminales.Pelo.Rubio;
+import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
+import edu.fiuba.algo3.modelo.Criminales.Hobbies.Tenis;
+import edu.fiuba.algo3.modelo.Criminales.Pelo.Castanio;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
+import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Descapotable;
+import edu.fiuba.algo3.modelo.Edificios.Banco;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
-import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Reloj.Momento;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import edu.fiuba.algo3.modelo.Pistas.Pista;
+import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class PartidaTest {
-    Partida unaPartida = Partida.getInstance();
-    Caracteristica rubio = new Rubio();
+public class PartidaTest {
+    @Test
+    public void filtrarSospechosos() throws NoExisteError, IOException {
+        Partida partida = Partida.getInstance();
+        partida.resetearFiltros();
+        partida.filtrar(new SexoFemenino());
+        partida.filtrar(new Tenis());
+        partida.filtrar(new Castanio());
+        partida.filtrar(new Joyas());
+        partida.filtrar(new Descapotable());
 
-    PartidaTest() throws NoExisteError, IOException {
-    }
-
-    @BeforeEach
-    void setUp(){
-        unaPartida.resetearFiltros();
+        assertEquals(partida.cantidadSospechosos(), 1);
     }
 
     @Test
-    void singletonFuncionaComoDeberia() throws NoExisteError, IOException {
-        Assertions.assertEquals(unaPartida,Partida.getInstance());
+    public void cantidadDeSospechososArrancaEn10() throws NoExisteError, IOException {
+        Partida partida = Partida.getInstance();
+        partida.resetearFiltros();
+        assertEquals(partida.cantidadSospechosos(), 10);
     }
 
     @Test
-    void getPolicia() {
-        Policia unPolicia = unaPartida.getPolicia();
-        unPolicia.setNombre("Juli");
-        assertTrue(unPolicia.es("Juli"));
+    public void filtrosSeReseteanCorrectamente() throws NoExisteError, IOException {
+        Partida partida = Partida.getInstance();
+        partida.resetearFiltros();
+
+        partida.filtrar(new SexoFemenino());
+        partida.filtrar(new Tenis());
+        partida.filtrar(new Castanio());
+        partida.filtrar(new Joyas());
+        partida.filtrar(new Descapotable());
+
+        assertEquals(partida.cantidadSospechosos(), 1);
+
+        partida.resetearFiltros();
+
+        assertEquals(partida.cantidadSospechosos(), 10);
     }
 
     @Test
-    void filtrarYRevisarCantidadDeSospechosos() {
-        unaPartida.filtrar(rubio);
-        assertEquals(2,unaPartida.cantidadSospechosos());
+    public void noSeArrestaSiNoHayOrden() throws NoExisteError, IOException {
+        Partida partida = Partida.getInstance();
+        partida.resetearFiltros();
+
+        partida.filtrar(new SexoFemenino());
+        partida.filtrar(new Tenis());
+        partida.filtrar(new Castanio());
+        partida.filtrar(new Joyas());
+        partida.filtrar(new Descapotable());
+
+        Criminal atrapado = partida.arrestar();
+
+        assertNull(atrapado);
     }
 
     @Test
-    void resetearFiltros() {
-        unaPartida.resetearFiltros();
-        assertEquals(10,unaPartida.cantidadSospechosos());
+    public void sePuedeArrestarConOrden() throws NoExisteError, IOException {
+        Partida partida = Partida.getInstance();
+        partida.resetearFiltros();
 
+        partida.filtrar(new SexoFemenino());
+        partida.filtrar(new Tenis());
+        partida.filtrar(new Castanio());
+        partida.filtrar(new Joyas());
+        partida.filtrar(new Descapotable());
+
+        partida.emitirOrden();
+        Criminal atrapado = partida.arrestar();
+
+        assertNotNull(atrapado);
     }
 
     @Test
-    void emitirOrdenYarrestar() {
-        unaPartida.resetearFiltros();
-        Caracteristica femenino = new SexoFemenino();
-        unaPartida.filtrar(femenino);
-        unaPartida.filtrar(rubio);
-        unaPartida.emitirOrden();
-        assertEquals("Arrestaste al criminal! El criminal era Dazzle Annie",unaPartida.arrestar());
+    public void visitarEdificioDevuelvePista() throws NoExisteError, IOException {
+        Partida partida = Partida.getInstance();
+
+        Pista pista = partida.visitarEdificio(new Banco());
+
+        assertTrue(pista.darPista().equals("Dijo que queria cambiar su dinero por Rublos"));
 
     }
+
 }

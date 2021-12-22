@@ -7,6 +7,8 @@ import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Tatuaje;
+import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.Tenis;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Castanio;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Rubio;
@@ -14,13 +16,20 @@ import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Descapotable;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Limusina;
+import edu.fiuba.algo3.modelo.Edificios.Aeropuerto;
+import edu.fiuba.algo3.modelo.Edificios.Banco;
+import edu.fiuba.algo3.modelo.Edificios.Biblioteca;
+import edu.fiuba.algo3.modelo.Edificios.Puerto;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Factory.*;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
+import edu.fiuba.algo3.modelo.Pistas.*;
 import edu.fiuba.algo3.modelo.Policia.*;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.internal.junit.DefaultTestFinishedEvent;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -48,7 +57,7 @@ public class Semana2CasoDeUsoTest {
 
     @Test
     public void casoDeUso1() {
-        nuevoPoli.setRango(new Detective());
+        nuevoPoli.rangoPoliciaEs(new Detective());
         Assertions.assertEquals(0, nuevoPoli.mirarLaHora());
         nuevoPoli.recibirDanio(new ArmaBlanca());
         Assertions.assertEquals(2, nuevoPoli.mirarLaHora());
@@ -58,11 +67,12 @@ public class Semana2CasoDeUsoTest {
 
     @Test
     public void casoDeUso2() throws FileNotFoundException {
-        nuevoPoli.setRango(new Investigador());
-        nuevoPoli.setPaisEnDondeEstoy(canada);
+        nuevoPoli.rangoPoliciaEs(new Investigador());
+        nuevoPoli.setPaisInicial(canada);
+
         assertTrue(nuevoPoli.seEncuentraEn(canada));
         Assertions.assertEquals(0, nuevoPoli.mirarLaHora());
-        caso.asignarPolicia(nuevoPoli);
+        caso.asignarCasoAPolicia(nuevoPoli);
         nuevoPoli.viajarApais(mexico);
         assertTrue(nuevoPoli.seEncuentraEn(mexico));
         assertTrue(nuevoPoli.mirarLaHora()>1);
@@ -70,7 +80,6 @@ public class Semana2CasoDeUsoTest {
 
     @Test
     public void casoDeUso3() {
-        Sospechosos listaFiltrada;
         computadora = new ComputadoraInterpol(todosLosSospechosos);
 
         nuevoPoli.ingresarDato(new Rubio());
@@ -91,9 +100,9 @@ public class Semana2CasoDeUsoTest {
         nuevoPoli.ingresarDato(new Joyas());
         nuevoPoli.ingresarDato(new Descapotable());
 
-        String arrestar = nuevoPoli.arrestar();
+        Criminal arrestado = nuevoPoli.arrestar();
 
-        Assertions.assertEquals(arrestar, "No pudiste arrestar al criminal porque no tenias orden de arresto :( El criminal era Carmen Sandiego");
+        Assertions.assertNull(arrestado);
 
     }
 
@@ -114,7 +123,7 @@ public class Semana2CasoDeUsoTest {
         Objeto objetoRobado = new Objeto("Incan Gold Mask", mexico, 1);
         Caso nuevoCaso = new Caso(todosLosSospechosos,todosLosObjetos,todosLosPaises,rangoNuevo);
 
-        nuevoCaso.asignarPolicia(nuevoPoli);
+        nuevoCaso.asignarCasoAPolicia(nuevoPoli);
 
         nuevoPoli.ingresarDato(new SexoFemenino());
         nuevoPoli.ingresarDato(new Castanio());
@@ -124,9 +133,13 @@ public class Semana2CasoDeUsoTest {
 
         nuevoPoli.emitirOrdenArresto();
 
-        String resultado = nuevoPoli.arrestar();
+        Criminal resultado = nuevoPoli.arrestar();
 
-        Assertions.assertEquals(resultado, "Arrestaste al criminal!" + " El criminal era Carmen Sandiego");
+
+        Caracteristicas caracteristicas = new Caracteristicas(null,null,null,null,null);
+        Criminal prueba = new Criminal("Carmen Sandiego", caracteristicas);
+
+        assertTrue(resultado.equals(prueba));
     }
 
 

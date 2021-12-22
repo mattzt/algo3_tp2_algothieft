@@ -1,7 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.Emitida;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.NoEmitida;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.OrdenDeArresto;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
+import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.Tenis;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Castanio;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
@@ -15,6 +20,7 @@ import org.junit.Test;
 import java.io.FileNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class OrdenDeArrestoTest {
     private Policia policia;
@@ -41,9 +47,25 @@ public class OrdenDeArrestoTest {
 
         policia.emitirOrdenArresto();
 
-        String resultado = policia.arrestar();
+        Criminal resultado = policia.arrestar();
 
-        assertEquals(resultado, "Arrestaste al criminal!" + " El criminal era Carmen Sandiego");
+        Caracteristicas caracteristicas = new Caracteristicas(null, null, null, null,null);
 
+        assertEquals(resultado, new Criminal("Carmen Sandiego", caracteristicas));
+
+    }
+
+    @Test
+    public void equalsNoEmitida(){
+        NoEmitida noEmitida = new NoEmitida();
+
+        assertTrue(noEmitida.equals(new NoEmitida()));
+    }
+
+    @Test
+    public void equalsEmitida(){
+        Emitida emitida = new Emitida();
+
+        assertTrue(emitida.equals(new Emitida()));
     }
 }

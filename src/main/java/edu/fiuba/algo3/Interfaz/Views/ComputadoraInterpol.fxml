@@ -7,6 +7,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Interfaz.Controller.ControladorComputadora">
@@ -15,10 +17,6 @@
             <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Viajar" />
             <Button mnemonicParsing="false" onAction="#irAMenu" prefHeight="100.0" prefWidth="200.0" text="Menu Principal" />
       </HBox>
-      <Label fx:id="hora" alignment="CENTER" layoutX="23.0" layoutY="150.0" prefHeight="140.0" prefWidth="230.0" text=" ">
-      <font>
-         <Font size="25.0" />
-      </font></Label>
    <VBox alignment="CENTER" layoutX="336.0" layoutY="6.0" prefHeight="570.0" prefWidth="550.0">
       <Label text="Filtrar sospechosos">
          <font>
@@ -77,13 +75,19 @@
          </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
             <Button fx:id="resetearFiltros" mnemonicParsing="false" onAction="#resetearFiltros" text="Resetear Filtros" />
-            <Button fx:id="emitirOrden" mnemonicParsing="false" onAction="#emitirOrden" text="Emitir orden de arresto" />
-            <Button fx:id="arrestar" mnemonicParsing="false" onAction="#arrestar" text="Arrestar" />
+            <Button fx:id="emitirOrden" mnemonicParsing="false" onAction="#emitirOrden" text="Emitir orden de arresto"/>
+            <Button fx:id="arrestar" mnemonicParsing="false" onAction="#arrestar" text="Arrestar"/>
       </HBox>
-      <Label fx:id="cantidadSospechosos" text="Cantidad de sospechosos:">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="70.0">
+      </HBox>
+   </VBox>
+   <VBox alignment="CENTER" prefHeight="700.0" prefWidth="316.0">
+         <Line fx:id="lineaFlecha" endX="100.0" startX="100.29289245605469" startY="-70.05142211914062" visible="false" />
+         <Polygon fx:id="puntaFlecha" fill="#f5f5f5" points="-21.0, 40.0, 7.0, 40.0, -7.0, 72.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+            <Label fx:id="hora" alignment="TOP_CENTER" layoutX="23.0" layoutY="30.0" prefHeight="140.0" prefWidth="230.0" text=" ">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Label>
    </VBox>
 </AnchorPane>

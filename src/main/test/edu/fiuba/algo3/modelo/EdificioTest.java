@@ -19,7 +19,6 @@ public class EdificioTest {
 
     @BeforeEach
     public void setUp() throws IOException, NoExisteError {
-        Policia policia = new Policia();
         Partida partida = Partida.getInstance();
         resultado = null;
         pistas = partida.obtenerPistas();
