@@ -9,7 +9,8 @@ public class Edificios {
         edificios = new ArrayList<>();
     }
 
-    public void agregar(Edificio unEdificio) {
+    public void agregar(Edificio unEdificio)
+    {
         edificios.add(unEdificio);
     }
 }

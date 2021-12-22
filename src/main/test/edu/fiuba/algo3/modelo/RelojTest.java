@@ -1,6 +1,10 @@
 package edu.fiuba.algo3.modelo;
 
 
+import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Edificios.Puerto;
+import edu.fiuba.algo3.modelo.IntervaloTiempo.IntervaloTiempo;
+import edu.fiuba.algo3.modelo.IntervaloTiempo.IntervaloTiempoExplorarEdificio;
 import edu.fiuba.algo3.modelo.Reloj.Reloj;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,6 +20,7 @@ public class RelojTest {
     public void setUp(){
         reloj = new Reloj();
         horasDeUnDia = 24;
+        Puerto unEdificio = new Puerto();
     }
 
     @Test

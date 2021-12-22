@@ -12,6 +12,8 @@ import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Vehiculos;
 import edu.fiuba.algo3.modelo.IntervaloTiempo.IntervaloTiempoDormir;
 import edu.fiuba.algo3.modelo.IntervaloTiempo.IntervaloTiempoEmitirArresto;
+import edu.fiuba.algo3.modelo.IntervaloTiempo.IntervaloTiempoExplorarEdificio;
+import edu.fiuba.algo3.modelo.IntervaloTiempo.IntervaloTiempoViajeaPais;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
@@ -42,19 +44,14 @@ public class Policia {
     }
 
     public void viajarApais(Pais paisDestino) throws FileNotFoundException {
-        reloj.avanzarReloj(paisEnDondeEstoy.distanciaA(paisDestino) / rango.velocidadViaje());
+        reloj.avanzarReloj(new IntervaloTiempoViajeaPais(paisEnDondeEstoy.distanciaA(paisDestino),rango.velocidadViaje()));
         paisEnDondeEstoy = paisDestino;
     }
 
     public Pista explorarSitio(Edificio unEdificio, RepositorioPistas pistas){
-        reloj.avanzarReloj(horasAvanzar);
-
-        if((horasAvanzar + 1) > 3)
-            horasAvanzar = 1;
-        else
-            horasAvanzar++;
-
-        return unEdificio.visitar(pistas);
+        Pista unaPista = unEdificio.visitar(pistas);
+        reloj.avanzarReloj(new IntervaloTiempoExplorarEdificio( unEdificio.getVecesVisitado()));
+        return unaPista;
     }
 
     public Sospechosos ingresarDato(ComputadoraInterpol computadora, Caracteristica caracteristica){
