@@ -10,11 +10,12 @@ import edu.fiuba.algo3.modelo.Factory.CreadorObjetos;
 import edu.fiuba.algo3.modelo.Factory.CreadorPaises;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Policia.Novato;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
 
-import static org.junit.jupiter.api.Assertions.*;
+
 
 public class CasoTest {
     CreadorCriminales factoryCriminales = new CreadorCriminales();
@@ -28,11 +29,11 @@ public class CasoTest {
 
     Caso unCaso = new Caso(sospechosos,listaDeObjetos,paises,new Novato());
 
-    CasoTest() throws FileNotFoundException, NoExisteError {
+    public CasoTest() throws FileNotFoundException, NoExisteError {
     }
 
     @Test
     public void getCriminal() {
-        assertEquals(Criminal.class, unCaso.getCriminal().getClass());
+        Assertions.assertEquals(Criminal.class, unCaso.getCriminal().getClass());
     }
 }
