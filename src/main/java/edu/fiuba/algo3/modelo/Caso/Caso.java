@@ -25,4 +25,8 @@ public class Caso {
     public void asignarCasoAPolicia(Policia nuevoPoli) {
         policia = nuevoPoli;
     }
+
+    public Criminal getCriminal(){
+        return ladron;
+    }
 }

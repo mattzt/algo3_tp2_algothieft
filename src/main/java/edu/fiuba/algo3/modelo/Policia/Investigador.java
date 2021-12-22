@@ -15,7 +15,7 @@ public class Investigador extends Rango{
 
     @Override
     public Rango promover(){
-        if(casosResueltos < 20 && casosResueltos > 10)
+        if(casosResueltos < 20)
             return this;
         return new Sargento();
     }
@@ -23,6 +23,11 @@ public class Investigador extends Rango{
     @Override
     public int nivelDeLosObjetosBuscados() {
         return 2;
+    }
+
+    @Override
+    public Boolean es(String unRango) {
+        return unRango.equals("Investigador");
     }
 
     @Override

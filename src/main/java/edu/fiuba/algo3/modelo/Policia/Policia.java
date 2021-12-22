@@ -5,6 +5,7 @@ import edu.fiuba.algo3.modelo.ComputadoraInterpol.NoEmitida;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.OrdenDeArresto;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Accesorios;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.Hobbies;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Pelo;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.Sexo;
@@ -15,51 +16,57 @@ import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
+import edu.fiuba.algo3.modelo.Reloj.DiaDeLaSemana;
 import edu.fiuba.algo3.modelo.Reloj.Reloj;
-import javafx.scene.SnapshotResult;
 
 import java.io.FileNotFoundException;
 
 
 public class Policia {
-    private final String nombre;
+    private String nombre = "";
     private Rango rango;
     private Pais paisEnDondeEstoy;
-    private Reloj reloj;
+    private final Reloj reloj;
     private int horasAvanzar;
     private OrdenDeArresto ordenDeArresto;
+    private ComputadoraInterpol computadora;
 
 
-    public Policia(String nombrePolicia, Pais paisInicial){
-        nombre = nombrePolicia;
+    public Policia(){
         rango = new Novato();
-        paisEnDondeEstoy = paisInicial;
         reloj = new Reloj();
         horasAvanzar = 1;
         ordenDeArresto = new NoEmitida();
     }
 
+    public void setNombre(String nombre){
+        this.nombre = nombre;
+    }
+
+    public void setPaisEnDondeEstoy(Pais paisInicial){
+        this.paisEnDondeEstoy = paisInicial;
+    }
+
     public void viajarApais(Pais paisDestino) throws FileNotFoundException {
         reloj.avanzarReloj(paisEnDondeEstoy.distanciaA(paisDestino) / rango.velocidadViaje());
         paisEnDondeEstoy = paisDestino;
+        horasAvanzar = 1;
     }
 
     public Pista explorarSitio(Edificio unEdificio, RepositorioPistas pistas){
         reloj.avanzarReloj(horasAvanzar);
 
-        if((horasAvanzar + 1) > 3)
-            horasAvanzar = 1;
-        else
+        if(horasAvanzar < 3)
             horasAvanzar++;
 
-        return unEdificio.visitar(pistas);
+        return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas);
     }
 
-    public Sospechosos ingresarDato(ComputadoraInterpol computadora, Caracteristica caracteristica){
-        return computadora.ingresarCaracteristica(caracteristica);
+    public void ingresarDato(Caracteristica caracteristica){
+        computadora.ingresarCaracteristica(caracteristica);
     }
 
-    public void emitirOrdenArresto(ComputadoraInterpol computadora){
+    public void emitirOrdenArresto(){
         if(computadora.sePuedeEmitirOrden()) {
             reloj.avanzarReloj(3);
             ordenDeArresto = new Emitida();
@@ -78,16 +85,15 @@ public class Policia {
         reloj.avanzarReloj(armaAtacante.tiempoIncapacitacion());
     }
 
-    public String arrestar(ComputadoraInterpol computadora){
-        rango.aumentarCasosResueltos();
-        rango = rango.promover();
-        String resultado =  computadora.arrestar(ordenDeArresto);
+    public Criminal arrestar(){
+        rango = ordenDeArresto.evaluarRango(rango);
+        Criminal resultado =  computadora.arrestar(ordenDeArresto);
         ordenDeArresto = new NoEmitida();
 
         return resultado;
     }
 
-    public void resetearSospechosos(ComputadoraInterpol computadora){
+    public void resetearSospechosos(){
         computadora.resetearSospechosos();
     }
 
@@ -103,7 +109,23 @@ public class Policia {
         return reloj.verHora();
     }
 
+    public DiaDeLaSemana mirarDia(){
+        return reloj.verDia();
+    }
+
     public void resetearReloj() {
         reloj.reset();
+    }
+
+    public void setComputadora(ComputadoraInterpol computadora){
+        this.computadora = computadora;
+    }
+
+    public int cantidadSospechosos(){
+        return computadora.cantidadSospechosos();
+    }
+
+    public Pais getPaisActual(){
+        return paisEnDondeEstoy;
     }
 }

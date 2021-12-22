@@ -10,13 +10,10 @@ import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import static org.mockito.Mockito.*;
-import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.FileNotFoundException;
 
-@RunWith(MockitoJUnitRunner.class)
 public class PaisTest {
     Pais argentina = new Pais("Argentina","Buenos Aires");
     MapaDistancias calcDist = mock(MapaDistancias.class);
@@ -43,11 +40,6 @@ public class PaisTest {
     public void distanciaArgentinaPeru() throws FileNotFoundException {
         Pais peru = new Pais("Peru","Lima");
         Assertions.assertEquals(3138,argentina.distanciaA(peru));
-    }
-
-    @Test
-    public void visitarEdificio(){
-        Assertions.assertEquals(unaPista,argentina.visitarEdificio(unEdificio, pistas));
     }
 
     @Test

@@ -1,7 +1,12 @@
 package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.Emitida;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.NoEmitida;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.OrdenDeArresto;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
+import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.Tenis;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Castanio;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
@@ -15,35 +20,52 @@ import org.junit.Test;
 import java.io.FileNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class OrdenDeArrestoTest {
-    private ComputadoraInterpol computadora;
     private Policia policia;
 
     @Before
     public void init() throws FileNotFoundException {
         CreadorCriminales creadorCriminales = new CreadorCriminales();
-        computadora = new ComputadoraInterpol(creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt"));
-        policia = new Policia("pepe", new Pais("Argentina", "Buenos-Aires"));
+        ComputadoraInterpol computadora = new ComputadoraInterpol(creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt"));
+        policia = new Policia();
+        policia.setComputadora(computadora);
     }
 
     private void reducirSospechosos(){
-        policia.ingresarDato(computadora, new SexoFemenino());
-        policia.ingresarDato(computadora, new Descapotable());
-        policia.ingresarDato(computadora, new Tenis());
-        policia.ingresarDato(computadora, new Castanio());
-        policia.ingresarDato(computadora, new Joyas());
+        policia.ingresarDato(new SexoFemenino());
+        policia.ingresarDato(new Descapotable());
+        policia.ingresarDato(new Tenis());
+        policia.ingresarDato(new Castanio());
+        policia.ingresarDato(new Joyas());
     }
 
     @Test
     public void arrestarConOrdenEmitida(){
         reducirSospechosos();
 
-        policia.emitirOrdenArresto(computadora);
+        policia.emitirOrdenArresto();
 
-        String resultado = policia.arrestar(computadora);
+        Criminal resultado = policia.arrestar();
 
-        assertEquals(resultado, "Arrestaste al criminal!" + " El criminal era Carmen Sandiego");
+        Caracteristicas caracteristicas = new Caracteristicas(null, null, null, null,null);
 
+        assertEquals(resultado, new Criminal("Carmen Sandiego", caracteristicas));
+
+    }
+
+    @Test
+    public void equalsNoEmitida(){
+        NoEmitida noEmitida = new NoEmitida();
+
+        assertTrue(noEmitida.equals(new NoEmitida()));
+    }
+
+    @Test
+    public void equalsEmitida(){
+        Emitida emitida = new Emitida();
+
+        assertTrue(emitida.equals(new Emitida()));
     }
 }

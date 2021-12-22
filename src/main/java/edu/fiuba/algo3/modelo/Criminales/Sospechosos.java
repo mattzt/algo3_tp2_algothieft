@@ -1,10 +1,9 @@
 package edu.fiuba.algo3.modelo.Criminales;
 
 import edu.fiuba.algo3.modelo.Listable;
-import edu.fiuba.algo3.modelo.Policia.Rango;
+import edu.fiuba.algo3.modelo.Randomizador;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Sospechosos implements Listable {
     private ArrayList<Criminal> sospechosos;
@@ -31,23 +30,23 @@ public class Sospechosos implements Listable {
         return this;
     }
 
-    public String  getNombreCulpable(){
-        Criminal criminal = sospechosos.get(0);
-        return "El criminal era " + criminal.getNombre();
-    }
-
     @Override
     public int size() {
         return sospechosos.size();
     }
 
     public void resetear(){
-        sospechosos = copia;
+        sospechosos.clear();
+        sospechosos.addAll(copia);
     }
 
     public Criminal elegirCriminalAleatorio() {
-        Random rand = new Random();
-        int index = rand.nextInt(sospechosos.size());
-        return sospechosos.get(index);
+        return sospechosos.get(Randomizador.indiceRandom(sospechosos));
+    }
+
+    public Criminal arrestar(){
+        if(sospechosos.size() == 1)
+            return sospechosos.get(0);
+        return null;
     }
 }

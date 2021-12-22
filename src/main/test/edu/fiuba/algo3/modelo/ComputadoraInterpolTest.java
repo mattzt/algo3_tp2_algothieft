@@ -32,19 +32,19 @@ public class ComputadoraInterpolTest {
     @Test
     public void noSePuedeEmitirOrdenSiNoHaySospechosos(){
         computadora.ingresarCaracteristica(new SexoFemenino());
-        listaDeSospechosos = computadora.ingresarCaracteristica(new SexoMasculino());
+        computadora.ingresarCaracteristica(new SexoMasculino());
         assertFalse(computadora.sePuedeEmitirOrden());
     }
 
     @Test
     public void sePuedeResetearLista(){
-        listaDeSospechosos = computadora.ingresarCaracteristica(new SexoMasculino());
+        computadora.ingresarCaracteristica(new SexoMasculino());
 
         assertEquals(listaDeSospechosos.size(), 5);
 
         computadora.resetearSospechosos();
 
-        listaDeSospechosos = computadora.ingresarCaracteristica(new SexoFemenino());
+        computadora.ingresarCaracteristica(new SexoFemenino());
 
         assertEquals(listaDeSospechosos.size(), 5);
     }
@@ -53,11 +53,11 @@ public class ComputadoraInterpolTest {
     public void filtraCorrectamente(){
         computadora.ingresarCaracteristica(new SexoFemenino());
         computadora.ingresarCaracteristica(new Joyas());
-        listaDeSospechosos = computadora.ingresarCaracteristica(new Castanio());
+        computadora.ingresarCaracteristica(new Castanio());
 
         assertEquals(2, listaDeSospechosos.size());
 
-        listaDeSospechosos = computadora.ingresarCaracteristica(new Tenis());
+        computadora.ingresarCaracteristica(new Tenis());
 
         assertEquals(1, listaDeSospechosos.size());
     }

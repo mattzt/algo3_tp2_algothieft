@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.fiuba.algo3.Interfaz.Controller.ControladorComputadora">
+      <HBox layoutX="335.0" layoutY="586.0" prefHeight="100.0" prefWidth="551.0">
+            <Button mnemonicParsing="false" onAction="#irAEdificios" prefHeight="100.0" prefWidth="200.0" text="Explorar Ciudad" />
+            <Button mnemonicParsing="false" prefHeight="100.0" prefWidth="200.0" text="Viajar" />
+            <Button mnemonicParsing="false" onAction="#irAMenu" prefHeight="100.0" prefWidth="200.0" text="Menu Principal" />
+      </HBox>
+   <VBox alignment="CENTER" layoutX="336.0" layoutY="6.0" prefHeight="570.0" prefWidth="550.0">
+      <Label text="Filtrar sospechosos">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
+               <RadioButton fx:id="masculino" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Masculino">
+            <toggleGroup>
+               <ToggleGroup fx:id="sexo" />
+            </toggleGroup></RadioButton>
+               <RadioButton fx:id="femenino" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Femenino" toggleGroup="$sexo" />
+               <Button fx:id="botonSexo" mnemonicParsing="false" onAction="#filtrarSexo" text="Filtrar" />
+         </HBox>
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
+               <RadioButton fx:id="anillo" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Anillo">
+            <toggleGroup>
+               <ToggleGroup fx:id="accesorio" />
+            </toggleGroup></RadioButton>
+               <RadioButton fx:id="tatuaje" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Tatuaje" toggleGroup="$accesorio" />
+               <RadioButton fx:id="joyas" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Joyas" toggleGroup="$accesorio" />
+               <RadioButton fx:id="cicatriz" mnemonicParsing="false" prefHeight="17.0" prefWidth="92.0" text="Cicatriz" toggleGroup="$accesorio" />
+               <Button fx:id="botonAccesorio" mnemonicParsing="false" onAction="#filtrarAccesorio" text="Filtrar" />
+         </HBox>
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="5.0">
+               <RadioButton fx:id="alpinismo" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Alpinismo">
+            <toggleGroup>
+               <ToggleGroup fx:id="hobbie" />
+            </toggleGroup></RadioButton>
+               <RadioButton fx:id="croquet" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Croquet" toggleGroup="$hobbie" />
+               <RadioButton fx:id="musica" mnemonicParsing="false" prefHeight="17.0" prefWidth="75.0" text="Musica" toggleGroup="$hobbie" />
+               <RadioButton fx:id="natacion" mnemonicParsing="false" prefWidth="75.0" text="Natacion" toggleGroup="$hobbie" />
+               <RadioButton fx:id="paracaidismo" mnemonicParsing="false" text="Paracaidismo" toggleGroup="$hobbie" />
+               <RadioButton fx:id="tenis" mnemonicParsing="false" prefWidth="75.0" text="Tenis" toggleGroup="$hobbie" />
+               <Button fx:id="botonHobbie" mnemonicParsing="false" onAction="#filtrarHobbie" text="Filtrar" />
+         </HBox>
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="550.0" spacing="20.0">
+               <RadioButton fx:id="castanio" mnemonicParsing="false" text="Castanio">
+            <toggleGroup>
+               <ToggleGroup fx:id="pelo" />
+            </toggleGroup></RadioButton>
+               <RadioButton fx:id="negro" mnemonicParsing="false" text="Negro" toggleGroup="$pelo" />
+               <RadioButton fx:id="rojo" mnemonicParsing="false" prefHeight="17.0" prefWidth="66.0" text="Rojo" toggleGroup="$pelo" />
+               <RadioButton fx:id="rubio" mnemonicParsing="false" text="Rubio" toggleGroup="$pelo" />
+               <Button fx:id="botonPelo" mnemonicParsing="false" onAction="#filtrarPelo" text="Filtrar" />
+         </HBox>
+         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0" spacing="20.0">
+               <RadioButton fx:id="deportivo" mnemonicParsing="false" text="Deportivo">
+            <toggleGroup>
+               <ToggleGroup fx:id="vehiculo" />
+            </toggleGroup></RadioButton>
+               <RadioButton fx:id="descapotable" mnemonicParsing="false" text="Descapotable" toggleGroup="$vehiculo" />
+               <RadioButton fx:id="moto" mnemonicParsing="false" text="Moto" toggleGroup="$vehiculo" />
+               <RadioButton fx:id="limusina" mnemonicParsing="false" text="Limusina" toggleGroup="$vehiculo" />
+               <Button fx:id="botonVehiculo" mnemonicParsing="false" onAction="#filtrarVehiculo" text="Filtrar" />
+         </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+            <Button fx:id="resetearFiltros" mnemonicParsing="false" onAction="#resetearFiltros" text="Resetear Filtros" />
+            <Button fx:id="emitirOrden" mnemonicParsing="false" onAction="#emitirOrden" text="Emitir orden de arresto"/>
+            <Button fx:id="arrestar" mnemonicParsing="false" onAction="#arrestar" text="Arrestar"/>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="70.0">
+      </HBox>
+   </VBox>
+   <VBox alignment="CENTER" prefHeight="700.0" prefWidth="316.0">
+         <Line fx:id="lineaFlecha" endX="100.0" startX="100.29289245605469" startY="-70.05142211914062" visible="false" />
+         <Polygon fx:id="puntaFlecha" fill="#f5f5f5" points="-21.0, 40.0, 7.0, 40.0, -7.0, 72.0" stroke="BLACK" strokeType="INSIDE" visible="false" />
+            <Label fx:id="hora" alignment="TOP_CENTER" layoutX="23.0" layoutY="30.0" prefHeight="140.0" prefWidth="230.0" text=" ">
+            <font>
+               <Font size="25.0" />
+            </font>
+         </Label>
+   </VBox>
+</AnchorPane>

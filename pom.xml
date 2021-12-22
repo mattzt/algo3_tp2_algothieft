@@ -12,8 +12,8 @@
         <mockito-mockito-core-version>3.3.0</mockito-mockito-core-version>
         <maven-surefire-version>3.0.0-M3</maven-surefire-version>
         <archunit-version>0.21.0</archunit-version>
-        <javafx-version>15.0.1</javafx-version>
-        <main-class>edu.fiuba.algo3.Main</main-class>
+        <javafx-version>17.0.1</javafx-version>
+        <main-class>edu.fiuba.algo3.Application.App</main-class>
     </properties>
     <dependencies>
         <dependency>
@@ -49,6 +49,11 @@
             <artifactId>junit</artifactId>
             <version>4.8.2</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>${javafx-version}</version>
         </dependency>
     </dependencies>
     <profiles>

@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 
 public class Pais {
     private final String nombre;
@@ -27,7 +28,7 @@ public class Pais {
     }
 
     public Pista visitarEdificio(Edificio unEdificio, RepositorioPistas pistas){
-        return unEdificio.visitar(pistas);
+        return edificiosPublicos.visitarEdificio(unEdificio, pistas);
     }
 
     public String getNombre() {
@@ -50,6 +51,10 @@ public class Pais {
         return paisesConexos;
     }
 
+    public int cantidadDePaisesConexos(){
+        return paisesConexos.size();
+    }
+
     public boolean equals(Pais unPais){
         String unNombre = unPais.getNombre();
         return nombre.equals(unNombre) || ciudadDestacada.equals(unNombre);
@@ -62,4 +67,5 @@ public class Pais {
     public boolean puedeAgregarConexos() {
         return paisesConexos.size()<3;
     }
+
 }
