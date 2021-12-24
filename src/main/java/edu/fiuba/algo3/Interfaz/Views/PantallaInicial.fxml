@@ -16,8 +16,8 @@
    </cursor>
    <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ffffffe3" height="87.0" layoutX="24.0" layoutY="60.0" stroke="BLACK" strokeType="INSIDE" width="328.0" />
    <Rectangle arcHeight="20.0" arcWidth="20.0" fill="#ffffffe3" height="169.0" layoutX="392.0" layoutY="21.0" stroke="WHITE" strokeType="INSIDE" width="195.0" />
-   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="410.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
-      <Image url="@../../modelo/Resources/Img/interpolLogo.png" />
+   <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="410.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+      <Image url="@resources/interpolLogo.png" />
    </ImageView>
    <Text fill="#1e3561" layoutX="24.0" layoutY="140.0" stroke="#ffffffe3" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="OUTSIDE" strokeWidth="0.0" text="POLICE" textAlignment="CENTER" wrappingWidth="328.0">
       <font>
