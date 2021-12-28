@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Interfaz.Views;
 
 import edu.fiuba.algo3.Interfaz.Controller.BotonCiudadHandler;
+import edu.fiuba.algo3.Interfaz.Controller.BotonEscenaViajarHandler;
 import edu.fiuba.algo3.Interfaz.Controller.BotonMenuHandler;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Partida;
@@ -16,6 +17,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.concurrent.ForkJoinPool;
 
 public class EscenaComputadora extends AnchorPane {
 
@@ -30,8 +32,7 @@ public class EscenaComputadora extends AnchorPane {
 
         configurarMenu();
         setearOpciones();
-        setHora();
-        setPais();
+        setInfo();
     }
 
     private void configurarMenu(){
@@ -50,14 +51,21 @@ public class EscenaComputadora extends AnchorPane {
 
         botonMenu.setPrefHeight(100);
         botonMenu.setPrefWidth(200);
+        botonMenu.setFont(Font.font(14));
+
         botonViajar.setPrefHeight(100);
         botonViajar.setPrefWidth(200);
+        botonViajar.setFont(Font.font(14));
+
         botonCiudad.setPrefHeight(100);
         botonCiudad.setPrefWidth(200);
+        botonCiudad.setFont(Font.font(14));
 
         contenedorBotones.getChildren().addAll(botonMenu, botonCiudad, botonViajar);
 
         botonCiudad.setOnAction(new BotonCiudadHandler(stage));
+        botonMenu.setOnAction(new BotonMenuHandler(stage));
+        botonViajar.setOnAction(new BotonEscenaViajarHandler(stage));
 
         this.getChildren().add(contenedorBotones);
     }
@@ -182,30 +190,33 @@ public class EscenaComputadora extends AnchorPane {
         contenedor.getChildren().add(opciones);
     }
 
-    private void setHora(){
+    private void setInfo(){
+        VBox contenedor = new VBox();
+        contenedor.setPrefWidth(300);
+        contenedor.setPrefHeight(250);
+        contenedor.setAlignment(Pos.TOP_CENTER);
+        contenedor.setSpacing(10);
+
         Label hora = new Label();
         String fecha = policia.mirarDia().diaDeHoy() + ", " + policia.mirarLaHora() + "hs";
 
         hora.setText(fecha);
-        hora.setLayoutX(23);
-        hora.setLayoutY(28);
-        hora.setPrefHeight(140);
-        hora.setPrefWidth(230);
         hora.setAlignment(Pos.CENTER);
         hora.setFont(Font.font(25));
+        hora.setPrefWidth(300);
 
-        this.getChildren().add(hora);
-    }
+        contenedor.getChildren().add(hora);
 
-    private void setPais(){
+
         Label pais = new Label();
 
         pais.setText("Pais actual: " + policia.getPaisActual().getNombre());
         pais.setFont(Font.font(25));
         pais.setAlignment(Pos.CENTER);
-        pais.setLayoutX(20);
-        pais.setLayoutY(600);
+        pais.setPrefWidth(300);
 
-        this.getChildren().add(pais);
+        contenedor.getChildren().add(pais);
+
+        this.getChildren().add(contenedor);
     }
 }

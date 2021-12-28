@@ -1,10 +1,11 @@
 package edu.fiuba.algo3.Interfaz.Views;
 
+import edu.fiuba.algo3.Interfaz.Controller.BotonCiudadHandler;
 import edu.fiuba.algo3.Interfaz.Controller.BotonComputadoraHandler;
-import edu.fiuba.algo3.Interfaz.Controller.BotonEscenaViajarHandler;
 import edu.fiuba.algo3.Interfaz.Controller.BotonMenuHandler;
-import edu.fiuba.algo3.modelo.Edificios.Edificios;
+import edu.fiuba.algo3.Interfaz.Controller.BotonParaViajarHandler;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import javafx.geometry.Pos;
@@ -19,20 +20,21 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class EscenaCiudad extends AnchorPane {
+public class EscenaViajar extends AnchorPane {
 
     Stage stage;
     Policia policia;
 
-    public EscenaCiudad(Stage stage) throws NoExisteError, IOException {
-        policia = Partida.getInstance().getPolicia();
+    public EscenaViajar(Stage stage) throws NoExisteError, IOException {
+        this.stage = stage;
         this.setPrefHeight(700);
         this.setPrefWidth(900);
-        this.stage = stage;
+        policia = Partida.getInstance().getPolicia();
 
         configurarMenu();
-        configurarEdificios();
+        setBotonesPaises();
         setInfo();
+        setBotonesPaises();
     }
 
     private void configurarMenu(){
@@ -43,56 +45,28 @@ public class EscenaCiudad extends AnchorPane {
         contenedorBotones.setLayoutY(586);
 
         Button botonMenu = new Button("Menu Principal");
-        Button botonViajar = new Button("Viajar");
+        Button botonCiudad = new Button("Explorar Ciudad");
         Button botonComputadora = new Button("Computadora Interpol");
 
         botonComputadora.setOnAction(new BotonComputadoraHandler(stage));
         botonMenu.setOnAction(new BotonMenuHandler(stage));
-        botonViajar.setOnAction(new BotonEscenaViajarHandler(stage));
+        botonCiudad.setOnAction(new BotonCiudadHandler(stage));
 
         botonMenu.setPrefHeight(100);
         botonMenu.setPrefWidth(200);
         botonMenu.setFont(Font.font(14));
 
-        botonViajar.setPrefHeight(100);
-        botonViajar.setPrefWidth(200);
-        botonViajar.setFont(Font.font(14));
+        botonCiudad.setPrefHeight(100);
+        botonCiudad.setPrefWidth(200);
+        botonCiudad.setFont(Font.font(14));
 
         botonComputadora.setPrefHeight(100);
         botonComputadora.setPrefWidth(200);
         botonComputadora.setFont(Font.font(14));
 
-        contenedorBotones.getChildren().addAll(botonMenu, botonComputadora, botonViajar);
+        contenedorBotones.getChildren().addAll(botonMenu, botonComputadora, botonCiudad);
 
         this.getChildren().add(contenedorBotones);
-    }
-
-    private void configurarEdificios(){
-        VBox contenedorCiudades = new VBox();
-
-        contenedorCiudades.setAlignment(Pos.CENTER);
-        contenedorCiudades.prefHeight(570);
-        contenedorCiudades.prefWidth(550);
-        contenedorCiudades.setLayoutX(510);
-        contenedorCiudades.setLayoutY(70);
-        contenedorCiudades.setSpacing(20);
-
-        Edificios edificios = policia.getPaisActual().getEdificios();
-        ArrayList<String> nombres = edificios.nombres();
-        String leido;
-
-        for(String nombre : nombres){
-            leido = nombre;
-            Button boton = new Button(leido);
-
-            boton.setPrefHeight(70);
-            boton.setPrefWidth(200);
-            boton.setFont(Font.font(16));
-
-            contenedorCiudades.getChildren().add(boton);
-        }
-
-        this.getChildren().add(contenedorCiudades);
     }
 
     private void setInfo(){
@@ -122,6 +96,32 @@ public class EscenaCiudad extends AnchorPane {
 
         contenedor.getChildren().add(pais);
 
+        this.getChildren().add(contenedor);
+    }
+
+    private void setBotonesPaises(){
+        Paises paisesParaViajar = policia.getPaisActual().getPaisesConexos();
+        ArrayList<String> paises = paisesParaViajar.obtenerNombres();
+
+        VBox contenedor = new VBox();
+        contenedor.setAlignment(Pos.CENTER);
+        contenedor.setPrefHeight(570);
+        contenedor.setPrefWidth(550);
+        contenedor.setLayoutX(336);
+        contenedor.setLayoutY(6);
+        contenedor.setSpacing(30);
+
+
+        for(String pais : paises){
+            Button boton = new Button(pais);
+            BotonParaViajarHandler viajarHandler = new BotonParaViajarHandler(boton, policia, stage);
+
+            boton.setPrefHeight(80);
+            boton.setPrefWidth(200);
+            boton.setFont(Font.font(16));
+            boton.setOnAction(viajarHandler);
+            contenedor.getChildren().add(boton);
+        }
         this.getChildren().add(contenedor);
     }
 }

@@ -2,7 +2,6 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.Arma.ArmaBlanca;
 import edu.fiuba.algo3.modelo.Caso.Objeto;
-import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Edificios.*;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Factory.CreadorPaises;
@@ -45,7 +44,7 @@ public class Semana1CasosDeUsoTest {
 
     @Test
     public void casoDeUso1() {
-        Pista unaPista = nuevoPoli.explorarSitio(unBanco,repo);
+        Pista unaPista = nuevoPoli.visitarEdificio(unBanco,repo);
         Assertions.assertTrue(nuevoPoli.seEncuentraEn(canada));
         Assertions.assertTrue(tesoroMontreal.equals("Tesoro Nacional de Montreal"));
         Assertions.assertEquals(PistaBanco.class,unaPista.getClass());
@@ -53,13 +52,13 @@ public class Semana1CasosDeUsoTest {
 
     @Test
     public void casoDeUso2() {
-        Pista unaPista = nuevoPoli.explorarSitio(unBanco,repo);
+        Pista unaPista = nuevoPoli.visitarEdificio(unBanco,repo);
         Assertions.assertEquals(PistaBanco.class, unaPista.getClass());
 
-        Pista unaSegundaPista = nuevoPoli.explorarSitio(unBanco,repo);
+        Pista unaSegundaPista = nuevoPoli.visitarEdificio(unBanco,repo);
         Assertions.assertEquals(PistaBanco.class,unaSegundaPista.getClass());
 
-        Pista unaTercerPista = nuevoPoli.explorarSitio(unaBiblioteca,repo);
+        Pista unaTercerPista = nuevoPoli.visitarEdificio(unaBiblioteca,repo);
         Assertions.assertEquals(PistaBiblioteca.class,unaTercerPista.getClass());
     }
 
@@ -75,11 +74,11 @@ public class Semana1CasosDeUsoTest {
     @Test
     public void casoDeUso4() {
         for (int i=0;i<3;i++){
-            Pista pistaAeropuerto = nuevoPoli.explorarSitio(unAeropuerto,repo);
+            Pista pistaAeropuerto = nuevoPoli.visitarEdificio(unAeropuerto,repo);
             Assertions.assertEquals(PistaAeropuerto.class,pistaAeropuerto.getClass());
         }
         for (int j=0;j<55;j++){
-            Pista pistaPuerto = nuevoPoli.explorarSitio(unPuerto,repo);
+            Pista pistaPuerto = nuevoPoli.visitarEdificio(unPuerto,repo);
             Assertions.assertEquals(PistaPuerto.class,pistaPuerto.getClass());
         }
     }

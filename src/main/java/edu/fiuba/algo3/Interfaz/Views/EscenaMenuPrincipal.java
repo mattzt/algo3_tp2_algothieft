@@ -2,6 +2,7 @@ package edu.fiuba.algo3.Interfaz.Views;
 
 import edu.fiuba.algo3.Interfaz.Controller.BotonCiudadHandler;
 import edu.fiuba.algo3.Interfaz.Controller.BotonComputadoraHandler;
+import edu.fiuba.algo3.Interfaz.Controller.BotonEscenaViajarHandler;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -10,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -27,8 +29,7 @@ public class EscenaMenuPrincipal extends AnchorPane {
         this.setPrefWidth(900);
 
         setBotones();
-        setHora();
-        setPais();
+        setInfo();
     }
 
     private void setBotones(){
@@ -44,43 +45,52 @@ public class EscenaMenuPrincipal extends AnchorPane {
 
         botonCiudad.setOnAction(new BotonCiudadHandler(stage));
         botonComputadora.setOnAction(new BotonComputadoraHandler(stage));
+        botonViajar.setOnAction(new BotonEscenaViajarHandler(stage));
 
         botonCiudad.setPrefHeight(100);
         botonCiudad.setPrefWidth(200);
+        botonCiudad.setFont(Font.font(14));
+
         botonViajar.setPrefHeight(100);
         botonViajar.setPrefWidth(200);
+        botonViajar.setFont(Font.font(14));
+
         botonComputadora.setPrefHeight(100);
         botonComputadora.setPrefWidth(200);
+        botonComputadora.setFont(Font.font(14));
 
         contenedorBotones.getChildren().addAll(botonCiudad, botonComputadora, botonViajar);
 
         this.getChildren().add(contenedorBotones);
     }
 
-    private void setHora(){
+    private void setInfo(){
+        VBox contenedor = new VBox();
+        contenedor.setPrefWidth(300);
+        contenedor.setPrefHeight(250);
+        contenedor.setAlignment(Pos.TOP_CENTER);
+        contenedor.setSpacing(10);
+
         Label hora = new Label();
         String fecha = policia.mirarDia().diaDeHoy() + ", " + policia.mirarLaHora() + "hs";
 
         hora.setText(fecha);
-        hora.setLayoutX(23);
-        hora.setLayoutY(28);
-        hora.setPrefHeight(140);
-        hora.setPrefWidth(230);
         hora.setAlignment(Pos.CENTER);
         hora.setFont(Font.font(25));
+        hora.setPrefWidth(300);
 
-        this.getChildren().add(hora);
-    }
+        contenedor.getChildren().add(hora);
 
-    private void setPais(){
+
         Label pais = new Label();
 
         pais.setText("Pais actual: " + policia.getPaisActual().getNombre());
         pais.setFont(Font.font(25));
         pais.setAlignment(Pos.CENTER);
-        pais.setLayoutX(20);
-        pais.setLayoutY(600);
+        pais.setPrefWidth(300);
 
-        this.getChildren().add(pais);
+        contenedor.getChildren().add(pais);
+
+        this.getChildren().add(contenedor);
     }
 }

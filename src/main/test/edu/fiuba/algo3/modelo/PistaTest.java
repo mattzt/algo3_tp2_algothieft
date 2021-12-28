@@ -35,9 +35,9 @@ public class PistaTest {
     @Test
     public void pidePistaBancariaSeLADa() {
         Assertions.assertTrue(nuevoPoli.seEncuentraEn(rusia));
-        Pista unaPista = nuevoPoli.explorarSitio(new Banco(), partida.obtenerPistas());
+        Pista unaPista = nuevoPoli.visitarEdificio(new Banco(), partida.obtenerPistas());
         Assertions.assertEquals("Dijo que queria cambiar su dinero por Rublos", (unaPista.darPista()));
-        Pista unaPistaNueva = nuevoPoli.explorarSitio(new Biblioteca(), partida.obtenerPistas());
+        Pista unaPistaNueva = nuevoPoli.visitarEdificio(new Biblioteca(), partida.obtenerPistas());
         Assertions.assertEquals("Dijo que iba a estudiar la historia de sus grandes filosofos", (unaPistaNueva.darPista()));
 
     }

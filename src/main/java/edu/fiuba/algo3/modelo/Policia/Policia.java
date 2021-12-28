@@ -43,7 +43,7 @@ public class Policia {
         paisEnDondeEstoy = paisDestino;
     }
 
-    public Pista explorarSitio(Edificio unEdificio, RepositorioPistas pistas){
+    public Pista visitarEdificio(Edificio unEdificio, RepositorioPistas pistas){
         reloj.avanzarReloj(new IntervaloTiempoExplorarEdificio( unEdificio.getVecesVisitado()));
 
         return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas);
