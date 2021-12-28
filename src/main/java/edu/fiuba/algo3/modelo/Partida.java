@@ -17,7 +17,7 @@ import edu.fiuba.algo3.modelo.Reloj.Momento;
 import java.io.IOException;
 
 public class Partida {
-    private Policia policia;
+    private final Policia policia;
     private final RepositorioPistas repositorioPistas;
     private Paises paises;
     private ObjetosValiosos listaDeObjetos;
@@ -99,5 +99,9 @@ public class Partida {
         policia.resetearReloj();
         policia.resetearSospechosos();
         policia.setPaisInicial(paises.paisRandom());
+    }
+
+    public Policia getPolicia(){
+        return policia;
     }
 }
