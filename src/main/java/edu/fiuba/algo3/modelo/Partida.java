@@ -57,11 +57,6 @@ public class Partida {
         return repositorioPistas;
     }
 
-    public Momento obtenerMomento(){
-
-        return new Momento(policia.mirarDia(), policia.mirarLaHora());
-    }
-
     public void filtrar(Caracteristica caracteristica){
         policia.ingresarDato(caracteristica);
     }
@@ -84,10 +79,6 @@ public class Partida {
 
     public Pista visitarEdificio(Edificio edificio){
         return policia.visitarEdificio(edificio, repositorioPistas);
-    }
-
-    public String paisActual(){
-        return policia.getPaisActual().getNombre();
     }
 
     public Criminal getCriminalActual(){

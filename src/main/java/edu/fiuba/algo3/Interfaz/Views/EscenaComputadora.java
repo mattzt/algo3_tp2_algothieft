@@ -1,8 +1,6 @@
 package edu.fiuba.algo3.Interfaz.Views;
 
-import edu.fiuba.algo3.Interfaz.Controller.BotonCiudadHandler;
-import edu.fiuba.algo3.Interfaz.Controller.BotonEscenaViajarHandler;
-import edu.fiuba.algo3.Interfaz.Controller.BotonMenuHandler;
+import edu.fiuba.algo3.Interfaz.Controller.*;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -17,12 +15,14 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.concurrent.ForkJoinPool;
+import java.util.ArrayList;
 
 public class EscenaComputadora extends AnchorPane {
 
     Stage stage;
     Policia policia;
+    ComboBox<String> sexo, accesorio, hobbie, pelo, vehiculo;
+    Label cantidadSospechosos;
 
     public EscenaComputadora(Stage stage) throws NoExisteError, IOException {
         policia = Partida.getInstance().getPolicia();
@@ -31,7 +31,7 @@ public class EscenaComputadora extends AnchorPane {
         this.stage = stage;
 
         configurarMenu();
-        setearOpciones();
+        setearContenedorPrincipal();
         setInfo();
     }
 
@@ -77,8 +77,11 @@ public class EscenaComputadora extends AnchorPane {
         opcionSexo.setPrefWidth(550);
         opcionSexo.setSpacing(20);
 
-        ComboBox<String> sexo = new ComboBox<>();
+        sexo = new ComboBox<>();
+        sexo.setPrefWidth(200);
+        sexo.setPrefHeight(30);
         sexo.setPromptText("Sexo");
+
         sexo.getItems().addAll(null, "Masculino", "Femenino");
 
         opcionSexo.getChildren().add(sexo);
@@ -92,11 +95,14 @@ public class EscenaComputadora extends AnchorPane {
         opcionAccesorios.setPrefWidth(550);
         opcionAccesorios.setSpacing(20);
 
-        ComboBox<String> accesorios = new ComboBox<>();
-        accesorios.setPromptText("Accesorio");
-        accesorios.getItems().addAll(null, "Anillo", "Tatuaje", "Joyas", "Cicatriz");
+        accesorio = new ComboBox<>();
+        accesorio.setPrefWidth(200);
+        accesorio.setPrefHeight(30);
+        accesorio.setPromptText("Accesorio");
 
-        opcionAccesorios.getChildren().add(accesorios);
+        accesorio.getItems().addAll(null, "Anillo", "Tatuaje", "Joyas", "Cicatriz");
+
+        opcionAccesorios.getChildren().add(accesorio);
         contenedorPrincipal.getChildren().add(opcionAccesorios);
     }
 
@@ -107,8 +113,11 @@ public class EscenaComputadora extends AnchorPane {
         opcionHobbie.setPrefWidth(550);
         opcionHobbie.setSpacing(20);
 
-        ComboBox<String> hobbie = new ComboBox<>();
+        hobbie = new ComboBox<>();
+        hobbie.setPrefWidth(200);
+        hobbie.setPrefHeight(30);
         hobbie.setPromptText("Hobbie");
+
         hobbie.getItems().addAll(null, "Alpinismo", "Croquet", "Musica", "Natacion", "Paracaidismo", "Tenis");
 
         opcionHobbie.getChildren().add(hobbie);
@@ -122,8 +131,11 @@ public class EscenaComputadora extends AnchorPane {
         opcionPelo.setPrefWidth(550);
         opcionPelo.setSpacing(20);
 
-        ComboBox<String> pelo = new ComboBox<>();
+        pelo = new ComboBox<>();
+        pelo.setPrefWidth(200);
+        pelo.setPrefHeight(30);
         pelo.setPromptText("Pelo");
+
         pelo.getItems().addAll(null, "Castanio", "Negro", "Rubio", "Rojo");
 
         opcionPelo.getChildren().add(pelo);
@@ -137,8 +149,11 @@ public class EscenaComputadora extends AnchorPane {
         opcionVehiculo.setPrefWidth(550);
         opcionVehiculo.setSpacing(20);
 
-        ComboBox<String> vehiculo = new ComboBox<>();
+        vehiculo = new ComboBox<>();
+        vehiculo.setPrefWidth(200);
+        vehiculo.setPrefHeight(30);
         vehiculo.setPromptText("Vehiculo");
+
         vehiculo.getItems().addAll(null, "Deportivo", "Descapotable", "Moto", "Limusina");
 
         opcionVehiculo.getChildren().add(vehiculo);
@@ -146,7 +161,7 @@ public class EscenaComputadora extends AnchorPane {
 
     }
 
-    private void setearOpciones(){
+    private void setearContenedorPrincipal(){
         VBox contenedorPrincipal = new VBox();
         contenedorPrincipal.setAlignment(Pos.CENTER);
         contenedorPrincipal.setLayoutX(336);
@@ -164,8 +179,8 @@ public class EscenaComputadora extends AnchorPane {
         agregarPelo(contenedorPrincipal);
         agregarVehiculo(contenedorPrincipal);
 
-        Label cantidadSospechosos = new Label("Cantidad de sospechosos: " + policia.cantidadSospechosos());
-        cantidadSospechosos.setFont(Font.font(14));
+        cantidadSospechosos = new Label("Cantidad de sospechosos: " + policia.cantidadSospechosos());
+        cantidadSospechosos.setFont(Font.font(16));
         contenedorPrincipal.getChildren().add(cantidadSospechosos);
 
         setearBotonesPolicia(contenedorPrincipal);
@@ -182,10 +197,29 @@ public class EscenaComputadora extends AnchorPane {
         opciones.setPrefWidth(200);
 
         Button resetFiltros = new Button("Resetear filtros");
-        Button arrestar = new Button("Arrestar");
         Button emitirOrden = new Button("Emitir orden");
+        Button arrestar = new Button("Arrestar");
+        Button filtrar = new Button("Filtrar");
 
-        opciones.getChildren().addAll(resetFiltros, arrestar, emitirOrden);
+        resetFiltros.setFont(Font.font(14));
+        emitirOrden.setFont(Font.font(14));
+        arrestar.setFont(Font.font(14));
+        filtrar.setFont(Font.font(14));
+
+        ArrayList<ComboBox<String>> listaOpciones = new ArrayList<>();
+        listaOpciones.add(sexo);
+        listaOpciones.add(accesorio);
+        listaOpciones.add(hobbie);
+        listaOpciones.add(pelo);
+        listaOpciones.add(vehiculo);
+
+        ResetearFiltrosHandler resetHandler = new ResetearFiltrosHandler(stage, policia);
+        FiltrarHandler filtrarHandler = new FiltrarHandler(listaOpciones, cantidadSospechosos, policia);
+
+        resetFiltros.setOnAction(resetHandler);
+        filtrar.setOnAction(filtrarHandler);
+
+        opciones.getChildren().addAll(resetFiltros, emitirOrden, arrestar, filtrar);
 
         contenedor.getChildren().add(opciones);
     }
