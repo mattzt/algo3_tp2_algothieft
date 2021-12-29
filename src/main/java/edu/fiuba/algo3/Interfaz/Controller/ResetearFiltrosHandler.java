@@ -1,22 +1,17 @@
 package edu.fiuba.algo3.Interfaz.Controller;
 
-import edu.fiuba.algo3.Interfaz.Views.EscenaComputadora;
-import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import java.io.IOException;
+import javafx.scene.control.Label;
 
 public class ResetearFiltrosHandler implements EventHandler<ActionEvent> {
 
-    Stage stage;
+    Label sospechosos;
     Policia policia;
 
-    public ResetearFiltrosHandler(Stage stage, Policia policia){
-        this.stage = stage;
+    public ResetearFiltrosHandler(Label sospechosos, Policia policia){
+        this.sospechosos = sospechosos;
         this.policia = policia;
     }
 
@@ -24,12 +19,6 @@ public class ResetearFiltrosHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         policia.resetearSospechosos();
 
-        Scene nuevaEscena = null;
-        try {
-            nuevaEscena = new Scene(new EscenaComputadora(stage));
-        } catch (NoExisteError | IOException e) {
-            e.printStackTrace();
-        }
-        stage.setScene(nuevaEscena);
+        sospechosos.setText("Cantidad de sospechosos: " + policia.cantidadSospechosos());
     }
 }

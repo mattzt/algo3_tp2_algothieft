@@ -13,7 +13,7 @@ import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Reloj.Momento;
+
 import java.io.IOException;
 
 public class Partida {
@@ -43,7 +43,7 @@ public class Partida {
         CreadorPistas factoryPistas = new CreadorPistas();
         repositorioPistas = (RepositorioPistas) factoryPistas.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt");
 
-        casoActual = new Caso(sospechosos,listaDeObjetos,paises,policia.presentarPlaca());
+        casoActual = new Caso(sospechosos, listaDeObjetos, paises, policia.presentarPlaca());
     }
 
     public static Partida getInstance() throws NoExisteError, IOException {
@@ -55,30 +55,6 @@ public class Partida {
 
     public RepositorioPistas obtenerPistas(){
         return repositorioPistas;
-    }
-
-    public void filtrar(Caracteristica caracteristica){
-        policia.ingresarDato(caracteristica);
-    }
-
-    public int cantidadSospechosos(){
-        return policia.cantidadSospechosos();
-    }
-
-    public void resetearFiltros(){
-        policia.resetearSospechosos();
-    }
-
-    public Criminal arrestar(){
-        return policia.arrestar();
-    }
-
-    public void emitirOrden(){
-        policia.emitirOrdenArresto();
-    }
-
-    public Pista visitarEdificio(Edificio edificio){
-        return policia.visitarEdificio(edificio, repositorioPistas);
     }
 
     public Criminal getCriminalActual(){

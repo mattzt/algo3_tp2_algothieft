@@ -7,18 +7,17 @@ public class Reloj {
     private int hora;
 
     public Reloj(){
-        hora = 0;
+        hora = 7;
         dia = new Lunes();
     }
 
-    public int avanzarReloj(IntervaloTiempo unIntervalo){
-        int horaFinal = hora + unIntervalo.pasarTiempo(hora);
+    public void avanzarReloj(IntervaloTiempo unIntervalo){
+        int horaFinal = unIntervalo.pasarTiempo(hora);
         if (horaFinal >= 24){
             dia = dia.siguienteDia();
             horaFinal = horaFinal - 24;
         }
         hora = horaFinal;
-        return horaFinal;
     }
 
     public Boolean equals(String dia, int hora){
@@ -34,7 +33,7 @@ public class Reloj {
     }
 
     public void reset() {
-        hora = 0;
+        hora = 7;
         dia = new Lunes();
     }
 }

@@ -39,12 +39,12 @@ public class Policia {
     }
 
     public void viajarApais(Pais paisDestino) throws FileNotFoundException {
-        reloj.avanzarReloj(new IntervaloTiempoViajeaPais(paisEnDondeEstoy.distanciaA(paisDestino),rango.velocidadViaje()));
+        reloj.avanzarReloj(new IntervaloTiempoViajeaPais(rango.velocidadViaje(), paisEnDondeEstoy.distanciaA(paisDestino)));
         paisEnDondeEstoy = paisDestino;
     }
 
     public Pista visitarEdificio(Edificio unEdificio, RepositorioPistas pistas){
-        reloj.avanzarReloj(new IntervaloTiempoExplorarEdificio( unEdificio.getVecesVisitado()));
+        reloj.avanzarReloj(new IntervaloTiempoExplorarEdificio(paisEnDondeEstoy.visitasTotales()));
 
         return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas);
     }
@@ -54,7 +54,7 @@ public class Policia {
     }
 
     public void emitirOrdenArresto(){
-        if(computadora.sePuedeEmitirOrden()) {
+        if((computadora.cantidadSospechosos() == 1) && ordenDeArresto.sePuedeEmitirOrden()) {
             reloj.avanzarReloj(new IntervaloTiempoEmitirArresto());
             ordenDeArresto = new Emitida();
         }

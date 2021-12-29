@@ -39,4 +39,14 @@ public class Edificios {
         }
         return resultado;
     }
+
+    public int visitasTotales(){
+        int vecesTotales = 0;
+
+        for(Edificio edificio : edificios){
+            vecesTotales += edificio.getVecesVisitado();
+        }
+
+        return vecesTotales;
+    }
 }

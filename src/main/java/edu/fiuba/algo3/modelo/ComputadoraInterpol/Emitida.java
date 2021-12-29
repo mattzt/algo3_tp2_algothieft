@@ -17,6 +17,11 @@ public class Emitida implements OrdenDeArresto{
         return rango.promover();
     }
 
+    @Override
+    public boolean sePuedeEmitirOrden() {
+        return false;
+    }
+
     public Emitida(){
         nombre = "Emitida";
     }

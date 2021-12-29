@@ -3,6 +3,7 @@ package edu.fiuba.algo3.Interfaz.Views;
 import edu.fiuba.algo3.Interfaz.Controller.BotonComputadoraHandler;
 import edu.fiuba.algo3.Interfaz.Controller.BotonEscenaViajarHandler;
 import edu.fiuba.algo3.Interfaz.Controller.BotonMenuHandler;
+import edu.fiuba.algo3.Interfaz.Controller.VisitarEdificioHandler;
 import edu.fiuba.algo3.modelo.Edificios.Edificios;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Partida;
@@ -23,6 +24,8 @@ public class EscenaCiudad extends AnchorPane {
 
     Stage stage;
     Policia policia;
+    Label pantallaPista;
+    Label hora;
 
     public EscenaCiudad(Stage stage) throws NoExisteError, IOException {
         policia = Partida.getInstance().getPolicia();
@@ -30,9 +33,10 @@ public class EscenaCiudad extends AnchorPane {
         this.setPrefWidth(900);
         this.stage = stage;
 
+        setPantallaPista();
+        setInfo();
         configurarMenu();
         configurarEdificios();
-        setInfo();
     }
 
     private void configurarMenu(){
@@ -67,7 +71,7 @@ public class EscenaCiudad extends AnchorPane {
         this.getChildren().add(contenedorBotones);
     }
 
-    private void configurarEdificios(){
+    private void configurarEdificios() throws NoExisteError, IOException {
         VBox contenedorCiudades = new VBox();
 
         contenedorCiudades.setAlignment(Pos.CENTER);
@@ -89,6 +93,9 @@ public class EscenaCiudad extends AnchorPane {
             boton.setPrefWidth(200);
             boton.setFont(Font.font(16));
 
+            VisitarEdificioHandler visitarHandler = new VisitarEdificioHandler(hora, boton, pantallaPista);
+            boton.setOnAction(visitarHandler);
+
             contenedorCiudades.getChildren().add(boton);
         }
 
@@ -102,7 +109,7 @@ public class EscenaCiudad extends AnchorPane {
         contenedor.setAlignment(Pos.TOP_CENTER);
         contenedor.setSpacing(10);
 
-        Label hora = new Label();
+        hora = new Label();
         String fecha = policia.mirarDia().diaDeHoy() + ", " + policia.mirarLaHora() + "hs";
 
         hora.setText(fecha);
@@ -123,5 +130,16 @@ public class EscenaCiudad extends AnchorPane {
         contenedor.getChildren().add(pais);
 
         this.getChildren().add(contenedor);
+    }
+
+    private void setPantallaPista(){
+        pantallaPista = new Label();
+        pantallaPista.setFont(Font.font(22));
+        pantallaPista.setWrapText(true);
+
+        pantallaPista.setMaxWidth(400);
+        pantallaPista.setLayoutX(30);
+        pantallaPista.setLayoutY(200);
+        this.getChildren().add(pantallaPista);
     }
 }

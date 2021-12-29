@@ -22,7 +22,7 @@ public class EscenaComputadora extends AnchorPane {
     Stage stage;
     Policia policia;
     ComboBox<String> sexo, accesorio, hobbie, pelo, vehiculo;
-    Label cantidadSospechosos;
+    Label cantidadSospechosos, hora;
 
     public EscenaComputadora(Stage stage) throws NoExisteError, IOException {
         policia = Partida.getInstance().getPolicia();
@@ -30,9 +30,9 @@ public class EscenaComputadora extends AnchorPane {
         this.setPrefWidth(900);
         this.stage = stage;
 
+        setInfo();
         configurarMenu();
         setearContenedorPrincipal();
-        setInfo();
     }
 
     private void configurarMenu(){
@@ -213,11 +213,14 @@ public class EscenaComputadora extends AnchorPane {
         listaOpciones.add(pelo);
         listaOpciones.add(vehiculo);
 
-        ResetearFiltrosHandler resetHandler = new ResetearFiltrosHandler(stage, policia);
+        ResetearFiltrosHandler resetHandler = new ResetearFiltrosHandler(cantidadSospechosos, policia);
         FiltrarHandler filtrarHandler = new FiltrarHandler(listaOpciones, cantidadSospechosos, policia);
+        EmitirOrdenHandler ordenHandler = new EmitirOrdenHandler(stage, policia, hora);
+
 
         resetFiltros.setOnAction(resetHandler);
         filtrar.setOnAction(filtrarHandler);
+        emitirOrden.setOnAction(ordenHandler);
 
         opciones.getChildren().addAll(resetFiltros, emitirOrden, arrestar, filtrar);
 
@@ -231,7 +234,7 @@ public class EscenaComputadora extends AnchorPane {
         contenedor.setAlignment(Pos.TOP_CENTER);
         contenedor.setSpacing(10);
 
-        Label hora = new Label();
+        hora = new Label();
         String fecha = policia.mirarDia().diaDeHoy() + ", " + policia.mirarLaHora() + "hs";
 
         hora.setText(fecha);
@@ -240,7 +243,6 @@ public class EscenaComputadora extends AnchorPane {
         hora.setPrefWidth(300);
 
         contenedor.getChildren().add(hora);
-
 
         Label pais = new Label();
 

@@ -1,15 +1,13 @@
 package edu.fiuba.algo3.modelo.IntervaloTiempo;
 
 public class IntervaloTiempoExplorarEdificio implements IntervaloTiempo{
-    private int horasPorVecesVisitado;
+    private final int horasPorVecesVisitado;
 
     public IntervaloTiempoExplorarEdificio(int veces) {
-        if (veces >= 3){
+        if ((veces + 1) > 3)
             horasPorVecesVisitado = 3;
-        }
-        else {
-            horasPorVecesVisitado = veces;
-        }
+        else
+            horasPorVecesVisitado = veces + 1;
     }
 
     @Override

@@ -16,6 +16,11 @@ public class NoEmitida implements OrdenDeArresto{
         return rango;
     }
 
+    @Override
+    public boolean sePuedeEmitirOrden() {
+        return true;
+    }
+
     public NoEmitida(){
         nombre = "No emitida";
     }
