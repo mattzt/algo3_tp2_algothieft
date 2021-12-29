@@ -161,7 +161,7 @@ public class EscenaComputadora extends AnchorPane {
 
     }
 
-    private void setearContenedorPrincipal(){
+    private void setearContenedorPrincipal() throws NoExisteError, IOException {
         VBox contenedorPrincipal = new VBox();
         contenedorPrincipal.setAlignment(Pos.CENTER);
         contenedorPrincipal.setLayoutX(336);
@@ -189,7 +189,7 @@ public class EscenaComputadora extends AnchorPane {
         this.getChildren().add(contenedorPrincipal);
     }
 
-    private void setearBotonesPolicia(VBox contenedor){
+    private void setearBotonesPolicia(VBox contenedor) throws NoExisteError, IOException {
         HBox opciones = new HBox();
         opciones.setAlignment(Pos.CENTER);
         opciones.setSpacing(20);
@@ -216,11 +216,13 @@ public class EscenaComputadora extends AnchorPane {
         ResetearFiltrosHandler resetHandler = new ResetearFiltrosHandler(cantidadSospechosos, policia);
         FiltrarHandler filtrarHandler = new FiltrarHandler(listaOpciones, cantidadSospechosos, policia);
         EmitirOrdenHandler ordenHandler = new EmitirOrdenHandler(stage, policia, hora);
+        ArrestarHandler arrestarHandler = new ArrestarHandler(stage);
 
 
         resetFiltros.setOnAction(resetHandler);
         filtrar.setOnAction(filtrarHandler);
         emitirOrden.setOnAction(ordenHandler);
+        arrestar.setOnAction(arrestarHandler);
 
         opciones.getChildren().addAll(resetFiltros, emitirOrden, arrestar, filtrar);
 

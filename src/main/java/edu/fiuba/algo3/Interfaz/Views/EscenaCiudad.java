@@ -93,7 +93,7 @@ public class EscenaCiudad extends AnchorPane {
             boton.setPrefWidth(200);
             boton.setFont(Font.font(16));
 
-            VisitarEdificioHandler visitarHandler = new VisitarEdificioHandler(hora, boton, pantallaPista);
+            VisitarEdificioHandler visitarHandler = new VisitarEdificioHandler(hora, boton, pantallaPista, stage);
             boton.setOnAction(visitarHandler);
 
             contenedorCiudades.getChildren().add(boton);

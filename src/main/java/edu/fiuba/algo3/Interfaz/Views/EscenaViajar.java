@@ -99,7 +99,7 @@ public class EscenaViajar extends AnchorPane {
         this.getChildren().add(contenedor);
     }
 
-    private void setBotonesPaises(){
+    private void setBotonesPaises() throws NoExisteError, IOException {
         Paises paisesParaViajar = policia.getPaisActual().getPaisesConexos();
         ArrayList<String> paises = paisesParaViajar.obtenerNombres();
 
