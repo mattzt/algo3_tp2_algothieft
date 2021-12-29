@@ -40,13 +40,4 @@ public class PoliciaTest {
 
         assertEquals(pista.darPista(), "Dijo que queria cambiar su dinero por Rublos");
     }
-
-    @Test
-    public void policiaEsHerido(){
-        ArmaBlanca arma = new ArmaBlanca();
-        arma.hacerDanio(agente);
-
-        assertEquals(agente.mirarLaHora(), 2);
-    }
-
 }

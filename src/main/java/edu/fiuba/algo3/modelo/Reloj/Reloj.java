@@ -20,10 +20,6 @@ public class Reloj {
         hora = horaFinal;
     }
 
-    public Boolean equals(String dia, int hora){
-        return this.dia.diaDeHoy().equals(dia) && (this.hora==hora);
-    }
-
     public int verHora() {
         return hora;
     }

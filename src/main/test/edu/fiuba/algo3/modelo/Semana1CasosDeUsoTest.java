@@ -68,7 +68,7 @@ public class Semana1CasosDeUsoTest {
         Pais mexico = todosLosPaises.buscar("Mexico");
         nuevoPoli.viajarApais(mexico);
         Assertions.assertTrue(nuevoPoli.seEncuentraEn(mexico));
-        Assertions.assertEquals(4,nuevoPoli.mirarLaHora());
+        Assertions.assertEquals(11,nuevoPoli.mirarLaHora());
     }
 
     @Test
@@ -88,8 +88,8 @@ public class Semana1CasosDeUsoTest {
         nuevoPoli.resetearReloj();
         ArmaBlanca daga = new ArmaBlanca();
         nuevoPoli.recibirDanio(daga);
-        Assertions.assertEquals(2,nuevoPoli.mirarLaHora());
-        nuevoPoli.dormir();
         Assertions.assertEquals(10,nuevoPoli.mirarLaHora());
+        nuevoPoli.dormir();
+        Assertions.assertEquals(18,nuevoPoli.mirarLaHora());
     }
 }
