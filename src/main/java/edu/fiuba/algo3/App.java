@@ -35,7 +35,7 @@ public class App extends Application {
 
     private void cerrarPrograma(Stage ventana) {
         Alert.AlertType tipo = Alert.AlertType.CONFIRMATION;
-        Alert  alerta = new Alert(tipo, "");
+        Alert alerta = new Alert(tipo, "");
         alerta.initModality(Modality.APPLICATION_MODAL);
         alerta.initOwner(ventana);
         alerta.getDialogPane().setContentText("Desea Cerrar?");
