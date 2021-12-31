@@ -1,9 +1,11 @@
 package edu.fiuba.algo3.Interfaz.Views;
 
+import edu.fiuba.algo3.Interfaz.Controller.BotonLogInHandler;
+import edu.fiuba.algo3.Interfaz.Controller.TextoLogInHandler;
+import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
@@ -126,14 +128,18 @@ public class PantallaInicial extends AnchorPane {
         botonLog.setLayoutY(246);
         botonLog.setMnemonicParsing(false);
 
-        this.getChildren().add(botonLog);
-
         TextField cuadroDeTexto = new TextField();
         cuadroDeTexto.setAlignment(Pos.CENTER);
         cuadroDeTexto.setLayoutX(266);
         cuadroDeTexto.setLayoutY(248);
         cuadroDeTexto.setPromptText("Nombre Agente");
 
-        this.getChildren().add(cuadroDeTexto);
+        BotonLogInHandler logInHandler = new BotonLogInHandler(stage, cuadroDeTexto);
+        TextoLogInHandler textoLogInHandler = new TextoLogInHandler(stage, cuadroDeTexto);
+
+        botonLog.setOnAction(logInHandler);
+        cuadroDeTexto.setOnKeyPressed(textoLogInHandler);
+
+        this.getChildren().addAll(botonLog, cuadroDeTexto);
     }
 }

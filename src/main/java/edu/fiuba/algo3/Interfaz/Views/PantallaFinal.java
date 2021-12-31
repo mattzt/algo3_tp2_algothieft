@@ -1,5 +1,7 @@
 package edu.fiuba.algo3.Interfaz.Views;
 
+import edu.fiuba.algo3.Interfaz.Controller.BotonSalirHandler;
+import edu.fiuba.algo3.Interfaz.Controller.NuevoCasoHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -33,6 +35,12 @@ public class PantallaFinal extends AnchorPane {
 
         Button nuevoCaso = new Button("Nuevo caso");
         Button salir = new Button("Salir");
+
+        BotonSalirHandler botonSalirHandler = new BotonSalirHandler(stage);
+        NuevoCasoHandler nuevoCasoHandler = new NuevoCasoHandler(stage);
+
+        salir.setOnAction(botonSalirHandler);
+        nuevoCaso.setOnAction(nuevoCasoHandler);
 
         nuevoCaso.setPrefWidth(150);
         nuevoCaso.setPrefHeight(50);
