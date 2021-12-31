@@ -1,6 +1,7 @@
 package edu.fiuba.algo3;
 
 import edu.fiuba.algo3.Interfaz.Views.EscenaMenuPrincipal;
+import edu.fiuba.algo3.Interfaz.Views.PantallaInicial;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -22,8 +23,10 @@ public class App extends Application {
 //        URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/PantallaInicial.fxml").toURI().toURL();
 //        AnchorPane root = FXMLLoader.load(url);
 
-        EscenaMenuPrincipal root = new EscenaMenuPrincipal(stage);
-        Scene scene = new Scene(root);
+//        EscenaMenuPrincipal root = new EscenaMenuPrincipal(stage);
+//        Scene scene = new Scene(root);
+        PantallaInicial pantallaInicial = new PantallaInicial(stage);
+        Scene scene = new Scene(pantallaInicial);
 
         stage.setScene(scene);
         stage.centerOnScreen();
