@@ -21,15 +21,18 @@ public class EscenaMenuPrincipal extends AnchorPane {
 
     Stage stage;
     Policia policia;
+    Partida partida;
 
     public EscenaMenuPrincipal(Stage stage) throws NoExisteError, IOException {
-        policia = Partida.getInstance().getPolicia();
+        partida = Partida.getInstance();
+        policia = partida.getPolicia();
         this.stage = stage;
         this.setPrefHeight(700);
         this.setPrefWidth(900);
 
         setBotones();
         setInfo();
+        setObjetoRobado();
     }
 
     private void setBotones(){
@@ -81,7 +84,6 @@ public class EscenaMenuPrincipal extends AnchorPane {
 
         contenedor.getChildren().add(hora);
 
-
         Label pais = new Label();
 
         pais.setText("Pais actual: " + policia.getPaisActual().getNombre());
@@ -90,6 +92,37 @@ public class EscenaMenuPrincipal extends AnchorPane {
         pais.setPrefWidth(300);
 
         contenedor.getChildren().add(pais);
+
+        this.getChildren().add(contenedor);
+
+    }
+
+    private void setObjetoRobado(){
+        VBox contenedor = new VBox();
+        contenedor.setPrefWidth(400);
+        contenedor.setPrefHeight(400);
+        contenedor.setLayoutX(350);
+        contenedor.setLayoutY(150);
+        contenedor.setAlignment(Pos.TOP_CENTER);
+        contenedor.setSpacing(50);
+
+
+        Label objetoRobado = new Label();
+
+        objetoRobado.setText("Objeto robado: " + partida.nombreObjetoRobado());
+        objetoRobado.setWrapText(true);
+        objetoRobado.setFont(Font.font(25));
+        objetoRobado.setAlignment(Pos.TOP_CENTER);
+        objetoRobado.setPrefWidth(400);
+
+        contenedor.getChildren().add(objetoRobado);
+
+        Label mensaje = new Label("Tenes hasta el domingo a las 17hs para encontrar al culpable. Buena suerte!");
+        mensaje.setWrapText(true);
+        mensaje.setFont(Font.font(23));
+        mensaje.setPrefWidth(400);
+
+        contenedor.getChildren().add(mensaje);
 
         this.getChildren().add(contenedor);
     }

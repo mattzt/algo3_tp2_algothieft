@@ -30,4 +30,8 @@ public class Objeto {
         if (valorObjeto==2) return 5;
         return 7;
     }
+
+    public String getNombreObjeto(){
+        return nombreObjeto;
+    }
 }

@@ -100,4 +100,8 @@ public class Partida {
     public String mensajeFinal() throws NoExisteError, IOException {
         return estado.mensaje(getCriminalActual());
     }
+
+    public String nombreObjetoRobado(){
+        return casoActual.nombreObjeto();
+    }
 }
