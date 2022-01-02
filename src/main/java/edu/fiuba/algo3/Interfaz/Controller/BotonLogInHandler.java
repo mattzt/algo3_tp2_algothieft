@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
+import javax.swing.text.PlainDocument;
 import java.io.IOException;
 
 public class BotonLogInHandler implements EventHandler<ActionEvent> {
@@ -28,6 +29,8 @@ public class BotonLogInHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         if(!nombreIncorrecto(nombre)){
             try {
+                Policia policia = Partida.getInstance().getPolicia();
+                policia.setNombre(nombre.getText());
                 logIn();
             } catch (NoExisteError | IOException e) {
                 e.printStackTrace();

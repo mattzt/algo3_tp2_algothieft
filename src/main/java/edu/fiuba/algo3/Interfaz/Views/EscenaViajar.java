@@ -4,26 +4,34 @@ import edu.fiuba.algo3.Interfaz.Controller.BotonCiudadHandler;
 import edu.fiuba.algo3.Interfaz.Controller.BotonComputadoraHandler;
 import edu.fiuba.algo3.Interfaz.Controller.BotonMenuHandler;
 import edu.fiuba.algo3.Interfaz.Controller.BotonParaViajarHandler;
+import edu.fiuba.algo3.Interfaz.Views.resources.SeteadorNuevaEscena;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.effect.BlendMode;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class EscenaViajar extends AnchorPane {
 
-    Stage stage;
-    Policia policia;
+    private final Stage stage;
+    private final Policia policia;
+    private final URL css;
 
     public EscenaViajar(Stage stage) throws NoExisteError, IOException {
         this.stage = stage;
@@ -31,13 +39,21 @@ public class EscenaViajar extends AnchorPane {
         this.setPrefWidth(900);
         policia = Partida.getInstance().getPolicia();
 
+        css = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/resources/darkTheme.css").toURI().toURL();
+
+        SeteadorNuevaEscena seteadorNuevaEscena = new SeteadorNuevaEscena(this);
+        seteadorNuevaEscena.setearFondo();
+
+        Label hora = new Label();
+        Label pais = new Label();
+        seteadorNuevaEscena.setInfo(policia, hora, pais);
+
         configurarMenu();
         setBotonesPaises();
-        setInfo();
         setBotonesPaises();
     }
 
-    private void configurarMenu(){
+    private void configurarMenu() throws MalformedURLException {
         HBox contenedorBotones = new HBox();
         contenedorBotones.setPrefHeight(100);
         contenedorBotones.setPrefWidth(550);
@@ -46,7 +62,7 @@ public class EscenaViajar extends AnchorPane {
 
         Button botonMenu = new Button("Menu Principal");
         Button botonCiudad = new Button("Explorar Ciudad");
-        Button botonComputadora = new Button("Computadora Interpol");
+        Button botonComputadora = new Button("Interpol");
 
         botonComputadora.setOnAction(new BotonComputadoraHandler(stage));
         botonMenu.setOnAction(new BotonMenuHandler(stage));
@@ -64,39 +80,41 @@ public class EscenaViajar extends AnchorPane {
         botonComputadora.setPrefWidth(200);
         botonComputadora.setFont(Font.font(14));
 
+        botonCiudad.getStylesheets().add(String.valueOf(css));
+        botonMenu.getStylesheets().add(String.valueOf(css));
+        botonComputadora.getStylesheets().add(String.valueOf(css));
+
+        estiloBotones(botonCiudad, botonMenu, botonComputadora);
+
         contenedorBotones.getChildren().addAll(botonMenu, botonComputadora, botonCiudad);
 
         this.getChildren().add(contenedorBotones);
     }
 
-    private void setInfo(){
-        VBox contenedor = new VBox();
-        contenedor.setPrefWidth(300);
-        contenedor.setPrefHeight(250);
-        contenedor.setAlignment(Pos.TOP_CENTER);
-        contenedor.setSpacing(10);
+    private void estiloBotones(Button botonCiudad, Button botonMenu, Button botonComputadora) throws MalformedURLException {
+        URL ciudad = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/resources/buttons/explore.png").toURI().toURL();
+        URL computadora = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/resources/buttons/interpol.png").toURI().toURL();
 
-        Label hora = new Label();
-        String fecha = policia.mirarDia().diaDeHoy() + ", " + policia.mirarLaHora() + "hs";
+        ImageView imagenCiudad = new ImageView(String.valueOf(ciudad));
+        ImageView imagenComputadora = new ImageView(String.valueOf(computadora));
 
-        hora.setText(fecha);
-        hora.setAlignment(Pos.CENTER);
-        hora.setFont(Font.font(25));
-        hora.setPrefWidth(300);
+        imagenCiudad.setFitWidth(100);
+        imagenCiudad.setFitHeight(100);
+        imagenCiudad.setPickOnBounds(true);
+        imagenCiudad.setBlendMode(BlendMode.HARD_LIGHT);
+        imagenCiudad.setPreserveRatio(true);
 
-        contenedor.getChildren().add(hora);
+        imagenComputadora.setFitWidth(100);
+        imagenComputadora.setFitHeight(100);
+        imagenComputadora.setPickOnBounds(true);
+        imagenComputadora.setBlendMode(BlendMode.HARD_LIGHT);
+        imagenComputadora.setPreserveRatio(true);
 
+        botonCiudad.setContentDisplay(ContentDisplay.TOP);
+        botonComputadora.setContentDisplay(ContentDisplay.TOP);
 
-        Label pais = new Label();
-
-        pais.setText("Pais actual: " + policia.getPaisActual().getNombre());
-        pais.setFont(Font.font(25));
-        pais.setAlignment(Pos.CENTER);
-        pais.setPrefWidth(300);
-
-        contenedor.getChildren().add(pais);
-
-        this.getChildren().add(contenedor);
+        botonCiudad.setGraphic(imagenCiudad);
+        botonComputadora.setGraphic(imagenComputadora);
     }
 
     private void setBotonesPaises() throws NoExisteError, IOException {
@@ -120,6 +138,7 @@ public class EscenaViajar extends AnchorPane {
             boton.setPrefWidth(200);
             boton.setFont(Font.font(16));
             boton.setOnAction(viajarHandler);
+            boton.getStylesheets().add(String.valueOf(css));
             contenedor.getChildren().add(boton);
         }
         this.getChildren().add(contenedor);

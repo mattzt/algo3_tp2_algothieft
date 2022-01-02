@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -73,6 +74,7 @@ public class VisitarEdificioHandler implements EventHandler<ActionEvent> {
         }
         else {
             pantallaPista.setText(obtenida.darPista());
+            pantallaPista.setTextFill(Paint.valueOf("WHITE"));
 
             String fecha = policia.mirarDia().diaDeHoy() + ", " + policia.mirarLaHora() + "hs";
             hora.setText(fecha);

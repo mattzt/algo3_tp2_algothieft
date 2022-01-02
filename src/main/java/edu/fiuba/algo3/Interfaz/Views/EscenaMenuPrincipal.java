@@ -3,17 +3,20 @@ package edu.fiuba.algo3.Interfaz.Views;
 import edu.fiuba.algo3.Interfaz.Controller.BotonCiudadHandler;
 import edu.fiuba.algo3.Interfaz.Controller.BotonComputadoraHandler;
 import edu.fiuba.algo3.Interfaz.Controller.BotonEscenaViajarHandler;
+import edu.fiuba.algo3.Interfaz.Views.resources.SeteadorNuevaEscena;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -25,19 +28,24 @@ import java.net.URL;
 public class EscenaMenuPrincipal extends AnchorPane {
 
     private final Stage stage;
-    private final Policia policia;
     private final Partida partida;
 
     public EscenaMenuPrincipal(Stage stage) throws NoExisteError, IOException {
         partida = Partida.getInstance();
-        policia = partida.getPolicia();
+        Policia policia = partida.getPolicia();
+
         this.stage = stage;
         this.setPrefHeight(700);
         this.setPrefWidth(900);
 
-        configurarEstilo();
+        SeteadorNuevaEscena seteadorNuevaEscena = new SeteadorNuevaEscena(this);
+        seteadorNuevaEscena.setearFondo();
+
+        Label hora = new Label();
+        Label pais = new Label();
+        seteadorNuevaEscena.setInfo(policia, hora, pais);
+
         setBotones();
-        setInfo();
         setObjetoRobado();
     }
 
@@ -50,7 +58,7 @@ public class EscenaMenuPrincipal extends AnchorPane {
 
         Button botonCiudad = new Button("Explorar Ciudad");
         Button botonViajar = new Button("Viajar");
-        Button botonComputadora = new Button("ComputadoraInterpol");
+        Button botonComputadora = new Button("Interpol");
 
         botonCiudad.setOnAction(new BotonCiudadHandler(stage));
         botonComputadora.setOnAction(new BotonComputadoraHandler(stage));
@@ -68,6 +76,46 @@ public class EscenaMenuPrincipal extends AnchorPane {
         botonComputadora.setPrefWidth(183);
         botonComputadora.setFont(Font.font(14));
 
+        estiloBotones(botonCiudad, botonViajar, botonComputadora);
+
+        contenedorBotones.getChildren().addAll(botonCiudad, botonComputadora, botonViajar);
+
+        this.getChildren().add(contenedorBotones);
+    }
+
+    private void setObjetoRobado(){
+        VBox contenedor = new VBox();
+        contenedor.setPrefWidth(400);
+        contenedor.setPrefHeight(400);
+        contenedor.setLayoutX(350);
+        contenedor.setLayoutY(150);
+        contenedor.setAlignment(Pos.TOP_CENTER);
+        contenedor.setSpacing(50);
+
+
+        Label objetoRobado = new Label();
+
+        objetoRobado.setText("Objeto robado: " + partida.nombreObjetoRobado());
+        objetoRobado.setWrapText(true);
+        objetoRobado.setFont(Font.font(25));
+        objetoRobado.setAlignment(Pos.TOP_CENTER);
+        objetoRobado.setPrefWidth(400);
+        objetoRobado.setTextFill(Paint.valueOf("WHITE"));
+
+        contenedor.getChildren().add(objetoRobado);
+
+        Label mensaje = new Label("Tenes hasta el domingo a las 17hs para encontrar al culpable. Buena suerte!");
+        mensaje.setWrapText(true);
+        mensaje.setFont(Font.font(23));
+        mensaje.setPrefWidth(400);
+        mensaje.setTextFill(Paint.valueOf("WHITE"));
+
+        contenedor.getChildren().add(mensaje);
+
+        this.getChildren().add(contenedor);
+    }
+
+    private void estiloBotones(Button botonCiudad, Button botonViajar, Button botonComputadora) throws MalformedURLException {
         URL css = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/resources/darkTheme.css").toURI().toURL();
 
         botonCiudad.getStylesheets().add(String.valueOf(css));
@@ -100,91 +148,12 @@ public class EscenaMenuPrincipal extends AnchorPane {
         imagenComputadora.setBlendMode(BlendMode.HARD_LIGHT);
         imagenComputadora.setPreserveRatio(true);
 
+        botonCiudad.setContentDisplay(ContentDisplay.TOP);
+        botonViajar.setContentDisplay(ContentDisplay.TOP);
+        botonComputadora.setContentDisplay(ContentDisplay.TOP);
+
         botonCiudad.setGraphic(imagenCiudad);
         botonViajar.setGraphic(imagenViajar);
         botonComputadora.setGraphic(imagenComputadora);
-
-        contenedorBotones.getChildren().addAll(botonCiudad, botonComputadora, botonViajar);
-
-        this.getChildren().add(contenedorBotones);
-    }
-
-    private void setInfo(){
-        VBox contenedor = new VBox();
-        contenedor.setPrefWidth(300);
-        contenedor.setPrefHeight(250);
-        contenedor.setAlignment(Pos.TOP_CENTER);
-        contenedor.setSpacing(10);
-
-        Label hora = new Label();
-        String fecha = policia.mirarDia().diaDeHoy() + ", " + policia.mirarLaHora() + "hs";
-
-        hora.setText(fecha);
-        hora.setAlignment(Pos.CENTER);
-        hora.setFont(Font.font(25));
-        hora.setPrefWidth(300);
-
-        contenedor.getChildren().add(hora);
-
-        Label pais = new Label();
-
-        pais.setText("Pais actual: " + policia.getPaisActual().getNombre());
-        pais.setFont(Font.font(25));
-        pais.setAlignment(Pos.CENTER);
-        pais.setPrefWidth(300);
-
-        contenedor.getChildren().add(pais);
-
-        this.getChildren().add(contenedor);
-
-    }
-
-    private void setObjetoRobado(){
-        VBox contenedor = new VBox();
-        contenedor.setPrefWidth(400);
-        contenedor.setPrefHeight(400);
-        contenedor.setLayoutX(350);
-        contenedor.setLayoutY(150);
-        contenedor.setAlignment(Pos.TOP_CENTER);
-        contenedor.setSpacing(50);
-
-
-        Label objetoRobado = new Label();
-
-        objetoRobado.setText("Objeto robado: " + partida.nombreObjetoRobado());
-        objetoRobado.setWrapText(true);
-        objetoRobado.setFont(Font.font(25));
-        objetoRobado.setAlignment(Pos.TOP_CENTER);
-        objetoRobado.setPrefWidth(400);
-
-        contenedor.getChildren().add(objetoRobado);
-
-        Label mensaje = new Label("Tenes hasta el domingo a las 17hs para encontrar al culpable. Buena suerte!");
-        mensaje.setWrapText(true);
-        mensaje.setFont(Font.font(23));
-        mensaje.setPrefWidth(400);
-
-        contenedor.getChildren().add(mensaje);
-
-        this.getChildren().add(contenedor);
-    }
-
-    private void configurarEstilo() throws MalformedURLException {
-        this.setStyle("-fx-background-color: grey;");
-
-
-        URL url = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/resources/background.jpg").toURI().toURL();
-        ImageView fondo = new ImageView(String.valueOf(url));
-        fondo.setBlendMode(BlendMode.MULTIPLY);
-        fondo.setFitHeight(566);
-        fondo.setFitWidth(900);
-        fondo.setLayoutY(-32);
-        fondo.setPickOnBounds(true);
-        fondo.setPreserveRatio(true);
-        fondo.setScaleY(1.26);
-        fondo.setStyle("-fx-translate-y: 100;");
-
-        this.getChildren().add(fondo);
-
     }
 }

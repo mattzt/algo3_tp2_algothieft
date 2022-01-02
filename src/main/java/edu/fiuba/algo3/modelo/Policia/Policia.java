@@ -115,4 +115,8 @@ public class Policia {
     public Pais getPaisActual(){
         return paisEnDondeEstoy;
     }
+
+    public String getNombre(){
+        return nombre;
+    }
 }

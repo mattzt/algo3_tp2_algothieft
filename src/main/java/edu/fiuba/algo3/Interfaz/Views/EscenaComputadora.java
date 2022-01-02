@@ -1,28 +1,38 @@
 package edu.fiuba.algo3.Interfaz.Views;
 
 import edu.fiuba.algo3.Interfaz.Controller.*;
+import edu.fiuba.algo3.Interfaz.Views.resources.SeteadorNuevaEscena;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.effect.BlendMode;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class EscenaComputadora extends AnchorPane {
 
-    Stage stage;
-    Policia policia;
-    ComboBox<String> sexo, accesorio, hobbie, pelo, vehiculo;
-    Label cantidadSospechosos, hora;
+    private final Stage stage;
+    private final Policia policia;
+    private ComboBox<String> sexo, accesorio, hobbie, pelo, vehiculo;
+    private Label cantidadSospechosos;
+    private final Label hora;
+    private final URL css;
 
     public EscenaComputadora(Stage stage) throws NoExisteError, IOException {
         policia = Partida.getInstance().getPolicia();
@@ -30,12 +40,20 @@ public class EscenaComputadora extends AnchorPane {
         this.setPrefWidth(900);
         this.stage = stage;
 
-        setInfo();
+        css = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/resources/darkTheme.css").toURI().toURL();
+
+        SeteadorNuevaEscena seteadorNuevaEscena = new SeteadorNuevaEscena(this);
+        seteadorNuevaEscena.setearFondo();
+
+        hora = new Label();
+        Label pais = new Label();
+        seteadorNuevaEscena.setInfo(policia, hora, pais);
+
         configurarMenu();
         setearContenedorPrincipal();
     }
 
-    private void configurarMenu(){
+    private void configurarMenu() throws MalformedURLException {
         HBox contenedorBotones = new HBox();
         contenedorBotones.setPrefHeight(100);
         contenedorBotones.setPrefWidth(550);
@@ -61,6 +79,12 @@ public class EscenaComputadora extends AnchorPane {
         botonCiudad.setPrefWidth(200);
         botonCiudad.setFont(Font.font(14));
 
+        botonMenu.getStylesheets().add(String.valueOf(css));
+        botonCiudad.getStylesheets().add(String.valueOf(css));
+        botonViajar.getStylesheets().add(String.valueOf(css));
+
+        estiloBotones(botonMenu, botonCiudad, botonViajar);
+
         contenedorBotones.getChildren().addAll(botonMenu, botonCiudad, botonViajar);
 
         botonCiudad.setOnAction(new BotonCiudadHandler(stage));
@@ -68,6 +92,32 @@ public class EscenaComputadora extends AnchorPane {
         botonViajar.setOnAction(new BotonEscenaViajarHandler(stage));
 
         this.getChildren().add(contenedorBotones);
+    }
+
+    private void estiloBotones(Button botonMenu, Button botonCiudad, Button botonViajar) throws MalformedURLException {
+        URL ciudad = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/resources/buttons/explore.png").toURI().toURL();
+        URL viajar = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/resources/buttons/viajar.png").toURI().toURL();
+
+        ImageView imagenCiudad = new ImageView(String.valueOf(ciudad));
+        ImageView imagenViajar = new ImageView(String.valueOf(viajar));
+
+        imagenCiudad.setFitWidth(100);
+        imagenCiudad.setFitHeight(100);
+        imagenCiudad.setPickOnBounds(true);
+        imagenCiudad.setBlendMode(BlendMode.HARD_LIGHT);
+        imagenCiudad.setPreserveRatio(true);
+
+        imagenViajar.setFitWidth(100);
+        imagenViajar.setFitHeight(100);
+        imagenViajar.setPickOnBounds(true);
+        imagenViajar.setBlendMode(BlendMode.HARD_LIGHT);
+        imagenViajar.setPreserveRatio(true);
+
+        botonCiudad.setContentDisplay(ContentDisplay.TOP);
+        botonViajar.setContentDisplay(ContentDisplay.TOP);
+
+        botonCiudad.setGraphic(imagenCiudad);
+        botonViajar.setGraphic(imagenViajar);
     }
 
     private void agregarSexo(VBox contenedorPrincipal){
@@ -83,6 +133,7 @@ public class EscenaComputadora extends AnchorPane {
         sexo.setPromptText("Sexo");
 
         sexo.getItems().addAll(null, "Masculino", "Femenino");
+        sexo.getStylesheets().add(String.valueOf(css));
 
         opcionSexo.getChildren().add(sexo);
         contenedorPrincipal.getChildren().add(opcionSexo);
@@ -101,6 +152,7 @@ public class EscenaComputadora extends AnchorPane {
         accesorio.setPromptText("Accesorio");
 
         accesorio.getItems().addAll(null, "Anillo", "Tatuaje", "Joyas", "Cicatriz");
+        accesorio.getStylesheets().add(String.valueOf(css));
 
         opcionAccesorios.getChildren().add(accesorio);
         contenedorPrincipal.getChildren().add(opcionAccesorios);
@@ -119,6 +171,7 @@ public class EscenaComputadora extends AnchorPane {
         hobbie.setPromptText("Hobbie");
 
         hobbie.getItems().addAll(null, "Alpinismo", "Croquet", "Musica", "Natacion", "Paracaidismo", "Tenis");
+        hobbie.getStylesheets().add(String.valueOf(css));
 
         opcionHobbie.getChildren().add(hobbie);
         contenedorPrincipal.getChildren().add(opcionHobbie);
@@ -137,6 +190,7 @@ public class EscenaComputadora extends AnchorPane {
         pelo.setPromptText("Pelo");
 
         pelo.getItems().addAll(null, "Castanio", "Negro", "Rubio", "Rojo");
+        pelo.getStylesheets().add(String.valueOf(css));
 
         opcionPelo.getChildren().add(pelo);
         contenedorPrincipal.getChildren().add(opcionPelo);
@@ -155,6 +209,7 @@ public class EscenaComputadora extends AnchorPane {
         vehiculo.setPromptText("Vehiculo");
 
         vehiculo.getItems().addAll(null, "Deportivo", "Descapotable", "Moto", "Limusina");
+        vehiculo.getStylesheets().add(String.valueOf(css));
 
         opcionVehiculo.getChildren().add(vehiculo);
         contenedorPrincipal.getChildren().add(opcionVehiculo);
@@ -171,6 +226,7 @@ public class EscenaComputadora extends AnchorPane {
 
         Label filtrarSospechosos = new Label("Filtrar sospechosos");
         filtrarSospechosos.setFont(Font.font(24));
+        filtrarSospechosos.setTextFill(Paint.valueOf("WHITE"));
         contenedorPrincipal.getChildren().add(filtrarSospechosos);
 
         agregarSexo(contenedorPrincipal);
@@ -181,6 +237,7 @@ public class EscenaComputadora extends AnchorPane {
 
         cantidadSospechosos = new Label("Cantidad de sospechosos: " + policia.cantidadSospechosos());
         cantidadSospechosos.setFont(Font.font(16));
+        cantidadSospechosos.setTextFill(Paint.valueOf("WHITE"));
         contenedorPrincipal.getChildren().add(cantidadSospechosos);
 
         setearBotonesPolicia(contenedorPrincipal);
@@ -206,6 +263,11 @@ public class EscenaComputadora extends AnchorPane {
         arrestar.setFont(Font.font(14));
         filtrar.setFont(Font.font(14));
 
+        resetFiltros.getStylesheets().add(String.valueOf(css));
+        emitirOrden.getStylesheets().add(String.valueOf(css));
+        arrestar.getStylesheets().add(String.valueOf(css));
+        filtrar.getStylesheets().add(String.valueOf(css));
+
         ArrayList<ComboBox<String>> listaOpciones = new ArrayList<>();
         listaOpciones.add(sexo);
         listaOpciones.add(accesorio);
@@ -229,32 +291,4 @@ public class EscenaComputadora extends AnchorPane {
         contenedor.getChildren().add(opciones);
     }
 
-    private void setInfo(){
-        VBox contenedor = new VBox();
-        contenedor.setPrefWidth(300);
-        contenedor.setPrefHeight(250);
-        contenedor.setAlignment(Pos.TOP_CENTER);
-        contenedor.setSpacing(10);
-
-        hora = new Label();
-        String fecha = policia.mirarDia().diaDeHoy() + ", " + policia.mirarLaHora() + "hs";
-
-        hora.setText(fecha);
-        hora.setAlignment(Pos.CENTER);
-        hora.setFont(Font.font(25));
-        hora.setPrefWidth(300);
-
-        contenedor.getChildren().add(hora);
-
-        Label pais = new Label();
-
-        pais.setText("Pais actual: " + policia.getPaisActual().getNombre());
-        pais.setFont(Font.font(25));
-        pais.setAlignment(Pos.CENTER);
-        pais.setPrefWidth(300);
-
-        contenedor.getChildren().add(pais);
-
-        this.getChildren().add(contenedor);
-    }
 }
