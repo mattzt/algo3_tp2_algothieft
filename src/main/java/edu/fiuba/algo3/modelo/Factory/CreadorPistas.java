@@ -30,15 +30,12 @@ public class CreadorPistas implements Factory{
             String pistaBanco = dataPista[2];
             String pistaBolsa = dataPista[3];
             String pistaPuerto = dataPista[4];
-            String pistaCaracteristica = dataPista[5];
-            Pista nueva = null;
-            if (pistaAeropuerto != null) {nueva = new PistaAeropuerto(pistaPais, pistaAeropuerto);}
-            if (pistaBanco != null) {nueva = new PistaBanco(pistaPais, pistaBanco);}
-            if (pistaAeropuerto != null) {nueva = new PistaAeropuerto(pistaPais, pistaAeropuerto);}
-            if (pistaBolsa != null) {nueva = new PistaBolsa(pistaPais, pistaBolsa);}
-            if (pistaPuerto != null) {nueva = new PistaAeropuerto(pistaPais, pistaPuerto);}
-            if (pistaCaracteristica != null) {nueva = new PistaCaracteristicasCriminal(pistaPais, pistaCaracteristica);}
-            pistas.add(nueva);
+            String pistaBiblioteca = dataPista[5];
+            if (pistaAeropuerto != "null") {pistas.add(new PistaAeropuerto(pistaPais, pistaAeropuerto));}
+            if (pistaBanco != "null") {pistas.add(new PistaBanco(pistaPais, pistaBanco));}
+            if (pistaBolsa != "null") {pistas.add(new PistaBolsa(pistaPais, pistaBolsa));}
+            if (pistaPuerto != "null") {pistas.add(new PistaAeropuerto(pistaPais, pistaPuerto));}
+            if (pistaBiblioteca != "null") {pistas.add(new PistaCaracteristicasCriminal(pistaPais, pistaBiblioteca));}
         }
         return pistas;
     }

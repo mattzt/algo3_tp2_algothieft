@@ -10,8 +10,6 @@ public class PistaAeropuerto extends Pista {
         pais = nuevoPais;
     }
 
-    public Boolean esTipo(Edificio edificio){
-        return (edificio instanceof Aeropuerto);
-    }
+    public Boolean esTipo(Edificio edificio){ return (edificio instanceof Aeropuerto);}
 
 }

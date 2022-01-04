@@ -35,6 +35,7 @@ public class Edificios {
             Edificio leido = edificios.get(i);
             if(unEdificio.equals(leido)){
                 resultado = leido.visitar(pistas, siguientePais);
+                encontrado = true;
             }
             i++;
         }

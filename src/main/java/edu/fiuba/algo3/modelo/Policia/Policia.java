@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Policia;
 import edu.fiuba.algo3.modelo.Arma.Arma;
+import edu.fiuba.algo3.modelo.Caso.Caso;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.*;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
@@ -43,11 +44,12 @@ public class Policia {
         paisEnDondeEstoy = paisDestino;
     }
 
-    public Pista visitarEdificio(Edificio unEdificio, RepositorioPistas pistas){
+    public Pista visitarEdificio(Edificio unEdificio, RepositorioPistas pistas, Caso casoActual){
         reloj.avanzarReloj(new IntervaloTiempoExplorarEdificio(paisEnDondeEstoy.visitasTotales()));
 
-        return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas);
+        return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas, casoActual.siguientePais(this));
     }
+
 
     public void ingresarDato(Caracteristica caracteristica){
         computadora.ingresarCaracteristica(caracteristica);

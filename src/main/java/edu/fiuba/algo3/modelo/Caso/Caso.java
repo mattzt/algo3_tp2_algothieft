@@ -17,25 +17,23 @@ public class Caso {
 
 
 
-    public Caso (Sospechosos listaDeSospechosos, ObjetosValiosos listaDeObjetos, Paises listaDePaises, Rango rangoPolicia){
+    public Caso (Sospechosos listaDeSospechosos, ObjetosValiosos listaDeObjetos, Paises listaDePaises, Policia nuevoPolicia){
+        policia = nuevoPolicia;
         ladron = listaDeSospechosos.elegirCriminalAleatorio();
-        objetoRobado = listaDeObjetos.robarObjetoPorNivel(rangoPolicia);
-        rutaDeEscape = listaDePaises.elegirRutaDeEscapePorNivel(objetoRobado.paisDeOrigen(), objetoRobado.cantidadDePaisesDeEscape());
+        objetoRobado = listaDeObjetos.robarObjetoPorNivel(policia.presentarPlaca());
+        rutaDeEscape = listaDePaises.elegirRutaDeEscapePorNivel(policia, objetoRobado.paisDeOrigen(), objetoRobado.cantidadDePaisesDeEscape());
     }
 
 
-
-    public void asignarCasoAPolicia(Policia nuevoPoli) {
-        policia = nuevoPoli;
-    }
 
     public Criminal getCriminal(){
         return ladron;
     }
 
-    public Pais siguientePais() {
-        Pais siguiente = null;
+    public Pais siguientePais(Policia policia) {
         Iterator<Pais> iter = rutaDeEscape.iterator();
+        Pais siguiente = iter.next();
+
         while (iter.hasNext()) {
             if (policia.getPaisActual()==iter.next()){
                 siguiente = iter.next();
