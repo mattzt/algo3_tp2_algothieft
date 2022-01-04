@@ -24,6 +24,11 @@ public class Sargento extends Rango{
     }
 
     @Override
+    public Boolean es(String unRango) {
+        return unRango.equals("Sargento");
+    }
+
+    @Override
     public String toString(){
         return dificultad;
     }
