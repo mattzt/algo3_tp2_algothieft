@@ -1,5 +1,8 @@
 package edu.fiuba.algo3.modelo;
 
+import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import edu.fiuba.algo3.modelo.Caso.Caso;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
@@ -19,21 +22,29 @@ import org.junit.jupiter.api.BeforeEach;
 
 import java.io.IOException;
 
-import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class PartidaTest {
-    Partida partida = Partida.getInstance();
+    Partida partida;
 
     @BeforeEach
-    public void setUp(){
-        partida.resetearFiltros();
+    public void setUp() throws NoExisteError, IOException {
+        partida = Partida.getInstance();
     }
 
-    public PartidaTest() throws NoExisteError, IOException {
+    @Test
+    public void partidaNoTerminoSiNoPasoNada() {
+        assertFalse(partida.terminoJuego());
     }
 
-
+    @Test
+    public void partidaDevuelveLoQueDeberia(){
+        assertNotNull(partida.getPolicia());
+        assertNotNull(partida.getCriminalActual());
+        assertNotNull(partida.obtenerPistas());
+    }
+  
     @Test
     public void filtrarSospechosos() {
         partida.filtrar(new SexoFemenino());

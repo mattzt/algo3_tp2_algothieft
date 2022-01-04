@@ -10,4 +10,6 @@ public interface OrdenDeArresto {
     default boolean equals(OrdenDeArresto otraOrden){
         return this.nombre().equals(otraOrden.nombre());
     }
+
+    boolean sePuedeEmitirOrden();
 }

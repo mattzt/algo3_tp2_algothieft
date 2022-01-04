@@ -29,4 +29,8 @@ public class Caso {
     public Criminal getCriminal(){
         return ladron;
     }
+
+    public String nombreObjeto(){
+        return objetoRobado.getNombreObjeto();
+    }
 }

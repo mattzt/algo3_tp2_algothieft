@@ -3,30 +3,35 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Caso.Caso;
 import edu.fiuba.algo3.modelo.Caso.ObjetosValiosos;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
-import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
-import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.EstadoJuego.AtrapoCorrecto;
+import edu.fiuba.algo3.modelo.EstadoJuego.AtrapoIncorrecto;
+import edu.fiuba.algo3.modelo.EstadoJuego.FinDelJuego;
+import edu.fiuba.algo3.modelo.EstadoJuego.SinTiempo;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Factory.*;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
-import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Reloj.Momento;
+import edu.fiuba.algo3.modelo.Reloj.Domingo;
+import edu.fiuba.algo3.modelo.Reloj.Lunes;
+
 import java.io.IOException;
 
 public class Partida {
-    private Policia policia;
+    private final Policia policia;
     private final RepositorioPistas repositorioPistas;
     private Paises paises;
-    private ObjetosValiosos listaDeObjetos;
+    private final ObjetosValiosos listaDeObjetos;
     private static Partida instance;
     private Caso casoActual;
-    private Sospechosos sospechosos;
+    private final Sospechosos sospechosos;
+    private FinDelJuego estado;
 
     private Partida() throws IOException, NoExisteError {
         policia = new Policia();
+        estado = null;
 
         CreadorCriminales factoryCriminales = new CreadorCriminales();
         sospechosos = factoryCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
@@ -43,7 +48,7 @@ public class Partida {
         CreadorPistas factoryPistas = new CreadorPistas();
         repositorioPistas = (RepositorioPistas) factoryPistas.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt");
 
-        casoActual = new Caso(sospechosos,listaDeObjetos,paises,policia.presentarPlaca());
+        casoActual = new Caso(sospechosos, listaDeObjetos, paises, policia.presentarPlaca());
     }
 
     public static Partida getInstance() throws NoExisteError, IOException {
@@ -57,43 +62,48 @@ public class Partida {
         return repositorioPistas;
     }
 
-    public Momento obtenerMomento(){
-
-        return new Momento(policia.mirarDia(), policia.mirarLaHora());
-    }
-
-    public void filtrar(Caracteristica caracteristica){
-        policia.ingresarDato(caracteristica);
-    }
-
-    public int cantidadSospechosos(){
-        return policia.cantidadSospechosos();
-    }
-
-    public void resetearFiltros(){
+    public void nuevoCaso() {
+        casoActual = new Caso(sospechosos, listaDeObjetos, paises, policia.presentarPlaca());
+        policia.resetearReloj();
         policia.resetearSospechosos();
+        policia.setPaisInicial(paises.paisRandom());
     }
 
-    public Criminal arrestar(){
-        return policia.arrestar();
+    public Policia getPolicia(){
+        return policia;
     }
 
-    public void emitirOrden(){
-        policia.emitirOrdenArresto();
+    public String getCriminalActual(){
+        return casoActual.getCriminal().getNombre();
     }
 
-    public Pista visitarEdificio(Edificio edificio){
-        return policia.explorarSitio(edificio, repositorioPistas);
+    public void evaluarEstado(Criminal atrapado){
+        if(policia.mirarDia().equals(new Domingo()) && policia.mirarLaHora() > 17){
+            estado = new SinTiempo();
+        }
+        else if(policia.mirarDia().equals(new Lunes()) && policia.mirarLaHora() < 7){
+            estado = new SinTiempo();
+        }
+
+        if(atrapado != null){
+            if(atrapado.equals(casoActual.getCriminal()))
+                estado = new AtrapoCorrecto();
+            else
+                estado = new AtrapoIncorrecto();
+        }
     }
 
-    public String paisActual(){
-        return policia.getPaisActual().getNombre();
+    public boolean terminoJuego(){
+        return estado != null;
     }
 
-    public Criminal getCriminalActual(){
-        return casoActual.getCriminal();
+    public String mensajeFinal() throws NoExisteError, IOException {
+        return estado.mensaje(getCriminalActual());
     }
 
+    public String nombreObjetoRobado(){
+        return casoActual.nombreObjeto();
+  
     public void nuevoCaso() {
         casoActual = new Caso(sospechosos, listaDeObjetos, paises, policia.presentarPlaca());
         policia.resetearReloj();

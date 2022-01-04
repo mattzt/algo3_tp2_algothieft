@@ -49,22 +49,22 @@ public class Semana2CasoDeUsoTest {
 
 
     @Test
-    public void casoDeUso1() {
+    public void detectiveHeridoYduerme() {
         nuevoPoli.rangoPoliciaEs(new Detective());
-        Assertions.assertEquals(0, nuevoPoli.mirarLaHora());
+        Assertions.assertEquals(7, nuevoPoli.mirarLaHora());
         nuevoPoli.recibirDanio(new ArmaBlanca());
-        Assertions.assertEquals(2, nuevoPoli.mirarLaHora());
-        nuevoPoli.dormir();
         Assertions.assertEquals(10, nuevoPoli.mirarLaHora());
+        nuevoPoli.dormir();
+        Assertions.assertEquals(18, nuevoPoli.mirarLaHora());
     }
 
     @Test
-    public void casoDeUso2() throws FileNotFoundException {
+    public void detectiveTomaCasoNuevo() throws FileNotFoundException {
         nuevoPoli.rangoPoliciaEs(new Investigador());
         nuevoPoli.setPaisEnDondeEstoy(canada);
 
         assertTrue(nuevoPoli.seEncuentraEn(canada));
-        Assertions.assertEquals(0, nuevoPoli.mirarLaHora());
+        Assertions.assertEquals(7, nuevoPoli.mirarLaHora());
         caso.asignarCasoAPolicia(nuevoPoli);
         nuevoPoli.viajarApais(mexico);
         assertTrue(nuevoPoli.seEncuentraEn(mexico));
@@ -72,7 +72,7 @@ public class Semana2CasoDeUsoTest {
     }
 
     @Test
-    public void casoDeUso3() {
+    public void detectiveFiltraSospechosos() {
         computadora = new ComputadoraInterpol(todosLosSospechosos);
 
         nuevoPoli.ingresarDato(new Rubio());
@@ -84,7 +84,7 @@ public class Semana2CasoDeUsoTest {
     }
 
     @Test
-    public void casoDeUso4() {
+    public void arresarSospechosoSinOrden() {
         computadora = new ComputadoraInterpol(todosLosSospechosos);
 
         nuevoPoli.ingresarDato(new SexoFemenino());
@@ -102,7 +102,7 @@ public class Semana2CasoDeUsoTest {
 
 
     @Test
-    public void casoDeUso5() {
+    public void ejemploIntegrador() {
         computadora = new ComputadoraInterpol(todosLosSospechosos);
 
         arrestarSeisVeces();

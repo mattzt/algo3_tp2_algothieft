@@ -85,4 +85,17 @@ public class Paises implements Listable {
         }
         return true;
     }
+
+
+    /**Este metodo es solo para crear la interfaz grafica*/
+    public ArrayList<String> obtenerNombres(){
+        ArrayList<String> listaNombres = new ArrayList<>();
+        String leido;
+
+        for(Pais pais: paises){
+            leido = pais.getNombre();
+            listaNombres.add(leido);
+        }
+        return listaNombres;
+    }
 }

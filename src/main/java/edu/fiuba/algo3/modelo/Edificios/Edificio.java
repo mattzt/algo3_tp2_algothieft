@@ -3,13 +3,25 @@ import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 
 
-public interface Edificio {
+public abstract class Edificio {
 
-    Pista visitar(RepositorioPistas pistas);
+    protected int vecesVisitado;
+    protected String nombre;
 
-    String getNombre();
+    public Pista visitar(RepositorioPistas pistas) {
+        vecesVisitado += 1;
+        return pistas.obtenerPistaPara(this);
+    }
 
-    default boolean equals(Edificio unEdificio){
+    public int getVecesVisitado() {
+        return vecesVisitado;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    boolean equals(Edificio unEdificio){
         return this.getNombre().equals(unEdificio.getNombre());
     }
 }

@@ -1,16 +1,9 @@
 package edu.fiuba.algo3.modelo.Policia;
 import edu.fiuba.algo3.modelo.Arma.Arma;
-import edu.fiuba.algo3.modelo.ComputadoraInterpol.Emitida;
-import edu.fiuba.algo3.modelo.ComputadoraInterpol.NoEmitida;
-import edu.fiuba.algo3.modelo.ComputadoraInterpol.OrdenDeArresto;
-import edu.fiuba.algo3.modelo.Criminales.Accesorios.Accesorios;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.*;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
-import edu.fiuba.algo3.modelo.Criminales.Hobbies.Hobbies;
-import edu.fiuba.algo3.modelo.Criminales.Pelo.Pelo;
-import edu.fiuba.algo3.modelo.Criminales.Sexo.Sexo;
-import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
-import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Vehiculos;
+import edu.fiuba.algo3.modelo.IntervaloTiempo.*;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
@@ -27,7 +20,6 @@ public class Policia {
     private Rango rango;
     private Pais paisEnDondeEstoy;
     private final Reloj reloj;
-    private int horasAvanzar;
     private OrdenDeArresto ordenDeArresto;
     private ComputadoraInterpol computadora;
 
@@ -35,7 +27,6 @@ public class Policia {
     public Policia(){
         rango = new Novato();
         reloj = new Reloj();
-        horasAvanzar = 1;
         ordenDeArresto = new NoEmitida();
     }
 
@@ -48,16 +39,12 @@ public class Policia {
     }
 
     public void viajarApais(Pais paisDestino) throws FileNotFoundException {
-        reloj.avanzarReloj(paisEnDondeEstoy.distanciaA(paisDestino) / rango.velocidadViaje());
+        reloj.avanzarReloj(new IntervaloTiempoViajeaPais(rango.velocidadViaje(), paisEnDondeEstoy.distanciaA(paisDestino)));
         paisEnDondeEstoy = paisDestino;
-        horasAvanzar = 1;
     }
 
-    public Pista explorarSitio(Edificio unEdificio, RepositorioPistas pistas){
-        reloj.avanzarReloj(horasAvanzar);
-
-        if(horasAvanzar < 3)
-            horasAvanzar++;
+    public Pista visitarEdificio(Edificio unEdificio, RepositorioPistas pistas){
+        reloj.avanzarReloj(new IntervaloTiempoExplorarEdificio(paisEnDondeEstoy.visitasTotales()));
 
         return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas);
     }
@@ -67,8 +54,8 @@ public class Policia {
     }
 
     public void emitirOrdenArresto(){
-        if(computadora.sePuedeEmitirOrden()) {
-            reloj.avanzarReloj(3);
+        if((computadora.cantidadSospechosos() == 1) && ordenDeArresto.sePuedeEmitirOrden()) {
+            reloj.avanzarReloj(new IntervaloTiempoEmitirArresto());
             ordenDeArresto = new Emitida();
         }
     }
@@ -78,7 +65,7 @@ public class Policia {
     }
 
     public void dormir(){
-        reloj.avanzarReloj(8);
+        reloj.avanzarReloj(new IntervaloTiempoDormir());
     }
 
     public void recibirDanio(Arma armaAtacante){
@@ -127,5 +114,9 @@ public class Policia {
 
     public Pais getPaisActual(){
         return paisEnDondeEstoy;
+    }
+
+    public String getNombre(){
+        return nombre;
     }
 }

@@ -44,7 +44,7 @@ public class Semana1CasosDeUsoTest {
 
     @Test
     public void casoDeUso1() {
-        Pista unaPista = nuevoPoli.explorarSitio(unBanco,repo);
+        Pista unaPista = nuevoPoli.visitarEdificio(unBanco,repo);
         Assertions.assertTrue(nuevoPoli.seEncuentraEn(canada));
         Assertions.assertTrue(tesoroMontreal.equals("Tesoro Nacional de Montreal"));
         Assertions.assertEquals(PistaBanco.class,unaPista.getClass());
@@ -52,13 +52,13 @@ public class Semana1CasosDeUsoTest {
 
     @Test
     public void casoDeUso2() {
-        Pista unaPista = nuevoPoli.explorarSitio(unBanco,repo);
+        Pista unaPista = nuevoPoli.visitarEdificio(unBanco,repo);
         Assertions.assertEquals(PistaBanco.class, unaPista.getClass());
 
-        Pista unaSegundaPista = nuevoPoli.explorarSitio(unBanco,repo);
+        Pista unaSegundaPista = nuevoPoli.visitarEdificio(unBanco,repo);
         Assertions.assertEquals(PistaBanco.class,unaSegundaPista.getClass());
 
-        Pista unaTercerPista = nuevoPoli.explorarSitio(unaBiblioteca,repo);
+        Pista unaTercerPista = nuevoPoli.visitarEdificio(unaBiblioteca,repo);
         Assertions.assertEquals(PistaBiblioteca.class,unaTercerPista.getClass());
     }
 
@@ -69,17 +69,17 @@ public class Semana1CasosDeUsoTest {
         Pais mexico = todosLosPaises.buscar("Mexico");
         nuevoPoli.viajarApais(mexico);
         Assertions.assertTrue(nuevoPoli.seEncuentraEn(mexico));
-        Assertions.assertEquals(4,nuevoPoli.mirarLaHora());
+        Assertions.assertEquals(11,nuevoPoli.mirarLaHora());
     }
 
     @Test
     public void casoDeUso4() {
         for (int i=0;i<3;i++){
-            Pista pistaAeropuerto = nuevoPoli.explorarSitio(unAeropuerto,repo);
+            Pista pistaAeropuerto = nuevoPoli.visitarEdificio(unAeropuerto,repo);
             Assertions.assertEquals(PistaAeropuerto.class,pistaAeropuerto.getClass());
         }
         for (int j=0;j<55;j++){
-            Pista pistaPuerto = nuevoPoli.explorarSitio(unPuerto,repo);
+            Pista pistaPuerto = nuevoPoli.visitarEdificio(unPuerto,repo);
             Assertions.assertEquals(PistaPuerto.class,pistaPuerto.getClass());
         }
     }
@@ -89,8 +89,8 @@ public class Semana1CasosDeUsoTest {
         nuevoPoli.resetearReloj();
         ArmaBlanca daga = new ArmaBlanca();
         nuevoPoli.recibirDanio(daga);
-        Assertions.assertEquals(2,nuevoPoli.mirarLaHora());
-        nuevoPoli.dormir();
         Assertions.assertEquals(10,nuevoPoli.mirarLaHora());
+        nuevoPoli.dormir();
+        Assertions.assertEquals(18,nuevoPoli.mirarLaHora());
     }
 }

@@ -12,7 +12,8 @@ public class Edificios {
         edificios = new ArrayList<>();
     }
 
-    public void agregar(Edificio unEdificio) {
+    public void agregar(Edificio unEdificio)
+    {
         edificios.add(unEdificio);
     }
 
@@ -29,5 +30,15 @@ public class Edificios {
             i++;
         }
         return resultado;
+    }
+
+    public int visitasTotales(){
+        int vecesTotales = 0;
+
+        for(Edificio edificio : edificios){
+            vecesTotales += edificio.getVecesVisitado();
+        }
+
+        return vecesTotales;
     }
 }
