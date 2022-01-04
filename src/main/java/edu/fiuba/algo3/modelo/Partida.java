@@ -67,6 +67,7 @@ public class Partida {
         policia.resetearReloj();
         policia.resetearSospechosos();
         policia.setPaisInicial(paises.paisRandom());
+        estado = null;
     }
 
     public Policia getPolicia(){
