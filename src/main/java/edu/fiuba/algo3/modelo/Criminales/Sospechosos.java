@@ -30,11 +30,6 @@ public class Sospechosos implements Listable {
         return this;
     }
 
-    public String getNombreCulpable(){
-        Criminal criminal = sospechosos.get(0);
-        return "El criminal era " + criminal.getNombre();
-    }
-
     @Override
     public int size() {
         return sospechosos.size();

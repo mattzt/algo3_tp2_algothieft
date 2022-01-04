@@ -26,6 +26,11 @@ public class Novato extends Rango{
     }
 
     @Override
+    public Boolean es(String unRango) {
+        return unRango.equals("Novato");
+    }
+
+    @Override
     public String toString(){
         return dificultad;
     }

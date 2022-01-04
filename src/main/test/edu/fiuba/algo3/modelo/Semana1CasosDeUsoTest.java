@@ -39,7 +39,7 @@ public class Semana1CasosDeUsoTest {
         edificios.agregar(unPuerto);
 
         canada.setEdificios(edificios);
-        nuevoPoli.setPaisInicial(canada);
+        nuevoPoli.setPaisEnDondeEstoy(canada);
     }
 
     @Test
@@ -65,6 +65,7 @@ public class Semana1CasosDeUsoTest {
     @Test
     public void casoDeUso3() throws FileNotFoundException, NoExisteError {
         nuevoPoli.resetearReloj();
+        nuevoPoli.setPaisEnDondeEstoy(canada);
         Pais mexico = todosLosPaises.buscar("Mexico");
         nuevoPoli.viajarApais(mexico);
         Assertions.assertTrue(nuevoPoli.seEncuentraEn(mexico));

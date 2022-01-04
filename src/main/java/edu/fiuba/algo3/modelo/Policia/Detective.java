@@ -26,6 +26,11 @@ public class Detective extends Rango{
     }
 
     @Override
+    public Boolean es(String unRango) {
+        return unRango.equals("Detective");
+    }
+
+    @Override
     public String toString(){
         return dificultad;
     }

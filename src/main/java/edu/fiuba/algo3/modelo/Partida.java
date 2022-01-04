@@ -43,7 +43,7 @@ public class Partida {
         CreadorObjetos factoryObjetos = new CreadorObjetos(paises);
         listaDeObjetos = factoryObjetos.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/ObjetosValiosos.txt");
 
-        policia.setPaisInicial(paises.paisRandom());
+        policia.setPaisEnDondeEstoy(paises.paisRandom());
 
         CreadorPistas factoryPistas = new CreadorPistas();
         repositorioPistas = (RepositorioPistas) factoryPistas.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt");
@@ -104,5 +104,19 @@ public class Partida {
 
     public String nombreObjetoRobado(){
         return casoActual.nombreObjeto();
+  
+    public void nuevoCaso() {
+        casoActual = new Caso(sospechosos, listaDeObjetos, paises, policia.presentarPlaca());
+        policia.resetearReloj();
+        policia.resetearSospechosos();
+        policia.setPaisEnDondeEstoy(paises.paisRandom());
+    }
+
+    public void resetearReloj() {
+        policia.resetearReloj();
+    }
+
+    public Caso getCasoActual(){
+        return casoActual;
     }
 }
