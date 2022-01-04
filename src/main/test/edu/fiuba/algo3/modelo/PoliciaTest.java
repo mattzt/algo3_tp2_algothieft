@@ -54,7 +54,7 @@ public class PoliciaTest {
         ArmaBlanca arma = new ArmaBlanca();
         arma.hacerDanio(agente);
 
-        assertEquals(agente.mirarLaHora(), 2);
+        assertEquals(agente.mirarLaHora(), 10);
         assertEquals("Lunes",agente.mirarDia().diaDeHoy());
     }
 
