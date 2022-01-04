@@ -36,17 +36,8 @@ public class PoliciaTest {
     public void explorarSitio() {
         Banco banco = new Banco();
 
-        Pista pista = agente.explorarSitio(banco, pistas);
+        Pista pista = agente.visitarEdificio(banco, pistas);
 
         assertEquals(pista.darPista(), "Dijo que queria cambiar su dinero por Rublos");
     }
-
-    @Test
-    public void policiaEsHerido(){
-        ArmaBlanca arma = new ArmaBlanca();
-        arma.hacerDanio(agente);
-
-        assertEquals(agente.mirarLaHora(), 2);
-    }
-
 }
