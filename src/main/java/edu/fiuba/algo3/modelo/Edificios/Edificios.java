@@ -22,7 +22,7 @@ public class Edificios {
         boolean encontrado = false;
         Pista resultado = null;
 
-        while (i < edificios.size()){
+        while (!encontrado && i < edificios.size()){
             Edificio leido = edificios.get(i);
             if(unEdificio.equals(leido)){
                 resultado = leido.visitar(pistas);

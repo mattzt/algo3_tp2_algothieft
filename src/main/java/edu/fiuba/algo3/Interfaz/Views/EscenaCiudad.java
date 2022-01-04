@@ -131,8 +131,13 @@ public class EscenaCiudad extends AnchorPane {
         contenedorCiudades.setLayoutY(70);
         contenedorCiudades.setSpacing(20);
 
-        Edificios edificios = policia.getPaisActual().getEdificios();
-        ArrayList<String> nombres = edificios.nombres();
+        ArrayList<String> nombres = new ArrayList<>();
+        nombres.add("Aeropuerto");
+        nombres.add("Banco");
+        nombres.add("Biblioteca");
+        nombres.add("Bolsa");
+        nombres.add("Puerto");
+
         String leido;
 
         for(String nombre : nombres){

@@ -66,7 +66,7 @@ public class Partida {
         casoActual = new Caso(sospechosos, listaDeObjetos, paises, policia.presentarPlaca());
         policia.resetearReloj();
         policia.resetearSospechosos();
-        policia.setPaisInicial(paises.paisRandom());
+        policia.setPaisEnDondeEstoy(paises.paisRandom());
         estado = null;
     }
 
@@ -102,21 +102,11 @@ public class Partida {
         return estado.mensaje(getCriminalActual());
     }
 
-    public String nombreObjetoRobado(){
+    public String nombreObjetoRobado() {
         return casoActual.nombreObjeto();
-  
-    public void nuevoCaso() {
-        casoActual = new Caso(sospechosos, listaDeObjetos, paises, policia.presentarPlaca());
-        policia.resetearReloj();
-        policia.resetearSospechosos();
-        policia.setPaisEnDondeEstoy(paises.paisRandom());
     }
 
     public void resetearReloj() {
         policia.resetearReloj();
-    }
-
-    public Caso getCasoActual(){
-        return casoActual;
     }
 }
