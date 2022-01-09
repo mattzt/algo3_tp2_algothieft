@@ -5,18 +5,25 @@ import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 
 
-public class Banco implements Edificio{
-
-    private final String nombre = "Banco";
+public class Banco extends Edificio {
+    private final String nombre;
     public Pista pista;
+
+
+    public Banco() {
+        nombre = "Banco";
+        vecesVisitado = 0;
+    }
 
     @Override
     public Pista visitar(RepositorioPistas pistas, Pais siguiente) {
         pista = pistas.obtenerPistaPara(siguiente, this);
         return pista;
     }
+
     @Override
     public String getNombre() {
         return nombre;
+
     }
 }

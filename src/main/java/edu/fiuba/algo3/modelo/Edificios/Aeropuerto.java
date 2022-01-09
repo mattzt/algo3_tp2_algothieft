@@ -4,11 +4,15 @@ import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 
-
-public class Aeropuerto implements Edificio{
-
-    private final String nombre = "Aeropuerto";
+public class Aeropuerto extends Edificio {
+    private final String nombre;
     public Pista pista;
+
+
+    public Aeropuerto() {
+        nombre = "Aeropuerto";
+        vecesVisitado = 0;
+    }
 
     @Override
     public Pista visitar(RepositorioPistas pistas, Pais siguiente) {
@@ -19,5 +23,6 @@ public class Aeropuerto implements Edificio{
     @Override
     public String getNombre() {
         return nombre;
+
     }
 }

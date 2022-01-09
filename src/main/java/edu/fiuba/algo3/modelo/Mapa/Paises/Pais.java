@@ -68,7 +68,8 @@ public class Pais {
         return paisesConexos.size()<3;
     }
 
-    public ArrayList<String> nombreEdificios() {
-        return edificiosPublicos.nombres();
+    public int visitasTotales(){
+
+        return edificiosPublicos.visitasTotales();
     }
 }

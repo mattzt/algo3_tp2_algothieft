@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Mapa.Paises;
 
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Listable;
+import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Randomizador;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -33,10 +34,13 @@ public class Paises implements Listable {
         return paises.size();
     }
 
-    public ArrayList<Pais> elegirRutaDeEscapePorNivel(Pais paisDelObjeto, int cantidadDePaisesDeEscape) {
+    public ArrayList<Pais> elegirRutaDeEscapePorNivel(Policia poli, Pais paisDelObjeto, int cantidadDePaisesDeEscape) {
         ArrayList<Pais> listaTodosLosPaises = new ArrayList<>(paises);
         ArrayList<Pais> rutaDeEscape = new ArrayList<>();
         listaTodosLosPaises.remove(paisDelObjeto);
+
+        rutaDeEscape.add(poli.getPaisActual());
+
         while (rutaDeEscape.size()!=cantidadDePaisesDeEscape){
             ArrayList<Pais> posibilidadesDeEscape = paisDelObjeto.getPaisesConexos().paises;
             Pais nuevoPaisDeEscape = posibilidadesDeEscape.get(Randomizador.indiceRandom(posibilidadesDeEscape));
@@ -84,5 +88,18 @@ public class Paises implements Listable {
             if (pais.cantidadDePaisesConexos()!=3) return false;
         }
         return true;
+    }
+
+
+    /**Este metodo es solo para crear la interfaz grafica*/
+    public ArrayList<String> obtenerNombres(){
+        ArrayList<String> listaNombres = new ArrayList<>();
+        String leido;
+
+        for(Pais pais: paises){
+            leido = pais.getNombre();
+            listaNombres.add(leido);
+        }
+        return listaNombres;
     }
 }
