@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 
@@ -25,7 +26,8 @@ public class Edificios {
         while (!encontrado && i < edificios.size()){
             Edificio leido = edificios.get(i);
             if(unEdificio.equals(leido)){
-                resultado = leido.visitar(pistas);
+                resultado = leido.visitar(pistas, siguientePais);
+                encontrado = true;
             }
             i++;
         }

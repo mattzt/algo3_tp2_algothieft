@@ -7,6 +7,7 @@ import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Caso {
     private final Criminal ladron;
@@ -16,15 +17,14 @@ public class Caso {
 
 
 
-    public Caso (Sospechosos listaDeSospechosos, ObjetosValiosos listaDeObjetos, Paises listaDePaises, Rango rangoPolicia){
+    public Caso (Sospechosos listaDeSospechosos, ObjetosValiosos listaDeObjetos, Paises listaDePaises, Policia nuevoPolicia){
+        policia = nuevoPolicia;
         ladron = listaDeSospechosos.elegirCriminalAleatorio();
-        objetoRobado = listaDeObjetos.robarObjetoPorNivel(rangoPolicia);
-        rutaDeEscape = listaDePaises.elegirRutaDeEscapePorNivel(objetoRobado.paisDeOrigen(), objetoRobado.cantidadDePaisesDeEscape());
+        objetoRobado = listaDeObjetos.robarObjetoPorNivel(policia.presentarPlaca());
+        rutaDeEscape = listaDePaises.elegirRutaDeEscapePorNivel(policia, objetoRobado.paisDeOrigen(), objetoRobado.cantidadDePaisesDeEscape());
     }
 
-    public void asignarCasoAPolicia(Policia nuevoPoli) {
-        policia = nuevoPoli;
-    }
+
 
     public Criminal getCriminal(){
         return ladron;
@@ -32,5 +32,17 @@ public class Caso {
 
     public String nombreObjeto(){
         return objetoRobado.getNombreObjeto();
+    }
+
+    public Pais siguientePais(Policia policia) {
+        Iterator<Pais> iter = rutaDeEscape.iterator();
+        Pais siguiente = iter.next();
+
+        while (iter.hasNext()) {
+            if (policia.getPaisActual()==iter.next()){
+                siguiente = iter.next();
+            }
+        }
+        return siguiente;
     }
 }

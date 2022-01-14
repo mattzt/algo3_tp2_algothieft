@@ -59,7 +59,7 @@ public class VisitarEdificioHandler implements EventHandler<ActionEvent> {
                 break;
         }
 
-        obtenida = policia.visitarEdificio(edificio, partida.obtenerPistas());
+        obtenida = policia.visitarEdificio(edificio, partida.obtenerPistas(), partida.getCasoActual());
         partida.evaluarEstado(null);
 
         if(partida.terminoJuego()) {
