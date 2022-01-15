@@ -45,10 +45,11 @@ public class Partida {
 
         policia.setPaisEnDondeEstoy(paises.paisRandom());
 
-        CreadorPistas factoryPistas = new CreadorPistas();
+        casoActual = new Caso(sospechosos, listaDeObjetos, policia);
+
+        CreadorPistas factoryPistas = new CreadorPistas(casoActual);
         repositorioPistas = (RepositorioPistas) factoryPistas.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt");
 
-        casoActual = new Caso(sospechosos, listaDeObjetos, policia);
         casoActual.crearRutaDeEscape(repositorioPistas, paises);
     }
 
@@ -71,13 +72,11 @@ public class Partida {
         estado = null;
     }
 
-    public Caso getCasoActual(){ return casoActual;}
-
     public Policia getPolicia(){
         return policia;
     }
 
-    public String getCriminalActual(){
+    public String nombreCriminalActual(){
         return casoActual.getCriminal().getNombre();
     }
 
@@ -102,7 +101,7 @@ public class Partida {
     }
 
     public String mensajeFinal() throws NoExisteError, IOException {
-        return estado.mensaje(getCriminalActual());
+        return estado.mensaje(nombreCriminalActual());
     }
 
     public String nombreObjetoRobado() {

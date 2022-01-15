@@ -7,5 +7,10 @@ public class Tenis implements Hobbies{
         return "Tenis";
     }
 
+    @Override
+    public String crearPista() {
+        return "Menciono que jugaba al tenis todos los fines de semana";
+    }
+
 
 }

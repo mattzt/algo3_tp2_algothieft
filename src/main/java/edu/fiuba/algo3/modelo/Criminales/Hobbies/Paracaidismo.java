@@ -7,4 +7,9 @@ public class Paracaidismo implements Hobbies{
         return "Paracaidismo";
     }
 
+    @Override
+    public String crearPista() {
+        return "Dijo que algo que le apasionaba era el paracaidismo";
+    }
+
 }

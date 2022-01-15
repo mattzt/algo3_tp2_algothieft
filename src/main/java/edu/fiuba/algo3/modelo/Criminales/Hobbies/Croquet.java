@@ -7,5 +7,10 @@ public class Croquet implements Hobbies{
         return "Croquet";
     }
 
+    @Override
+    public String crearPista() {
+        return "Si, dijo que le gustaba jugar al croquet";
+    }
+
 
 }

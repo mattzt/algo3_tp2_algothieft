@@ -7,4 +7,9 @@ public class Rubio implements Pelo{
         return "Rubio";
     }
 
+    @Override
+    public String crearPista() {
+        return "Era una persona con pelo rubio";
+    }
+
 }

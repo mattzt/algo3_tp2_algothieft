@@ -7,5 +7,10 @@ public class SexoMasculino implements Sexo{
         return "Masculino";
     }
 
+    @Override
+    public String crearPista() {
+        return "Recuerdo que era hombre, no mucho mas";
+    }
+
 
 }

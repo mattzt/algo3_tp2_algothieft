@@ -7,4 +7,9 @@ public class Cicatriz implements Accesorios{
         return "Cicatriz";
     }
 
+    @Override
+    public String crearPista() {
+        return "Tenia una gran cicatriz";
+    }
+
 }

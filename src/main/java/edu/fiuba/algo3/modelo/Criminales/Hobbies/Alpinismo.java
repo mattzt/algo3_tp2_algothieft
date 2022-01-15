@@ -7,5 +7,10 @@ public class Alpinismo implements Hobbies{
         return "Alpinismo";
     }
 
+    @Override
+    public String crearPista() {
+        return "Menciono que le gustaba el alpinismo";
+    }
+
 
 }

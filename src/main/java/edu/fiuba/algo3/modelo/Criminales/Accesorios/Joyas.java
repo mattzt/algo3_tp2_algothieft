@@ -7,4 +7,9 @@ public class Joyas implements Accesorios{
         return "Joyas";
     }
 
+    @Override
+    public String crearPista() {
+        return "Llevaba muchas joyas, seguramente muy caras";
+    }
+
 }

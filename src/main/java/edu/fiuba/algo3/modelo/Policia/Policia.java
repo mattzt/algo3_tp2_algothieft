@@ -1,6 +1,5 @@
 package edu.fiuba.algo3.modelo.Policia;
 import edu.fiuba.algo3.modelo.Arma.Arma;
-import edu.fiuba.algo3.modelo.Caso.Caso;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.*;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
@@ -62,10 +61,6 @@ public class Policia {
         }
     }
 
-    public void rangoPoliciaEs(Rango rangoIngresado){
-        rango = rangoIngresado;
-    }
-
     public void dormir(){
         reloj.avanzarReloj(new IntervaloTiempoDormir());
     }
@@ -88,10 +83,6 @@ public class Policia {
 
     public Rango presentarPlaca(){
         return rango;
-    }
-
-    public boolean seEncuentraEn(Pais unaCiudad) {
-        return paisEnDondeEstoy.equals(unaCiudad);
     }
 
     public int mirarLaHora(){

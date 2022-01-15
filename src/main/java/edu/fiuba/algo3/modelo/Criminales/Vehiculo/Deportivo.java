@@ -7,4 +7,9 @@ public class Deportivo implements Vehiculos{
         return "Deportivo";
     }
 
+    @Override
+    public String crearPista() {
+        return "Nop, solo recuerdo que vino en un hermoso auto deportivo";
+    }
+
 }

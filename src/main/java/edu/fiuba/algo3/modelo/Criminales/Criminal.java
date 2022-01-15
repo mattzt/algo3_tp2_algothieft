@@ -1,14 +1,15 @@
 package edu.fiuba.algo3.modelo.Criminales;
 
+import java.util.ArrayList;
+
 public class Criminal {
     private String nombre;
-    public Caracteristicas caracteristicas;
+    private Caracteristicas caracteristicas;
 
     public Criminal(String nombreCriminal,Caracteristicas nuevasCaracteristicas){
         nombre = nombreCriminal;
         caracteristicas = nuevasCaracteristicas;
     }
-
 
     public boolean tieneCaracteristica(Caracteristica buscada){
         return caracteristicas.tiene(buscada);
@@ -24,5 +25,9 @@ public class Criminal {
 
     public boolean equals(Criminal otroCriminal){
         return this.getNombre().equals(otroCriminal.getNombre());
+    }
+
+    public ArrayList<String> hacerPistas(){
+        return caracteristicas.hacerPistas();
     }
 }

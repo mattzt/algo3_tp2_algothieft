@@ -7,4 +7,9 @@ public class Anillo implements Accesorios {
         return "Anillo";
     }
 
+    @Override
+    public String crearPista() {
+        return "Llevaba puesto un anillo";
+    }
+
 }

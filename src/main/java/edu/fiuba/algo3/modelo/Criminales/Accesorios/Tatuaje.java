@@ -7,4 +7,9 @@ public class Tatuaje implements Accesorios{
         return "Tattoo";
     }
 
+    @Override
+    public String crearPista() {
+        return "Si, tenia un gran tatuaje en el cuello";
+    }
+
 }

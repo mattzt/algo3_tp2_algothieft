@@ -7,5 +7,10 @@ public class Rojo implements Pelo{
         return "Rojo";
     }
 
+    @Override
+    public String crearPista() {
+        return "Me acuerdo que tenia el pelo rojo cuando vino";
+    }
+
 
 }

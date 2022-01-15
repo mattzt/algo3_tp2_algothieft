@@ -7,4 +7,9 @@ public class Negro implements Pelo{
         return "Negro";
     }
 
+    @Override
+    public String crearPista() {
+        return "Si, era una persona con pelo negro";
+    }
+
 }

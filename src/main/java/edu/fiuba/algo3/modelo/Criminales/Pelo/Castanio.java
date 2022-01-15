@@ -7,4 +7,9 @@ public class Castanio implements Pelo{
         return "Castanio";
     }
 
+    @Override
+    public String crearPista() {
+        return "Tenia pelo castanio";
+    }
+
 }

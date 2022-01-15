@@ -34,6 +34,16 @@ public class Caracteristicas {
 
         return encontrada;
     }
+
+    public ArrayList<String> hacerPistas(){
+        ArrayList<String> pistasCaracteristicas = new ArrayList<>();
+
+        for(Caracteristica caracteristica : caracteristicas){
+            String pista = caracteristica.crearPista();
+            pistasCaracteristicas.add(pista);
+        }
+        return pistasCaracteristicas;
+    }
 }
 
 

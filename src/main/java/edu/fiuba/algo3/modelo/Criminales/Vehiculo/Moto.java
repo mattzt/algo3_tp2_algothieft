@@ -7,4 +7,9 @@ public class Moto implements Vehiculos{
         return "Moto";
     }
 
+    @Override
+    public String crearPista() {
+        return "Si, habia venido en moto. La estaciono en la entrada";
+    }
+
 }

@@ -7,4 +7,9 @@ public class Limusina implements Vehiculos{
         return "Limusina";
     }
 
+    @Override
+    public String crearPista() {
+        return "Parecia alguien importante, habia venido en limusina";
+    }
+
 }

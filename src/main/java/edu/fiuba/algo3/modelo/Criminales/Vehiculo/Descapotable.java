@@ -7,4 +7,9 @@ public class Descapotable implements Vehiculos{
         return "Descapotable";
     }
 
+    @Override
+    public String crearPista() {
+        return "Parecia que tenia plata, vino en un auto descapotable";
+    }
+
 }

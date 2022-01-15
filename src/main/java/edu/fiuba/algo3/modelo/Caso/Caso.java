@@ -5,6 +5,8 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 
+import java.util.ArrayList;
+
 public class Caso {
     private final Criminal ladron;
     private final Policia policia;
@@ -26,5 +28,9 @@ public class Caso {
 
     public void crearRutaDeEscape(RepositorioPistas repositorio, Paises paises){
         repositorio.crearRutaDeEscape(paises, policia, objetoRobado);
+    }
+
+    public ArrayList<String> pistasDelCriminal(){
+        return ladron.hacerPistas();
     }
 }

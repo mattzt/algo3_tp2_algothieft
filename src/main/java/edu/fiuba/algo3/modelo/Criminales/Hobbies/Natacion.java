@@ -7,5 +7,10 @@ public class Natacion implements Hobbies{
         return "Natacion";
     }
 
+    @Override
+    public String crearPista() {
+        return "Dijo que habia hecho natacion durante mucho tiempo";
+    }
+
 
 }

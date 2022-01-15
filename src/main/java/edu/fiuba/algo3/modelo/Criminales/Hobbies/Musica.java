@@ -7,5 +7,10 @@ public class Musica implements Hobbies{
         return "Musica";
     }
 
+    @Override
+    public String crearPista() {
+        return "Menciono que le gustaba la musica y tocaba varios instrumentos";
+    }
+
 
 }

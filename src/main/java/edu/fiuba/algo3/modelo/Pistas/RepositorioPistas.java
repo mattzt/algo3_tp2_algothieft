@@ -14,6 +14,7 @@ public class RepositorioPistas implements Listable {
     private final ArrayList<Pista> posiblesPistas;
     private ArrayList<Pais> rutaDeEscape;
     private Policia policia;
+    private ArrayList<String> caracteristicasCriminal;
 
     public RepositorioPistas(ArrayList<Pista> pistas) {
         posiblesPistas = pistas;
@@ -69,5 +70,9 @@ public class RepositorioPistas implements Listable {
         Pais actual = policia.getPaisActual();
 
         return ultimo.equals(actual);
+    }
+
+    public void setCaracteristicasCriminal(ArrayList<String> caracteristicas){
+        this.caracteristicasCriminal = caracteristicas;
     }
 }
