@@ -22,14 +22,16 @@ public class RepositorioPistas implements Listable {
 
     public Pista obtenerPistaPara(Edificio edificio){
         Pais siguiente = this.siguientePais();
-        Iterator<Pista> iterador = posiblesPistas.iterator();
         Pista pistaActual = null;
         boolean encontrada = false;
-        while(iterador.hasNext() && !encontrada){
-            pistaActual = iterador.next();
-            if((pistaActual.esTipo(edificio)) && (pistaActual.apuntaHacia(siguiente))){
+        int i = 0;
+
+        while(!encontrada && i < posiblesPistas.size()){
+            pistaActual = posiblesPistas.get(i);
+            if(pistaActual.esTipo(edificio) && pistaActual.apuntaHacia(siguiente)){
                 encontrada = true;
             }
+            i++;
         }
         return pistaActual;
     }
@@ -45,13 +47,27 @@ public class RepositorioPistas implements Listable {
     }
 
     public Pais siguientePais() {
-        Iterator<Pais> iter = rutaDeEscape.iterator();
-        Pais siguiente = iter.next();
+        Pais paisActual = policia.getPaisActual();
+        Pais siguiente = rutaDeEscape.get(0);
+        int indiceActual;
 
+        if(rutaDeEscape.contains(paisActual)) {
+            indiceActual = rutaDeEscape.indexOf(paisActual);
 
-        if (policia.getPaisActual().equals(siguiente)){
-            siguiente = iter.next();
+            if(indiceActual + 1 < rutaDeEscape.size())
+                siguiente = rutaDeEscape.get(indiceActual + 1);
+            else
+                siguiente = rutaDeEscape.get(indiceActual);
         }
+
         return siguiente;
+    }
+
+    public boolean estaEnUltimoPais(){
+        int tamanio = rutaDeEscape.size();
+        Pais ultimo = rutaDeEscape.get(tamanio - 1);
+        Pais actual = policia.getPaisActual();
+
+        return ultimo.equals(actual);
     }
 }

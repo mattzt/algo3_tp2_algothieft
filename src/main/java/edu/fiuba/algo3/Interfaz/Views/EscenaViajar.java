@@ -32,12 +32,14 @@ public class EscenaViajar extends AnchorPane {
     private final Stage stage;
     private final Policia policia;
     private final URL css;
+    private final Partida partida;
 
     public EscenaViajar(Stage stage) throws NoExisteError, IOException {
         this.stage = stage;
         this.setPrefHeight(700);
         this.setPrefWidth(900);
-        policia = Partida.getInstance().getPolicia();
+        partida = Partida.getInstance();
+        policia = partida.getPolicia();
 
         css = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/resources/darkTheme.css").toURI().toURL();
 
@@ -49,7 +51,6 @@ public class EscenaViajar extends AnchorPane {
         seteadorNuevaEscena.setInfo(policia, hora, pais);
 
         configurarMenu();
-        setBotonesPaises();
         setBotonesPaises();
     }
 
@@ -87,6 +88,8 @@ public class EscenaViajar extends AnchorPane {
         estiloBotones(botonCiudad, botonMenu, botonComputadora);
 
         contenedorBotones.getChildren().addAll(botonMenu, botonComputadora, botonCiudad);
+
+
 
         this.getChildren().add(contenedorBotones);
     }
@@ -140,6 +143,10 @@ public class EscenaViajar extends AnchorPane {
             boton.setOnAction(viajarHandler);
             boton.getStylesheets().add(String.valueOf(css));
             contenedor.getChildren().add(boton);
+
+            if(partida.estaEnUltimoPais()){
+                boton.setDisable(true);
+            }
         }
         this.getChildren().add(contenedor);
     }

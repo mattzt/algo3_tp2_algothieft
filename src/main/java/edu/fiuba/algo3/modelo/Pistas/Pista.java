@@ -20,6 +20,6 @@ public abstract class Pista {
     public abstract Boolean esTipo(Edificio edificio);
 
     public boolean apuntaHacia(Pais siguiente){
-        return (siguiente.getNombre()==pais);
+        return (siguiente.getNombre().equals(pais));
     }
 }

@@ -38,15 +38,17 @@ public class Paises implements Listable {
         ArrayList<Pais> listaTodosLosPaises = new ArrayList<>(paises);
         ArrayList<Pais> rutaDeEscape = new ArrayList<>();
         listaTodosLosPaises.remove(paisDelObjeto);
+        Pais paisActual = poli.getPaisActual();
+        int i = 0;
 
-        rutaDeEscape.add(poli.getPaisActual());
+        rutaDeEscape.add(paisActual);
 
-        while (rutaDeEscape.size()!=cantidadDePaisesDeEscape){
-            ArrayList<Pais> posibilidadesDeEscape = paisDelObjeto.getPaisesConexos().paises;
-            Pais nuevoPaisDeEscape = posibilidadesDeEscape.get(Randomizador.indiceRandom(posibilidadesDeEscape));
+        while(i < cantidadDePaisesDeEscape - 1){
+            Pais nuevoPaisDeEscape = paisActual.obtenerConexoRandom();
             if (!rutaDeEscape.contains(nuevoPaisDeEscape)){
                 rutaDeEscape.add(nuevoPaisDeEscape);
-                paisDelObjeto = nuevoPaisDeEscape;
+                paisActual = nuevoPaisDeEscape;
+                i++;
             }
         }
         return rutaDeEscape;

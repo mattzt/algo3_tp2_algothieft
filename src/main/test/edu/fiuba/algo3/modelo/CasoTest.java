@@ -28,7 +28,7 @@ public class CasoTest {
     CreadorObjetos factoryObjetos = new CreadorObjetos(paises);
     ObjetosValiosos listaDeObjetos = factoryObjetos.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/ObjetosValiosos.txt");
 
-    Caso unCaso = new Caso(sospechosos,listaDeObjetos,paises, new Policia());
+    Caso unCaso = new Caso(sospechosos,listaDeObjetos, new Policia());
 
     public CasoTest() throws FileNotFoundException, NoExisteError {
     }

@@ -67,8 +67,12 @@ public class Pais {
     public boolean puedeAgregarConexos() {
         return paisesConexos.size()<3;
     }
-    public int visitasTotales(){
 
+    public int visitasTotales(){
         return edificiosPublicos.visitasTotales();
+    }
+
+    public Pais obtenerConexoRandom(){
+        return paisesConexos.paisRandom();
     }
 }

@@ -11,6 +11,7 @@ public abstract class Edificio {
 
     public Pista visitar(RepositorioPistas pistas){
         Pista pista = pistas.obtenerPistaPara(this);
+        vecesVisitado++;
         return pista;
     }
 
