@@ -1,9 +1,9 @@
 Rusia,null,Dijo que queria cambiar su dinero por rublos,null,Buscaba barcos que rompan hielo,Hablo de que volveria al pais mas inmenso del mundo
 Francia,Pidio un vuelo a un pais con bandera roja blanca y azul,Tenia muchos euros,null,null,Se dirige a un pais con una gran catedral
-Argentina,se lamentaba porque no entendia español,null,Dijo que el pais tenia mucha deuda,null,Se fue al mejor pais del mundo
-Grecia,null,dijo que era un pais muy turistico,null,buscaba pasaje a un pais pequeño,queria ver el lugar de los grandes dioses
-Irak,queria ir a asia,su dinero viene del petrolio,null,null,se dirigia a un pais con muchas guerras
-Mali,queria ir a africa,null,se dirigia a un pais agricola,al pais al que viajaba no tiene acceso al mar,null
+Argentina,Se lamentaba porque no entendia español,null,Dijo que el pais tenia mucha deuda,null,Se fue al mejor pais del mundo
+Grecia,null,Dijo que era un pais muy turistico,null,Buscaba pasaje a un pais pequeño,Queria ver el lugar de los grandes dioses
+Irak,Queria ir a asia,Su dinero viene del petrolio,null,null,Se dirigia a un pais con muchas guerras
+Mali,Queria ir a africa,null,Se dirigia a un pais agricola,al pais al que viajaba no tiene acceso al mar,null
 Tailandia,queria ir a asia,es un pais muy agricola,null,null,es un pais que siempre fue muy dado al boxeo
 Hungria,quedaba en alguna parte de europa,null,null,tienen su propio idioma,su bandera es verde blanca y roja
 Egipto,era un pais muy desertico,es un pais muy turistico,null,null,queria conocer las grandes piramides

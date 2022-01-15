@@ -27,8 +27,8 @@ public class Pais {
             return mapaDistancias.calcularDistanciaDeHasta(nombre,nombrePaisDestino);
     }
 
-    public Pista visitarEdificio(Edificio unEdificio, RepositorioPistas pistas, Pais siguientePais){
-        return edificiosPublicos.visitarEdificio(unEdificio, pistas, siguientePais);
+    public Pista visitarEdificio(Edificio unEdificio, RepositorioPistas pistas){
+        return edificiosPublicos.visitarEdificio(unEdificio, pistas);
     }
 
     public String getNombre() {

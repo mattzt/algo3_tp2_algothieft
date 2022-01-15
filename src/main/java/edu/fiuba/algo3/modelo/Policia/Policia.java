@@ -44,10 +44,10 @@ public class Policia {
         paisEnDondeEstoy = paisDestino;
     }
 
-    public Pista visitarEdificio(Edificio unEdificio, RepositorioPistas pistas, Caso casoActual){
+    public Pista visitarEdificio(Edificio unEdificio, RepositorioPistas pistas){
         reloj.avanzarReloj(new IntervaloTiempoExplorarEdificio(paisEnDondeEstoy.visitasTotales()));
 
-        return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas, casoActual.siguientePais(this));
+        return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas);
     }
 
 

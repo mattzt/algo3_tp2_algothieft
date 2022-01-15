@@ -11,6 +11,6 @@ public class PistaCaracteristicasCriminal extends Pista{
 
     @Override
     public Boolean esTipo(Edificio edificio) {
-        return null;
+        return false;
     }
 }

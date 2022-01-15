@@ -9,7 +9,10 @@ public abstract class Edificio {
     protected int vecesVisitado;
     protected String nombre;
 
-    public abstract Pista visitar(RepositorioPistas pistas, Pais siguientePais);
+    public Pista visitar(RepositorioPistas pistas){
+        Pista pista = pistas.obtenerPistaPara(this);
+        return pista;
+    }
 
     public int getVecesVisitado() {
         return vecesVisitado;

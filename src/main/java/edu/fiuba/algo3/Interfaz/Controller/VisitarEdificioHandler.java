@@ -20,11 +20,12 @@ import java.io.IOException;
 
 public class VisitarEdificioHandler implements EventHandler<ActionEvent> {
 
-    Policia policia;
-    Button boton;
-    Label pantallaPista, hora;
-    Partida partida;
-    Stage stage;
+    private final Policia policia;
+    private final Button boton;
+    private final Label pantallaPista;
+    private final Label hora;
+    private final Partida partida;
+    private final Stage stage;
 
     public VisitarEdificioHandler(Label hora, Button boton, Label pantallaPista, Stage stage) throws NoExisteError, IOException {
         this.boton = boton;
@@ -59,7 +60,7 @@ public class VisitarEdificioHandler implements EventHandler<ActionEvent> {
                 break;
         }
 
-        obtenida = policia.visitarEdificio(edificio, partida.obtenerPistas(), partida.getCasoActual());
+        obtenida = policia.visitarEdificio(edificio, partida.obtenerPistas());
         partida.evaluarEstado(null);
 
         if(partida.terminoJuego()) {

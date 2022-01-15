@@ -15,12 +15,6 @@ public class Biblioteca extends Edificio {
     }
 
     @Override
-    public Pista visitar(RepositorioPistas pistas, Pais siguiente) {
-        pista = pistas.obtenerPistaPara(siguiente, this);
-        return pista;
-    }
-
-    @Override
     public String getNombre() {
         return nombre;
 

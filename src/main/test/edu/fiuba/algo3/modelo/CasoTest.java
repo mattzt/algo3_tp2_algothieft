@@ -10,6 +10,7 @@ import edu.fiuba.algo3.modelo.Factory.CreadorObjetos;
 import edu.fiuba.algo3.modelo.Factory.CreadorPaises;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Policia.Novato;
+import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -27,7 +28,7 @@ public class CasoTest {
     CreadorObjetos factoryObjetos = new CreadorObjetos(paises);
     ObjetosValiosos listaDeObjetos = factoryObjetos.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/ObjetosValiosos.txt");
 
-    Caso unCaso = new Caso(sospechosos,listaDeObjetos,paises,new Novato());
+    Caso unCaso = new Caso(sospechosos,listaDeObjetos,paises, new Policia());
 
     public CasoTest() throws FileNotFoundException, NoExisteError {
     }

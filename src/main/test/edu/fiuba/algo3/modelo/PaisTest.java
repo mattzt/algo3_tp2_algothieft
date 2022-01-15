@@ -29,7 +29,7 @@ public class PaisTest {
         argentina.setEdificios(edificiosPublicos);
         when(calcDist.calcularDistanciaDeHasta("Argentina","Peru")).thenReturn(3138);
         Pais siguientePais = new Pais("Peru", "Lima");
-        when(unEdificio.visitar(pistas, siguientePais)).thenReturn(unaPista);
+        when(unEdificio.visitar(pistas)).thenReturn(unaPista);
     }
 
     @Test

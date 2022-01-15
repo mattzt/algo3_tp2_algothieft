@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.modelo.Caso;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
+import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Policia.Rango;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
@@ -13,7 +14,6 @@ public class Caso {
     private final Criminal ladron;
     private Policia policia;
     private Objeto objetoRobado;
-    private ArrayList<Pais> rutaDeEscape;
 
 
 
@@ -21,10 +21,7 @@ public class Caso {
         policia = nuevoPolicia;
         ladron = listaDeSospechosos.elegirCriminalAleatorio();
         objetoRobado = listaDeObjetos.robarObjetoPorNivel(policia.presentarPlaca());
-        rutaDeEscape = listaDePaises.elegirRutaDeEscapePorNivel(policia, objetoRobado.paisDeOrigen(), objetoRobado.cantidadDePaisesDeEscape());
     }
-
-
 
     public Criminal getCriminal(){
         return ladron;
@@ -34,15 +31,7 @@ public class Caso {
         return objetoRobado.getNombreObjeto();
     }
 
-    public Pais siguientePais(Policia policia) {
-        Iterator<Pais> iter = rutaDeEscape.iterator();
-        Pais siguiente = iter.next();
-
-        while (iter.hasNext()) {
-            if (policia.getPaisActual()==iter.next()){
-                siguiente = iter.next();
-            }
-        }
-        return siguiente;
+    public void crearRutaDeEscape(RepositorioPistas repositorio, Paises paises){
+        repositorio.crearRutaDeEscape(paises, policia, objetoRobado);
     }
 }

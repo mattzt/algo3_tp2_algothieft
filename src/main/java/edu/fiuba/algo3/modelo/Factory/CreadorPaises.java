@@ -15,6 +15,23 @@ public class CreadorPaises implements Factory {
         File archivoData = new File(rutaArchivo);
         Scanner scanner = new Scanner(archivoData);
         Paises paises = new Paises();
+
+
+        String encabezado = scanner.nextLine();
+        while (scanner.hasNextLine()){
+            Edificios edificios = crearEdificios();
+            String[] dataPaises = scanner.nextLine().split("\\s+");
+            String nombrePais = dataPaises[0];
+            String nombreCiudad = dataPaises[1];
+            Pais nuevoPais = new Pais(nombrePais,nombreCiudad);
+            nuevoPais.setEdificios(edificios);
+            paises.agregar(nuevoPais);
+        }
+        paises.setPaisesConexos();
+        return paises;
+    }
+
+    private Edificios crearEdificios(){
         Edificios edificiosDelPais = new Edificios();
         edificiosDelPais.agregar(new Aeropuerto());
         edificiosDelPais.agregar(new Banco());
@@ -22,16 +39,6 @@ public class CreadorPaises implements Factory {
         edificiosDelPais.agregar(new Bolsa());
         edificiosDelPais.agregar(new Puerto());
 
-        String encabezado = scanner.nextLine();
-        while (scanner.hasNextLine()){
-            String[] dataPaises = scanner.nextLine().split("\\s+");
-            String nombrePais = dataPaises[0];
-            String nombreCiudad = dataPaises[1];
-            Pais nuevoPais = new Pais(nombrePais,nombreCiudad);
-            nuevoPais.setEdificios(edificiosDelPais);
-            paises.agregar(nuevoPais);
-        }
-        paises.setPaisesConexos();
-        return paises;
+        return edificiosDelPais;
     }
 }

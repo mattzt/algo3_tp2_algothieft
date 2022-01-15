@@ -49,6 +49,7 @@ public class Partida {
         repositorioPistas = (RepositorioPistas) factoryPistas.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt");
 
         casoActual = new Caso(sospechosos, listaDeObjetos, paises, policia);
+        casoActual.crearRutaDeEscape(repositorioPistas, paises);
     }
 
     public static Partida getInstance() throws NoExisteError, IOException {
@@ -108,7 +109,4 @@ public class Partida {
         return casoActual.nombreObjeto();
     }
 
-    public void resetearReloj() {
-        policia.resetearReloj();
-    }
 }
