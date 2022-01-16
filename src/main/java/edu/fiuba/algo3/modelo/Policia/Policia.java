@@ -48,7 +48,6 @@ public class Policia {
         return paisEnDondeEstoy.visitarEdificio(unEdificio, pistas);
     }
 
-
     public void ingresarDato(Caracteristica caracteristica){
         computadora.ingresarCaracteristica(caracteristica);
     }
@@ -84,6 +83,14 @@ public class Policia {
         return rango;
     }
 
+    public void setComputadora(ComputadoraInterpol computadora){
+        this.computadora = computadora;
+    }
+
+
+
+    /** Estos metodos son mas que nada para mostrar cosas en la interfaz */
+
     public int mirarLaHora(){
         return reloj.verHora();
     }
@@ -94,10 +101,6 @@ public class Policia {
 
     public void resetearReloj() {
         reloj.reset();
-    }
-
-    public void setComputadora(ComputadoraInterpol computadora){
-        this.computadora = computadora;
     }
 
     public int cantidadSospechosos(){
