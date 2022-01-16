@@ -12,7 +12,7 @@ public class Reloj {
     }
 
     public int avanzarReloj(IntervaloTiempo unIntervalo){
-        int horaFinal = hora + unIntervalo.pasarTiempo(hora);
+        int horaFinal = unIntervalo.pasarTiempo(hora);
         if (horaFinal>=24){
             dia = dia.siguienteDia();
             horaFinal = horaFinal - 24;
