@@ -7,8 +7,8 @@ import javafx.scene.control.Label;
 
 public class ResetearFiltrosHandler implements EventHandler<ActionEvent> {
 
-    Label sospechosos;
-    Policia policia;
+    private final Label sospechosos;
+    private final Policia policia;
 
     public ResetearFiltrosHandler(Label sospechosos, Policia policia){
         this.sospechosos = sospechosos;

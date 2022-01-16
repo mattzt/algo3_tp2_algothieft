@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class NuevoCasoHandler implements EventHandler<ActionEvent> {
 
-    Stage stage;
+    private final Stage stage;
 
     public NuevoCasoHandler(Stage stage){
         this.stage = stage;

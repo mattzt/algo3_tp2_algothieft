@@ -2,8 +2,6 @@ package edu.fiuba.algo3.modelo.Policia;
 
 public class Novato extends Rango{
 
-    private final String dificultad = "FACIL";
-
     public Novato(){
         casosResueltos = 0;
     }
@@ -32,6 +30,6 @@ public class Novato extends Rango{
 
     @Override
     public String toString(){
-        return dificultad;
+        return "FACIL";
     }
 }

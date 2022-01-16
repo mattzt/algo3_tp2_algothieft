@@ -23,7 +23,6 @@ public class Policia {
     private OrdenDeArresto ordenDeArresto;
     private ComputadoraInterpol computadora;
 
-
     public Policia(){
         rango = new Novato();
         reloj = new Reloj();

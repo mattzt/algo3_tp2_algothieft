@@ -8,13 +8,11 @@ import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class RepositorioPistas implements Listable {
     private final ArrayList<Pista> posiblesPistas;
     private ArrayList<Pais> rutaDeEscape;
     private Policia policia;
-    private ArrayList<String> caracteristicasCriminal;
 
     public RepositorioPistas(ArrayList<Pista> pistas) {
         posiblesPistas = pistas;
@@ -70,9 +68,5 @@ public class RepositorioPistas implements Listable {
         Pais actual = policia.getPaisActual();
 
         return ultimo.equals(actual);
-    }
-
-    public void setCaracteristicasCriminal(ArrayList<String> caracteristicas){
-        this.caracteristicasCriminal = caracteristicas;
     }
 }

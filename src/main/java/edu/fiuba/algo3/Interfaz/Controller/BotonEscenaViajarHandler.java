@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class BotonEscenaViajarHandler implements EventHandler<ActionEvent> {
     
-    Stage stage;
+    private final Stage stage;
     
     public BotonEscenaViajarHandler(Stage stage){
         this.stage = stage;

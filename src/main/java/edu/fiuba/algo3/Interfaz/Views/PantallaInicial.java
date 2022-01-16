@@ -2,7 +2,6 @@ package edu.fiuba.algo3.Interfaz.Views;
 
 import edu.fiuba.algo3.Interfaz.Controller.BotonLogInHandler;
 import edu.fiuba.algo3.Interfaz.Controller.TextoLogInHandler;
-import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;

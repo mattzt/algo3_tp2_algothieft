@@ -17,7 +17,7 @@ public class CreadorPaises implements Factory {
         Paises paises = new Paises();
 
 
-        String encabezado = scanner.nextLine();
+        scanner.nextLine();
         while (scanner.hasNextLine()){
             Edificios edificios = crearEdificios();
             String[] dataPaises = scanner.nextLine().split("\\s+");

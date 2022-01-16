@@ -5,7 +5,6 @@ import edu.fiuba.algo3.modelo.Listable;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import edu.fiuba.algo3.modelo.Randomizador;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class Paises implements Listable {
     private final ArrayList<Pais> paises;

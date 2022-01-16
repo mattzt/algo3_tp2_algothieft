@@ -16,7 +16,7 @@ public class CreadorCriminales implements Factory{
         Scanner scanner = new Scanner(archivoData);
         Sospechosos listaDeSospechosos = new Sospechosos();
 
-        String encabezado = scanner.nextLine();
+        scanner.nextLine();
         while (scanner.hasNextLine()){
             String[] dataSospechosos = scanner.nextLine().split(",");
             String nombreSospechoso = dataSospechosos[0];

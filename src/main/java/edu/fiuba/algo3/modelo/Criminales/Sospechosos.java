@@ -6,7 +6,7 @@ import edu.fiuba.algo3.modelo.Randomizador;
 import java.util.ArrayList;
 
 public class Sospechosos implements Listable {
-    private ArrayList<Criminal> sospechosos;
+    private final ArrayList<Criminal> sospechosos;
     private final ArrayList<Criminal> copia;
 
     public Sospechosos(){

@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class BotonComputadoraHandler implements EventHandler<ActionEvent> {
 
-    Stage stage;
+    private final Stage stage;
 
     public BotonComputadoraHandler(Stage stage){
         this.stage = stage;

@@ -5,7 +5,6 @@ import edu.fiuba.algo3.Interfaz.Controller.BotonEscenaViajarHandler;
 import edu.fiuba.algo3.Interfaz.Controller.BotonMenuHandler;
 import edu.fiuba.algo3.Interfaz.Controller.VisitarEdificioHandler;
 import edu.fiuba.algo3.Interfaz.Views.resources.SeteadorNuevaEscena;
-import edu.fiuba.algo3.modelo.Edificios.Edificios;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Policia.Policia;
@@ -18,7 +17,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 

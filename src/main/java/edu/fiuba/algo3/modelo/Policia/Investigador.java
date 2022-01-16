@@ -2,8 +2,6 @@ package edu.fiuba.algo3.modelo.Policia;
 
 public class Investigador extends Rango{
 
-    private final String dificultad = "NORMAL";
-
     public Investigador(){
         casosResueltos = 10;
     }
@@ -32,6 +30,6 @@ public class Investigador extends Rango{
 
     @Override
     public String toString(){
-        return dificultad;
+        return "NORMAL";
     }
 }

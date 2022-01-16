@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 
 public class Objeto {
     private final String nombreObjeto;
-    public Pais origenObjeto;
+    private final Pais origenObjeto;
     private final int valorObjeto;
 
     public Objeto(String nombre, Pais paisOrigen, int valor){

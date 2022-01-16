@@ -6,9 +6,6 @@ import edu.fiuba.algo3.modelo.Policia.*;
 
 public class ArmaBlanca extends Arma{
 
-    public ArmaBlanca(){
-    }
-
     @Override
     public IntervaloTiempo tiempoIncapacitacion() {
         return new IntervaloTiempoExplorarEdificio(2);

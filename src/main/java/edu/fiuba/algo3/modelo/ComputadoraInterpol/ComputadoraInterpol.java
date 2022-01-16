@@ -17,7 +17,6 @@ public class ComputadoraInterpol{
 
     public boolean sePuedeEmitirOrden(){
         if(sospechosos.size() != 1) {
-            System.out.println("Aun no podes emitir una orden de arresto! Quedan mas de 1 sospechosos posibles\n");
             return false;
         }
         return true;

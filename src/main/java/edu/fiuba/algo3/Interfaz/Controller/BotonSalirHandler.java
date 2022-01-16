@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public class BotonSalirHandler implements EventHandler<ActionEvent> {
 
-    Stage stage;
+    private final Stage stage;
 
     public BotonSalirHandler(Stage stage){
         this.stage = stage;

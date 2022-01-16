@@ -24,7 +24,7 @@ public class CreadorObjetos implements Factory{
         Scanner scanner = new Scanner(archivoData);
         ObjetosValiosos listaObjetos = new ObjetosValiosos();
 
-        String encabezado = scanner.nextLine();
+        scanner.nextLine();
         while (scanner.hasNextLine()) {
             String[] dataObjetos = scanner.nextLine().split(",");
             String nombreObjeto = dataObjetos[0];

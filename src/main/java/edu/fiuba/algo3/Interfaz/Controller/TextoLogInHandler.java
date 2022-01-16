@@ -15,8 +15,8 @@ import java.io.IOException;
 
 public class TextoLogInHandler implements EventHandler<KeyEvent> {
 
-    Stage stage;
-    TextField textField;
+    private final Stage stage;
+    private final TextField textField;
 
     public TextoLogInHandler(Stage stage, TextField textField) {
         this.stage = stage;

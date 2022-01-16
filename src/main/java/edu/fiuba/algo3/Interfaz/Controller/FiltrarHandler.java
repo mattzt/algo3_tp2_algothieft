@@ -16,9 +16,9 @@ import java.util.ArrayList;
 
 public class FiltrarHandler implements EventHandler<ActionEvent> {
 
-    ComboBox<String> sexo, accesorio, hobbie, pelo, vehiculo;
-    Label etiquetaCantidad;
-    Policia policia;
+    private final ComboBox<String> sexo, accesorio, hobbie, pelo, vehiculo;
+    private final Label etiquetaCantidad;
+    private final Policia policia;
 
     public FiltrarHandler(ArrayList<ComboBox<String>> opciones, Label etiqueta, Policia policia){
         this.sexo = opciones.get(0);

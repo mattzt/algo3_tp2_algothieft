@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class BotonMenuHandler implements EventHandler<ActionEvent> {
 
-    Stage stage;
+    private final Stage stage;
 
     public BotonMenuHandler(Stage stage){
         this.stage = stage;

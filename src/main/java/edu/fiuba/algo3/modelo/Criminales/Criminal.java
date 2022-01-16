@@ -3,8 +3,8 @@ package edu.fiuba.algo3.modelo.Criminales;
 import java.util.ArrayList;
 
 public class Criminal {
-    private String nombre;
-    private Caracteristicas caracteristicas;
+    private final String nombre;
+    private final Caracteristicas caracteristicas;
 
     public Criminal(String nombreCriminal,Caracteristicas nuevasCaracteristicas){
         nombre = nombreCriminal;

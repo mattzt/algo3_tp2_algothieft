@@ -11,23 +11,17 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class BotonParaViajarHandler implements EventHandler<ActionEvent> {
 
-    Button boton;
-    Policia policia;
-    Stage stage;
-    Partida partida;
+    private final Button boton;
+    private final Policia policia;
+    private final Stage stage;
+    private final Partida partida;
 
     public BotonParaViajarHandler(Button boton, Policia policia, Stage stage) throws NoExisteError, IOException {
         this.boton = boton;

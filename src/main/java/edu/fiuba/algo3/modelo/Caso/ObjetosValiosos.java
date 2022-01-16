@@ -8,9 +8,9 @@ import edu.fiuba.algo3.modelo.Randomizador;
 import java.util.ArrayList;
 
 public class ObjetosValiosos implements Listable {
-    ArrayList<Objeto> objetosComunes;
-    ArrayList<Objeto> objetosValiosos;
-    ArrayList<Objeto> objetosMuyValiosos;
+    private final ArrayList<Objeto> objetosComunes;
+    private final ArrayList<Objeto> objetosValiosos;
+    private final ArrayList<Objeto> objetosMuyValiosos;
 
     public ObjetosValiosos() {
         objetosComunes = new ArrayList<>();

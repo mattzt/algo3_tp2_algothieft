@@ -8,8 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
+
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -19,10 +18,10 @@ import java.net.URL;
 
 public class EmitirOrdenHandler implements EventHandler<ActionEvent> {
 
-    Policia policia;
-    Label hora;
-    Stage stage;
-    Partida partida;
+    private final Policia policia;
+    private final Label hora;
+    private final Stage stage;
+    private final Partida partida;
 
     public EmitirOrdenHandler(Stage stage, Policia policia, Label hora) throws NoExisteError, IOException {
         this.stage = stage;
