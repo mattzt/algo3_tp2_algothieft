@@ -1,6 +1,7 @@
 package edu.fiuba.algo3.Interfaz.Controller;
 
 import edu.fiuba.algo3.Interfaz.Views.PantallaFinal;
+import edu.fiuba.algo3.Interfaz.Views.resources.SeteadorNuevaEscena;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Partida;
@@ -9,16 +10,20 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class ArrestarHandler implements EventHandler<ActionEvent> {
 
-    Partida partida;
-    Policia policia;
-    Stage stage;
+    private final Partida partida;
+    private final Policia policia;
+    private final Stage stage;
 
     public ArrestarHandler(Stage stage) throws NoExisteError, IOException {
         partida = Partida.getInstance();
@@ -32,25 +37,13 @@ public class ArrestarHandler implements EventHandler<ActionEvent> {
         partida.evaluarEstado(atrapado);
 
         if(partida.terminoJuego()) {
-            Label resultado = null;
+            Scene nuevaEscena = null;
             try {
-                resultado = evaluarResultado();
+                nuevaEscena = new Scene(new PantallaFinal(stage));
             } catch (NoExisteError | IOException e) {
                 e.printStackTrace();
             }
-            Scene nuevaEscena = new Scene(new PantallaFinal(stage, resultado));
             stage.setScene(nuevaEscena);
         }
-    }
-
-    private Label evaluarResultado() throws NoExisteError, IOException {
-        Label resultado = new Label();
-        String mensaje = partida.mensajeFinal();
-
-
-        resultado.setText(mensaje);
-        resultado.setFont(Font.font(25));
-        resultado.setWrapText(true);
-        return resultado;
     }
 }

@@ -1,5 +1,6 @@
 package edu.fiuba.algo3.Interfaz.Views.resources;
 
+import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -11,6 +12,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -40,18 +42,21 @@ public class SeteadorNuevaEscena {
     }
 
     public void setInfo(Policia policia, Label hora, Label pais) throws MalformedURLException {
+        URL css = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/resources/darkTheme.css").toURI().toURL();
+
         VBox contenedor = new VBox();
         contenedor.setPrefWidth(300);
         contenedor.setPrefHeight(250);
         contenedor.setAlignment(Pos.TOP_CENTER);
-        contenedor.setSpacing(10);
+        contenedor.setSpacing(20);
 
         String fecha = policia.mirarDia().diaDeHoy() + ", " + policia.mirarLaHora() + "hs";
 
         hora.setText(fecha);
         hora.setAlignment(Pos.CENTER);
         hora.setFont(Font.font(25));
-        hora.setPrefWidth(300);
+        hora.setPrefWidth(280);
+        hora.setPrefHeight(50);
         hora.setTextFill(Paint.valueOf("WHITE"));
 
         contenedor.getChildren().add(hora);
@@ -59,9 +64,11 @@ public class SeteadorNuevaEscena {
         pais.setText("Pais actual: " + policia.getPaisActual().getNombre());
         pais.setFont(Font.font(25));
         pais.setAlignment(Pos.CENTER);
-        pais.setPrefWidth(300);
+        pais.setPrefWidth(280);
+        pais.setPrefHeight(50);
         pais.setTextFill(Paint.valueOf("WHITE"));
 
+        contenedor.getStylesheets().add(String.valueOf(css));
         contenedor.getChildren().add(pais);
 
         root.getChildren().add(contenedor);
@@ -71,7 +78,6 @@ public class SeteadorNuevaEscena {
         infoAgente.setLayoutY(600);
 
         Label nombreAgente = new Label("Agente: " + policia.getNombre());
-        URL css = new File("src/main/java/edu/fiuba/algo3/Interfaz/Views/resources/darkTheme.css").toURI().toURL();
         nombreAgente.getStylesheets().add(String.valueOf(css));
         nombreAgente.setTextFill(Paint.valueOf("WHITE"));
 

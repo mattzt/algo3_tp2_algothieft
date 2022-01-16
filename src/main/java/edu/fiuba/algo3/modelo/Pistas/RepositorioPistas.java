@@ -44,7 +44,7 @@ public class RepositorioPistas implements Listable {
 
     public void crearRutaDeEscape(Paises paises, Policia policia, Objeto objetoRobado){
         this.policia = policia;
-        rutaDeEscape = paises.elegirRutaDeEscapePorNivel(policia, objetoRobado.paisDeOrigen(), objetoRobado.cantidadDePaisesDeEscape());
+        rutaDeEscape = paises.elegirRutaDeEscapePorNivel(policia, objetoRobado.cantidadDePaisesDeEscape());
     }
 
     public Pais siguientePais() {

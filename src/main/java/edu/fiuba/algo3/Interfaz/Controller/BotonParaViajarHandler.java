@@ -12,11 +12,15 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class BotonParaViajarHandler implements EventHandler<ActionEvent> {
 
@@ -48,13 +52,11 @@ public class BotonParaViajarHandler implements EventHandler<ActionEvent> {
 
         partida.evaluarEstado(null);
         if(partida.terminoJuego()) {
-            Label resultado = null;
             try {
-                resultado = evaluarResultado();
+                nuevaEscena = new Scene(new PantallaFinal(stage));
             } catch (NoExisteError | IOException e) {
                 e.printStackTrace();
             }
-            nuevaEscena = new Scene(new PantallaFinal(stage, resultado));
             stage.setScene(nuevaEscena);
         }
         else {
@@ -65,16 +67,5 @@ public class BotonParaViajarHandler implements EventHandler<ActionEvent> {
             }
             stage.setScene(nuevaEscena);
         }
-    }
-
-    private Label evaluarResultado() throws NoExisteError, IOException {
-        Label resultado = new Label();
-        String mensaje = partida.mensajeFinal();
-
-
-        resultado.setText(mensaje);
-        resultado.setFont(Font.font(25));
-        resultado.setWrapText(true);
-        return resultado;
     }
 }

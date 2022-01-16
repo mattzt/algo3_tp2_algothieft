@@ -34,10 +34,8 @@ public class Paises implements Listable {
         return paises.size();
     }
 
-    public ArrayList<Pais> elegirRutaDeEscapePorNivel(Policia poli, Pais paisDelObjeto, int cantidadDePaisesDeEscape) {
-        ArrayList<Pais> listaTodosLosPaises = new ArrayList<>(paises);
+    public ArrayList<Pais> elegirRutaDeEscapePorNivel(Policia poli, int cantidadDePaisesDeEscape) {
         ArrayList<Pais> rutaDeEscape = new ArrayList<>();
-        listaTodosLosPaises.remove(paisDelObjeto);
         Pais paisActual = poli.getPaisActual();
         int i = 0;
 

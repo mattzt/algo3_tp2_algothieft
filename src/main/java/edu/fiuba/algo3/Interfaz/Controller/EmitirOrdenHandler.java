@@ -8,10 +8,14 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class EmitirOrdenHandler implements EventHandler<ActionEvent> {
 
@@ -33,29 +37,17 @@ public class EmitirOrdenHandler implements EventHandler<ActionEvent> {
         partida.evaluarEstado(null);
 
         if(partida.terminoJuego()) {
-            Label resultado = null;
+            Scene nuevaEscena = null;
             try {
-                resultado = evaluarResultado();
+                nuevaEscena = new Scene(new PantallaFinal(stage));
             } catch (NoExisteError | IOException e) {
                 e.printStackTrace();
             }
-            Scene nuevaEscena = new Scene(new PantallaFinal(stage, resultado));
             stage.setScene(nuevaEscena);
         }
         else {
             String fecha = policia.mirarDia().diaDeHoy() + ", " + policia.mirarLaHora() + "hs";
             hora.setText(fecha);
         }
-    }
-
-    private Label evaluarResultado() throws NoExisteError, IOException {
-        Label resultado = new Label();
-        String mensaje = partida.mensajeFinal();
-
-
-        resultado.setText(mensaje);
-        resultado.setFont(Font.font(25));
-        resultado.setWrapText(true);
-        return resultado;
     }
 }
