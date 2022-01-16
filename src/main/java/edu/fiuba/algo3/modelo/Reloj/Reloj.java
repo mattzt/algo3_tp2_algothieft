@@ -34,4 +34,5 @@ public class Reloj {
         hora = 0;
         dia = new Lunes();
     }
+    public DiaDeLaSemana verDia(){return dia;}
 }

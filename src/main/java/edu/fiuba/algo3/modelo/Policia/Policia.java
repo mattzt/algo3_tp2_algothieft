@@ -98,7 +98,6 @@ public class Policia {
     public DiaDeLaSemana mirarDia(){
         return reloj.verDia();
     }
-
     public void resetearReloj() {
         reloj.reset();
     }
