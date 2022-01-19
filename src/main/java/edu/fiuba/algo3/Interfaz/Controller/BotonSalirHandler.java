@@ -22,6 +22,7 @@ public class BotonSalirHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
+        try {SonidosHandler.sonidoBoton();} catch (Exception e1) {e1.printStackTrace();}
         Alert.AlertType tipo = Alert.AlertType.CONFIRMATION;
         Alert alerta = new Alert(tipo, "");
         alerta.initModality(Modality.APPLICATION_MODAL);
