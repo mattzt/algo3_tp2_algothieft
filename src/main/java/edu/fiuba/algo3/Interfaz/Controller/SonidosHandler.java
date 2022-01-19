@@ -29,4 +29,8 @@ public class SonidosHandler {
     public static void sonidoVictoria() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
         play("src/main/java/edu/fiuba/algo3/modelo/Resources/sounds/victory.wav",30);
     }
+
+    public static void sonidoOrden() throws UnsupportedAudioFileException, LineUnavailableException, IOException {
+        play("src/main/java/edu/fiuba/algo3/modelo/Resources/sounds/typewriter.wav",10);
+    }
 }
