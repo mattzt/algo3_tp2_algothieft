@@ -1,4 +1,5 @@
 package edu.fiuba.algo3.modelo.Policia;
+import edu.fiuba.algo3.Interfaz.Controller.SonidosHandler;
 import edu.fiuba.algo3.modelo.Arma.Arma;
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.*;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
@@ -12,7 +13,10 @@ import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Reloj.DiaDeLaSemana;
 import edu.fiuba.algo3.modelo.Reloj.Reloj;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 
 
 public class Policia {
@@ -55,6 +59,7 @@ public class Policia {
     public void emitirOrdenArresto(){
         if((computadora.cantidadSospechosos() == 1) && ordenDeArresto.sePuedeEmitirOrden()) {
             reloj.avanzarReloj(new IntervaloTiempoEmitirArresto());
+            try {SonidosHandler.sonidoOrden();} catch (Exception e) {e.printStackTrace();}
             ordenDeArresto = new Emitida();
         }
     }

@@ -35,9 +35,7 @@ public class EmitirOrdenHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        try {SonidosHandler.sonidoBoton();
-            SonidosHandler.sonidoOrden();
-        } catch (Exception e1) {e1.printStackTrace();}
+        try {SonidosHandler.sonidoBoton();} catch (Exception e1) {e1.printStackTrace();}
         policia.emitirOrdenArresto();
         partida.evaluarEstado(null);
 
