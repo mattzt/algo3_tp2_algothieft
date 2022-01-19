@@ -10,6 +10,8 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
 public class ArrestarHandler implements EventHandler<ActionEvent> {
@@ -26,6 +28,7 @@ public class ArrestarHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
+        try {SonidosHandler.sonidoBoton();} catch (Exception e1) {e1.printStackTrace();}
         Criminal atrapado = policia.arrestar();
         partida.evaluarEstado(atrapado);
 

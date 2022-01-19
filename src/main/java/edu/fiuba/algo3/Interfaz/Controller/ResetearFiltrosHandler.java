@@ -17,6 +17,7 @@ public class ResetearFiltrosHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
+        try {SonidosHandler.sonidoBoton();} catch (Exception e1) {e1.printStackTrace();}
         policia.resetearSospechosos();
 
         sospechosos.setText("Cantidad de sospechosos: " + policia.cantidadSospechosos());

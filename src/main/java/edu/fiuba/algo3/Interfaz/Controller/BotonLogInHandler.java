@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
 public class BotonLogInHandler implements EventHandler<ActionEvent> {
@@ -40,6 +42,7 @@ public class BotonLogInHandler implements EventHandler<ActionEvent> {
     }
 
     private void logIn() throws NoExisteError, IOException {
+        try {SonidosHandler.sonidoBoton();} catch (Exception e1) {e1.printStackTrace();}
         Scene nuevaEscena = new Scene(new EscenaMenuPrincipal(stage));
         stage.setScene(nuevaEscena);
 

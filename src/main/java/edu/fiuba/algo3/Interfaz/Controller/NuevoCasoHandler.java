@@ -20,6 +20,7 @@ public class NuevoCasoHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
+        try {SonidosHandler.sonidoBoton();} catch (Exception e1) {e1.printStackTrace();}
         Partida partida = null;
         try {
             partida = Partida.getInstance();

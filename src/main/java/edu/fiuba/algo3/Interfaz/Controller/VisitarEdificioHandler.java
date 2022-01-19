@@ -14,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 
 
@@ -58,7 +60,7 @@ public class VisitarEdificioHandler implements EventHandler<ActionEvent> {
                 edificio = new Puerto();
                 break;
         }
-
+        try {SonidosHandler.sonidoBoton();} catch (Exception e1) {e1.printStackTrace();}
         obtenida = policia.visitarEdificio(edificio, partida.obtenerPistas());
         partida.evaluarEstado(null);
 

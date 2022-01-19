@@ -13,8 +13,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class BotonParaViajarHandler implements EventHandler<ActionEvent> {
 
@@ -40,7 +43,8 @@ public class BotonParaViajarHandler implements EventHandler<ActionEvent> {
         try {
             destino = paises.buscar(nombrePais);
             policia.viajarApais(destino);
-        } catch (NoExisteError | FileNotFoundException e) {
+            SonidosHandler.sonidoBoton();
+        } catch (NoExisteError | UnsupportedAudioFileException | IOException | LineUnavailableException | InterruptedException e) {
             e.printStackTrace();
         }
 

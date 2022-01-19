@@ -33,6 +33,7 @@ public class FiltrarHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
+        try {SonidosHandler.sonidoBoton();} catch (Exception e1) {e1.printStackTrace();}
         Caracteristica caracteristica;
 
         if((sexo.getValue() != null) && (!sexo.getValue().isEmpty())) {
