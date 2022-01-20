@@ -4,6 +4,7 @@ public class Novato extends Rango{
 
     public Novato(){
         casosResueltos = 0;
+        nombre = "Novato";
     }
 
     @Override

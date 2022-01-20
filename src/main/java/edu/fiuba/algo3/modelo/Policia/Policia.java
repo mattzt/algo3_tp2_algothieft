@@ -119,4 +119,6 @@ public class Policia {
     public String getNombre(){
         return nombre;
     }
+
+    public Rango getRango() {return rango; }
 }

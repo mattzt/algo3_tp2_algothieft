@@ -2,6 +2,7 @@ package edu.fiuba.algo3.modelo.Policia;
 
 public abstract class Rango {
     protected int casosResueltos;
+    protected String nombre;
 
     public abstract int velocidadViaje();
 
@@ -18,5 +19,6 @@ public abstract class Rango {
     public abstract int nivelDeLosObjetosBuscados();
 
     public abstract Boolean es(String unRango);
+    public String getNombre(){return nombre;}
 
 }

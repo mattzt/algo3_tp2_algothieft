@@ -77,7 +77,7 @@ public class SeteadorNuevaEscena {
         infoAgente.setLayoutX(80);
         infoAgente.setLayoutY(600);
 
-        Label nombreAgente = new Label("Agente: " + policia.getNombre());
+        Label nombreAgente = new Label("Agente: " + policia.getNombre() + "\n Rango: " + policia.getRango().getNombre());
         nombreAgente.getStylesheets().add(String.valueOf(css));
         nombreAgente.setTextFill(Paint.valueOf("WHITE"));
 

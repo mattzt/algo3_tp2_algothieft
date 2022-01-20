@@ -4,6 +4,7 @@ public class Detective extends Rango{
 
     public Detective(){
         casosResueltos = 5;
+        nombre = "Detective";
     }
 
     @Override

@@ -4,7 +4,7 @@ import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 
 
 public abstract class Edificio {
-    protected int vecesVisitado;
+    protected int vecesVisitado = 0;
     protected String nombre;
 
     public Pista visitar(RepositorioPistas pistas){
