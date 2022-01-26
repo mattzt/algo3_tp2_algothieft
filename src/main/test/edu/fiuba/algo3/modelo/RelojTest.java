@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 
 import edu.fiuba.algo3.modelo.IntervaloTiempo.*;
 import edu.fiuba.algo3.modelo.Reloj.Lunes;
+import edu.fiuba.algo3.modelo.Reloj.Martes;
 import edu.fiuba.algo3.modelo.Reloj.Reloj;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,15 +21,16 @@ public class RelojTest {
 
     @Test
     public void seCreaRelojCorrectamenteInicializado() {
-        Assertions.assertTrue(reloj.verHora() == 7);
+        assertEquals(7, reloj.verHora());
         Assertions.assertTrue(reloj.verDia().equals(new Lunes()));
     }
 
     @Test
     public void relojAvanzaCorrectamenteDuemiendo() {
+        reloj.avanzarReloj(new IntervaloTiempoViajeaPais(75,1800));
         reloj.avanzarReloj(new IntervaloTiempoDormir());
-        Assertions.assertTrue(reloj.verDia().equals(new Lunes()));
-        assertEquals(15, reloj.verHora());
+        Assertions.assertTrue(reloj.verDia().equals(new Martes()));
+        assertEquals(7, reloj.verHora());
     }
 
     @Test
