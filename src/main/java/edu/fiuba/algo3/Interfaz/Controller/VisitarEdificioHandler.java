@@ -62,6 +62,7 @@ public class VisitarEdificioHandler implements EventHandler<ActionEvent> {
         }
         try {SonidosHandler.sonidoBoton();} catch (Exception e1) {e1.printStackTrace();}
         obtenida = policia.visitarEdificio(edificio, partida.obtenerPistas());
+        policia.dormir();
         partida.evaluarEstado(null);
 
         if(partida.terminoJuego()) {

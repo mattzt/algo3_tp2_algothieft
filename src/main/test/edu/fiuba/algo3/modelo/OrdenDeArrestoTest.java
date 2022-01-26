@@ -28,7 +28,7 @@ public class OrdenDeArrestoTest {
     @Before
     public void init() throws FileNotFoundException {
         CreadorCriminales creadorCriminales = new CreadorCriminales();
-        ComputadoraInterpol computadora = new ComputadoraInterpol(creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt"));
+        ComputadoraInterpol computadora = new ComputadoraInterpol(creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/Sospechosos.txt"));
         policia = new Policia();
         policia.setComputadora(computadora);
     }

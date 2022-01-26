@@ -22,7 +22,7 @@ import java.io.IOException;
 public class Partida {
     private final Policia policia;
     private final RepositorioPistas repositorioPistas;
-    private Paises paises;
+    private final Paises paises;
     private final ObjetosValiosos listaDeObjetos;
     private static Partida instance;
     private Caso casoActual;
@@ -34,7 +34,7 @@ public class Partida {
         estado = null;
 
         CreadorCriminales factoryCriminales = new CreadorCriminales();
-        sospechosos = factoryCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
+        sospechosos = factoryCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/Sospechosos.txt");
         policia.setComputadora(new ComputadoraInterpol(sospechosos));
 
         CreadorPaises factoryPaises = new CreadorPaises();
@@ -65,10 +65,11 @@ public class Partida {
     }
 
     public void nuevoCaso() {
+        policia.resetearSospechosos();
         casoActual = new Caso(sospechosos, listaDeObjetos, policia);
         policia.resetearReloj();
-        policia.resetearSospechosos();
         policia.setPaisEnDondeEstoy(paises.paisRandom());
+        casoActual.crearRutaDeEscape(repositorioPistas, paises);
         estado = null;
     }
 
@@ -111,5 +112,4 @@ public class Partida {
     public boolean estaEnUltimoPais(){
         return repositorioPistas.estaEnUltimoPais();
     }
-
 }

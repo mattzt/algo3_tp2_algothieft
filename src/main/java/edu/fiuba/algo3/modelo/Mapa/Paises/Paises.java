@@ -36,17 +36,17 @@ public class Paises implements Listable {
     public ArrayList<Pais> elegirRutaDeEscapePorNivel(Policia poli, int cantidadDePaisesDeEscape) {
         ArrayList<Pais> rutaDeEscape = new ArrayList<>();
         Pais paisActual = poli.getPaisActual();
-        int i = 0;
 
         rutaDeEscape.add(paisActual);
 
-        while(i < cantidadDePaisesDeEscape - 1){
+        for(int j = 0; j < cantidadDePaisesDeEscape - 1; j++){
             Pais nuevoPaisDeEscape = paisActual.obtenerConexoRandom();
-            if (!rutaDeEscape.contains(nuevoPaisDeEscape)){
-                rutaDeEscape.add(nuevoPaisDeEscape);
-                paisActual = nuevoPaisDeEscape;
-                i++;
-            }
+
+            while(rutaDeEscape.contains(nuevoPaisDeEscape))
+                nuevoPaisDeEscape = paisActual.obtenerConexoRandom();
+
+            rutaDeEscape.add(nuevoPaisDeEscape);
+            paisActual = nuevoPaisDeEscape;
         }
         return rutaDeEscape;
     }

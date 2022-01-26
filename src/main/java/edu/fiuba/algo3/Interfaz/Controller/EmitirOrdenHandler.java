@@ -37,6 +37,7 @@ public class EmitirOrdenHandler implements EventHandler<ActionEvent> {
     public void handle(ActionEvent event) {
         try {SonidosHandler.sonidoBoton();} catch (Exception e1) {e1.printStackTrace();}
         policia.emitirOrdenArresto();
+        policia.dormir();
         partida.evaluarEstado(null);
 
         if(partida.terminoJuego()) {

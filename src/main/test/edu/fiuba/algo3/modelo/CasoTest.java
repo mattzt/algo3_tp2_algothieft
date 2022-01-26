@@ -20,7 +20,7 @@ import java.io.FileNotFoundException;
 
 public class CasoTest {
     CreadorCriminales factoryCriminales = new CreadorCriminales();
-    Sospechosos sospechosos = factoryCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
+    Sospechosos sospechosos = factoryCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/Sospechosos.txt");
 
     CreadorPaises factoryPaises = new CreadorPaises();
     Paises paises = factoryPaises.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/DataPaises.txt");

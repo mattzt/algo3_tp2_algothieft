@@ -25,7 +25,7 @@ public class ComputadoraInterpolTest {
     @BeforeEach
     public void setUp() throws IOException {
         CreadorCriminales constructorSospechosos = new CreadorCriminales();
-        listaDeSospechosos = constructorSospechosos.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
+        listaDeSospechosos = constructorSospechosos.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/Sospechosos.txt");
         computadora = new ComputadoraInterpol(listaDeSospechosos);
     }
 

@@ -5,8 +5,9 @@ import edu.fiuba.algo3.modelo.Policia.Policia;
 
 public abstract class Arma {
 
-    public void hacerDanio(Policia agente) { agente.recibirDanio(this);}
-
+    public void hacerDanio(Policia agente) {
+        agente.recibirDanio(this);
+    }
 
     public abstract IntervaloTiempo tiempoIncapacitacion();
 }

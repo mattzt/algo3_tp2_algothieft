@@ -13,10 +13,7 @@ import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
 import edu.fiuba.algo3.modelo.Reloj.DiaDeLaSemana;
 import edu.fiuba.algo3.modelo.Reloj.Reloj;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 
 
 public class Policia {
@@ -64,7 +61,7 @@ public class Policia {
         }
     }
 
-    public void dormir(){
+    public void dormir() {
         reloj.avanzarReloj(new IntervaloTiempoDormir());
     }
 
@@ -120,5 +117,7 @@ public class Policia {
         return nombre;
     }
 
-    public Rango getRango() {return rango; }
+    public Rango getRango() {
+        return rango;
+    }
 }

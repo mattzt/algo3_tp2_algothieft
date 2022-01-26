@@ -15,7 +15,7 @@ import java.io.FileNotFoundException;
 
 public class CriminalTest {
     CreadorCriminales creadorCriminales = new CreadorCriminales();
-    Sospechosos listaCriminales = creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/sospechosos.txt");
+    Sospechosos listaCriminales = creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/Sospechosos.txt");
 
     public CriminalTest() throws FileNotFoundException {
     }
