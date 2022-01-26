@@ -3,7 +3,7 @@ Nick Brunch,Masculino,Alpinismo,Negro,Anillo,Moto
 Len Bulk,Masculino,Alpinismo,Rojo,Tatuaje,Descapotable
 Ihor Ihorovitch,Masculino,Croquet,Rubio,Tatuaje,Limusina
 Fast Eddie B.,Masculino,Croquet,Negro,Joyas,Descapotable
-Scar Graynolt,Masculino,Croquet,Rojo,Ring,Limusina
+Scar Graynolt,Masculino,Croquet,Rojo,Anillo,Limusina
 Merey Laroc,Femenino,Alpinismo,Castanio,Joyas,Limusina
 Lady Agatha,Femenino,Tenis,Rojo,Ring,Descapotable
 Katherine Drib,Femenino,Alpinismo,Castanio,Tatuaje,Moto

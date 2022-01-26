@@ -27,7 +27,11 @@ public class NuevoCasoHandler implements EventHandler<ActionEvent> {
         } catch (NoExisteError | IOException e) {
             e.printStackTrace();
         }
-        partida.nuevoCaso();
+        try {
+            partida.nuevoCaso();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         Scene nuevaEscena = null;

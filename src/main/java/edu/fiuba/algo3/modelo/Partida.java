@@ -21,7 +21,7 @@ import java.io.IOException;
 
 public class Partida {
     private final Policia policia;
-    private final RepositorioPistas repositorioPistas;
+    private RepositorioPistas repositorioPistas;
     private final Paises paises;
     private final ObjetosValiosos listaDeObjetos;
     private static Partida instance;
@@ -64,9 +64,13 @@ public class Partida {
         return repositorioPistas;
     }
 
-    public void nuevoCaso() {
+    public void nuevoCaso() throws IOException {
         policia.resetearSospechosos();
         casoActual = new Caso(sospechosos, listaDeObjetos, policia);
+
+        CreadorPistas factoryPistas = new CreadorPistas(casoActual);
+        repositorioPistas = (RepositorioPistas) factoryPistas.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt");
+
         policia.resetearReloj();
         policia.setPaisEnDondeEstoy(paises.paisRandom());
         casoActual.crearRutaDeEscape(repositorioPistas, paises);
