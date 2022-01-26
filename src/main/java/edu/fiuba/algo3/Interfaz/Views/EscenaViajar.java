@@ -18,6 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -89,8 +90,6 @@ public class EscenaViajar extends AnchorPane {
 
         contenedorBotones.getChildren().addAll(botonMenu, botonComputadora, botonCiudad);
 
-
-
         this.getChildren().add(contenedorBotones);
     }
 
@@ -148,6 +147,20 @@ public class EscenaViajar extends AnchorPane {
                 boton.setDisable(true);
             }
         }
+
+        if(partida.estaEnUltimoPais()){
+            Label avisoDanio = new Label("Un criminal te ha atacado!!! Tuviste que recuperarte por un par de horas");
+            avisoDanio.setWrapText(true);
+            avisoDanio.setFont(Font.font(22));
+            avisoDanio.setTextFill(Paint.valueOf("WHITE"));
+
+            avisoDanio.setLayoutX(30);
+            avisoDanio.setLayoutY(200);
+            avisoDanio.setMaxWidth(400);
+
+            this.getChildren().add(avisoDanio);
+        }
+
         this.getChildren().add(contenedor);
     }
 }

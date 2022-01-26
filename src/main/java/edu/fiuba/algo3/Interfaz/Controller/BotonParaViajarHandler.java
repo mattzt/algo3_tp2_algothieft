@@ -2,11 +2,13 @@ package edu.fiuba.algo3.Interfaz.Controller;
 
 import edu.fiuba.algo3.Interfaz.Views.EscenaViajar;
 import edu.fiuba.algo3.Interfaz.Views.PantallaFinal;
+import edu.fiuba.algo3.modelo.Arma.Arma;
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Partida;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Randomizador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -46,6 +48,11 @@ public class BotonParaViajarHandler implements EventHandler<ActionEvent> {
             SonidosHandler.sonidoBoton();
         } catch (NoExisteError | UnsupportedAudioFileException | IOException | LineUnavailableException | InterruptedException e) {
             e.printStackTrace();
+        }
+
+        if(partida.estaEnUltimoPais()) {
+            Arma armaRandom = Randomizador.armaRandom();
+            policia.recibirDanio(armaRandom);
         }
 
         partida.evaluarEstado(null);
