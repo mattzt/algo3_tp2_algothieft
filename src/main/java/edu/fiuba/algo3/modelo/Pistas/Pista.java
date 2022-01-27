@@ -16,4 +16,8 @@ public abstract class Pista {
     public boolean apuntaHacia(Pais siguiente){
         return (siguiente.getNombre().equals(pais));
     }
+
+    public void setPistaCaracteristica(String pista){
+        this.pista = pista;
+    }
 }

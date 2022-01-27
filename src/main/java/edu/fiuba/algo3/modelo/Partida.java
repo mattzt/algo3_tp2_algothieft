@@ -47,10 +47,11 @@ public class Partida {
 
         casoActual = new Caso(sospechosos, listaDeObjetos, policia);
 
-        CreadorPistas factoryPistas = new CreadorPistas(casoActual);
+        CreadorPistas factoryPistas = new CreadorPistas();
         repositorioPistas = (RepositorioPistas) factoryPistas.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt");
 
         casoActual.crearRutaDeEscape(repositorioPistas, paises);
+        repositorioPistas.rellenarPistas(casoActual.pistasDelCriminal());
     }
 
     public static Partida getInstance() throws NoExisteError, IOException {
@@ -68,12 +69,14 @@ public class Partida {
         policia.resetearSospechosos();
         casoActual = new Caso(sospechosos, listaDeObjetos, policia);
 
-        CreadorPistas factoryPistas = new CreadorPistas(casoActual);
+        CreadorPistas factoryPistas = new CreadorPistas();
         repositorioPistas = (RepositorioPistas) factoryPistas.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt");
 
         policia.resetearReloj();
         policia.setPaisEnDondeEstoy(paises.paisRandom());
         casoActual.crearRutaDeEscape(repositorioPistas, paises);
+        repositorioPistas.rellenarPistas(casoActual.pistasDelCriminal());
+
         estado = null;
     }
 

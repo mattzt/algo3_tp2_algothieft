@@ -143,9 +143,6 @@ public class EscenaViajar extends AnchorPane {
             boton.getStylesheets().add(String.valueOf(css));
             contenedor.getChildren().add(boton);
 
-            if(partida.estaEnUltimoPais()){
-                boton.setDisable(true);
-            }
         }
 
         if(partida.estaEnUltimoPais()){

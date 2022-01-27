@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Caso {
     private final Criminal ladron;
     private final Policia policia;
-    private Objeto objetoRobado;
+    private final Objeto objetoRobado;
 
     public Caso (Sospechosos listaDeSospechosos, ObjetosValiosos listaDeObjetos, Policia nuevoPolicia){
         policia = nuevoPolicia;

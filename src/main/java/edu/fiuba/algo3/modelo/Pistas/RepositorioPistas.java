@@ -6,8 +6,10 @@ import edu.fiuba.algo3.modelo.Listable;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Policia.Policia;
+import edu.fiuba.algo3.modelo.Randomizador;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class RepositorioPistas implements Listable {
     private final ArrayList<Pista> posiblesPistas;
@@ -68,5 +70,38 @@ public class RepositorioPistas implements Listable {
         Pais actual = policia.getPaisActual();
 
         return ultimo.equals(actual);
+    }
+
+    public void rellenarPistas(ArrayList<String> pistasDelCriminal) {
+        int indiceCaracteristicas = 0;
+
+        for (Pista leida : posiblesPistas) {
+            if (Objects.equals(leida.darPista(), "null") && perteneceARuta(leida)) {
+                String caracteristica = pistasDelCriminal.get(indiceCaracteristicas);
+                leida.setPistaCaracteristica(caracteristica);
+
+                if(indiceCaracteristicas + 1 < pistasDelCriminal.size())
+                    indiceCaracteristicas++;
+                else
+                    indiceCaracteristicas = 0;
+            }
+            else if(Objects.equals(leida.darPista(), "null")){
+                int indiceRandom = Randomizador.indiceRandom(pistasDelCriminal);
+                leida.setPistaCaracteristica(pistasDelCriminal.get(indiceRandom));
+            }
+        }
+    }
+
+    private boolean perteneceARuta(Pista pista){
+        boolean pertenece = false;
+        int i = 0;
+
+        while(i < rutaDeEscape.size() && !pertenece){
+            Pais pais = rutaDeEscape.get(i);
+            if(pista.apuntaHacia(pais))
+                pertenece = true;
+            i++;
+        }
+        return pertenece;
     }
 }
