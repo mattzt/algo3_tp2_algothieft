@@ -12,15 +12,13 @@ import edu.fiuba.algo3.modelo.Criminales.Pelo.Castanio;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Descapotable;
 import edu.fiuba.algo3.modelo.Factory.CreadorCriminales;
-import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
 import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class OrdenDeArrestoTest {
     private Policia policia;
@@ -51,7 +49,9 @@ public class OrdenDeArrestoTest {
 
         Caracteristicas caracteristicas = new Caracteristicas(null, null, null, null,null);
 
-        assertEquals(resultado, new Criminal("Carmen Sandiego", caracteristicas));
+        Criminal carmen = new Criminal("Carmen Sandiego", caracteristicas);
+
+        assertTrue(resultado.equals(carmen));
 
     }
 
@@ -67,5 +67,28 @@ public class OrdenDeArrestoTest {
         Emitida emitida = new Emitida();
 
         assertTrue(emitida.equals(new Emitida()));
+    }
+
+    @Test
+    public void noSePuedeEmitirOrdenSiYaFueEmitida(){
+        OrdenDeArresto emitida = new Emitida();
+
+        assertFalse(emitida.sePuedeEmitirOrden());
+    }
+
+    @Test
+    public void siNoFueEmitidaSePuedeEmitir(){
+        OrdenDeArresto noEmitida = new NoEmitida();
+
+        assertTrue(noEmitida.sePuedeEmitirOrden());
+    }
+
+    @Test
+    public void nombresNoSonNulos(){
+        OrdenDeArresto emitida = new Emitida();
+        OrdenDeArresto noEmitida = new NoEmitida();
+
+        assertNotNull(emitida.nombre());
+        assertNotNull(noEmitida.nombre());
     }
 }
