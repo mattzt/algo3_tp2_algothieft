@@ -1,4 +1,4 @@
-![tp2](https://github.com/mattzt/algo3_tp2_algothieft/actions/workflows/build.yml/badge.svg) [![codecov](https://codecov.io/gh/mattzt/algo3_tp2_algothieft/branch/tp2_algothieft/graph/badge.svg)](https://codecov.io/gh/mattzt/algo3_tp2_algothieft)
+![tp2](https://github.com/mattzt/algo3_tp2_algothieft/actions/workflows/build.yml/badge.svg) [![codecov](https://codecov.io/gh/mattzt/algo3_tp2_algothieft/branch/master/graph/badge.svg)](https://codecov.io/gh/mattzt/algo3_tp2_algothieft)
 
 # TP2 Algoritmos 3: {AlgoThieft} 
 
