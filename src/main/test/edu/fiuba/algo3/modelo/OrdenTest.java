@@ -1,9 +1,6 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
-import edu.fiuba.algo3.modelo.ComputadoraInterpol.Emitida;
-import edu.fiuba.algo3.modelo.ComputadoraInterpol.NoEmitida;
-import edu.fiuba.algo3.modelo.ComputadoraInterpol.OrdenDeArresto;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.*;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
 import edu.fiuba.algo3.modelo.Criminales.Caracteristicas;
 import edu.fiuba.algo3.modelo.Criminales.Criminal;
@@ -13,20 +10,26 @@ import edu.fiuba.algo3.modelo.Criminales.Sexo.SexoFemenino;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.Descapotable;
 import edu.fiuba.algo3.modelo.Factory.CreadorCriminales;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class OrdenDeArrestoTest {
+public class OrdenTest {
     private Policia policia;
+    private final ComputadoraInterpol computadora;
 
-    @Before
-    public void init() throws FileNotFoundException {
+    public OrdenTest() throws FileNotFoundException {
         CreadorCriminales creadorCriminales = new CreadorCriminales();
-        ComputadoraInterpol computadora = new ComputadoraInterpol(creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/Sospechosos.txt"));
+        computadora = new ComputadoraInterpol(creadorCriminales.crear("src/main/java/edu/fiuba/algo3/modelo/Resources/Sospechosos.txt"));
+        policia = new Policia();
+        policia.setComputadora(computadora);
+    }
+
+    @BeforeEach
+    public void setUp(){
         policia = new Policia();
         policia.setComputadora(computadora);
     }

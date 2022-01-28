@@ -6,6 +6,7 @@ import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Tatuaje;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AccesoriosTest {
@@ -32,5 +33,18 @@ public class AccesoriosTest {
     public void tatuajeTest(){
         Tatuaje tatuaje = new Tatuaje();
         assertTrue(tatuaje.equals(new Tatuaje()));
+    }
+
+    @Test
+    public void pistasSeCreanCorrectamente(){
+        Anillo anillo = new Anillo();
+        Cicatriz cicatriz = new Cicatriz();
+        Joyas joyas = new Joyas();
+        Tatuaje tatuaje = new Tatuaje();
+
+        assertNotNull(anillo.crearPista());
+        assertNotNull(cicatriz.crearPista());
+        assertNotNull(joyas.crearPista());
+        assertNotNull(tatuaje.crearPista());
     }
 }

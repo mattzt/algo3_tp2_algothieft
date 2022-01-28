@@ -21,7 +21,7 @@ public abstract class Edificio {
         return nombre;
     }
 
-    boolean equals(Edificio unEdificio){
+    public boolean equals(Edificio unEdificio){
         return this.getNombre().equals(unEdificio.getNombre());
     }
 }

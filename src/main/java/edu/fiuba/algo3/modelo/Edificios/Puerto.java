@@ -6,9 +6,4 @@ public class Puerto extends Edificio {
         nombre = "Puerto";
         vecesVisitado = 0;
     }
-
-    @Override
-    public String getNombre() {
-        return nombre;
-    }
 }

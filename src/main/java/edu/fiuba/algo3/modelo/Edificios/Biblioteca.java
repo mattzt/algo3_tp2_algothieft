@@ -6,9 +6,4 @@ public class Biblioteca extends Edificio {
         nombre = "Biblioteca";
         vecesVisitado = 0;
     }
-
-    @Override
-    public String getNombre() {
-        return nombre;
-    }
 }
