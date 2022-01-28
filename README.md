@@ -24,7 +24,7 @@ $ java -jar <archivo.jar>
 
 ## Informe
 
-Link hacia el [Informe](https://drive.google.com/file/d/197rdXHYLlJn-z5KCUavpuBYv0BuqK6hM/view?usp=sharing).
+El informe se encuentra en el repositorio con el nombre informeTp2.pdf
 
 ## Desarrollo
 
