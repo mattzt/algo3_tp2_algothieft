@@ -16,10 +16,7 @@ public class ComputadoraInterpol{
     }
 
     public boolean sePuedeEmitirOrden(){
-        if(sospechosos.size() != 1) {
-            return false;
-        }
-        return true;
+        return sospechosos.size() == 1;
     }
 
     public int cantidadSospechosos(){

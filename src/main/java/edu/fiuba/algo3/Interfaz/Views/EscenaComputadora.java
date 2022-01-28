@@ -32,6 +32,7 @@ public class EscenaComputadora extends AnchorPane {
     private ComboBox<String> sexo, accesorio, hobbie, pelo, vehiculo;
     private Label cantidadSospechosos;
     private final Label hora;
+    private Label ordenArresto;
     private final URL css;
 
     public EscenaComputadora(Stage stage) throws NoExisteError, IOException {
@@ -49,8 +50,26 @@ public class EscenaComputadora extends AnchorPane {
         Label pais = new Label();
         seteadorNuevaEscena.setInfo(policia, hora, pais);
 
+        mostrarOrden();
         configurarMenu();
         setearContenedorPrincipal();
+    }
+
+    private void mostrarOrden(){
+        ordenArresto = new Label();
+        ordenArresto.setText("Orden de arresto: " + policia.nombreOrden());
+        ordenArresto.getStylesheets().add(String.valueOf(css));
+        ordenArresto.setAlignment(Pos.CENTER);
+        ordenArresto.setTextFill(Paint.valueOf("WHITE"));
+
+        ordenArresto.setPrefWidth(280);
+        ordenArresto.setPrefHeight(50);
+
+        ordenArresto.setLayoutX(11);
+        ordenArresto.setLayoutY(140);
+
+        this.getChildren().add(ordenArresto);
+
     }
 
     private void configurarMenu() throws MalformedURLException {
@@ -277,7 +296,7 @@ public class EscenaComputadora extends AnchorPane {
 
         ResetearFiltrosHandler resetHandler = new ResetearFiltrosHandler(cantidadSospechosos, policia);
         FiltrarHandler filtrarHandler = new FiltrarHandler(listaOpciones, cantidadSospechosos, policia);
-        EmitirOrdenHandler ordenHandler = new EmitirOrdenHandler(stage, policia, hora);
+        EmitirOrdenHandler ordenHandler = new EmitirOrdenHandler(stage, policia, hora, ordenArresto);
         ArrestarHandler arrestarHandler = new ArrestarHandler(stage);
 
 

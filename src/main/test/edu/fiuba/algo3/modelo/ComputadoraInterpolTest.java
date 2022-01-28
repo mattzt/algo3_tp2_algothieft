@@ -2,9 +2,12 @@ package edu.fiuba.algo3.modelo;
 
 
 import edu.fiuba.algo3.modelo.ComputadoraInterpol.ComputadoraInterpol;
+import edu.fiuba.algo3.modelo.ComputadoraInterpol.NoEmitida;
 import edu.fiuba.algo3.modelo.Criminales.Accesorios.Joyas;
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.Tenis;
 import edu.fiuba.algo3.modelo.Criminales.Pelo.Castanio;
+import edu.fiuba.algo3.modelo.Criminales.Pelo.Rubio;
 import edu.fiuba.algo3.modelo.Criminales.Sexo.*;
 import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 import edu.fiuba.algo3.modelo.Factory.CreadorCriminales;
@@ -13,8 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class ComputadoraInterpolTest {
@@ -40,13 +42,13 @@ public class ComputadoraInterpolTest {
     public void sePuedeResetearLista(){
         computadora.ingresarCaracteristica(new SexoMasculino());
 
-        assertEquals(listaDeSospechosos.size(), 5);
+        assertEquals(computadora.cantidadSospechosos(), 5);
 
         computadora.resetearSospechosos();
 
         computadora.ingresarCaracteristica(new SexoFemenino());
 
-        assertEquals(listaDeSospechosos.size(), 5);
+        assertEquals(computadora.cantidadSospechosos(), 5);
     }
 
     @Test
@@ -60,5 +62,24 @@ public class ComputadoraInterpolTest {
         computadora.ingresarCaracteristica(new Tenis());
 
         assertEquals(1, listaDeSospechosos.size());
+    }
+
+    @Test
+    public void cantidadDeSospechososEsCorrecta(){
+        computadora.ingresarCaracteristica(new SexoMasculino());
+
+        assertEquals(5,computadora.cantidadSospechosos());
+    }
+
+    @Test
+    public void noSePuedeArrestarSinOrden(){
+        computadora.ingresarCaracteristica(new SexoFemenino());
+        computadora.ingresarCaracteristica(new Rubio());
+
+        assertEquals(computadora.cantidadSospechosos(), 1);
+
+        Criminal atrapado = computadora.arrestar(new NoEmitida());
+
+        assertNull(atrapado);
     }
 }

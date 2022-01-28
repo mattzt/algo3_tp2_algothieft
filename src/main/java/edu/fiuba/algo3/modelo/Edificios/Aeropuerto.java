@@ -6,9 +6,4 @@ public class Aeropuerto extends Edificio {
         nombre = "Aeropuerto";
         vecesVisitado = 0;
     }
-
-    @Override
-    public String getNombre() {
-        return nombre;
-    }
 }

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Criminales.Hobbies.*;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class HobbiesTest {
@@ -41,5 +42,22 @@ public class HobbiesTest {
     public void tenisTest(){
         Tenis tenis = new Tenis();
         assertTrue(tenis.equals(new Tenis()));
+    }
+
+    @Test
+    public void pistasSeCreanNoNulas(){
+        Alpinismo alpinismo = new Alpinismo();
+        Croquet croquet = new Croquet();
+        Musica musica = new Musica();
+        Natacion natacion = new Natacion();
+        Paracaidismo paracaidismo = new Paracaidismo();
+        Tenis tenis = new Tenis();
+
+        assertNotNull(alpinismo.crearPista());
+        assertNotNull(croquet.crearPista());
+        assertNotNull(musica.crearPista());
+        assertNotNull(natacion.crearPista());
+        assertNotNull(paracaidismo.crearPista());
+        assertNotNull(tenis.crearPista());
     }
 }

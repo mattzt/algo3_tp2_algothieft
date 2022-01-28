@@ -11,13 +11,7 @@ import javafx.scene.control.Label;
 
 import javafx.stage.Stage;
 
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 public class EmitirOrdenHandler implements EventHandler<ActionEvent> {
 
@@ -25,12 +19,14 @@ public class EmitirOrdenHandler implements EventHandler<ActionEvent> {
     private final Label hora;
     private final Stage stage;
     private final Partida partida;
+    private final Label orden;
 
-    public EmitirOrdenHandler(Stage stage, Policia policia, Label hora) throws NoExisteError, IOException {
+    public EmitirOrdenHandler(Stage stage, Policia policia, Label hora, Label ordenArresto) throws NoExisteError, IOException {
         this.stage = stage;
         this.policia = policia;
         this.hora = hora;
         this.partida = Partida.getInstance();
+        this.orden = ordenArresto;
     }
 
     @Override
@@ -52,6 +48,9 @@ public class EmitirOrdenHandler implements EventHandler<ActionEvent> {
         else {
             String fecha = policia.mirarDia().diaDeHoy() + ", " + policia.mirarLaHora() + "hs";
             hora.setText(fecha);
+
+            String ordenArresto = policia.nombreOrden();
+            orden.setText("Orden de arresto: " + ordenArresto);
         }
     }
 }

@@ -3,6 +3,7 @@ package edu.fiuba.algo3.modelo;
 import edu.fiuba.algo3.modelo.Criminales.Vehiculo.*;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class VehiculoTest {
@@ -29,5 +30,18 @@ public class VehiculoTest {
     public void motoTest(){
         Moto moto = new Moto();
         assertTrue(moto.equals(new Moto()));
+    }
+
+    @Test
+    public void pistasNoNulas(){
+        Deportivo deportivo = new Deportivo();
+        Descapotable descapotable = new Descapotable();
+        Limusina limusina = new Limusina();
+        Moto moto = new Moto();
+
+        assertNotNull(deportivo.crearPista());
+        assertNotNull(descapotable.crearPista());
+        assertNotNull(limusina.crearPista());
+        assertNotNull(moto.crearPista());
     }
 }

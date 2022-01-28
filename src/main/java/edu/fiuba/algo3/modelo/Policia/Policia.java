@@ -23,11 +23,13 @@ public class Policia {
     private final Reloj reloj;
     private OrdenDeArresto ordenDeArresto;
     private ComputadoraInterpol computadora;
+    private int vecesAtacado;
 
     public Policia(){
         rango = new Novato();
         reloj = new Reloj();
         ordenDeArresto = new NoEmitida();
+        vecesAtacado = 0;
     }
 
     public void setNombre(String nombre){
@@ -66,7 +68,8 @@ public class Policia {
     }
 
     public void recibirDanio(Arma armaAtacante){
-        reloj.avanzarReloj(armaAtacante.tiempoIncapacitacion());
+        reloj.avanzarReloj(armaAtacante.tiempoIncapacitacion(vecesAtacado));
+        vecesAtacado++;
     }
 
     public Criminal arrestar(){
@@ -119,5 +122,9 @@ public class Policia {
 
     public Rango getRango() {
         return rango;
+    }
+
+    public String nombreOrden(){
+        return ordenDeArresto.nombre();
     }
 }
