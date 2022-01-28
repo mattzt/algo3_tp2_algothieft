@@ -12,7 +12,7 @@ Trabajo Práctico número 2 de la materia Algoritmos y Programación III de FIUB
 * **Gonzalo Joaquín Shimabukuro** - [gonzashima](https://github.com/gonzashima)
 * **Ignacio Agustín Pereyra** - [nachope1201](https://github.com/nachope1201)
 
-Corrector: **{Corrector}**
+Corrector: **{Pablo Suarez}**
 
 ## Aplicación
 
