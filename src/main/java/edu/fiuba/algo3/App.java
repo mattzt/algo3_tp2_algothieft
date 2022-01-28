@@ -25,6 +25,7 @@ public class App extends Application {
 
         stage.setTitle("AlgoThief");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.centerOnScreen();
         stage.show();
 
