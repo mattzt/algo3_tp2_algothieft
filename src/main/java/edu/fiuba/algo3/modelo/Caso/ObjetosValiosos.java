@@ -1,34 +1,50 @@
 package edu.fiuba.algo3.modelo.Caso;
 
 import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
-import edu.fiuba.algo3.modelo.Listas.Listable;
-import edu.fiuba.algo3.modelo.Paises.Pais;
+import edu.fiuba.algo3.modelo.Listable;
+import edu.fiuba.algo3.modelo.Policia.Rango;
+import edu.fiuba.algo3.modelo.Randomizador;
 
 import java.util.ArrayList;
 
 public class ObjetosValiosos implements Listable {
-    ArrayList<Objeto> listaDeObjetosValiosos;
+    private final ArrayList<Objeto> objetosComunes;
+    private final ArrayList<Objeto> objetosValiosos;
+    private final ArrayList<Objeto> objetosMuyValiosos;
 
     public ObjetosValiosos() {
-        listaDeObjetosValiosos = new ArrayList<>();
+        objetosComunes = new ArrayList<>();
+        objetosValiosos = new ArrayList<>();
+        objetosMuyValiosos = new ArrayList<>();
     }
 
-    public void agregar(Objeto nuevoObjeto) {
+    public void agregar(Objeto nuevoObjeto, int valor) {
+        ArrayList<Objeto> listaDeObjetosValiosos = elegirListaCorrecta(valor);
         listaDeObjetosValiosos.add(nuevoObjeto);
     }
 
-    public Objeto buscar(String nombreObjeto) throws NoExisteError {
+    public Objeto buscar(String nombreObjeto, int valor) throws NoExisteError {
+        ArrayList<Objeto> listaDeObjetosValiosos = elegirListaCorrecta(valor);
         for(Objeto objeto: listaDeObjetosValiosos){
             if (objeto.equals(nombreObjeto)) return objeto;
         }
         throw new NoExisteError("El objeto no esta creado");
     }
 
-    public int size() {
-        return listaDeObjetosValiosos.size();
+    private ArrayList<Objeto> elegirListaCorrecta(int valor){
+        if (valor==1) return objetosComunes;
+        if (valor==2) return objetosValiosos;
+        return objetosMuyValiosos;
     }
 
-    public Objeto robar(int nivelAgente) {
-        return new Objeto("TestRobado",new Pais("TestPais","TestCiudad"),1);
+    @Override
+    public int size() {
+        return (objetosComunes.size()+objetosValiosos.size()+objetosMuyValiosos.size());
+    }
+
+    public Objeto robarObjetoPorNivel(Rango rangoPolicia) {
+        int valorObjeto = rangoPolicia.nivelDeLosObjetosBuscados();
+        ArrayList<Objeto> listaDeObjetosValiosos = elegirListaCorrecta(valorObjeto);
+        return listaDeObjetosValiosos.get(Randomizador.indiceRandom(listaDeObjetosValiosos));
     }
 }

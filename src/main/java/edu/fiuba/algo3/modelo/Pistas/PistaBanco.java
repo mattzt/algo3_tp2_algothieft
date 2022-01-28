@@ -5,10 +5,10 @@ import edu.fiuba.algo3.modelo.Edificios.Edificio;
 
 public class PistaBanco extends Pista {
 
-    public PistaBanco(String linea){
-        pista = linea.replace("|BANCO|", "");
+    public PistaBanco(String nuevoPais, String linea){
+        pista = linea;
+        pais = nuevoPais;
     }
-
     public Boolean esTipo(Edificio edificio){
         return (edificio instanceof Banco);
     }

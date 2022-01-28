@@ -1,12 +1,9 @@
 package edu.fiuba.algo3.modelo.Edificios;
 
-import edu.fiuba.algo3.modelo.Pistas.Pista;
-import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
+public class Puerto extends Edificio {
 
-public class Puerto implements Edificio{
-
-    @Override
-    public Pista visitar(RepositorioPistas pistas) {
-        return pistas.obtenerPistaPara(this);
+    public Puerto() {
+        nombre = "Puerto";
+        vecesVisitado = 0;
     }
 }

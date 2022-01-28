@@ -9,6 +9,7 @@ import static com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes;
 
 public class ModelDependenciesTest {
     private final String MODEL = "..modelo..";
+    private final String INTERFAZ = "..Interfaz..";
     private final String JAVA_LANG = "java..";
     private final String JUNIT = "org.junit..";
     private final String MOCK = "org.mockito..";
@@ -17,7 +18,7 @@ public class ModelDependenciesTest {
     public void elModeloSoloPuedeReferenciarClasesDelModeloAdemasJavaAdemasJunit() {
         JavaClasses importedClasses = new ClassFileImporter().importPackages("edu.fiuba.algo3.modelo");
 
-        String[] listOfPackages = {MODEL, JAVA_LANG, JUNIT, MOCK};
+        String[] listOfPackages = {MODEL, JAVA_LANG, JUNIT, MOCK, INTERFAZ};
 
         ArchRule myRule = classes().that().resideInAPackage(MODEL)
                 .should().onlyDependOnClassesThat().resideInAnyPackage(listOfPackages);

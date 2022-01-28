@@ -9,22 +9,22 @@ Corona real,Inglaterra,1
 Alfombra voladora,Irak,1
 Buda de oro,Tailandia,1
 Mascara de oro Inca,Peru,1
-Manuscrito Islamico,Mali,1
-Corona de Ivan,Rusia,1
-Mascara de Tutankamon,Egipto,1
-Mascara de Moctezuma,Mexico,1
-Mascara de Priamo,Grecia,1
-Leon dorado,Singapur,1
-Pintura del Kremlim,Rusia,1
-Anillo del papa,Italia,1
-Vasija del imperio,Mali,1
-Planta de te,SriLanka,1
-Cuarzo real,Nepal,1
-Rubi,SriLanka,1
-Llama de plata,Peru,1
-Bola de oro solida,Argentina,1
-Copa de Stanley,Canada,1
-Guacamayo,Brasil,1
-Rockettes,USA,1
-Casco vikingo,Noruega,1
-Corona del rey de Kigali,Ruanda,1
+Manuscrito Islamico,Mali,2
+Corona de Ivan,Rusia,2
+Mascara de Tutankamon,Egipto,2
+Mascara de Moctezuma,Mexico,2
+Mascara de Priamo,Grecia,2
+Leon dorado,Singapur,2
+Pintura del Kremlim,Rusia,2
+Anillo del papa,Italia,2
+Vasija del imperio,Mali,2
+Planta de te,SriLanka,2
+Cuarzo real,Nepal,3
+Rubi,SriLanka,3
+Llama de plata,Peru,3
+Bola de oro solida,Argentina,3
+Copa de Stanley,Canada,3
+Guacamayo,Brasil,3
+Rockettes,USA,3
+Casco vikingo,Noruega,3
+Corona del rey de Kigali,Ruanda,3

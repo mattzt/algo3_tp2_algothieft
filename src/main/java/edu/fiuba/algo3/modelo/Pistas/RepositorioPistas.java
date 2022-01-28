@@ -1,73 +1,107 @@
 package edu.fiuba.algo3.modelo.Pistas;
 
+import edu.fiuba.algo3.modelo.Caso.Objeto;
 import edu.fiuba.algo3.modelo.Edificios.Edificio;
+import edu.fiuba.algo3.modelo.Listable;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Pais;
+import edu.fiuba.algo3.modelo.Mapa.Paises.Paises;
 import edu.fiuba.algo3.modelo.Policia.Policia;
-import edu.fiuba.algo3.modelo.Policia.Rango;
+import edu.fiuba.algo3.modelo.Randomizador;
 
-import java.io.*;
 import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Iterator;
+import java.util.Objects;
 
-public class RepositorioPistas {
-    ArrayList<Pista> posiblesPistas;
-    Hashtable<String, String> rutasDeArchivosPistas = new Hashtable();
+public class RepositorioPistas implements Listable {
+    private final ArrayList<Pista> posiblesPistas;
+    private ArrayList<Pais> rutaDeEscape;
+    private Policia policia;
 
-
-    public RepositorioPistas(Policia policia) throws IOException {
-        Rango rango = policia.presentarPlaca();
-        rutasDeArchivosPistas.put("FACIL","src/main/java/edu/fiuba/algo3/modelo/Resources/PistasFaciles.txt" );
-        rutasDeArchivosPistas.put("NORMAL","src/main/java/edu/fiuba/algo3/modelo/Resources/PistasMedios.txt");
-        rutasDeArchivosPistas.put("DIFICIL","src/main/java/edu/fiuba/algo3/modelo/Resources/PistasDificiles.txt");
-        posiblesPistas = obtenerPistasDeDificultad(rango);
+    public RepositorioPistas(ArrayList<Pista> pistas) {
+        posiblesPistas = pistas;
     }
 
 
     public Pista obtenerPistaPara(Edificio edificio){
-        Iterator<Pista> iterador = posiblesPistas.iterator();
+        Pais siguiente = this.siguientePais();
         Pista pistaActual = null;
-        while(iterador.hasNext()){
-            pistaActual = iterador.next();
-            if(pistaActual.esTipo(edificio)){
-//                posiblesPistas.remove(pistaActual);
-                break;
+        boolean encontrada = false;
+        int i = 0;
+
+        while(!encontrada && i < posiblesPistas.size()){
+            pistaActual = posiblesPistas.get(i);
+            if(pistaActual.esTipo(edificio) && pistaActual.apuntaHacia(siguiente)){
+                encontrada = true;
             }
+            i++;
         }
         return pistaActual;
     }
 
-
-    public ArrayList<Pista> obtenerPistasDeDificultad(Rango rango) throws IOException {
-        return cargarPistasDificultad(rutasDeArchivosPistas.get(rango.toString()));
+    @Override
+    public int size() {
+        return posiblesPistas.size();
     }
 
-    private ArrayList<Pista> cargarPistasDificultad(String ruta) throws IOException {
-        ArrayList<Pista> pistas = new ArrayList<>();
-        File archivo = new File (ruta);
-        FileReader fr = new FileReader (archivo);
-        BufferedReader br = new BufferedReader(fr);
-        String linea;
-        while((linea=br.readLine())!=null){
-            Pista nueva = crearPistaSegunLinea(linea);
-            pistas.add(nueva);
+    public void crearRutaDeEscape(Paises paises, Policia policia, Objeto objetoRobado){
+        this.policia = policia;
+        rutaDeEscape = paises.elegirRutaDeEscapePorNivel(policia, objetoRobado.cantidadDePaisesDeEscape());
+    }
+
+    public Pais siguientePais() {
+        Pais paisActual = policia.getPaisActual();
+        Pais siguiente = rutaDeEscape.get(0);
+        int indiceActual;
+
+        if(rutaDeEscape.contains(paisActual)) {
+            indiceActual = rutaDeEscape.indexOf(paisActual);
+
+            if(indiceActual + 1 < rutaDeEscape.size())
+                siguiente = rutaDeEscape.get(indiceActual + 1);
+            else
+                siguiente = rutaDeEscape.get(indiceActual);
         }
-        return pistas;
+
+        return siguiente;
     }
 
-    private Pista crearPistaSegunLinea(String linea){
-        Pista resultado = null;
-        if(linea.contains("|AEROPUERTO|")){
-            resultado = new PistaAeropuerto(linea);
-        } else if(linea.contains("|BANCO|")){
-            resultado = new PistaBanco(linea);
-        } else if(linea.contains("|BIBLIOTECA|")){
-            resultado = new PistaBiblioteca(linea);
-        } else if(linea.contains("|BOLSA|")){
-            resultado = new PistaBolsa(linea);
-        } else if(linea.contains("|PUERTO|")){
-            resultado = new PistaPuerto(linea);
+    public boolean estaEnUltimoPais(){
+        int tamanio = rutaDeEscape.size();
+        Pais ultimo = rutaDeEscape.get(tamanio - 1);
+        Pais actual = policia.getPaisActual();
+
+        return ultimo.equals(actual);
+    }
+
+    public void rellenarPistas(ArrayList<String> pistasDelCriminal) {
+        int indiceCaracteristicas = 0;
+
+        for (Pista leida : posiblesPistas) {
+            if (Objects.equals(leida.darPista(), "null") && perteneceARuta(leida)) {
+                String caracteristica = pistasDelCriminal.get(indiceCaracteristicas);
+                leida.setPistaCaracteristica(caracteristica);
+
+                if(indiceCaracteristicas + 1 < pistasDelCriminal.size())
+                    indiceCaracteristicas++;
+                else
+                    indiceCaracteristicas = 0;
+            }
+            else if(Objects.equals(leida.darPista(), "null")){
+                int indiceRandom = Randomizador.indiceRandom(pistasDelCriminal);
+                leida.setPistaCaracteristica(pistasDelCriminal.get(indiceRandom));
+            }
         }
-        return resultado;
     }
 
+    private boolean perteneceARuta(Pista pista){
+        boolean pertenece = false;
+        int i = 0;
+
+        while(i < rutaDeEscape.size() && !pertenece){
+            Pais pais = rutaDeEscape.get(i);
+            if(pista.apuntaHacia(pais))
+                pertenece = true;
+            i++;
+        }
+        return pertenece;
+    }
 }

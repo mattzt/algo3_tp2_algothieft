@@ -1,22 +1,33 @@
 package edu.fiuba.algo3.modelo.Criminales;
 
-import edu.fiuba.algo3.modelo.Caso.Objeto;
-import edu.fiuba.algo3.modelo.Sexo.Sexo;
-
 import java.util.ArrayList;
 
 public class Criminal {
-    ArrayList<Caracteristicas> caracteristicas;
+    private final String nombre;
+    private final Caracteristicas caracteristicas;
 
-    public Criminal(String[] dataSexo,String[] dataHobbie,String[] dataPelo,String[] dataAccesorios,String[] dataVehiculo){
-        caracteristicas = new ArrayList<>();
-        String sexo = dataSexo[0], pistaSexo = dataSexo[1];
-        Sexo sexoDelCriminal = Sexo.establecer(sexo,pistaSexo);
-        caracteristicas.add(sexoDelCriminal);
+    public Criminal(String nombreCriminal,Caracteristicas nuevasCaracteristicas){
+        nombre = nombreCriminal;
+        caracteristicas = nuevasCaracteristicas;
     }
 
-    public String sexo() {
-        int indexSexo = 0;
-        return caracteristicas.get(indexSexo).valor();
+    public boolean tieneCaracteristica(Caracteristica buscada){
+        return caracteristicas.tiene(buscada);
+    }
+
+    public boolean es(Criminal otroCriminal) {
+        return nombre.equals(otroCriminal.nombre);
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public boolean equals(Criminal otroCriminal){
+        return this.getNombre().equals(otroCriminal.getNombre());
+    }
+
+    public ArrayList<String> hacerPistas(){
+        return caracteristicas.hacerPistas();
     }
 }

@@ -1,5 +1,30 @@
-|BANCO|Dijo que queria cambiar su dinero por Rublos
-|BIBLIOTECA|Dijo que iba a estudiar la historia de sus grandes filosofos
-|BOLSA|Dijo que le interesaban un pais que basaba su economia en la agricultura
-|AEROPUERTO|Tomo un avion con una bandera roja y blanca. Dijo que habia estado tomando clases de frances
-|PUERTO|Estaba buscando un barco con una bandera celeste y blanca
+Rusia,null,Dijo que queria cambiar su dinero por rublos,null,Buscaba barcos que rompan hielo,Hablo de que volveria al pais mas inmenso del mundo
+Francia,Pidio un vuelo a un pais con bandera roja blanca y azul,Tenia muchos euros,null,null,Se dirige a un pais con una gran catedral
+Argentina,Se lamentaba porque no entendia español,null,Dijo que el pais tenia mucha deuda,null,Se fue al mejor pais del mundo
+Grecia,null,Dijo que era un pais muy turistico,null,Buscaba pasaje a un pais pequeño,Queria ver el lugar de los grandes dioses
+Irak,Queria ir a asia,Su dinero viene del petrolio,null,null,Se dirigia a un pais con muchas guerras
+Mali,Queria ir a africa,null,Se dirigia a un pais agricola,Al pais al que viajaba no tiene acceso al mar,null
+Tailandia,Queria ir a asia,Es un pais muy agricola,null,null,Es un pais que siempre fue muy dado al boxeo
+Hungria,Quedaba en alguna parte de europa,null,null,Tienen su propio idioma,Su bandera es verde blanca y roja
+Egipto,Era un pais muy desertico,Es un pais muy turistico,null,null,Queria conocer las grandes piramides
+SriLanka,Buscaba pasaje a una isla,Queria cambiar rupias,null,Su bandera es muy particular,null
+Turquia,Los colores de su bandera son rojo y blanco,null,null,Queria escuchar el idioma turco,Dijo que tenia muchas ganas de tomar un buen cafe
+Nepal,Su bandera no tiene forma rectangular,Queria cambiar su dinero por rupias,null,Queria un pasaje hacia asia,null
+Ruanda,Su bandera tiene los colores azul amarillo y verde,Su dinero suele provenir de la mineria,null,Queria un pasaje hacia africa,null
+Peru,Hablo de necesitar aprender español,null,Pidio cambiar su dinero por soles,null,Queria visitar el machu pichu
+Inglaterra,Los colores de su bandera son blanco y rojo,null,null,Queria pasaje para una isla,Siempre se distingio por ser una potencia naval
+Mexico,Hablo de necesitar saber algunas palabras en español,null,Necesitaria pesos,null,Queria visitar las ruinas del imperio azteca
+Canada,Su bandera tiene una hoja,Cambio su dinero por dolares,null,null,Compro muchos abrigos antes de irse
+Comoras,Su bandera tiene como cinco colores,null,Es un pais de varias islas,Queria un pasaje hacia africa,null
+India,Dijo que se dirigia a un pais muy poblado,Queria un tipo de rupias pero no recuerdo cual,null,null,Hablo de que queria ver elefantes
+USA,Su bandera contiene muchas estrellas,Nos pidio de que le demos dolares,null,null,Hablo de que su sueño siempre fue visitar hollywood
+Noruega,Su bandera es blanca azul y roja,Cambio su dinero por coronas,null,null,Se fue a un pais muy frio
+China,null,Su bandera es roja y amarilla,null,Pidio un pasaje a asia,Tenia ganas de recorrer la gran muralla china
+NuevaGuinea,Queria ir a oceania,null,null,Nos pidio que lo llevemos a una isla,Fue a una de las islas mas grandes del mundo
+Islandia,Su bandera es roja blanca y azul,null,Cambio su dinero por coronas,null,Hablo que siempre quiso ver un geisere
+Brasil,null,Cambio su dinero por reales,Queria aprender algunas palabras en portugues,null,Queria ver un partido en el maracana
+Italia,Su bandera es verde blanca y roja,null,Queria cambiar sus billetes por euros,null,Dijo que queria ver una torre inclinada
+SanMarino,Nos conto que queria aprender italiano,null,null,Su bandera es celeste y blanca con un escudo en medio,Se dirige a un pais muy montañoso
+Singapur,Su bandera es blanca y roja con varias estrellas,null,null,Pidio un pasaje hacia asia,Es un pais formado por muchisimas islas
+Australia,Pidio un pasaje hacia oceania,null,null,null,Tiene una gran poblacion de canguros
+Japon,Su bandera es roja y blanca,null,Su moneda principal son los yenes,null,Queria conocer el pais origen de los samurai

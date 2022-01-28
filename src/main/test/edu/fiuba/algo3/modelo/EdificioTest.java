@@ -1,76 +1,109 @@
 package edu.fiuba.algo3.modelo;
 
-import edu.fiuba.algo3.modelo.Paises.Pais;
 import edu.fiuba.algo3.modelo.Edificios.*;
+import edu.fiuba.algo3.modelo.Exceptions.NoExisteError;
+import edu.fiuba.algo3.modelo.Factory.CreadorPistas;
 import edu.fiuba.algo3.modelo.Pistas.Pista;
 import edu.fiuba.algo3.modelo.Pistas.RepositorioPistas;
-import edu.fiuba.algo3.modelo.Policia.Policia;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 
-public class EdificioTest {
-    private Pista resultado;
-    private RepositorioPistas pistas;
+import static org.junit.jupiter.api.Assertions.*;
 
+public class EdificioTest {
+
+    private final RepositorioPistas repositorioPistas;
+    private Edificio aeropuerto;
+    private Edificio biblioteca;
+    private Edificio banco;
+    private Edificio bolsa;
+    private Edificio puerto;
+
+    public EdificioTest() throws IOException, NoExisteError {
+        aeropuerto = new Aeropuerto();
+        biblioteca = new Biblioteca();
+        banco = new Banco();
+        bolsa = new Bolsa();
+        puerto = new Puerto();
+
+        Partida partida = Partida.getInstance();
+        repositorioPistas = partida.obtenerPistas();
+    }
 
     @BeforeEach
-    public void setUp() throws IOException {
-        Policia policia = new Policia("pepe", new Pais("Argentina","Buenos Aires"));
-        Partida partida = new Partida(policia);
-        resultado = null;
-        pistas = partida.obtenerPistas();
+    public void setUp(){
+        aeropuerto = new Aeropuerto();
+        biblioteca = new Biblioteca();
+        banco = new Banco();
+        bolsa = new Bolsa();
+        puerto = new Puerto();
     }
 
     @Test
-    public void visitarBancoTest(){
-        Banco banco = new Banco();
+    public void visitarEdificiosDevuelvenPistasNoNulas(){
+        Pista pistaAero = aeropuerto.visitar(repositorioPistas);
+        Pista pistaBiblio = biblioteca.visitar(repositorioPistas);
+        Pista pistaBanco = banco.visitar(repositorioPistas);
+        Pista pistaBolsa = bolsa.visitar(repositorioPistas);
+        Pista pistaPuerto = puerto.visitar(repositorioPistas);
 
-        resultado = banco.visitar(pistas);
-
-        assertEquals(resultado.darPista(), "Dijo que queria cambiar su dinero por Rublos");
+        assertNotNull(pistaAero.darPista());
+        assertNotNull(pistaBiblio.darPista());
+        assertNotNull(pistaBanco.darPista());
+        assertNotNull(pistaBolsa.darPista());
+        assertNotNull(pistaPuerto.darPista());
     }
 
     @Test
-    public void visitarBibliotecaTest(){
-        Biblioteca biblioteca = new Biblioteca();
-
-        resultado = biblioteca.visitar(pistas);
-
-        assertEquals(resultado.darPista(), "Dijo que iba a estudiar la historia de sus grandes filosofos");
-
+    public void nombresSonCorrectos(){
+        assertEquals("Aeropuerto", aeropuerto.getNombre());
+        assertEquals("Biblioteca", biblioteca.getNombre());
+        assertEquals("Bolsa", bolsa.getNombre());
+        assertEquals("Banco", banco.getNombre());
+        assertEquals("Puerto", puerto.getNombre());
     }
 
     @Test
-    public void visitarBolsaTest(){
-        Bolsa bolsa = new Bolsa();
-
-        resultado = bolsa.visitar(pistas);
-
-        assertEquals(resultado.darPista(), "Dijo que le interesaban un pais que basaba su economia en la agricultura");
-
+    public void equalsFunciona(){
+        Aeropuerto aero = new Aeropuerto();
+        assertTrue(aeropuerto.equals(aero));
+        assertTrue(banco.equals(new Banco()));
+        assertTrue(biblioteca.equals(new Biblioteca()));
+        assertTrue(bolsa.equals(new Bolsa()));
+        assertTrue(puerto.equals(new Puerto()));
     }
 
     @Test
-    public void visitarAeropuertoTest(){
-        Aeropuerto aeropuerto = new Aeropuerto();
+    public void visitarEdificio(){
+        Edificios edificios = setUpEdificios();
 
-        resultado = aeropuerto.visitar(pistas);
+        Pista pista = edificios.visitarEdificio(new Aeropuerto(), repositorioPistas);
 
-        assertEquals(resultado.darPista(), "Tomo un avion con una bandera roja y blanca. Dijo que habia estado tomando clases de frances");
-
+        assertNotNull(pista.darPista());
     }
 
     @Test
-    public void visitarPuertoTest(){
-        Puerto puerto = new Puerto();
+    public void calculaVisitasTotales(){
+        Edificios edificios = setUpEdificios();
 
-        resultado = puerto.visitar(pistas);
+        edificios.visitarEdificio(new Aeropuerto(), repositorioPistas);
+        edificios.visitarEdificio(new Banco(), repositorioPistas);
+        edificios.visitarEdificio(new Puerto(), repositorioPistas);
 
-        assertEquals(resultado.darPista(), "Estaba buscando un barco con una bandera celeste y blanca");
-
+        assertEquals(3, edificios.visitasTotales());
     }
 
+    private Edificios setUpEdificios(){
+        Edificios edificios = new Edificios();
+
+        edificios.agregar(aeropuerto);
+        edificios.agregar(biblioteca);
+        edificios.agregar(bolsa);
+        edificios.agregar(banco);
+        edificios.agregar(puerto);
+
+        return edificios;
+    }
 }

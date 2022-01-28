@@ -1,48 +1,37 @@
 package edu.fiuba.algo3.modelo.ComputadoraInterpol;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.Dictionary;
-import java.util.Hashtable;
-import java.util.Scanner;
+import edu.fiuba.algo3.modelo.Criminales.Caracteristica;
+import edu.fiuba.algo3.modelo.Criminales.Criminal;
+import edu.fiuba.algo3.modelo.Criminales.Sospechosos;
 
-public class ComputadoraInterpol
-{
+public class ComputadoraInterpol{
+    private final Sospechosos sospechosos;
 
-    private ArrayList<String[]> matrizAtributos = new ArrayList();
-    public ComputadoraInterpol(String rutaAtributos)  {
-        try {
-            BufferedReader lector = new BufferedReader(new FileReader(rutaAtributos));
-            String linea;
-            String[] lineaProcesada;
-            int index = 0;
-            while ((linea = lector.readLine()) != null)
-            {
-
-                linea = lector.readLine();
-                lineaProcesada = linea.split(",");
-                matrizAtributos.add(index, lineaProcesada);
-                index++;
-            }
-            lector.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+    public ComputadoraInterpol(Sospechosos listaDeSospechosos){
+        sospechosos = listaDeSospechosos;
     }
 
-    public void IngresarDatos() 
-    {
-        System.out.println("Seleccion con boto 0 al n, el atributo deseado o enter para nulo");
-        for (String[] atributos: matrizAtributos)
-        {
-            for (String dato: atributos)
-            {
-                System.out.print(dato + " ");
-            }
-            Scanner entrada = new Scanner(System.in);
-            System.out.println("\n" + entrada.nextInt());
-            System.out.println("");
-        }
+    public void ingresarCaracteristica(Caracteristica unaCaracteristica){
+        sospechosos.filtrar(unaCaracteristica);
+    }
+
+    public boolean sePuedeEmitirOrden(){
+        return sospechosos.size() == 1;
+    }
+
+    public int cantidadSospechosos(){
+        return sospechosos.size();
+    }
+
+    public void resetearSospechosos(){
+        sospechosos.resetear();
+    }
+
+    public Criminal arrestar(OrdenDeArresto ordenDeArresto){
+        NoEmitida noEmitida = new NoEmitida();
+        if(noEmitida.equals(ordenDeArresto))
+            return null;
+
+        return sospechosos.arrestar();
     }
 }
