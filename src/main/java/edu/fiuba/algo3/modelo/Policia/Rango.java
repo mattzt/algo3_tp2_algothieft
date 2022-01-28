@@ -19,6 +19,7 @@ public abstract class Rango {
     public abstract int nivelDeLosObjetosBuscados();
 
     public abstract Boolean es(String unRango);
+
     public String getNombre(){return nombre;}
 
 }
