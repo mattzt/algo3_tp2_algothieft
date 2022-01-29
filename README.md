@@ -16,7 +16,16 @@ Corrector: **{Pablo Suarez}**
 
 ## Aplicación
 
-La versión más reciente de la aplicación puede encontrarse en la pestaña [releases](https://github.com/mattzt/algo3_tp2_algothieft/releases/latest) y ejecutarse en Linux, Windows o Mac de esta forma:
+La versión más reciente de la aplicación puede encontrarse en la pestaña [releases](https://github.com/mattzt/algo3_tp2_algothieft/releases/latest) y ejecutarse de esta forma:
+
+Windows: 
+```bash
+- Descargar los 3 archivos de la pestaña releases (t2.jar; Zip del código; WindowsLauncher.bat)
+- Tenerlos en la misma carpeta
+- Ejecutar WindowsLauncher (O en terminal: $ <rutaArchivo\WindowsLauncher.bat>)
+```
+
+Linux:
 
 ```bash
 $ java -jar <archivo.jar>
